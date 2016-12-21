@@ -1,0 +1,2474 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.courier {
+  width: 15rem;
+  height: 2.5rem;
+  padding: .2rem .5rem;
+  background-color: #fff;
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+  position: relative;
+  overflow: hidden;
+}
+.courier .time-box {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: .5rem;
+  border: 2px dashed #cecece;
+  position: relative;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.courier .time-box .left-time {
+  width: 1.25rem;
+  height: 2.5rem;
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  overflow: hidden;
+}
+.courier .time-box .left-time .left-part {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid #92d8ed;
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip: rect(0, 1.25rem, 2.5rem, 0);
+  transform: rotateZ(-180deg);
+  -webkit-transform: rotateZ(-180deg);
+}
+.courier .time-box .right-time {
+  width: 1.25rem;
+  height: 2.5rem;
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  overflow: hidden;
+}
+.courier .time-box .right-time .right-part {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid #92d8ed;
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  clip: rect(0, 2.5rem, 2.5rem, 1.25rem);
+  transform: rotateZ(180deg);
+  -webkit-transform: rotateZ(180deg);
+}
+.courier .time-box span {
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  color: #92d8ed;
+}
+.courier .courier-info {
+  float: left;
+  height: 1.6rem;
+  margin: .45rem 0;
+}
+.courier .courier-info h3 {
+  height: .8rem;
+  line-height: .8rem;
+  font-size: .6rem;
+  color: #333;
+  font-weight: bolder;
+}
+.courier .courier-info p {
+  height: .8rem;
+  line-height: .8rem;
+  font-size: .6rem;
+  color: #333;
+  font-weight: bolder;
+}
+.courier .tel {
+  float: right;
+  color: #92d8ed;
+  padding: 0 .4rem;
+  margin-top: .5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border: 1px solid #92d8ed;
+  border-radius: .25rem;
+  font-size: .6rem;
+  box-sizing: border-box;
+}
+.order-num {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: .6rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  color: #505050;
+}
+.order-num a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.order-num a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-num a span {
+  float: right;
+  height: 2rem;
+  line-height: 2rem;
+  color: #86d4eb;
+}
+.order-num a i {
+  float: right;
+  color: #d0d0d0;
+  height: 2rem;
+  line-height: 2rem;
+  margin-right: -0.25rem;
+}
+.map {
+  width: 16rem;
+  height: 8rem;
+  overflow: hidden;
+}
+.order-status {
+  width: 16rem;
+  height: 2rem;
+  padding: .5rem 0;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: .5rem;
+  position: relative;
+  overflow: hidden;
+}
+.order-status .left-btn {
+  float: left;
+  width: 1rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.order-status .left-btn i {
+  color: #c0c0c0;
+  font-size: .8rem;
+}
+.order-status .right-btn {
+  float: left;
+  width: 1rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.order-status .right-btn i {
+  color: #c0c0c0;
+  font-size: .8rem;
+}
+.order-status .statebox {
+  float: left;
+  width: 14rem;
+  margin: 0 1.1rem;
+  height: 2rem;
+  position: relative;
+}
+.order-status .statebox ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  width: 20rem;
+  margin-left: .3rem;
+}
+.order-status .statebox ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-status .statebox ul li {
+  float: left;
+  width: 3.3rem;
+  height: 2rem;
+  position: relative;
+}
+.order-status .statebox ul li span {
+  float: left;
+  width: 3.3rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  margin-left: -1.6rem;
+  font-size: .5rem;
+  text-align: center;
+  padding-bottom: .2rem;
+  overflow: hidden;
+}
+.order-status .statebox ul li p {
+  float: left;
+  width: 3.3rem;
+  border-bottom: .1rem dashed #bababa;
+  position: relative;
+  margin-top: .8rem;
+}
+.order-status .statebox ul li p b {
+  width: .4rem;
+  height: .4rem;
+  line-height: .4rem;
+  text-align: center;
+  font-size: .5rem;
+  color: #fff;
+  position: absolute;
+  top: -0.15rem;
+  left: -0.2rem;
+  border-radius: 50%;
+  z-index: 3;
+  background-color: #bababa;
+}
+.order-status .statebox ul li p em {
+  display: none;
+  width: .8rem;
+  height: .8rem;
+  line-height: .8rem;
+  text-align: center;
+  font-size: .5rem;
+  color: #fff;
+  position: absolute;
+  top: -0.35rem;
+  left: -0.4rem;
+  z-index: 2;
+  border-radius: 50%;
+  background-color: #d4f0f8;
+}
+.order-status .statebox ul li p.noline {
+  border-color: #fff;
+}
+.order-status .statebox ul li.passed span {
+  color: #86d4eb;
+}
+.order-status .statebox ul li.passed p {
+  border-bottom: .1rem solid #86d4eb;
+}
+.order-status .statebox ul li.passed p b {
+  background-color: #86d4eb;
+}
+.order-status .statebox ul li.passed p.noline {
+  border-color: #fff;
+}
+.order-status .statebox ul li.active span {
+  color: #86d4eb;
+}
+.order-status .statebox ul li.active p {
+  border-bottom: .1rem dashed #bababa;
+}
+.order-status .statebox ul li.active p b {
+  background-color: #86d4eb;
+}
+.order-status .statebox ul li.active p em {
+  display: inline-block;
+}
+.order-status .statebox ul li.active p.noline {
+  border-color: #fff;
+}
+.order-info {
+  width: 15rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+  position: relative;
+  margin-bottom: .5rem;
+}
+.order-info p {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: .25rem 0;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.order-info p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-info p span {
+  float: left;
+  font-size: .6rem;
+}
+.order-info p em {
+  float: right;
+  color: #35c1fc;
+  font-size: .6rem;
+}
+.order-info a {
+  display: block;
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.order-info a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-info a span {
+  float: left;
+  font-size: .6rem;
+}
+.order-info a i {
+  float: right;
+  font-size: .6rem;
+  color: #bbb;
+}
+.addressbox {
+  width: 15rem;
+  padding: .5rem;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.addressbox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.addressbox .addresslist:first-child {
+  border-right: 1px solid #e5e5e5;
+}
+.addressbox .addresslist {
+  float: left;
+  width: 7.5rem;
+  padding: 0 1rem 0 .5rem;
+  box-sizing: border-box;
+  position: relative;
+}
+.addressbox .addresslist ul {
+  position: relative;
+}
+.addressbox .addresslist ul li {
+  width: 6rem;
+  margin-top: .3rem;
+  position: relative;
+  overflow: hidden;
+}
+.addressbox .addresslist ul li i {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .5rem;
+}
+.addressbox .addresslist ul li i.style1 {
+  color: #cce254;
+}
+.addressbox .addresslist ul li i.style2 {
+  color: #80f0df;
+}
+.addressbox .addresslist ul li i.style3 {
+  color: #5bcdf2;
+}
+.addressbox .addresslist ul li h3 {
+  float: left;
+  font-size: .5rem;
+  line-height: 1rem;
+}
+.addressbox .addresslist ul li h3 b {
+  margin-left: .2rem;
+}
+.addressbox .addresslist ul li p {
+  float: left;
+  font-size: .5rem;
+  width: 5rem;
+  height: 1rem;
+  line-height: 1rem;
+  overflow: hidden;
+}
+.addressbox .addresslist ul li span {
+  float: left;
+  font-size: .5rem;
+  width: 5rem;
+  line-height: .6rem;
+}
+.addressbox .addresslist .tab {
+  position: absolute;
+  top: -0.75rem;
+  width: .8rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .5rem;
+  text-align: center;
+  background-color: #e5e5e5;
+  color: #000;
+}
+.addressbox .addresslist .lab {
+  right: .5rem;
+}
+.addressbox .addresslist .lab b {
+  position: absolute;
+  right: -0.25rem;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-bottom: .25rem solid #b8b8b8;
+  border-right: .25rem solid transparent;
+}
+.addressbox .addresslist .rab b {
+  position: absolute;
+  left: -0.25rem;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-bottom: .25rem solid #b8b8b8;
+  border-left: .25rem solid transparent;
+}
+.address-box {
+  width: 16rem;
+  position: relative;
+  margin-top: .5rem;
+}
+.address-box .address-item {
+  width: 15rem;
+  padding: 0 .5rem;
+  margin-bottom: .5rem;
+  background-color: #fff;
+}
+.address-box .address-item .item-title {
+  width: 15rem;
+  height: 1.6rem;
+  padding: .2rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.address-box .address-item .item-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.address-box .address-item .item-title span {
+  line-height: 1.6rem;
+}
+.address-box .address-item .item-title span em {
+  float: left;
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  margin: .2rem;
+  text-align: center;
+  color: #fff;
+  font-size: .6rem;
+  background-color: #92d8ed;
+  border-radius: 50%;
+}
+.address-box .address-item .item-title span.fl {
+  color: #737373;
+  font-size: .6rem;
+}
+.address-box .address-item .item-title span.fr {
+  color: #505050;
+}
+.address-box .address-item .item-info {
+  width: 15rem;
+  padding: .5rem 0;
+  border-top: 1px solid #cecece;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.address-box .address-item .item-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.address-box .address-item .item-info .name {
+  float: left;
+  width: 3rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.address-box .address-item .item-info .info-list {
+  float: left;
+  width: 12rem;
+}
+.address-box .address-item .item-info .info-list span {
+  display: inline-block;
+  width: 12rem;
+  font-size: .6rem;
+  color: #505050;
+}
+.address-box .address-item .logist-info {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: .25rem 0;
+  border-top: 1px solid #cecece;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.address-box .address-item .logist-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.address-box .address-item .logist-info span {
+  font-size: .6rem;
+  color: #3aa1cb;
+}
+.address-box .address-item .logist-info em {
+  font-size: .6rem;
+  color: #3aa1cb;
+  margin: 0 .25rem;
+}
+.person {
+  width: 15rem;
+  height: 1rem;
+  padding: .5rem;
+  margin-top: .5rem;
+  position: relative;
+  background-color: #fff;
+}
+.person a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  color: #333;
+  font-size: .7rem;
+}
+.person a i {
+  float: right;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #d0d0d0;
+  margin-right: -0.25rem;
+}
+.person a span {
+  float: right;
+  color: #101010;
+  font-size: .6rem;
+}
+.videobox {
+  width: 15rem;
+  padding: 0 .5rem .5rem .5rem;
+  margin: .5rem 0;
+  position: relative;
+  background-color: #fff;
+}
+.videobox h3 {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.shopdetail {
+  width: 16rem;
+  height: 3rem;
+  padding: .5rem 0;
+  margin-top: .5rem;
+  position: relative;
+  background-color: #fff;
+}
+.shopdetail .shop-info {
+  float: left;
+  width: 11rem;
+  height: 3rem;
+  margin-left: .5rem;
+  position: relative;
+}
+.shopdetail .shop-info a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.shopdetail .shop-info a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.shopdetail .shop-info a .shop-img {
+  float: left;
+  width: 3rem;
+  height: 3rem;
+  border-radius: .25rem;
+  overflow: hidden;
+}
+.shopdetail .shop-info a .shop-img img {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+}
+.shopdetail .shop-info a .shop-time {
+  float: left;
+  width: 7.8rem;
+  height: 3rem;
+  padding-left: .2rem;
+}
+.shopdetail .shop-info a .shop-time h3 {
+  width: 7.8rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: .7rem;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.shopdetail .shop-info a .shop-time p {
+  width: 7.8rem;
+  height: .9rem;
+  line-height: .9rem;
+  position: relative;
+  font-size: .6rem;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.shopdetail .shop-info a .shop-time p i {
+  float: left;
+  font-size: .6rem;
+  margin-right: .2rem;
+  color: #999;
+}
+.shopdetail .shop-video {
+  float: left;
+  width: 4.5rem;
+  height: 3rem;
+  position: relative;
+}
+.shopdetail .shop-video a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.shopdetail .shop-video a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.shopdetail .shop-video a .video-info {
+  float: left;
+  width: 4.5rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin-top: 1rem;
+  background-color: #bee8f5;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+.shopdetail .shop-video a .video-info i {
+  color: #fff;
+  font-size: 1.2rem;
+  vertical-align: middle;
+  margin-left: .5rem;
+}
+.shopdetail .shop-video a .video-info span {
+  font-size: .6rem;
+  color: #fff;
+  vertical-align: middle;
+}
+.order-box {
+  display: none;
+  width: 15.5rem;
+  padding: .25rem;
+  position: relative;
+  margin-top: .5rem;
+  background-color: #fff;
+}
+.order-box h3 {
+  width: 15rem;
+  padding-left: .5rem;
+  height: 1rem;
+  line-height: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  color: #000;
+  font-size: .6rem;
+}
+.order-box .way {
+  width: 7rem;
+  text-indent: .5rem;
+}
+.order-box .num {
+  width: 4rem;
+  text-align: center;
+}
+.order-box .price {
+  width: 4rem;
+  text-align: center;
+}
+.order-box .order-title {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .1rem 0;
+  margin: 0 .25rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.order-box .order-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-box .order-title span {
+  float: left;
+  font-size: .5rem;
+  color: #000;
+}
+.order-box .order-list {
+  width: 15rem;
+  margin: 0 .25rem;
+}
+.order-box .order-list .list-title {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .2rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  font-size: .6rem;
+  color: #555;
+}
+.order-box .order-list .list-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-box .order-list .list-title div {
+  float: left;
+}
+.order-box .order-list .list-title div.way {
+  text-indent: .5rem;
+}
+.order-box .order-list .list-title div.price {
+  color: #e4393c;
+}
+.order-box .order-list ul {
+  position: relative;
+}
+.order-box .order-list ul li {
+  width: 15rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  font-size: .6rem;
+}
+.order-box .order-list ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-box .order-list ul li div {
+  float: left;
+  color: #555;
+}
+.order-box .order-list ul li div.way {
+  text-indent: 1rem;
+}
+.order-box .order-list ul li div.price {
+  color: #e4393c;
+}
+.order-box .order-list .more {
+  display: inline-block;
+  width: 15rem;
+  height: .5rem;
+  margin-top: .25rem;
+  border-top: 1px solid #eee;
+  position: relative;
+}
+.order-box .order-list .more i {
+  position: absolute;
+  left: 50%;
+  margin-left: -0.75rem;
+  width: 1.5rem;
+  height: .8rem;
+  line-height: .8rem;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  border-top: none;
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+  color: #999;
+  background-color: #fff;
+  margin-top: -1px;
+}
+.neworder-box {
+  width: 15rem;
+  padding: 0 .5rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: .5rem;
+}
+.neworder-box .pro-title {
+  width: 15rem;
+  height: 1.6rem;
+  position: relative;
+  border-bottom: 1px solid #cecece;
+  min-height: 1px;
+  zoom: 1;
+}
+.neworder-box .pro-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.neworder-box .pro-title h3 {
+  float: left;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  font-size: .6rem;
+}
+.neworder-box .pro-title a {
+  float: right;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  font-size: .6rem;
+  color: #92d8ed;
+}
+.neworder-box .pro-box {
+  width: 15rem;
+  position: relative;
+}
+.neworder-box .pro-box ul {
+  width: 15rem;
+  position: relative;
+  height: 9.2rem;
+  overflow: hidden;
+  will-change: all;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.neworder-box .pro-box ul li {
+  width: 15rem;
+  height: 3rem;
+  position: relative;
+}
+.neworder-box .pro-box ul li a {
+  width: 100%;
+  height: 3rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.neworder-box .pro-box ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.neworder-box .pro-box ul li a img {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: .25rem .5rem .25rem 0;
+  border-radius: .25rem;
+  overflow: hidden;
+}
+.neworder-box .pro-box ul li a .pro-info {
+  float: left;
+  width: 12rem;
+  height: 2rem;
+  padding: .5rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #eee;
+}
+.neworder-box .pro-box ul li a .pro-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.neworder-box .pro-box ul li a .pro-info .left-info {
+  float: left;
+  width: 9rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.neworder-box .pro-box ul li a .pro-info .left-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.neworder-box .pro-box ul li a .pro-info .left-info p {
+  float: left;
+  display: inline-block;
+  width: 9rem;
+  font-size: .6rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #101010;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.neworder-box .pro-box ul li a .pro-info .right-info {
+  float: left;
+  width: 3rem;
+  text-align: right;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.neworder-box .pro-box ul li a .pro-info .right-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.neworder-box .pro-box ul li a .pro-info .right-info em {
+  float: left;
+  display: inline-block;
+  width: 3rem;
+  font-size: .6rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #101010;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.neworder-box .pro-box .more {
+  display: inline-block;
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #92d8ed;
+}
+.neworder-box .pro-box .more i {
+  color: #92d8ed;
+  vertical-align: middle;
+  font-size: .8rem;
+}
+.combox {
+  width: 15rem;
+  padding: 0 .5rem 0 .5rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: .5rem;
+}
+.combox .payway {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+  font-weight: bolder;
+  color: #000;
+}
+.combox .invoice {
+  padding: .3rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+.combox .invoice h3 {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .6rem;
+  color: #000;
+  font-weight: bolder;
+}
+.combox .invoice ul {
+  position: relative;
+  padding-left: .5rem;
+}
+.combox .invoice ul li {
+  width: 14.5rem;
+  height: .8rem;
+  line-height: .8rem;
+  color: #999;
+  font-size: .5rem;
+}
+.combox .totalprice {
+  padding: .3rem 0;
+  position: relative;
+}
+.combox .totalprice h3 {
+  width: 15rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: .7rem;
+  color: #000;
+  font-weight: bolder;
+  position: relative;
+  overflow: hidden;
+}
+.combox .totalprice h3 span {
+  float: right;
+  text-align: left;
+  color: #e4393c;
+}
+.combox .totalprice h3 span b {
+  font-size: .8rem;
+  font-weight: normal;
+}
+.combox .totalprice ul {
+  position: relative;
+  padding: .3rem 0 .4rem 0;
+  border-bottom: 1px solid #cecece;
+}
+.combox .totalprice ul li {
+  width: 15rem;
+  height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  color: #999;
+  font-size: .6rem;
+}
+.combox .totalprice ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.combox .totalprice ul li span {
+  float: left;
+  color: #555;
+}
+.combox .totalprice ul li em {
+  float: right;
+  color: #555;
+}
+.combox .totalprice .pay-info {
+  width: 15rem;
+  padding: .5rem 0 .3rem 0;
+  position: relative;
+}
+.combox .totalprice .pay-info h3 {
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.combox .totalprice .pay-info h3:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.combox .totalprice .pay-info h3 span {
+  float: left;
+  color: #505050;
+}
+.combox .totalprice .pay-info h3 em {
+  float: right;
+  color: #505050;
+}
+.combox .totalprice .pay-info h3 em b {
+  color: #ff7f00;
+  font-weight: normal;
+}
+.combox .totalprice .pay-info p {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1.4rem;
+  color: #656565;
+  text-align: right;
+  font-size: .6rem;
+}
+div.b0 {
+  bottom: 0;
+}
+.newcombox {
+  width: 15rem;
+  padding: 0 .5rem 0 .5rem;
+  position: fixed;
+  left: 0;
+  bottom: 2rem;
+  z-index: 9;
+  background-color: #fff;
+  margin-top: .5rem;
+  box-shadow: 0 0 2px #ccc;
+}
+.newcombox .payway {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+  font-weight: bolder;
+  color: #000;
+}
+.newcombox .invoice {
+  padding: .3rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+.newcombox .invoice h3 {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .6rem;
+  color: #000;
+  font-weight: bolder;
+}
+.newcombox .invoice ul {
+  position: relative;
+  padding-left: .5rem;
+}
+.newcombox .invoice ul li {
+  width: 14.5rem;
+  height: .8rem;
+  line-height: .8rem;
+  color: #999;
+  font-size: .5rem;
+}
+.newcombox .totalprice {
+  padding: .3rem 0;
+  position: relative;
+}
+.newcombox .totalprice h3 {
+  width: 15rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: .7rem;
+  color: #000;
+  font-weight: bolder;
+  position: relative;
+  overflow: hidden;
+}
+.newcombox .totalprice h3 span {
+  float: right;
+  text-align: left;
+  color: #e4393c;
+}
+.newcombox .totalprice h3 span b {
+  font-size: .8rem;
+  font-weight: normal;
+}
+.newcombox .totalprice ul {
+  position: relative;
+  padding: .3rem 0 .4rem 0;
+  border-bottom: 1px solid #cecece;
+}
+.newcombox .totalprice ul li {
+  width: 15rem;
+  height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  color: #999;
+  font-size: .6rem;
+}
+.newcombox .totalprice ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.newcombox .totalprice ul li span {
+  float: left;
+  color: #555;
+}
+.newcombox .totalprice ul li em {
+  float: right;
+  color: #555;
+}
+.newcombox .totalprice .pay-info {
+  width: 15rem;
+  padding: .5rem 0 .3rem 0;
+  position: relative;
+}
+.newcombox .totalprice .pay-info h3 {
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.newcombox .totalprice .pay-info h3:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.newcombox .totalprice .pay-info h3 span {
+  float: left;
+  color: #505050;
+}
+.newcombox .totalprice .pay-info h3 em {
+  float: right;
+  color: #505050;
+}
+.newcombox .totalprice .pay-info h3 em b {
+  color: #ff7f00;
+  font-weight: normal;
+}
+.newcombox .totalprice .pay-info p {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1.4rem;
+  color: #656565;
+  text-align: right;
+  font-size: .6rem;
+}
+.gopay {
+  display: none;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 16rem;
+  height: 2rem;
+  min-height: 1px;
+  zoom: 1;
+}
+.gopay:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.gopay .totalprice {
+  float: left;
+  padding-left: .5rem;
+  width: 11.5rem;
+  height: 2rem;
+  line-height: 2rem;
+  background-color: #414242;
+}
+.gopay .totalprice a {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.gopay .totalprice a i {
+  color: #fff;
+  font-size: 1.6rem;
+}
+.gopay .totalprice span {
+  color: #fff;
+  font-size: .5rem;
+}
+.gopay .totalprice b {
+  color: #fff;
+  font-size: .6rem;
+  margin-left: .2rem;
+  font-weight: normal;
+}
+.gopay .pay-btn {
+  float: left;
+  width: 4rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fff;
+  background-color: #12b1f0;
+}
+.receipt {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  width: 16rem;
+  height: 2rem;
+  box-shadow: 0 0 2px #ccc;
+  padding: .2rem 0;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+}
+.receipt:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.receipt .erweima {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  background-color: #414242;
+  margin-left: .5rem;
+}
+.receipt .erweima i {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  margin: .2rem .5rem 0 .5rem;
+  font-size: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #fff;
+}
+.receipt .erweima span {
+  float: left;
+  width: 2rem;
+  height: .6rem;
+  text-align: center;
+  color: #fff;
+  font-size: .5rem;
+}
+.receipt .call {
+  float: left;
+  width: 5.5rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #414242;
+}
+.receipt .call:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.receipt .call .complaint {
+  float: left;
+  height: 1.6rem;
+  width: 1.6rem;
+  margin: .2rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  text-align: center;
+}
+.receipt .call .complaint:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.receipt .call .complaint i {
+  float: left;
+  color: #fff;
+  font-size: .8rem;
+  width: 1rem;
+  height: 1rem;
+  line-height: .8rem;
+  margin: 0 .3rem;
+  padding-top: .2rem;
+}
+.receipt .call .complaint span {
+  float: left;
+  width: 1.6rem;
+  height: .5rem;
+  line-height: .4rem;
+  color: #fff;
+  font-size: .4rem;
+}
+.receipt b {
+  color: #fff;
+  font-size: .6rem;
+  margin-left: .2rem;
+  line-height: 2rem;
+  font-weight: normal;
+}
+.receipt .pay-btn {
+  float: right;
+  width: 4rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fff;
+  background-color: #12b1f0;
+}
+.receipt .changeback {
+  float: right;
+  width: 4rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fff;
+  background-color: #909a9e;
+  border-left: 1px solid #aaa;
+}
+.receipt .confirm {
+  float: right;
+  width: 4rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fff;
+  background-color: #12b1f0;
+}
+.receipt a {
+  float: right;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  padding: 0 1rem;
+  margin: .2rem .5rem;
+  border: 1px solid #92d8ed;
+  border-radius: .25rem;
+  color: #92d8ed;
+}
+.mapbox {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1000px;
+  z-index: 0;
+}
+.choosetype {
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 2;
+  width: 16rem;
+  height: 2.25rem;
+  background-color: #fff;
+  min-height: 1px;
+  zoom: 1;
+}
+.choosetype:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.choosetype .left-btn {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.choosetype .left-btn i {
+  color: #bfbfbf;
+  font-size: 1rem;
+}
+.choosetype .right-btn {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.choosetype .right-btn i {
+  color: #bfbfbf;
+  font-size: 1rem;
+}
+.choosetype .typebox {
+  float: left;
+  width: 16rem;
+  height: 1.25rem;
+  padding: .5rem 0;
+  overflow: hidden;
+}
+.choosetype .typebox ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.choosetype .typebox ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.choosetype .typebox ul li {
+  cursor: pointer;
+  float: left;
+  width: 3.5rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
+  padding: 0 .25rem;
+  box-sizing: border-box;
+  color: #999;
+  margin: 0 .25rem;
+  text-align: center;
+}
+.choosetype .typebox ul li.active {
+  color: #86d4eb;
+  border: .05rem solid #86d4eb;
+  border-radius: .25rem;
+}
+.orderbox {
+  position: absolute;
+  left: 0;
+  bottom: .1rem;
+  z-index: 3;
+  width: 15rem;
+  margin: .5rem .5rem .1rem .5rem;
+}
+.orderbox .close-btn {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: -1.1rem;
+  width: 1rem;
+  height: 1rem;
+  line-height: .9rem;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  background-color: #c00;
+  font-weight: bolder;
+}
+.orderbox .close-btn i {
+  color: #fff;
+  font-size: .5rem;
+}
+.orderbox .order-options {
+  width: 14.5rem;
+  background-color: #fff;
+  border-radius: .25rem;
+  padding: .25rem;
+}
+.orderbox .order-options .order-detail {
+  width: 14.5rem;
+  position: relative;
+}
+.orderbox .order-options .order-detail .order-step1 {
+  width: 14.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.orderbox .order-options .order-detail .order-step1:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.orderbox .order-options .order-detail .order-step1 ul {
+  float: left;
+  width: 13rem;
+}
+.orderbox .order-options .order-detail .order-step1 ul li {
+  height: 1rem;
+  padding: .5rem;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.orderbox .order-options .order-detail .order-step1 ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.orderbox .order-options .order-detail .order-step1 ul li i {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .8rem;
+}
+.orderbox .order-options .order-detail .order-step1 ul li i.type1 {
+  color: #80f0df;
+}
+.orderbox .order-options .order-detail .order-step1 ul li i.type2 {
+  color: #67d1f3;
+}
+.orderbox .order-options .order-detail .order-step1 ul li input {
+  float: left;
+  width: 10rem;
+  margin: 0 .5rem;
+  height: 1rem;
+  line-height: 1rem;
+  border: 0;
+}
+.orderbox .order-options .order-detail .order-step1 ul li a {
+  float: left;
+  width: 10rem;
+  margin: 0 .5rem;
+  height: 1rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.orderbox .order-options .order-detail .order-step1 ul li:last-child {
+  border-bottom: none;
+}
+.orderbox .order-options .order-detail .order-step1 .showmore {
+  float: right;
+  width: 1.5rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+}
+.orderbox .order-options .order-detail .order-step1 .showmore i {
+  color: #d4d7d7;
+  font-size: 1rem;
+}
+.orderbox .order-options .order-detail .order-step2 {
+  width: 14.5rem;
+  position: relative;
+}
+.orderbox .order-options .order-detail .order-step2 .time-box {
+  width: 14.5rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.orderbox .order-options .order-detail .order-step2 .time-box:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.orderbox .order-options .order-detail .order-step2 .time-box i {
+  float: left;
+  width: 2rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #88f1e1;
+}
+.orderbox .order-options .order-detail .order-step2 .time-box a.hasline {
+  border-right: 1px solid #e5e5e5;
+}
+.orderbox .order-options .order-detail .order-step2 .time-box input,
+.orderbox .order-options .order-detail .order-step2 .time-box a {
+  float: left;
+  width: 5.8rem;
+  margin: 0 .1rem;
+  font-size: 12px;
+  height: 1rem;
+  text-align: center;
+  line-height: 1rem;
+  border: 0;
+}
+.orderbox .order-options .order-detail .order-step2 .address-box {
+  width: 14.5rem;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.orderbox .order-options .order-detail .order-step2 .address-box:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.orderbox .order-options .order-detail .order-step2 .address-box .address-icon {
+  float: left;
+  width: 2rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+}
+.orderbox .order-options .order-detail .order-step2 .address-box .address-icon i {
+  color: #60cef2;
+  font-size: 1rem;
+}
+.orderbox .order-options .order-detail .order-step2 .address-box ul {
+  float: left;
+  width: 11rem;
+}
+.orderbox .order-options .order-detail .order-step2 .address-box ul li {
+  width: 11rem;
+  height: 2rem;
+  line-height: 2rem;
+  padding: .5rem 0;
+  box-sizing: border-box;
+}
+.orderbox .order-options .order-detail .order-step2 .address-box ul li a {
+  display: block;
+  width: 11rem;
+  height: 1rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.orderbox .order-options .order-detail .order-step2 .address-box ul li:first-child {
+  border-bottom: 1px solid #e5e5e5;
+}
+.orderbox .order-options .order-detail .order-step2 .address-box .showmore {
+  float: right;
+  width: 1.5rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+}
+.orderbox .order-options .order-detail .order-step2 .address-box .showmore i {
+  color: #d4d7d7;
+  font-size: 1rem;
+}
+.orderbox .order-options div.bigHeight {
+  height: 1.2rem;
+}
+.orderbox .order-options .distribution {
+  width: 14.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .5rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.orderbox .order-options .distribution:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.orderbox .order-options .distribution a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.orderbox .order-options .distribution a .way {
+  float: left;
+  margin-left: .5rem;
+  margin-right: .5rem;
+  font-size: .6rem;
+  line-height: 1rem;
+}
+.orderbox .order-options .distribution a .way i {
+  color: #cce254;
+  margin-right: .5rem;
+}
+.orderbox .order-options .distribution a .way i.type1 {
+  color: #bfbfbf;
+}
+.orderbox .order-options .distribution a .disway {
+  float: left;
+  height: 1rem;
+  font-size: .6rem;
+  margin-right: .5rem;
+  line-height: 1.2rem;
+  color: #000;
+}
+.orderbox .order-options .distribution a .disway i {
+  font-size: .5rem;
+  margin-left: .25rem;
+  color: #e5e5e5;
+}
+.orderbox .order-options .distribution a .disway i.active {
+  color: #35c1fc;
+}
+.orderbox .order-options .distribution a .beat {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  margin-left: -0.5rem;
+}
+.orderbox .order-options .distribution a .beat input {
+  border: 0;
+  height: 1rem;
+  line-height: 1rem;
+  width: 12rem;
+}
+.orderbox .order-options .distribution a .right {
+  float: right;
+}
+.orderbox .order-options .distribution a .right i {
+  color: #ccc;
+}
+.orderbox .order-options .distribution .typebox {
+  float: left;
+  width: 14.5rem;
+  height: 1.25rem;
+  overflow: hidden;
+}
+.orderbox .order-options .distribution .typebox ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.orderbox .order-options .distribution .typebox ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.orderbox .order-options .distribution .typebox ul li {
+  cursor: pointer;
+  float: left;
+  width: 3.2rem;
+  border: .05rem solid #fff;
+  height: 1.2rem;
+  line-height: 1.25rem;
+  font-size: .6rem;
+  padding: 0 .25rem;
+  box-sizing: border-box;
+  color: #999;
+  margin: 0 .25rem;
+  text-align: center;
+}
+.orderbox .order-options .distribution .typebox ul li.active {
+  color: #86d4eb;
+  border-color: #86d4eb;
+}
+.orderbox .order-options div.dis {
+  display: none;
+}
+.orderbox .order-options .distribution:last-child {
+  border-bottom: none;
+}
+.orderbox .ordernow {
+  display: inline-block;
+  font-weight: bolder;
+  margin-top: .2rem;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #86d4eb;
+  color: #fff;
+  border-radius: .25rem;
+}
+.orderbox a.disable {
+  background-color: #ccc;
+  color: #999;
+  box-shadow: 0 0 .05rem #ccc;
+}
+.order-operate {
+  width: 16rem;
+  margin: .5rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.order-operate:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-operate a {
+  float: left;
+  width: 3.5rem;
+  text-align: center;
+  margin-left: .4rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #a1a1a1;
+  border-radius: .25rem;
+  font-size: .5rem;
+}
+.order-operate a.blue {
+  border-color: #35c1fc;
+  color: #35c1fc;
+}
+.address {
+  width: 15rem;
+  margin: 0 .5rem;
+  padding: .2rem 0;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.address:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.address a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.address h3 {
+  width: 14rem;
+  font-size: .5rem;
+  font-weight: bolder;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.address h3 span {
+  font-size: .7rem;
+  margin: 0 .5rem;
+}
+.address h3 em {
+  font-size: .6rem;
+}
+.address p {
+  width: 14rem;
+  font-size: .5rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.address p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.address p i {
+  float: left;
+  width: .8rem;
+  text-align: center;
+  font-size: .5rem;
+  margin-right: .2rem;
+}
+.address p span {
+  float: left;
+  width: 13rem;
+}
+.address .more {
+  position: absolute;
+  right: -0.5rem;
+  top: .2rem;
+  width: 1.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  color: #bfbfbf;
+}
+.line {
+  width: 16rem;
+  height: .1rem;
+  background: url('images/line.png') repeat-x;
+  background-size: 64px 3px;
+}
+.productbox {
+  width: 15rem;
+  padding: .5rem;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  margin-top: .5rem;
+}
+.productbox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.productbox a {
+  display: block;
+  width: 100%;
+  height: 2.5rem;
+}
+.productbox a .shopInfo {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin-bottom: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #f1f1f1;
+}
+.productbox a .shopInfo:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.productbox a .shopInfo i {
+  float: left;
+  color: #999;
+  margin-right: .5rem;
+}
+.productbox a .shopInfo em {
+  float: left;
+  font-size: .7rem;
+  color: #333;
+}
+.productbox a .product-list {
+  float: left;
+}
+.productbox a .product-list img {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: .3rem;
+}
+.productbox a .product-detail {
+  float: left;
+  width: 12rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.productbox a .product-detail:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.productbox a .product-detail img {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: .3rem;
+  border-radius: .25rem;
+  border: 1px solid #ccc;
+}
+.productbox a .product-detail .detail-info {
+  float: left;
+  width: 9rem;
+}
+.productbox a .product-detail .detail-info h3 {
+  width: 9rem;
+  height: 1.5rem;
+  line-height: 1.2rem;
+  color: #333;
+  font-size: .6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-weight: normal;
+}
+.productbox a .product-detail .detail-info h3 em {
+  font-size: .6rem;
+  margin-left: .2rem;
+}
+.productbox a .product-detail .detail-info p {
+  width: 7rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.productbox a .product-detail .detail-info p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.productbox a .product-detail .detail-info p b {
+  float: left;
+  font-weight: normal;
+  color: #ff5147;
+  font-size: .6rem;
+  margin-right: .5rem;
+}
+.productbox a .product-detail .detail-info p em {
+  float: left;
+  font-weight: normal;
+  color: #333;
+  font-size: .6rem;
+}
+.productbox a span {
+  float: right;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-size: .6rem;
+  color: #333;
+}
+.productbox a .rightfo {
+  float: right;
+  width: 1.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  margin-right: -0.5rem;
+  color: #bfbfbf;
+}
+.date {
+  width: 15rem;
+  padding: .5rem;
+  background-color: #fff;
+  margin-top: .5rem;
+  position: relative;
+}
+.date a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.date a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.date a .left {
+  float: left;
+}
+.date a .left h4 {
+  font-size: .6rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-weight: normal;
+  color: #333;
+}
+.date a .left p {
+  font-size: .6rem;
+  height: 1rem;
+  line-height: 1rem;
+}
+.date a .right {
+  float: right;
+  height: 2rem;
+  width: 1.5rem;
+  line-height: 2rem;
+  text-align: center;
+  margin-right: -0.5rem;
+}
+.date a .right i {
+  color: #bfbfbf;
+  font-size: 1rem;
+}
+.pickaddress {
+  width: 16rem;
+  position: relative;
+  margin-top: 2rem;
+  background-color: #fff;
+  margin-bottom: .5rem;
+}
+.distribution {
+  width: 15rem;
+  padding: .25rem .5rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: .5rem;
+}
+.distribution a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.distribution .pay {
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.distribution .pay:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.distribution .pay h3 {
+  float: left;
+  height: 2rem;
+  line-height: 1rem;
+  font-size: .6rem;
+  color: #333;
+}
+.distribution .pay .pay-info {
+  float: right;
+}
+.distribution .pay .pay-info p {
+  line-height: 1rem;
+  font-size: .55rem;
+  text-align: right;
+}
+.distribution .pay h5 {
+  float: left;
+  width: 15rem;
+  font-weight: normal;
+}
+.distribution .pay .iconfont {
+  float: right;
+  width: 1.5rem;
+  height: 2rem;
+  line-height: 3rem;
+  margin-right: -0.5rem;
+  text-align: center;
+  color: #bfbfbf;
+  margin-left: .2rem;
+}
+.distribution .distribox {
+  background-color: #f9f9f9;
+}
+.distribution .distribox .distime {
+  width: 14.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0 .25rem;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.distribution .distribox .distime:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.distribution .distribox .distime span {
+  float: left;
+  font-size: .5rem;
+}
+.distribution .distribox .distime em {
+  float: right;
+  font-size: .5rem;
+}
+.distribution .distribox .address {
+  margin: 0;
+}
+.distribution .distribox .line {
+  width: 15rem;
+}
+.condition {
+  width: 15rem;
+  padding: 0 .5rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: .5rem;
+}
+.condition ul {
+  position: relative;
+}
+.condition ul li {
+  width: 15rem;
+  height: 1.5rem;
+  padding: .25rem 0;
+  position: relative;
+  border-bottom: 1px solid #e5e5e5;
+}
+.condition ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.condition ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.condition ul li a span {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+  color: #333;
+}
+.condition ul li a span input {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+  margin-left: .2rem;
+  border: none;
+}
+.condition ul li a span em {
+  font-size: .6rem;
+  margin-left: .5rem;
+}
+.condition ul li a span em i {
+  color: #c4c4c4;
+  line-height: 1.5rem;
+}
+.condition ul li a .right {
+  float: right;
+  height: 1.5rem;
+}
+.condition ul li a .right em {
+  display: inline-block;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+}
+.condition ul li a .right i {
+  display: inline-block;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #bfbfbf;
+}
+.condition ul li a .right i.score {
+  font-size: .8rem;
+}
+.condition ul li a .right i.hasColor {
+  color: #86d4eb;
+}
+.condition ul li a .right i.show {
+  color: #86d4eb;
+}
+.condition ul li a .right select {
+  border: none;
+  background-color: #fff;
+}
+.condition ul li a .right input {
+  border: none;
+  width: 3rem;
+  height: 1.5rem;
+  text-align: center;
+}
+.condition ul li:last-child {
+  border-bottom: none;
+}

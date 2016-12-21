@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--<script type="text/javascript" src="http://m.wziwash.com/oauth"></script>-->
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/footprint.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/raiders.js"></script>
+</head>
+<body class="ms-controller" ms-controller="footprint">
+<!--公共头部-->
+<div class="headerone">
+    <a href="../personal/personcenter.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>攻略</h3>
+    <!--<a href="javascript:;" class="message-btn" style="color: #fff;">清空</a>-->
+</div>
+<div class="raiders">
+    <div class="raidersitem">
+        <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+            <img src="../../data-images/loading.gif">
+        </div>
+        <p ms-if-loop="scanHistoryList.size() === 0 && !loadingImgShow" style="line-height: 40px; text-align: center;">暂无相关数据</p>
+        <ul>
+            <li><a href="javascript:;">
+                <img src="../../data-images/ad.jpg" alt="">
+                <div class="info">
+                    <h3>攻略title</h3>
+                    <p>攻略详情攻略详情</p>
+                    <div class="title">
+                        <span>刘建宏<em>发表于2014/09/09</em></span>
+                        <div class="oper"></div>
+                    </div>
+                </div>
+            </a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/cropper.min.css">
+    <link rel="stylesheet" href="../../style/css/verfy.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/upload/up.js"></script>
+    <script type="text/javascript" src="../../js/lib/cropper.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/proflow/verfydetail.js"></script>
+</head>
+<body class="ms-controller" ms-controller="verifydetail">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>核实单详情</h3>
+</div>
+<div class="verfy-detail">
+    <div class="tips">请仔细核对商品，如有核实错误，本平台不负任何责任</div>
+    <div class="detail-info">
+        <div class="item">
+            <input type="text" placeholder="请输入品牌名称" ms-duplex="brandName">
+        </div>
+        <div class="item">
+            <input type="text" placeholder="请输入衣物颜色" ms-duplex="color">
+        </div>
+    </div>
+    <div class="detail-label">
+        <h3>商品属性</h3>
+        <div class="label-top">
+            <div class="t-left">
+                <span ms-repeat="perDataModel" ms-if-loop="$index < 4" ms-class-1="active:el.IsCheckRight" ms-on-tap="checkperFn(el)">{{el.code}}</span>
+            </div>
+            <div class="t-right" ms-if="perDataModel.size() > 4" ms-on-tap="checkmoreFn">更多<i class="iconfont icon-xiangxia1"></i></div>
+        </div>
+        <div class="label-list" ms-visible="showLabel && perDataModel.size() >= 4">
+            <span ms-repeat="perDataModel"  ms-if-loop="$index >= 4" ms-class-1="active:el.IsCheckRight" ms-on-tap="checkperFn(el)">{{el.code}}</span>
+        </div>
+        <div class="img-box">
+            <div class="img-item" ms-repeat="imageList">
+                <img ms-attr-src="el">
+                <i class="iconfont icon-close" ms-on-tap="deleImg($remove)"></i>
+            </div>
+            <div class="add-item">
+                <i class="iconfont icon-jia"></i>
+                <input type="file" class="fileinput" id="imgfile">
+            </div>
+        </div>
+        <div class="other-item">
+            <p class="item-tit"><label>房源图</label>更好展示您的房源</p>
+            <div class="upload-wrap" id="roomImgWrap">
+                <div class="img-upload-mod upImgBox">
+                    <form class="fx-form">
+                        <div class="up-img-box up-img-list">
+                            <div class="file-button fileButton">
+                                <i class="cross"></i>
+                                <input type="file" class="opacity0 uploadBtn" multiple="multiple" accept="image/jpeg">
+                            </div>
+                        </div>
+                        <div class="msg msg-hide errorMsg"><i class="fx-icon-result icon-fail"></i><span>错误提示</span></div>
+                        <div class="hide imgmsg">注：图片较大,正在压缩上传,需耗时5-10秒</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="remark">
+        <textarea placeholder="请输入备注信息" ms-duplex="remark"></textarea>
+    </div>
+    <div style="width: 16rem; height: 2.5rem;"></div>
+    <a href="javascript:;" class="makesure" ms-on-tap="submitVerFn" ms-if="!isSubmit">确定</a>
+    <a href="javascript:;" class="makesure" style="background-color: #ccc;" ms-if="isSubmit">处理中</a>
+</div>
+<div class="imgzoomer" ms-on-touchstart="clearTouch($event)" ms-visible="isUpShow" >
+    <div class="imgcontainer">
+        <img src="" alt="">
+    </div>
+    <a href="javascript:;" style="width: 7.25rem;" class="submitimg" ms-if="!isuploading">确定</a>
+    <a href="javascript:;" style="width: 7.25rem; background-color: #ccc;" class="submitimg" ms-if="isuploading" style="background-color: #ccc;">正在上传</a>
+    <a href="javascript:;" class="submitimg" style="background-color: #ccc; left: 8.2rem; width: 7.25rem;" ms-on-tap="cancelUploadFn">取消</a>
+</div>
+</body>
+</html>

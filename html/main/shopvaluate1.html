@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/detail.min.css">
+    <link rel="stylesheet" href="../../style/css/dropload.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/dropload.min.js"></script>
+    <script type="text/javascript" src="../../js/main/shopvaluate.js"></script>
+</head>
+<body class="ms-controller" ms-controller="valuate">
+<!--详情页头部-->
+<div class="header-detail">
+    <a ms-attr-href="chooseshop.html?code={{orderCode}}" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <div class="main-silder">
+        <a ms-attr-href="shopinfo.html?dataid={{ShopCode}}&ordercode={{orderCode}}&bookcode={{bookCode}}">商品</a>
+        <a ms-attr-href="shopdetail1.html?dataid={{ShopCode}}&ordercode={{orderCode}}&bookcode={{bookCode}}">商家</a>
+        <a href="javascript:;" class="active">评价</a>
+    </div>
+    <div class="sharebox">
+        <a href="javascript:;" class="collection" ms-on-tap="collectionFn">
+            <i class="iconfont" ms-class-1="icon-heart:isCollection" ms-class-2="icon-xin1:!isCollection"></i>
+        </a>
+    </div>
+</div>
+<!--商家评价部分-->
+<div class="evaluate">
+    <div class="evalpart">
+        <div class="evalpart-left">
+            <h3>{{shopInfo.CommentScore === 0?'暂无评分':shopInfo.CommentScore}}</h3>
+            <p>综合评分</p>
+        </div>
+        <div class="evalpart-right">
+            <ul>
+                <li>
+                    <span>质量</span>
+                    <div class="score">
+                        <div class="scorebox">
+                            <div class="basecore"></div>
+                            <div class="topcore" ms-css-width="{{shopInfo.QualityScore*3/5}}rem">
+                                <div class="ccore"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <span ms-if="shopInfo.QualityScore">{{shopInfo.QualityScore | number(2)}}</span>
+                    <span ms-if="!shopInfo.QualityScore">暂无评分</span>
+                    <!--<i class="trend iconfont icon-jiantoushang"></i>-->
+                    <!--<span>高于同行12.3%</span>-->
+                </li>
+                <li>
+                    <span>物流</span>
+                    <div class="score">
+                        <div class="scorebox">
+                            <div class="basecore"></div>
+                            <div class="topcore" ms-css-width="{{shopInfo.LogisScore*3/5}}rem">
+                                <div class="ccore"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <span ms-if="shopInfo.LogisScore">{{shopInfo.LogisScore | number(2)}}</span>
+                    <span ms-if="!shopInfo.LogisScore">暂无评分</span>
+                    <!--<i class="trend iconfont icon-jiantoushang"></i>-->
+                    <!--<span>高于同行12.3%</span>-->
+                </li>
+                <li>
+                    <span>服务</span>
+                    <div class="score">
+                        <div class="scorebox">
+                            <div class="basecore"></div>
+                            <div class="topcore" ms-css-width="{{shopInfo.ServiceScore*3/5}}rem">
+                                <div class="ccore"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <span ms-if="shopInfo.ServiceScore">{{shopInfo.ServiceScore | number(2)}}</span>
+                    <span ms-if="!shopInfo.ServiceScore">暂无评分</span>
+                    <!--<i class="trend iconfont icon-jiantoushang"></i>-->
+                    <!--<span>高于同行12.3%</span>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="evallist">
+        <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+            <img src="../../data-images/loading.gif">
+        </div>
+        <p style="line-height: 40px; text-align: center;" ms-if-loop="commentList.size() === 0 && !loadingImgShow">暂无评论数据</p>
+        <ul>
+            <li ms-repeat="commentList">
+                <div class="imgbox">
+                    <img ms-attr-src="el.CommentUserHeadImg">
+                </div>
+                <div class="evalitem">
+                    <h3>{{el.CommentUserName}} <span>{{el.CreateTime | date("yyyy-MM-dd HH:mm:ss")}}</span></h3>
+                    <div class="score">
+                        <div class="scorebox">
+                            <div class="basecore"></div>
+                            <div class="topcore" ms-css-width="{{el.Score*3/5}}rem">
+                                <div class="ccore"></div>
+                            </div>
+                        </div>
+                        <span>{{el.CommentNotes}}</span>
+                    </div>
+                    <p>{{el.Desc}}</p>
+                    <div class="itemimg" ms-if="el.Images.size()>0">
+                        <div class="imglistbox">
+                            <img ms-repeat="el.Images" ms-attr-src="el" alt="">
+                        </div>
+                    </div>
+                    <!--<div class="apply">-->
+                    <!--<b></b>-->
+                    <!--<p>{{el.ReplyComments.Desc}}</p>-->
+                    <!--</div>-->
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

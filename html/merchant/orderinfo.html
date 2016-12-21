@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/quick.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/orderinfo.js"></script>
+</head>
+<body class="ms-controller" ms-controller="orderinfo">
+<!--公共头部-->
+<div class="headerone">
+    <a href="orderlist.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>订单详情</h3>
+    <a ms-attr-href="tel:{{orderData.LogistPicker.Phone}}" class="message-btn">
+        <i class="iconfont icon-dianhua"></i>
+    </a>
+</div>
+<div class="order-info mtp2R">
+    <p><span>订单号:{{orderData.Code}}</span><em>{{orderData.ShowStatus}}</em></p>
+    <a ms-attr-href="orderstatusflow.html?status={{orderData.ShowStatus}}&code={{orderData.Code}}"><span>订单状态流水</span><i class="iconfont icon-xiangyou"></i></a>
+</div>
+<!--地址列表-->
+<!--地址列表-->
+<div class="addressbox">
+    <div class="addresslist" ms-if-loop="orderData.Contacter.Name !== ''">
+        <ul>
+            <li>
+                <i></i>
+                <h3>{{orderData.Contacter.Name}}<b>{{orderData.Contacter.Phone}}</b></h3>
+            </li>
+            <li>
+                <i class="iconfont icon-peisong style1"></i>
+                <p>{{orderData.IsPickup?'上门取件':'到店'}}</p>
+            </li>
+            <li ms-if-loop="orderData.Contacter.ThirdCode">
+                <i class="iconfont icon-shijian1 style2"></i>
+                <p>{{orderData.Contacter.ThirdCode}}</p>
+            </li>
+            <li ms-if-loop="orderData.Contacter.Address">
+                <i class="iconfont icon-dingwei style3"></i>
+                <span>{{orderData.Contacter.Address}}</span>
+            </li>
+        </ul>
+        <span class="tab lab">取<b></b></span>
+    </div>
+    <div class="addresslist">
+        <ul>
+            <li ms-if-loop="orderData.LogistPicker.Name !== ''">
+                <i></i>
+                <h3>{{orderData.LogistPicker.Name}}<b>{{orderData.LogistPicker.Phone}}</b></h3>
+            </li>
+            <li>
+                <i class="iconfont icon-peisong style1"></i>
+                <p>{{orderData.IsLogist?'送货上门':'到店自提'}}</p>
+            </li>
+            <li ms-if-loop="orderData.IsLogist">
+                <i class="iconfont icon-shijian1 style2"></i>
+                <p>{{LogistTime}}</p>
+            </li>
+            <li ms-if-loop="orderData.IsLogist">
+                <i class="iconfont icon-dingwei style3"></i>
+                <span>{{orderData.LogistPicker.Address}}</span>
+            </li>
+        </ul>
+        <span class="tab rab">送<b></b></span>
+    </div>
+</div>
+<!--订单列表-->
+<div class="order-box" ms-if-loop="hasProduct">
+    <h3>商品列表</h3>
+    <div class="order-title">
+        <span class="way">维护方式</span>
+        <span class="num">数量</span>
+        <span class="price">价格</span>
+    </div>
+    <div class="order-list" ms-repeat="proList" ms-if-loop="el.value.size()>0">
+        <div class="list-title">
+            <div class="way">
+                <i></i>{{el.name}}
+            </div>
+            <div class="num">小计:{{el.num}}</div>
+            <div class="price">小计:￥{{el.ttprice}}</div>
+        </div>
+        <ul>
+            <li ms-repeat="el.value">
+                <div class="way">{{el.Name}}</div>
+                <div class="num">x {{el.totalNum}}</div>
+                <div class="price">￥{{el.Price}}</div>
+            </li>
+        </ul>
+        <!--<a href="javascript:;" class="more"><i class="iconfont icon-weibiaoti1"></i></a>-->
+    </div>
+</div>
+<!--支付方式\发票\价格合计-->
+<div class="combox">
+    <div class="payway" ms-if-loop="orderData.ShowPayType && orderData.ShowPayType !== 'NULL' && hasProduct">支付方式:{{orderData.ShowPayType}}</div>
+    <!--<div class="invoice" ms-if-loop="orderData.HasInvoice">-->
+        <!--<h3>发票信息</h3>-->
+        <!--<ul>-->
+            <!--<li>发票抬头:{{orderData.InvoiceType === 0?'个人':'单位'}}</li>-->
+            <!--<li>发票内容:{{orderData.InvoiceName}}</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <div class="totalprice">
+        <h3>订单总额 <span>￥<b>{{orderData.PayPrice | number(2)}}</b></span></h3>
+        <ul>
+            <!--<li ms-if="orderData.LogistCharge > 0"><span>商品金额</span><em>￥{{orderData.TotalPrice - orderData.LogistCharge | number(2)}}</em></li>-->
+            <li ms-if="proTotalPrice>0"><span>商品金额</span><em>￥{{proTotalPrice | number(2)}}</em></li>
+            <li ms-if="orderData.LogistCharge > 0"><span>物流费用</span><em>{{orderData.LogistCharge | currency}}</em></li>
+            <li ms-if-loop="orderData.CounpPrice > 0"><span>店铺优惠券</span><em>-￥{{orderData.CounpPrice}}</em></li>
+        </ul>
+    </div>
+</div>
+<div style="width: 16rem; height: 2rem;"></div>
+<!--订单操作-->
+<!--<div class="order-operate">-->
+    <!--<a href="javascript:;" ms-repeat="orderData.actionList" ms-on-tap="operateFn(el.value,orderData.Code,orderData)">{{el.text}}</a>-->
+<!--</div>-->
+<div class="receipt">
+    <a href="javascript:;" class="erweima" ms-on-tap="printFn">
+        <i class="iconfont icon-dayin"></i>
+        <span>打印</span>
+    </a>
+    <a href="javascript:;" class="pay-btn" style="border-right: 1px solid #ccc;" ms-repeat="orderData.actionList" ms-on-tap="operateFn(el.value,orderData.Code,orderData)">{{el.text}}</a>
+
+    <!--<a href="javascript:;" class="pay-btn">去支付</a>-->
+    <!--<a href="javascript:;" ms-repeat="actionList" ms-on-tap="operateFn(el.value,orderData.Orders[0].Code,orderData)" ms-class-1="changeback:el.value !== 1" ms-class-2="pay-btn:el.value === 1">{{el.text}}</a>-->
+    <!--<a href="javascript:;" class="changeback">投诉</a>-->
+    <!--<a href="javascript:;" class="changeback">评价</a>-->
+</div>
+
+</body>
+</html>

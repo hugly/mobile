@@ -1,0 +1,31 @@
+@import "lib.less";
+
+body{ background-color: #fff; position: relative; }
+.siginbox{ width: 4rem; padding: 5rem 6rem 1rem 6rem; position: relative;
+  .circle{ width: 4rem; height: 4rem; border: 1px solid #86d4eb; border-radius: 50%; position: relative;
+    .imgbox{ width: 2rem; margin: 1rem;
+      img{ display: block; width: 2rem; }
+    }
+    .dotted{ position: absolute; right: 3rem; top: .25rem; width: .49rem; height: .5rem; background-color: #86d4e8; border-radius: 50%;
+      -webkit-animation: clockwise 5s linear infinite; animation: clockwise 5s linear infinite; transform-origin: 1.5rem 1.75rem;
+    }
+  }
+}
+p.time{ width: 16rem; height: 1rem; line-height: 1rem; color: #86d4eb; text-align: center;
+  span{ color: #d94058; font-size: .8rem; margin-right: .2rem; }
+}
+.operatebox{ width: 16rem; position: absolute; bottom: .5rem; left: 0; overflow: hidden;
+  .wechatsignin{ float: left; width: 15rem; height: 2rem; line-height: 2rem; text-align: center; background-color: #86d4e8; color: #fff; border-radius: .25rem; margin:0 .5rem; }
+  .othersignin{ float: left; width: 15rem; height: 2rem; line-height: 2rem; text-align: center; box-sizing: border-box; border: 1px solid #86d4e8; color: #86d4e8; margin: .5rem; border-radius: .25rem; }
+  .signup{ float: left; width: 15rem; height: 1.5rem; line-height: 1.5rem; color: #86d4e8; text-align: right; margin: 0 .5rem; }
+}
+
+@-webkit-keyframes clockwise{
+  0%  { -webkit-transform: rotate(0deg) ;  }
+  100%{ -webkit-transform: rotate(360deg); }
+}
+
+@keyframes clockwise {
+  0%  { transform: rotate(0deg) ; }
+  100%{ transform: rotate(360deg); }
+}

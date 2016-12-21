@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <link rel="stylesheet" href="../../style/css/Destination.css"/>
+    <script src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/fx.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/newreceipt.js"></script>
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=XAJBZ-AILWF-4TGJA-JLE2G-XKVDT-CGF56"></script>
+</head>
+<body style="height: auto;" class="ms-controller" ms-controller="newaddress">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-visible="showback" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <a href="javascript:;" class="back-btn" ms-visible="!showback" ms-on-tap="closeFn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>新建收货地址</h3>
+</div>
+<!--账户管理详细信息-->
+<div class="account">
+    <div class="new-address">
+        <ul>
+            <li>
+                <input type="text" class="name" placeholder="请输入收货人姓名" ms-duplex="receiptDataModel.ReceiverName">
+            </li>
+            <li>
+                <div class="sex-box" ms-on-tap="changeSexFn(0)">
+                    <i class="iconfont icon-quan1" ms-visible="sex == 1"></i>
+                    <i class="iconfont icon-xuanze" ms-visible="sex == 0"></i>
+                    <span>男士</span>
+                </div>
+                <div class="sex-box" ms-on-tap="changeSexFn(1)">
+                    <i class="iconfont icon-quan1" ms-visible="sex == 0"></i>
+                    <i class="iconfont icon-xuanze" ms-visible="sex == 1"></i>
+                    <span>女士</span>
+                </div>
+            </li>
+            <li>
+                <input type="tel" class="phone" placeholder="请输入收货人联系方式" ms-duplex="receiptDataModel.Phone">
+            </li>
+            <li>
+                <a href="javascript:;" class="city" ms-on-tap="checkCityFn">{{cityname === ''?'请选择所在城市':cityname}}</a>
+            </li>
+            <li>
+                <input type="text" class="main-address" placeholder="请输入所在地区" ms-focus="showAddressFn" ms-duplex="localDataModel.addr">
+                <i ms-visible="!isShowLoading" class="iconfont icon-dingwei1 dingwei" ms-on-tap="getNowLocation"></i>
+                <i ms-visible="isShowLoading" class="iconfont icon-loading-copy loading"></i>
+            </li>
+            <li>
+                <input type="text" class="other-address" placeholder="请输入详细地址" ms-duplex="receiptDataModel.Address">
+            </li>
+        </ul>
+    </div>
+    <a href="javascript:;" class="address-btn disabled" ms-if-loop="isLoading">保存中</a>
+    <a href="javascript:;" class="address-btn" ms-if-loop="!isLoading" ms-on-tap="addOrSavaFn">保存</a>
+</div>
+<div id="slider" class="slider" ms-visible="showCityList">
+    <div class="slider-content">
+        <ul>
+            <li ms-repeat="cityDataModel" ms-attr-id="el.Letter" ms-if-loop="el.AreaList.size()>0"><a href="javascript:;" class="title">{{el.Letter}}</a>
+                <ul>
+                    <li ms-repeat="el.AreaList" ms-on-tap="chooseCityFn()" class="listitem" ms-data-code="el.Code" ms-data-shortCode="el.ShortCode" ms-data-name="el.Name"><a href="javascript:;">{{el.Name}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="slider-nav">
+        <ul>
+            <li ms-repeat="citySilderModel" ms-on-tap="cityCodeFn(el)"><a href="javascript:;">{{el}}</a></li>
+        </ul>
+    </div>
+</div>
+<div class="dropload-down" ms-visible="showZoom"><div class="dropload-load"><span class="loading"></span>加载中...</div></div>
+<div class="address-box" ms-visible="showAddress">
+    <div class="add-top">
+        <input type="text" placeholder="请输入你想搜索的小区名" id="keywordText" ms-duplex="keyword" ms-on-keyup="getAddressByKeyword">
+        <i class="iconfont" ms-on-tap="giveNameFn" style="color: #92d8ed; font-size: .6rem;">确定</i>
+    </div>
+    <div class="current-add" ms-visible="isLocation">
+        <span ms-on-tap="chooseOtherAddFn(localDataModel)"><b>[当前]</b>{{localDataModel.addr}}</span>
+        <a href="javascript:;" ms-on-tap="getNowLocation"><i class="iconfont icon-dingwei1"></i>重新定位</a>
+    </div>
+    <div class="add-list" ms-visible="addressList.size() > 0">
+        <ul>
+            <li ms-repeat="addressList" ms-on-tap="chooseAddFn(el)">
+                <h3>{{el.Name}}</h3>
+                <p>{{el.Address}}</p>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

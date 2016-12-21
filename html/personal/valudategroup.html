@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/valudategroup.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/valudategroup.js"></script>
+</head>
+<body class="ms-controller" ms-controller="valudategroup">
+<div class="keyword">
+    <a href="../merchant/mymerchant.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <span>{{result === ''?'请输入你要验证的团购券编号':result}}<i ms-on-tap="clearFn" ms-if-loop="result !== ''" class="iconfont icon-close"></i></span>
+    <a href="javascript:;" class="clearBtn" ms-on-tap="deleFn">删除</a>
+</div>
+<div class="keybord">
+    <ul>
+        <li ms-on-tap="changStr(1)"><a href="javascript:;">1</a></li>
+        <li ms-on-tap="changStr(2)"><a href="javascript:;">2</a></li>
+        <li ms-on-tap="changStr(3)"><a href="javascript:;">3</a></li>
+        <li ms-on-tap="changStr(4)"><a href="javascript:;">4</a></li>
+        <li ms-on-tap="changStr(5)"><a href="javascript:;">5</a></li>
+        <li ms-on-tap="changStr(6)"><a href="javascript:;">6</a></li>
+        <li ms-on-tap="changStr(7)"><a href="javascript:;">7</a></li>
+        <li ms-on-tap="changStr(8)"><a href="javascript:;">8</a></li>
+        <li ms-on-tap="changStr(9)"><a href="javascript:;">9</a></li>
+        <li ms-on-tap="changStr(0)"><a href="javascript:;">0</a></li>
+        <li class="valBtn grey" ms-if-loop="checking"><a href="javascript:;">正在验证</a></li>
+        <li class="valBtn" ms-on-tap="checkgroup" ms-if-loop="!checking"><a href="javascript:;">验证</a></li>
+    </ul>
+</div>
+</body>
+</html>

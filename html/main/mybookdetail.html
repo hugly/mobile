@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/mybookdetail.js"></script>
+</head>
+<body class="ms-controller" ms-controller="robdetail">
+<!--公共头部-->
+<div class="headerone">
+    <a href="mybook.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>预约详情</h3>
+    <a href="../personal/personcenter.html" class="message-btn">
+        <i class="iconfont icon-xiaoxi"></i>
+        <b></b>
+    </a>
+</div>
+<div class="mer-con">
+    <div class="robdetail">
+        <div class="userinfo">
+            <div class="item-title">
+                <img src="../../data-images/ad.jpg">
+                <div class="user">
+                    <span>{{memberDetail.UserName}}</span>
+                    <em class="man"><i class="iconfont icon-nansheng"></i></em>
+                </div>
+                <b>{{memberDetail.WashSaleType}}<em></em></b>
+                <a ms-attr-href="memberDetail.Tel" class="tel"><i class="iconfont icon-dianhua"></i>电话</a>
+            </div>
+            <div class="order-info" ms-class-1="show:isShow">
+                <h3>{{memberDetail.ExpectPickDateTime | date("yyyy-MM-dd HH:mm")}}</h3>
+                <p ms-visible="memberDetail.PickAddress"><i class="iconfont icon-dingwei color1"></i>取件地址:{{memberDetail.PickAddress}}<em>距离{{memberDetail.Distance | number(2)}}KM</em></p>
+                <p><i class="iconfont icon-yifahuo color2"></i>配送方式:{{memberDetail.SendType === 1?'到店自提':'送货上门'}}</p>
+                <p ms-visible="memberDetail.SendDateRangeType"><i class="iconfont icon-shijian color3"></i>配送时间:{{memberDetail.sendTime}}</p>
+                <p ms-visible="memberDetail.SendAddress"><i class="iconfont icon-dingwei color4"></i>送货地址:{{memberDetail.SendAddress}}</p>
+                <p><i class="iconfont icon-dingdan color5"></i>商品信息:{{memberDetail.proList}}</p>
+
+            </div>
+            <div class="totalprice">
+                <b>{{memberDetail.TotalPrice}}</b>元
+            </div>
+            <a href="javascript:;" class="more" ms-on-tap="changeShow"><i class="iconfont icon-weibiaoti1"></i></a>
+        </div>
+    </div>
+    <a href="javascript:;" class="ordernow fix" ms-on-tap="takeOrder">确认接单</a>
+</div>
+<div class="mapbox" id="mapbox"></div>
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=XAJBZ-AILWF-4TGJA-JLE2G-XKVDT-CGF56"></script>
+</body>
+</html>

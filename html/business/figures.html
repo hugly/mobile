@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/figures.min.css">
+    <script src="http://localhost:56710/Scripts/lib/jquery-1.11.1.min.js"></script>
+    <script src="/Scripts/echart/echarts.min.js"></script>
+    <script src="/Scripts/echart/echarts_helper.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/business/figures.js"></script>
+
+</head>
+<body class="ms-controller" ms-controller="figures">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 10rem;">营业趋势</h3>
+</div>
+<div class="figurebox">
+    <div class="mainfig">
+        <span>营销总额</span>
+        <h3>{{totalNum | currency}}</h3>
+        <p>数据统计时间截止到：{{nowDate | date("yyyy/MM/dd HH:mm:ss")}}</p>
+    </div>
+    <div class="tabbox">
+        <ul>
+            <li ms-repeat="dateArr" ms-class-1="active:el.isSelect" ms-on-tap="changeDateFn(el)">{{el.text}}</li>
+        </ul>
+    </div>
+    <div  class="chartbox">
+        <div id="maind" class="chartbox" style="width:100%; height:15rem;" echart_needtoobox="" echart_ajaxurl="/Bi/BITotalIncomeAndOutByWeek" echart_ajaxtype="GET">
+        </div>
+    </div>
+
+</div>
+<div class="figurenav">
+    <!--<ul class="navul">
+        <li ms-on-tap="changeNaver(1)" ms-class-1="active:nowNaver === 1">
+            <a href="javascript:;">
+                <i class="iconfont icon-shezhi"></i>
+                <span>菜单一</span>
+            </a>
+        </li>
+        <li ms-on-tap="changeNaver(2)" ms-class-1="active:nowNaver === 2">
+            <a href="javascript:;">
+                <i class="iconfont icon-shezhi"></i>
+                <span>菜单二</span>
+            </a>
+        </li>
+        <li ms-on-tap="changeNaver(3)" ms-class-1="active:nowNaver === 3">
+            <a href="javascript:;">
+                <i class="iconfont icon-shezhi"></i>
+                <span>菜单三</span>
+            </a>
+        </li>
+        <li ms-on-tap="changeNaver(4)" ms-class-1="active:nowNaver === 4">
+            <a href="javascript:;">
+                <i class="iconfont icon-shezhi"></i>
+                <span>菜单四</span>
+            </a>
+        </li>
+    </ul>
+    <div class="navsilder silder1" ms-class-1="active:nowNaver === 1">
+        <ul class="silderul">
+            <li><a href="javascript:;">菜单1-1</a></li>
+            <li><a href="javascript:;">菜单1-2</a></li>
+            <li><a href="javascript:;">菜单1-3</a></li>
+            <li><a href="javascript:;">菜单1-4</a></li>
+        </ul>
+        <i></i>
+    </div>
+    <div class="navsilder silder2" ms-class-1="active:nowNaver === 2">
+        <ul class="silderul">
+            <li><a href="javascript:;">菜单2-1</a></li>
+            <li><a href="javascript:;">菜单2-2</a></li>
+            <li><a href="javascript:;">菜单2-3</a></li>
+            <li><a href="javascript:;">菜单2-4</a></li>
+        </ul>
+        <i></i>
+    </div>
+    <div class="navsilder silder3" ms-class-1="active:nowNaver === 3">
+        <ul class="silderul">
+            <li><a href="javascript:;">菜单3-1</a></li>
+            <li><a href="javascript:;">菜单3-2</a></li>
+            <li><a href="javascript:;">菜单3-3</a></li>
+            <li><a href="javascript:;">菜单3-4</a></li>
+        </ul>
+        <i></i>
+    </div>
+    <div class="navsilder silder4" ms-class-1="active:nowNaver === 4">
+        <ul class="silderul">
+            <li><a href="javascript:;">菜单4-1</a></li>
+            <li><a href="javascript:;">菜单4-2</a></li>
+            <li><a href="javascript:;">菜单4-3</a></li>
+            <li><a href="javascript:;">菜单4-4</a></li>
+        </ul>
+        <i></i>
+    </div>-->
+</div>
+<script>
+    $(document).ready(function () {
+        wziChart.init("maind");
+    });
+</script>
+</body>
+</html>

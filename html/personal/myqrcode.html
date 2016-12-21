@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/myqrcode.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/personal/myqrcode.js"></script>
+</head>
+<body style="background-color: #1b212e;" class="ms-controller" ms-controller="myqrcode">
+<!--详情页头部-->
+<div class="header-detail" style="background-color: #212225; border-bottom: none;">
+    <a href="personcenter.html" class="back-btn">
+        <i class="iconfont icon-fanhui" style="color: #fff;"></i>
+    </a>
+   <h3 style="color: #fff;">我的二维码</h3>
+</div>
+<div class="myqrcode">
+    <div class="top">
+        <img ms-attr-src="{{userInfo.HeadImage}}">
+        <h3>{{userInfo.NickName}}</h3>
+    </div>
+    <div class="qrcodeimg">
+        <img src="http://m.wziwash.com//jsonp/QrCode_MyQrCode_9.js?token=3dd9jddd84jwe3&callback=jsonp09466437214310968">
+    </div>
+</div>
+</body>
+</html>

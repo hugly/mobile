@@ -1,0 +1,32 @@
+@import "lib.less";
+
+.voucher{ width: 16rem; position: relative;
+  .bgimg{ position: absolute; left: 0; top: 0; display: inline-block; width: 16rem; z-index: 0; }
+  .voucherbox{ position: absolute; width: 14rem; left: 1rem; top: 2.5rem; z-index: 9;
+    .top{ width: 14rem; height: 8rem; position: relative;
+      h3{ width: 14rem; height: 2rem; line-height: 2rem; color: #e45079; font-size: .8rem; margin-top: 2rem; font-weight: bolder; text-align: center;
+        i{ font-weight: normal; color: #e45079; font-size: .75rem; margin-left: 1rem; }
+      }
+      .erweima{ display: block; width: 5rem; height: 5rem; margin: .5rem 4.5rem; }
+      p{ width: 14rem; height: 1rem; line-height: 1rem; font-size: .6rem; color: #000; text-align: center; }
+      span{ display: inline-block; width: 14rem; color: #000; text-align: center; font-size: 2rem; font-style: italic; }
+    }
+    .bottom{ width: 14rem; position: relative;
+      .logo{ display: block; width: 2rem; height: 2rem; margin-left: 6rem; margin-top: 1rem; }
+      h3{ width: 14rem; height: 2rem; line-height: 2rem; color: #000; font-size: .7rem; text-align: center; margin-top: .5rem; }
+      input{ width: 10.5rem; height: 1rem; line-height: 1rem; text-align: center; padding: .5rem; border: .25rem solid #e5e5e5; margin-left: 1rem; margin-top: .5rem; }
+      .getvoucher{ display: inline-block; width: 12rem; height: 2rem; line-height: 2rem; margin-top: .5rem; text-align: center; background-color: #e45079; color: #fff; margin-left: 1rem; }
+    }
+    .result{ width: 14rem; position: relative;
+      p{ width: 12rem; margin: 0 1rem; text-align: center; line-height: 1.5rem; color: #000;
+        i{ color: #52c08d; font-size: .8rem; margin-right: .5rem; }
+      }
+      p.red{ color: #e45079; }
+      p.grey{ color: #a4a6a5; line-height: 1rem; font-size: .6rem; }
+      .operate{ width: 12rem; margin: 1rem 1rem .75rem; position: relative; .cf();
+        .type1{ float: left; width: 5.75rem; height: 2rem; line-height: 2rem; text-align: center; background-color: #e45079; color: #fff; margin-right: .5rem; }
+        .type2{ float: left; width: 5.75rem; height: 2rem; line-height: 2rem; text-align: center; background-color: #fff; color: #000; }
+      }
+    }
+  }
+}

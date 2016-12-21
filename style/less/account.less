@@ -1,0 +1,467 @@
+@import "lib.less";
+
+.specheader{ background-color: #fff; border-bottom: 1px solid #d5d5d5;
+  .back-btn{
+    i{ color: #bfbfbf; }
+  }
+  h3{ color: #000; width: 11rem; font-weight: 400; }
+}
+.noback{
+  h3{ width: 16rem; padding-left: 0;}
+}
+.hassure{
+  h3{ width: 14rem; padding-left: 0;}
+}
+div.black{
+  background-color: #1b1b20;
+}
+.content{ margin-top: 2rem;
+  .finishbtn{ display: inline-block; width: 15rem; height: 2rem; line-height: 2rem; margin: 0 .5rem; text-align: center; color: #fff; background-color: #55ae24; border-radius: .25rem; }
+  .nextbtn{ display: inline-block; width: 15rem; height: 2rem; line-height: 2rem; margin: 0 .5rem; text-align: center; color: #fff; background-color: #86d4eb; border-radius: .25rem; }
+  a.disable{ background-color: #ddd; color: #bbb; }
+  .summary{ width: 15rem; padding: 0 .5rem; height: auto; position: relative; background-color: #373b3d;
+    ul{ position: relative; padding: 1rem 0; .cf();
+      li{ float: left; width: 5rem; height: 2rem;
+        a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+          b{ float: left; width: 5rem; text-align: center; color: #fff; height: 1.2rem; line-height: 1rem; }
+          span{ float: left; width: 5rem; text-align: center; color: #fff; height: .8rem; line-height: .6rem;  }
+        }
+      }
+    }
+  }
+  .cardlist{ width: 16rem; margin: .2rem 0; position: relative;
+    ul{ position: relative; .cf();
+      li{ float: left; width: 5.33rem; height: 4rem; padding: .5rem; position: relative; border-bottom: 1px solid #e5e5e5; background-color: #fff; box-sizing: border-box;
+        a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+          i{ float: left; width: 4.33rem; height: 2rem; line-height: 2rem; text-align: center; font-size: 1.5rem;}
+          i.orange{ color: #fcaf0b; }
+          i.blue{ color: #7790fe; }
+          i.green{ color: #03c381; }
+          i.yellow{ color: #ffc800; }
+          i.red{ color: #fa3c3c; }
+          i.tuan{ color: #4dabd9; }
+          i.icon-jiaoyimingxichaxun{ font-size: 1.2rem; line-height: 1.8rem; }
+          i.icon-chongzhi{ font-size: 1.2rem; }
+          i.icon-qiapian{ line-height: 1.6rem; }
+          i.icon-tuangouwangzhan{ font-size: 1.3rem; }
+          i.icon-yinxingqia{ font-size: 1.3rem; }
+          p{ float: left; width: 4.33rem; height: .8rem; line-height: .8rem; font-size: .5rem; text-align: center; font-weight: 500;}
+          span{ float: left; width: 4.33rem; height: .7rem; line-height: .7rem; font-size: .5rem; text-align: center; color: #ccc;}
+        }
+      }
+    }
+  }
+  .ad{ width: 16rem; height: 4rem; position: relative;
+    a{ display: block; width: 100%; height: 100%;
+      img{ display: block; width: 100%; height: 100%;}
+    }
+  }
+  .mainfn{ width: 16rem; height: auto; margin: .2rem 0; position: relative; background-color: #fff;
+    ul{ position: relative; .cf();
+      li{ float: left; width: 5.333rem; height: 3.5rem; box-sizing: border-box; border-right: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;
+        a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+          i{ float: left; width: 100%; height: 1.5rem; line-height: 1.5rem; font-size: 1.5rem; text-align: center; margin: .5rem  0 .25rem; }
+          i.type1{ color: #ff3d3d; }
+          i.type2{ color: #58e1d3; font-size: 1.8rem; }
+          i.type3{ color: #fa6937; }
+          i.type4{ color: #489f55; }
+          i.type5{ color: #8fb1d1; line-height: 1.1rem; }
+          i.type6{ color: #28c6f3; }
+
+          p{ text-align: center; font-size: .5rem; font-weight: bolder; }
+        }
+      }
+      li:nth-child(3n){ border-right: 0; }
+    }
+  }
+  .addcart{
+    h3{ padding-left: 1rem; height: 2rem; line-height: 2rem; font-size: .5rem; color: #333; }
+    ul{ width: 16rem; background-color: #fff; margin-bottom: .5rem; border-top: 1px solid #e5e5e5;
+      li{ width: 15rem; height: 1rem; padding: .5rem; border-bottom: 1px solid #e5e5e5; position: relative; .cf();
+        span{ float: left; width: 3rem; height: 1rem; line-height: 1rem; }
+        input{ float: left; border: none; width: 11rem; height: 1rem; line-height: 1rem;  }
+        i{ display: none; position: absolute; width: .6rem; height: .6rem; line-height: .6rem; text-align: center; background-color: #bfbfbf; color: #fff; border-radius: 50%; font-size: .3rem; font-weight: bolder; right: 1.6rem; top: .6rem; }
+        a{ float: left; width: .8rem; height: .8rem; line-height: .8rem; text-align: center; border-radius: 50%; background-color: #86d4eb; color: #fff; font-size: .5rem; }
+        em{ float: left; height: 1rem; line-height: 1rem;
+          b{ height: 1rem; line-height: 1rem; margin: 0 .5rem; font-weight: normal; }
+        }
+      }
+    }
+  }
+  .credit{ width: 16rem; height: auto; position: relative;
+    .complite{ width: 16rem; padding: 1.5rem 0; text-align: center;
+      i{ display: inline-block; width: 2rem; height: 2rem; line-height: 2rem; font-size: 2rem; color: #55ae24; text-align: center;}
+      h1{ color: #55ae24; }
+    }
+    .creditinfo{ margin-bottom: 1rem; background-color: #fff; width: 15rem; padding: .5rem; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;
+      p{ height: 1.5rem; line-height: 1.5rem; position: relative; .cf(); font-size: .5rem;
+        span{ float: left; }
+        em{ float: right;
+          b{}
+        }
+      }
+    }
+    .activity{ width: 16rem; position: relative;
+      p{ width: 15rem; height: .5rem; margin-bottom: 1rem; padding: 0 .5rem; text-align: center; border-bottom: 1px solid #ccc;
+        b{ background-color: #f0f2f5; padding: 0 .2rem; line-height: 1rem; font-weight: normal;}
+      }
+      a{ display: block; width: 16rem; height: 5rem;
+        img{ display: block; width: 100%; height: 100%; }
+      }
+    }
+  }
+  .coupons{ width: 16rem; position: relative;
+    .coupon-title{ width: 16rem; position: fixed; left: 0; top: 2rem; z-index: 9;
+      ul{ position: relative; .cf(); background-color: #fff;
+        li{ float: left; width: 5.33rem; height: 1.5rem; text-align: center; line-height: 1.5rem;
+          a{ display: inline-block; padding: 0 .5rem; height: 1.4rem; border-bottom: .1rem solid #fff;}
+        }
+        li.active{
+          a{ color: #86d4eb; border-bottom-color: #86d4eb; }
+        }
+      }
+    }
+    .coupon-list{ width: 16rem; position: relative; top: 1.5rem;
+      .couponul{ width: 15rem; padding: .5rem; position: relative;
+        .couponitem{ width: 15rem; background-color: #fff; margin-bottom: .5rem; box-shadow: 0 0 .1rem #999; border-radius: .1rem; overflow: hidden;
+          a{ display: block; width: 100%; height: 100%; position: relative; overflow: hidden;
+            .topbar{ width: 15rem; height: .2rem; background-color: #86d4eb; position: relative;
+              strong{ float: left; display: inline-block; width:15rem; height:.1rem; margin-top:.1rem; .bg("blueborder.png",repeat-x,0 0);}
+            }
+            .othertopbar{ width: 15rem; height: .2rem; background-color: #ff523f; position: relative;
+              strong{ float: left; display: inline-block; width:15rem; height:.1rem; margin-top:.1rem; .bg("redborder.png",repeat-x,0 0);}
+            }
+            .mainbar{ width: 14rem; padding:0 .5rem; .bg("quan.png",no-repeat,-.5rem top); position: relative; .cf();
+              .maintitle{ float: left; width: 14rem; height: 1rem; line-height: 1rem; color: #10bdfa; }
+              .main{ float: left; width: 14rem; height: 2rem; line-height: 2rem; position: relative; .cf(); border-bottom: .1rem dotted #ccc;
+                span{ float: left; height: 2rem; color: #86d4eb;
+                  b{ color: #86d4eb; font-size: 1.5rem; }
+                }
+                p{ float: right;
+                  em{ display: block; line-height: 1rem; text-align: center; font-size: .5rem; }
+                }
+              }
+              .leftcoupon{ float: left; width: 3.5rem; height: 3rem; line-height: 3rem; margin:.5rem 0 .5rem -.5rem; text-align: center; color: #ff5340; font-size: .6rem; border-right: 1px dashed #e1e1e1;
+                b{ font-size: 1.5rem; }
+              }
+              .centercoupon{ float: left; width: 9.5rem; height: 3rem; margin:.5rem 0 .5rem .5rem; position: relative; .cf();
+                h3{ float: left; width: 8rem; height: .8rem; .omit(); margin-top: -.2rem; margin-bottom: .2rem; color: #5a5a5a; font-size: .7rem; font-weight: bolder; }
+                ul{ float: left; position: relative; .cf(); list-style: initial; list-style-position: inside;
+                  li{ float: left; width: 8rem; height: .8rem; line-height: .8rem; font-size: .55rem; color: #b2b2b2; list-style: inherit; .omit(); }
+                }
+              }
+              .rightcoupon{ float: left; width: .5rem; height: 3rem; line-height: 3rem; margin:.5rem 0;
+                i{ color: #4cd964; }
+              }
+            }
+            .filterbg{ position: absolute; left: 0; top: 0; width: 15rem; height: 4.1rem; background-color: rgba(255,255,255,.5); z-index: 9; }
+            .more{ width: 14rem; padding: 0 .5rem; position: relative;
+              p{ width: 14rem; height: 1rem; line-height: 1rem; position: relative; .cf();
+                span{ float: left; width: 4rem; text-align: left; font-size: .5rem; }
+                i{ float: left; padding-left: 2rem; width: 2rem; text-align: center; font-size: .5rem; }
+                em{ float: right; width: 6rem; text-align: right; font-size: .5rem; }
+              }
+              p.more-info{ display: none; line-height: .6rem; font-size: .5rem; }
+            }
+          }
+        }
+        li.disabled{
+          a{
+            .topbar{ background-color: #ccc;
+              strong{ .bg("border.png",repeat-x,0 0); }
+            }
+            .mainbar{
+              .maintitle{ color: #999; }
+              .main{
+                span{ color: #999;
+                  b{ color: #999; }
+                }
+              }
+            }
+          }
+        }
+        li.active{ box-shadow: 0 0 .2rem #c00; }
+      }
+    }
+  }
+
+  .cashcoupons{ width: 16rem; position: relative;
+    .cashcoupon-title{ width: 16rem; position: fixed; left: 0; top: 2rem; z-index: 9;
+      ul{ position: relative; .cf(); background-color: #fff;
+        li{ float: left; width: 5.33rem; height: 1.5rem; text-align: center; line-height: 1.5rem;
+          a{ display: inline-block; padding: 0 .5rem; height: 1.4rem; border-bottom: .1rem solid #fff;}
+        }
+        li.active{
+          a{ color: #86d4eb; border-bottom-color: #86d4eb; }
+        }
+      }
+    }
+    .cashcoupon-list{ width: 16rem; position: relative;
+      .cashcouponul{ width: 15rem; padding: .5rem; position: relative;
+        .cashcouponitem{ width: 15rem; background-color: #fff; margin-bottom: .5rem; box-shadow: 0 0 .1rem #999; border-radius: .1rem; overflow: hidden;
+          a{ display: block; width: 100%; height: 100%; position: relative; overflow: hidden;
+            .topbar{ width: 15rem; height: .2rem; background-color: #86d4eb; position: relative;
+              strong{ float: left; display: inline-block; width:15rem; height:.1rem; margin-top:.1rem; .bg("blueborder.png",repeat-x,0 0);}
+            }
+            .othertopbar{ width: 15rem; height: .2rem; background-color: #ff523f; position: relative;
+              strong{ float: left; display: inline-block; width:15rem; height:.1rem; margin-top:.1rem; .bg("redborder.png",repeat-x,0 0);}
+            }
+            .mainbar{ width: 14rem; padding:0 .5rem; background-color: #86d4eb; position: relative; .cf();
+              .maintitle{ float: left; width: 14rem; height: 1rem; line-height: 1.5rem; color: #fff; position: relative; .cf();
+                span{ float: left; color: #fff; }
+                em{ float: right; color: #fff; }
+              }
+              .main{ float: left; width: 14rem; height: 3rem; line-height: 3rem; position: relative; .cf();
+                span{ float: right; height: 2rem; color: #fff; margin-right: 1rem;
+                  b{ color: #fff; font-size: 1.5rem; }
+                }
+                p{ float: right; height: 3rem;
+                  b{ display: block; height: 1.5rem; line-height: 2rem; text-align: center; color: #007da9;  }
+                  em{ display: block; height: 1rem; line-height: 1rem; text-align: center; font-size: .6rem; color: #007da9; }
+                }
+              }
+              .leftcoupon{ float: left; width: 3.5rem; height: 3rem; line-height: 3rem; margin:.5rem 0 .5rem -.5rem; text-align: center; color: #ff5340; font-size: .6rem; border-right: 1px dashed #e1e1e1;
+                b{ font-size: 1.5rem; }
+              }
+              .centercoupon{ float: left; width: 9.5rem; height: 3rem; margin:.5rem 0 .5rem .5rem; position: relative; .cf();
+                h3{ float: left; width: 8rem; height: .8rem; .omit(); margin-top: -.2rem; margin-bottom: .2rem; color: #5a5a5a; font-size: .7rem; font-weight: bolder; }
+                ul{ float: left; position: relative; .cf(); list-style: initial; list-style-position: inside;
+                  li{ float: left; width: 8rem; height: .8rem; line-height: .8rem; font-size: .55rem; color: #b2b2b2; list-style: inherit; .omit(); }
+                }
+              }
+              .rightcoupon{ float: left; width: .5rem; height: 3rem; line-height: 3rem; margin:.5rem 0;
+                i{ color: #4cd964; }
+              }
+            }
+            .filterbg{ position: absolute; left: 0; top: 0; width: 15rem; height: 4.1rem; background-color: rgba(255,255,255,.5); z-index: 9; }
+            .more{ width: 14rem; padding: 0 .5rem; position: relative;
+              p{ width: 14rem; height: 1.5rem; line-height: 1.5rem; position: relative; .cf();
+                span{ float: left; text-align: left; font-size: .6rem; margin-right: .5rem; }
+                i{ float: left; padding-left: 2rem; width: 2rem; text-align: center; font-size: .6rem; }
+                em{ float: left; text-align: right; font-size: .6rem; }
+              }
+              p.more-info{ display: none; line-height: .6rem; font-size: .5rem; }
+            }
+          }
+        }
+        li.disabled{
+          a{
+            .topbar{ background-color: #ccc;
+              strong{ .bg("border.png",repeat-x,0 0); }
+            }
+            .mainbar{
+              .maintitle{ color: #999; }
+              .main{
+                span{ color: #999;
+                  b{ color: #999; }
+                }
+              }
+            }
+          }
+        }
+        li.active{ box-shadow: 0 0 .2rem #c00; }
+      }
+    }
+  }
+  .balance{ width: 16rem; position: relative; margin-top: 2.5rem;
+    ul{ width: 16rem; position: relative; border-top: 1px solid #e5e5e5;
+      li{ width: 15rem; height: 1rem; padding: .75rem .5rem; background-color: #fff; border-bottom: 1px solid #e5e5e5;
+        a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+          span{ float: left; height: 1rem; line-height: 1rem; }
+          .right{ float: right; height: 1rem; line-height: 1rem;
+            i{ color: #bfbfbf; font-size: .6rem; margin-left: .2rem; }
+          }
+        }
+      }
+    }
+  }
+  .payment{ width: 16rem; position: relative;
+    ul{ width: 14rem; position: relative; padding: .5rem 1rem;
+      li{ height: 1.5rem; line-height: 1.5rem; position: relative; .cf(); font-size: .6rem;
+        span{ float: left; width: 4rem; height: 1.5rem; line-height: 1.5rem; .omit(); color: #999;}
+        em{ float: right; width: 10rem; height: 1.5rem; line-height: 1.5rem; .omit(); text-align: right; color: #333;}
+      }
+    }
+  }
+  .paymentlist{ width: 16rem; position: relative;
+    ul{ width: 16rem; position: relative; margin-top: 2.5rem; border-top: 1px solid #e5e5e5;
+      li{ width: 14rem; padding: .2rem 1rem; background-color: #fff; border-bottom: 1px solid #e5e5e5; position: relative; .cf();
+        p{ float: left; width: 14rem; position: relative; .cf();
+          b{ float: left; width: 7rem;  }
+          span{ float: right; width: 7rem; text-align: right; color: #666; }
+          em{ float: left; width: 7rem; color: #666; }
+          strong{ float: right; width: 7rem; text-align: right;  }
+        }
+      }
+    }
+    h3{ padding-left: 1rem; height: 2rem; line-height: 2rem; font-size: .5rem;}
+    .getcode{ width: 15rem; height: 2rem; padding: .5rem; position: relative; .cf();
+      .codebox{ float: left; width: 10rem; height: 2rem; position: relative;
+        input{ position: absolute; left: 0; top: 0; width: 10rem; height: 2rem; border:1px solid #e5e5e5; padding:.5rem; box-sizing: border-box; border-radius: .25rem;  }
+        i{ width: .6rem; height: .6rem; line-height: .6rem; text-align: center; border-radius: 50%; background-color: #bfbfbf; color: #fff; font-size: .3rem; position: absolute; right: .5rem; top: .7rem; z-index: 9; }
+      }
+      a.disable{ background-color: #ddd; color: #bbb; }
+      .getvalicode{ float: left; width: 4.5rem; height: 2rem; line-height: 2rem; text-align: center; border-radius: .25rem; background-color: #86d4eb; color: #fff; margin-left: .5rem; }
+    }
+  }
+  .withdrawals{ width: 16rem; position: relative; margin-top: 2.5rem;
+    .drawallist{ width: 15rem; padding: .25rem .5rem; margin-top: .5rem; background-color: #fff; height: 1.5rem; border-bottom: 1px solid #e5e5e5; border-top: 1px solid #e5e5e5; position: relative; .cf();
+      img{ float: left; width: 1.5rem; height: 1.5rem; margin-right: .5rem; }
+      p{ float: left; width: 10rem; height: 1.2rem; margin: .15rem 0; overflow: hidden;
+        strong{ display: block; width: 11rem; height: .6rem; line-height: .6rem; font-size: .6rem; font-weight: normal;}
+        b{ display: block; width: 11rem; height: .6rem; line-height: .8rem; font-size: .5rem; font-weight: normal; }
+      }
+      p.charge{ line-height: 1.2rem; font-size: .6rem; }
+      .icon-xiangyou{ float: right; width: 1.5rem; height: 1.5rem; line-height: 1.5rem; text-align: center; color: #ccc; font-size: .6rem; }
+      span{ float: left; width: 3rem; height: 1.5rem; line-height: 1.5rem; color: #333; }
+      em{ float: left; height: 1.5rem; line-height: 1.5rem; color: #999; font-size: .5rem; }
+      .edu{ float: left; width: 12rem; height: 1.5rem; position: relative;
+        input{ position: absolute; left: 0; top: 0; width: 12rem; height: 1.5rem; line-height: 1.5rem; border: none; }
+        i{ width: .6rem; height: .6rem; line-height: .6rem; text-align: center; border-radius: 50%; background-color: #bfbfbf; color: #fff; font-size: .3rem; position: absolute; right: .5rem; top: .5rem; z-index: 9; }
+      }
+    }
+    div.marbon{ margin-bottom: 1rem; }
+    p{ width: 15rem; padding: 0 .5rem; height: 2rem; line-height: 1rem; font-size: .4rem;}
+  }
+  .yibi{ width: 16rem; position: relative; background-color: #fff;
+    .yibi-main{ width: 16rem; height: 3.5rem; padding-top: 1rem; margin-bottom: .5rem; text-align: center;
+      img{ width: 3rem; height: 3.5rem; }
+      span{ display: block; width:16rem; height: 1rem; line-height: 1rem; margin-top: -1.2rem; font-weight: bolder; font-size: .8rem; text-align: center; color: #9d841d;}
+    }
+    .yibioper{ width: 16rem; height: 1.2rem; margin: .5rem 0; text-align: center;
+      a{ display: inline-block; border: 1px solid #e5e5e5; height: 1.2rem; line-height: 1.2rem; padding: 0 .5rem; border-radius: .2rem;
+        i{ color: #86d4eb; margin-right: .2rem; }
+      }
+    }
+    .yibi-intro{ position: absolute; right: .5rem; top: .5rem; font-size: .5rem;
+      i{ font-size: .6rem; color: #ccc; margin-right: .2rem;}
+    }
+    .yibi-list{ width: 15rem; padding: 0 .5rem; position: relative;
+      .list-title{ width: 15rem; height: .5rem; text-align: center; border-bottom: 1px solid #e5e5e5;
+        span{ line-height: 1rem; background-color: #fff; padding: 0 .25rem;}
+      }
+      ul{ position: relative;
+        li{ width: 15rem; padding: .5rem 0; border-bottom: 1px solid #e5e5e5; position: relative; .cf();
+          .left{ float: left; width: 13rem;
+            h3{ font-size: .6rem; width: 13rem; height: .8rem; line-height:.8rem; .omit(); font-weight: 500; }
+            p{ font-size: .5rem; width: 13rem; height: .7rem; line-height:.7rem; .omit();}
+          }
+          span{ float: right; width: 2rem; text-align: center; color: #10bdfa; line-height: 1.5rem; font-weight: bolder; }
+        }
+        li:last-child{ border-bottom: none; }
+      }
+    }
+  }
+  .yibi-detail{ width: 16rem; position: relative;
+    .yibi-detail{ width: 15rem; padding: .5rem;
+      h3{ height: 1rem; line-height: 1rem; margin-bottom: .2rem; font-size: .6rem;}
+      ul{ width: 14.5rem; padding: .25rem; background-color: #fff; border-radius: .15rem; position: relative; .cf();
+        li{ float: left; width: 14.5rem;
+          h5{ height: 1rem; line-height: 1rem; position: relative; .cf();
+            span{ float: left; width: .6rem; height: .6rem; margin: .2rem; text-align: center; line-height: .7rem; font-size: .4rem; border-radius: 50%; background-color: #86d4eb; color: #fff;}
+          }
+          p{ margin-left: 1rem; width: 13.5rem; font-size: .5rem; line-height: .8rem;}
+        }
+      }
+    }
+  }
+  .bankcardlist{ width: 16rem; height: 100%; position: relative; background-color: #2e3132;
+    ul{ width: 15rem; padding: .5rem; position: relative;
+      li{ width: 15rem; margin-bottom: .5rem; border-radius: .25rem; overflow: hidden;
+        .main{ display: block; width: 17rem; height: 100%; position: relative; .cf();
+          .main-left{ float: left; width: 15rem;
+            .top{ float: left; width: 14.5rem; padding: .5rem 0 0 .5rem; height: 2rem; position: relative; .cf();
+              .left{ float: left; width: 2rem; height: 2rem; line-height: 2rem; text-align: center; margin-right: .5rem;
+                i{ font-size: 1.5rem; color: #fff; }
+              }
+              .right{ float: left; width: 12rem; height: 2rem; position: relative; .cf();
+                h3{ color: #fff; width: 12rem; height: 1.2rem; line-height: 1.4rem; font-weight: bolder; }
+                p{ color: #fff; width: 12rem; height: .8rem; line-height: .6rem; }
+              }
+            }
+            .bottom{ float: left; width: 14rem; height: 1.5rem; line-height: 1.5rem; padding: 0 .5rem .5rem .5rem;
+              p{ text-align: right; color: #fff; font-size: 1rem; }
+            }
+          }
+          .dele{ float: left; width: 2rem; height: 4.5rem; line-height: 4.5rem; text-align: center; background-color: #a4afbc;
+            a{ display: block; width: 100%; height: 100%; color: #fff; font-size: .5rem; }
+          }
+        }
+      }
+      li.type1{ background-color: #008c77;}
+      li.type2{}
+      li.type3{}
+      li.type4{}
+      li.type5{}
+      li.type6{}
+      li.type7{}
+      li.type8{}
+    }
+  }
+}
+
+
+.bottombar{ position: fixed; left:0; bottom: 0;  width: 15rem; padding: .25rem .5rem; height: 1.5rem; background-color: #f5f5f5; border-top: 1px solid #dfdfdf; .cf();
+  .leftcouponbar{ float: left; width: 10rem; height: 1.5rem; line-height: 1.5rem; position: relative; .cf();
+    i{ float: left; width: 1.5rem; height: 1.5rem; text-align: center; color: #dbdbdb; }
+    i.hascolor{ color: #ff523f; }
+    span{ float: left; color: #959595; }
+  }
+  .rightcouponbar{ float: right; width: 4rem; height: 1.5rem;
+    a{ display: block; width: 4rem; height: 1.5rem; line-height: 1.5rem; text-align: center; background-color: #56d176; color: #fff; border-radius: .1rem; }
+  }
+}
+
+.content-detail{ width: 15rem; margin: 2rem .5rem .5rem .5rem; border-radius: .25rem; overflow: hidden;
+  .tip1{ width: 1rem; height: 1rem; background-color: #93d9ed; position: absolute; top: 1.5rem; left: 0; border-radius: 50%; z-index: 9; }
+  .tip2{ width: 1rem; height: 1rem; background-color: #93d9ed; position: absolute; top: 1.5rem; right: 0; border-radius: 50%; z-index: 9; }
+  .detail-title{ width: 13rem; padding: 0 1rem; height: 2rem; line-height: 2rem; background-color: #fff; border-bottom: 1px dashed #93d9ed; position: relative; .cf();
+    span{ float: left; color: #4f5054; }
+    em{ float: right; color: #bbb; }
+  }
+  .detail-info{ width: 14rem; padding: .5rem; position: relative; background-color: #fff; border-bottom: 1px dashed #93d9ed;
+    h3{ width: 14rem; margin-top: 1rem; color: #bbb; text-align: center; }
+    p{ width: 14rem; color: #333; text-align: center; line-height: 2rem; font-size: .8rem;
+      b{ color: #fe6e60; font-size: 1.4rem; margin: 0 .2rem; }
+    }
+    a{ display: inline-block; width: 6rem; height: 1.6rem; line-height: 1.6rem; margin: 1rem 4rem 0 4rem; text-align: center; background-color: #93d9ed; border-radius: .25rem; color: #fff;  }
+    ul{ width: 14rem; position: relative; margin-top: .5rem;
+      li{ width: 14rem; position: relative; .cf();
+        span{ float: left; width: 3.2rem; line-height: 1rem; color: #000; font-size: .6rem; }
+        em{ float: left; width: 10.8rem; line-height: 1rem; color: #bbb; font-size: .6rem; }
+      }
+    }
+  }
+  .detail-de{ width: 15rem; padding-top: .5rem; padding-bottom: 1rem; position: relative; background-color: #fff;
+    img{ display: block; width: 15rem; }
+    .shop-info{ width: 14rem; padding: 0 0 .2rem 0; margin: 0 .5rem; border-bottom: 1px solid #f0f0f0; position: relative; .cf();
+      .left-info{ float: left; width: 11rem; height: 2.4rem; position: relative; .cf();
+        h3{ float: left; width: 11rem; height: 1.4rem; line-height: 1.6rem; color: #333; font-size: .8rem; }
+        p{ float: left; width: 11rem; height: 1rem; line-height: 1rem; color: #bbb; font-size: .6rem;
+          i{ color: #bbb; font-size: .6rem; }
+        }
+      }
+      .right-info{ float: left; width: 3rem; height: 2.4rem; box-sizing: border-box; border-left: 1px solid #f0f0f0;
+        a{ display: block; width: 3rem; height: 2.4rem; text-align: center; line-height: 2.4rem;
+          i{ color: #93d9ed; font-size: 1.6rem; }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

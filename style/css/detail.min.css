@@ -1,0 +1,2086 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.shop-box {
+  will-change: all;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.shop-detail {
+  width: 15rem;
+  padding: .2rem .5rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2.2rem;
+}
+.shop-detail .imgbox {
+  float: left;
+  width: 4rem;
+  height: 3rem;
+  margin-right: .5rem;
+  position: relative;
+}
+.shop-detail .imgbox img {
+  display: inline-block;
+  width: 4rem;
+  height: 3rem;
+}
+.shop-detail .imgbox p {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 4rem;
+  height: .8rem;
+  line-height: .8rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: .35rem;
+  color: #fff;
+}
+.shop-detail .shop-info {
+  float: left;
+  width: 10.5rem;
+  height: 3rem;
+}
+.shop-detail .shop-info h3 {
+  width: 10.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.shop-detail .shop-info p {
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .6rem;
+  position: relative;
+  overflow: hidden;
+}
+.shop-detail .shop-info p span:first-child {
+  border-right: 1px solid #e5e5e5;
+}
+.shop-detail .shop-info p span {
+  padding: 0 .2rem 0 0;
+}
+.shop-detail .shop-info p span em {
+  margin-left: .2rem;
+}
+.shop-detail .shop-info p em.type1 {
+  color: #f53d54;
+}
+.shop-detail .shop-info p em.type2 {
+  color: #f36f13;
+}
+.shop-detail .shop-info p b {
+  font-weight: normal;
+}
+.shop-detail .shop-info p i {
+  float: left;
+  width: .6rem;
+  height: .6rem;
+  line-height: .6rem;
+  font-weight: bolder;
+  text-align: center;
+  background-color: #86d4eb;
+  color: #fff;
+  margin-top: .2rem;
+  font-size: .4rem;
+  margin-right: .2rem;
+}
+.shop-detail .shop-info .shopaddress {
+  width: 10.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+}
+.shop-detail .shop-info .shopaddress i {
+  float: left;
+  color: #bababa;
+  font-size: .7rem;
+}
+.shop-detail .shop-info .shopaddress span {
+  float: left;
+  width: 8rem;
+  height: 1rem;
+  color: #bababa;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-size: .6rem;
+}
+.shop-detail .shop-info .shopaddress a {
+  float: right;
+}
+.shop-detail .shop-info .shopaddress a i {
+  color: #86d4eb;
+  font-size: 1rem;
+  line-height: .8rem;
+}
+.logisity {
+  width: 16rem;
+  padding: .5rem 0;
+  margin: 2.5rem 0 .5rem 0;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.logisity ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.logisity ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.logisity ul li {
+  float: left;
+  width: 5.2rem;
+  height: 2rem;
+  border-right: 1px solid #e5e5e5;
+  text-align: center;
+}
+.logisity ul li em {
+  display: inline-block;
+  width: 5.2rem;
+  height: 1rem;
+}
+.logisity ul li em.type1 {
+  color: #77d08a;
+}
+.logisity ul li em.type2 {
+  color: #f53d54;
+}
+.logisity ul li em.type3 {
+  color: #f36f13;
+}
+.logisity ul li span {
+  font-size: .6rem;
+}
+.logisity ul li:last-child {
+  border-right: none;
+}
+.shopitem {
+  width: 15rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: .5rem;
+  overflow: hidden;
+}
+.shopitem h3 {
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #ddd;
+}
+.shopitem h3.short {
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.shopitem p {
+  width: 15rem;
+  padding: .5rem 0;
+  line-height: 1rem;
+  color: #ff6000;
+}
+.shopitem ul {
+  width: 15rem;
+  position: relative;
+}
+.shopitem ul li {
+  width: 15rem;
+  height: 1rem;
+  padding: .5rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #ddd;
+}
+.shopitem ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.shopitem ul li span {
+  float: left;
+  color: #999;
+  width: 4rem;
+  height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.shopitem ul li em {
+  float: left;
+  color: #999;
+  width: 11rem;
+  height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.shopitem ul li a {
+  position: absolute;
+  right: -1.5rem;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.shopitem ul li a i {
+  font-size: 1rem;
+  color: #5cc34f;
+}
+.shopitem ul li:last-child {
+  border-bottom: none;
+}
+.shopitem .imagebox {
+  width: 17rem;
+  margin: .5rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.shopitem .imagebox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.shopitem .imagebox img {
+  float: left;
+  width: 4.65rem;
+  height: 5rem;
+  margin: 0 .5rem .5rem 0;
+}
+.shop-fn {
+  width: 16rem;
+  position: relative;
+  border-top: 1px solid #e5e5e5;
+}
+.shop-fn .address-box {
+  height: 1rem;
+  padding: .2rem .5rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fff;
+}
+.shop-fn .address-box .address {
+  float: left;
+  width: 13rem;
+  height: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.shop-fn .address-box .address i {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #86d4eb;
+}
+.shop-fn .address-box .address p {
+  float: left;
+  width: 11rem;
+  height: 1rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.shop-fn .address-box .phone {
+  float: left;
+  height: 1rem;
+  width: 2rem;
+  line-height: 1rem;
+  text-align: center;
+  box-sizing: border-box;
+  border-left: 1px solid #e5e5e5;
+}
+.shop-fn .address-box .phone a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.shop-fn .address-box .phone a i {
+  font-size: 1rem;
+}
+.shop-fn .notice {
+  height: 1rem;
+  padding: .2rem 0 .2rem .5rem;
+  font-size: .6rem;
+  border-bottom: 1px solid #f1f1f1;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.shop-fn .notice em {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .6rem;
+  color: #f40;
+}
+.shop-fn .notice em.color {
+  color: #21cba9;
+}
+.shop-fn .notice p {
+  float: left;
+  display: inline-block;
+  width: 13rem;
+  height: 1rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.shop-fn .notice i {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  color: #ccc;
+}
+.menutitle {
+  height: 1.5rem;
+  width: 15rem;
+  padding: .25rem .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  margin-bottom: .5rem;
+  background-color: #fff;
+}
+.menutitle:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.menutitle a {
+  float: left;
+  width: 5rem;
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: .6rem;
+  color: #000;
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
+  position: relative;
+}
+.menutitle a i {
+  vertical-align: middle;
+  font-size: 1.2rem;
+  margin-right: .4rem;
+}
+.menutitle a:last-child {
+  border-right: none;
+}
+.menutitle b {
+  position: absolute;
+  left: .75rem;
+  width: 4rem;
+  height: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  line-height: 1.5rem;
+  color: #fff;
+  font-weight: normal;
+  bottom: 0;
+  font-size: .6rem;
+}
+.mainmenu {
+  margin-top: .5rem;
+  position: relative;
+}
+.mainmenu .silder-box {
+  width: 16rem;
+  position: relative;
+}
+.mainmenu .silder-box .orderbox {
+  width: 16rem;
+  position: relative;
+}
+.mainmenu .silder-box .orderbox .order-fn {
+  width: 16rem;
+  height: 2rem;
+  position: relative;
+  border-bottom: 1px solid #d5d5d5;
+  background-color: #fff;
+}
+.mainmenu .silder-box .orderbox .order-fn ul {
+  position: relative;
+  overflow: hidden;
+}
+.mainmenu .silder-box .orderbox .order-fn ul li {
+  float: left;
+  width: 4rem;
+  height: 1.9rem;
+  border-bottom: .1rem solid #fff;
+  text-align: center;
+}
+.mainmenu .silder-box .orderbox .order-fn ul li a {
+  display: block;
+  width: 4rem;
+  height: 1.9rem;
+  line-height: 1.9rem;
+  position: relative;
+  overflow: hidden;
+}
+.mainmenu .silder-box .orderbox .order-fn ul li a b {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  margin: .2rem .1rem .2rem .5rem;
+  background: transparent url("images/function.png") no-repeat 0 0;
+  background-size: contain;
+  background-size: cover;
+}
+.mainmenu .silder-box .orderbox .order-fn ul li a span {
+  float: left;
+  width: 4rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: .25rem 0;
+  font-size: .6rem;
+  color: #000;
+}
+.mainmenu .silder-box .orderbox .order-fn ul li.active {
+  border-bottom-color: #86d4eb;
+}
+.mainmenu .silder-box .orderbox .order-fn ul li.active a span {
+  color: #86d4eb;
+}
+.mainmenu .silder-box .orderbox .order-list-box {
+  width: 16rem;
+  position: relative;
+  overflow: hidden;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-type {
+  float: left;
+  width: 4rem;
+  height: 22rem;
+  border-bottom: 1px solid #d5d5d5;
+  border-right: 1px solid #d5d5d5;
+  box-sizing: border-box;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-type .ordertypebox {
+  width: 4rem;
+  box-sizing: border-box;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-type .ordertypebox ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-type .ordertypebox ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-type .ordertypebox ul li {
+  float: left;
+  width: 4rem;
+  height: 2rem;
+  border-left: .1rem solid #f0f2f5;
+  border-bottom: 1px solid #d5d5d5;
+  text-align: center;
+  display: table;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-type .ordertypebox ul li a {
+  vertical-align: middle;
+  display: table-cell;
+  line-height: .6rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-type .ordertypebox ul li.active {
+  background-color: #fff;
+  border-left-color: #86d4eb;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con {
+  float: left;
+  width: 12rem;
+  height: 22rem;
+  background-color: #fff;
+  position: relative;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul {
+  position: relative;
+  padding: .3rem 0 .3rem .3rem;
+  width: 11.7rem;
+  overflow: hidden;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li {
+  float: left;
+  width: 11.5rem;
+  height: 4.5rem;
+  padding: .1rem;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li img {
+  float: left;
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  margin: .2rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .p-info {
+  float: left;
+  width: 6.7rem;
+  margin-top: .5rem;
+  margin-left: .2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .p-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .p-info h3 {
+  float: left;
+  width: 6.7rem;
+  font-size: .6rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-weight: bolder;
+  overflow: hidden;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .p-info b {
+  float: left;
+  display: inline-block;
+  font-size: .6rem;
+  width: 6.7rem;
+  color: #f40;
+  height: 1rem;
+  line-height: 1rem;
+  font-weight: normal;
+  margin-top: .2rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .p-info b span {
+  font-size: .45rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .numbox {
+  width: 6.5rem;
+  text-align: right;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .leftSilder {
+  position: absolute;
+  right: 2.5rem;
+  top: 0;
+  z-index: 9;
+  opacity: 0;
+  width: 2.5rem;
+  height: 4.5rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .rightSilder {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  opacity: 0;
+  width: 2.5rem;
+  height: 4.5rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .sizebox {
+  float: left;
+  width: 6.7rem;
+  margin-top: .4rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .sizebox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .sizebox .sizecon {
+  float: right;
+  height: 1rem;
+  padding: 0 .2rem;
+  background-color: #86d4e8;
+  position: relative;
+  font-size: .6rem;
+  border-radius: .5rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .sizebox .sizecon span {
+  color: #fff;
+  line-height: 1rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .order-ul li .sizebox .sizecon em {
+  position: absolute;
+  right: -0.2rem;
+  top: -0.2rem;
+  width: .6rem;
+  height: .6rem;
+  border-radius: 50%;
+  line-height: .6rem;
+  text-align: center;
+  background-color: #f40;
+  color: #fff;
+  font-size: .5rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .singal-ul {
+  position: relative;
+  padding: .3rem 0 .3rem .3rem;
+  width: 11.7rem;
+  overflow: hidden;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .singal-ul li {
+  float: left;
+  width: 5.8rem;
+  height: 4.5rem;
+  padding: .1rem;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .singal-ul li img {
+  float: left;
+  display: block;
+  width: 2.3rem;
+  height: 2.3rem;
+  margin: 0.3rem 0 0 .3rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .singal-ul li .p-info {
+  float: left;
+  width: 2.8rem;
+  margin-top: .5rem;
+  text-align: center;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .singal-ul li .p-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .singal-ul li .p-info h3 {
+  float: left;
+  width: 2.8rem;
+  font-size: .6rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  overflow: hidden;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .singal-ul li .p-info b {
+  float: left;
+  display: inline-block;
+  font-size: .6rem;
+  width: 2.8rem;
+  color: #f40;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-weight: normal;
+  margin-top: .2rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .singal-ul li .p-info b span {
+  font-size: .45rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .singal-ul li .leftSilder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  opacity: 0;
+  width: 2.9rem;
+  height: 4.5rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .singal-ul li .rightSilder {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  opacity: 0;
+  width: 2.9rem;
+  height: 4.5rem;
+}
+.mainmenu .silder-box .orderbox .order-list-box .order-con .singal-ul li:nth-child(even) {
+  border-right: none;
+}
+.mainmenu .silder-box .coupons {
+  width: 16rem;
+  position: relative;
+}
+.mainmenu .silder-box .coupons ul {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+}
+.mainmenu .silder-box .coupons ul li {
+  width: 15rem;
+  background-color: #fff;
+  margin-bottom: .5rem;
+  box-shadow: 0 0 .1rem #999;
+}
+.mainmenu .silder-box .coupons ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.mainmenu .silder-box .coupons ul li a .topbar {
+  width: 15rem;
+  height: .5rem;
+  background-color: #86d4eb;
+  position: relative;
+}
+.mainmenu .silder-box .coupons ul li a .topbar strong {
+  float: left;
+  display: inline-block;
+  width: 15rem;
+  height: .1rem;
+  margin-top: .4rem;
+  background: transparent url("images/blueborder.png") repeat-x 0 0;
+  background-size: contain;
+}
+.mainmenu .silder-box .coupons ul li a .mainbar {
+  width: 14rem;
+  padding: 0 .5rem;
+  background: transparent url("images/quan.png") no-repeat -0.5rem top;
+  background-size: contain;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mainmenu .silder-box .coupons ul li a .mainbar:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mainmenu .silder-box .coupons ul li a .mainbar .maintitle {
+  float: left;
+  width: 14rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #10bdfa;
+}
+.mainmenu .silder-box .coupons ul li a .mainbar .main {
+  float: left;
+  width: 14rem;
+  height: 3rem;
+  line-height: 3rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: .1rem dotted #ccc;
+}
+.mainmenu .silder-box .coupons ul li a .mainbar .main:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mainmenu .silder-box .coupons ul li a .mainbar .main span {
+  float: left;
+  height: 2rem;
+  color: #86d4eb;
+}
+.mainmenu .silder-box .coupons ul li a .mainbar .main span b {
+  color: #86d4eb;
+  font-size: 1.5rem;
+}
+.mainmenu .silder-box .coupons ul li a .mainbar .main p {
+  float: right;
+}
+.mainmenu .silder-box .coupons ul li a .mainbar .main p em {
+  display: block;
+  width: 3.5rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .5rem;
+}
+.mainmenu .silder-box .coupons ul li a .more {
+  width: 14rem;
+  padding: 0 .5rem;
+  position: relative;
+}
+.mainmenu .silder-box .coupons ul li a .more p {
+  width: 14rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mainmenu .silder-box .coupons ul li a .more p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mainmenu .silder-box .coupons ul li a .more p span {
+  float: left;
+  width: 4rem;
+  text-align: left;
+  font-size: .5rem;
+}
+.mainmenu .silder-box .coupons ul li a .more p i {
+  float: left;
+  padding-left: 2rem;
+  width: 2rem;
+  text-align: center;
+  font-size: .5rem;
+}
+.mainmenu .silder-box .coupons ul li a .more p em {
+  float: right;
+  width: 6rem;
+  text-align: right;
+  font-size: .5rem;
+}
+.mainmenu .silder-box .coupons ul li a .more p.more-info {
+  display: none;
+  line-height: .6rem;
+  font-size: .5rem;
+}
+.mainmenu .silder-box .groupon {
+  display: none;
+  width: 16rem;
+  position: relative;
+}
+.mainmenu .silder-box .groupon ul {
+  position: relative;
+}
+.mainmenu .silder-box .groupon ul li {
+  width: 15rem;
+  margin: 0 .5rem .2rem .5rem;
+  height: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.mainmenu .silder-box .groupon ul li .left-border {
+  float: left;
+  width: .25rem;
+  height: 4rem;
+  background: transparent url("images/border.png") repeat-y 0.1rem 0;
+  background-size: contain;
+}
+.mainmenu .silder-box .groupon ul li a {
+  float: left;
+  width: 14.5rem;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+}
+.mainmenu .silder-box .groupon ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mainmenu .silder-box .groupon ul li a .shop-logo {
+  float: left;
+  width: 4.5rem;
+  height: 3.5rem;
+  padding: .25rem 0;
+}
+.mainmenu .silder-box .groupon ul li a .shop-logo img {
+  display: block;
+  width: 4rem;
+  height: 3rem;
+  margin: .25rem;
+}
+.mainmenu .silder-box .groupon ul li a .shop-logo h3 {
+  width: 3rem;
+  height: .5rem;
+  line-height: .7rem;
+  color: #999;
+  font-size: .4rem;
+  text-align: center;
+}
+.mainmenu .silder-box .groupon ul li a .copn {
+  float: left;
+  width: 8.5rem;
+  height: 3.5rem;
+  margin-top: .25rem;
+  padding: .25rem 0;
+  margin-left: .25rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mainmenu .silder-box .groupon ul li a .copn:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mainmenu .silder-box .groupon ul li a .copn h3 {
+  float: left;
+  width: 8.5rem;
+  height: 1.5rem;
+  line-height: 1.8rem;
+  font-size: .7rem;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mainmenu .silder-box .groupon ul li a .copn em {
+  float: left;
+  display: inline-block;
+  width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mainmenu .silder-box .groupon ul li a .copn span.green {
+  color: #62E4CB;
+  border-color: #62E4CB;
+}
+.mainmenu .silder-box .groupon ul li a .copn p {
+  float: left;
+  width: 8.5rem;
+  height: 1.5rem;
+  line-height: 1.8rem;
+}
+.mainmenu .silder-box .groupon ul li a .copn p span {
+  color: #86d4eb;
+}
+.mainmenu .silder-box .groupon ul li a .copn p span strong {
+  font-size: .8rem;
+  font-weight: normal;
+}
+.mainmenu .silder-box .groupon ul li a .copn p span b {
+  font-weight: normal;
+}
+.mainmenu .silder-box .groupon ul li a .copn p s {
+  color: #999;
+  text-decoration: line-through;
+  margin-left: .5rem;
+  font-size: .5rem;
+}
+.mainmenu .silder-box .groupon ul li a .copn p i {
+  float: right;
+  font-size: .5rem;
+  line-height: 2rem;
+}
+.mainmenu .silder-box .groupon ul li a .right {
+  float: left;
+  width: 1rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: left;
+  color: #bfbfbf;
+}
+.mainmenu .silder-box .groupon ul li .right-border {
+  float: left;
+  width: .25rem;
+  height: 4rem;
+  background: transparent url("images/border.png") repeat-y -0.1rem 0;
+  background-size: contain;
+}
+.mainmenu .silder-box .groupon ul li .label {
+  position: absolute;
+  left: -1.1rem;
+  top: -0.3rem;
+  font-size: .4rem;
+  width: 3rem;
+  height: 1.2rem;
+  line-height: 1.6rem;
+  background-color: #ace9e0;
+  text-align: center;
+  color: #5a988f;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.mainmenu .silder-box .groupon ul li div.statu2 {
+  background-color: #f8ddae;
+  color: #e49304;
+}
+.mainmenu .silder-box .groupon ul li:last-child {
+  border-bottom: none;
+}
+.evaluate {
+  width: 16rem;
+  margin-top: 2.4rem;
+  padding-bottom: 3rem;
+}
+.evaluate .evalpart {
+  width: 16rem;
+  height: 3rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  padding: .5rem 0;
+  background-color: #eee;
+}
+.evaluate .evalpart .evalpart-left {
+  float: left;
+  position: relative;
+  overflow: hidden;
+  width: 5rem;
+  height: 3rem;
+  box-sizing: border-box;
+  border-right: 1px solid #ddd;
+}
+.evaluate .evalpart .evalpart-left h3 {
+  float: left;
+  width: 5rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  font-weight: bolder;
+  line-height: 1.5rem;
+  color: #86d4eb;
+  text-align: center;
+}
+.evaluate .evalpart .evalpart-left p {
+  float: left;
+  width: 5rem;
+  height: .75rem;
+  line-height: .75rem;
+  text-align: center;
+  font-size: .5rem;
+  color: #333;
+}
+.evaluate .evalpart .evalpart-right {
+  float: left;
+  width: 11rem;
+  height: 3rem;
+}
+.evaluate .evalpart .evalpart-right ul {
+  position: relative;
+  overflow: hidden;
+}
+.evaluate .evalpart .evalpart-right ul li {
+  float: left;
+  padding-left: .5rem;
+  width: 10.5rem;
+  height: 1rem;
+  margin-bottom: .1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.evaluate .evalpart .evalpart-right ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.evaluate .evalpart .evalpart-right ul li span {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .5rem;
+  margin: 0 .3rem;
+  color: #333;
+}
+.evaluate .evalpart .evalpart-right ul li .score {
+  float: left;
+  height: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.evaluate .evalpart .evalpart-right ul li .score i {
+  float: left;
+  width: .5rem;
+  height: 1rem;
+  line-height: .9rem;
+  text-align: center;
+  font-size: .6rem;
+  color: #ccc;
+}
+.evaluate .evalpart .evalpart-right ul li .score i.active {
+  color: #86d4eb;
+}
+.evaluate .evalpart .evalpart-right ul li .score .scorebox {
+  float: left;
+  width: 3rem;
+  height: .7rem;
+  position: relative;
+}
+.evaluate .evalpart .evalpart-right ul li .score .scorebox .basecore {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3rem;
+  height: .8rem;
+  background: transparent url("images/start.png") no-repeat 0 center;
+  background-size: contain;
+}
+.evaluate .evalpart .evalpart-right ul li .score .scorebox .topcore {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3rem;
+  height: .8rem;
+  overflow: hidden;
+}
+.evaluate .evalpart .evalpart-right ul li .score .scorebox .topcore .ccore {
+  width: 3rem;
+  height: .8rem;
+  background: transparent url("images/cstart.png") no-repeat 0 center;
+  background-size: contain;
+}
+.evaluate .evalpart .evalpart-right ul li .trend {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .5rem;
+  color: #86d4eb;
+}
+.evaluate .evalnav {
+  width: 16rem;
+  height: 1.5rem;
+  padding: .3rem 0;
+  margin-top: .3rem;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.evaluate .evalnav ul {
+  position: relative;
+  overflow: hidden;
+}
+.evaluate .evalnav ul li {
+  float: left;
+  width: 3.2rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+.evaluate .evalnav ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.evaluate .evalnav ul li a p {
+  float: left;
+  width: 3.2rem;
+  height: .75rem;
+  line-height: .75rem;
+  font-size: .5rem;
+}
+.evaluate .evalnav ul li.active a p {
+  color: #86d4eb;
+}
+.evaluate .evallist {
+  width: 16rem;
+  position: relative;
+}
+.evaluate .evallist ul {
+  position: relative;
+}
+.evaluate .evallist ul li {
+  width: 15rem;
+  margin-top: .25rem;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fff;
+  padding: .4rem .5rem;
+  position: relative;
+  overflow: hidden;
+}
+.evaluate .evallist ul li .imgbox {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.evaluate .evallist ul li .imgbox img {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+.evaluate .evallist ul li .evalitem {
+  float: left;
+  width: 12.5rem;
+  margin-left: .5rem;
+  position: relative;
+  overflow: hidden;
+}
+.evaluate .evallist ul li .evalitem h3 {
+  float: left;
+  width: 12.5rem;
+  font-size: .5rem;
+  color: #333;
+}
+.evaluate .evallist ul li .evalitem h3 span {
+  float: right;
+  color: #999;
+}
+.evaluate .evallist ul li .evalitem .score {
+  float: left;
+  width: 12.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.evaluate .evallist ul li .evalitem .score .scorebox {
+  float: left;
+  width: 3rem;
+  height: .7rem;
+  position: relative;
+}
+.evaluate .evallist ul li .evalitem .score .scorebox .basecore {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3rem;
+  height: .8rem;
+  background: transparent url("images/start.png") no-repeat 0 center;
+  background-size: contain;
+}
+.evaluate .evallist ul li .evalitem .score .scorebox .topcore {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3rem;
+  height: .8rem;
+  overflow: hidden;
+}
+.evaluate .evallist ul li .evalitem .score .scorebox .topcore .ccore {
+  width: 3rem;
+  height: .8rem;
+  background: transparent url("images/cstart.png") no-repeat 0 center;
+  background-size: contain;
+}
+.evaluate .evallist ul li .evalitem p {
+  float: left;
+  width: 12.5rem;
+  line-height: .8rem;
+  font-size: .5rem;
+  color: #000;
+}
+.evaluate .evallist ul li .evalitem .itemimg {
+  float: left;
+  width: 12.5rem;
+  height: 3.15rem;
+  position: relative;
+  overflow: hidden;
+}
+.evaluate .evallist ul li .evalitem .itemimg .imglistbox {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.evaluate .evallist ul li .evalitem .itemimg .imglistbox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.evaluate .evallist ul li .evalitem .itemimg .imglistbox img {
+  float: left;
+  width: 3rem;
+  height: 3rem;
+  margin-right: .15rem;
+  margin-bottom: .2rem;
+}
+.evaluate .evallist ul li .evalitem .apply {
+  float: left;
+  width: 12rem;
+  padding: .25rem;
+  margin-top: .5rem;
+  background-color: #f4f4f4;
+  position: relative;
+}
+.evaluate .evallist ul li .evalitem .apply b {
+  position: absolute;
+  top: -0.25rem;
+  left: 1rem;
+  width: 0;
+  height: 0;
+  border-left: .25rem solid transparent;
+  border-right: .25rem solid transparent;
+  border-bottom: .25rem solid #f4f4f4;
+}
+.evaluate .evallist ul li .evalitem .apply p {
+  width: 12rem;
+}
+.zoombox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 19;
+  background-color: rgba(0, 0, 0, 0.4);
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  will-change: all;
+  -webkit-transition: all 0.001s ease-in-out;
+  -moz-transition: all 0.001s ease-in-out;
+  -ms-transition: all 0.001s ease-in-out;
+  transition: all 0.001s ease-in-out;
+}
+.totalbox {
+  width: 16rem;
+  height: 0;
+  position: fixed;
+  left: 0;
+  bottom: 2rem;
+  border-top: 1px solid #ccc;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  z-index: 20;
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+}
+.totalbox .totaltop {
+  width: 15rem;
+  height: .8rem;
+  padding: .6rem .5rem;
+  background-color: #ececee;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #ddd;
+}
+.totalbox .totaltop:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.totalbox .totaltop h3 {
+  float: left;
+  height: .8rem;
+  line-height: .8rem;
+  padding-left: .2rem;
+  border-left: .1rem solid #35c1fc;
+}
+.totalbox .totaltop a {
+  float: right;
+  height: .8rem;
+  line-height: .8rem;
+  color: #999;
+}
+.totalbox .totaltop a i {
+  font-size: .6rem;
+  margin-right: .2rem;
+  color: #999;
+}
+.totalbox .pro-box {
+  width: 16rem;
+  max-height: 10rem;
+  overflow-y: scroll;
+}
+.totalbox .pro-box .pro-list {
+  width: 16rem;
+}
+.totalbox .pro-box .pro-list h3 {
+  width: 15.5rem;
+  padding: .25rem;
+  height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #ddd;
+}
+.totalbox .pro-box .pro-list h3:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.totalbox .pro-box .pro-list h3 span {
+  float: right;
+  color: #f40;
+  margin-right: 1rem;
+}
+.totalbox .pro-box .pro-list ul {
+  width: 16rem;
+  background-color: #fff;
+}
+.totalbox .pro-box .pro-list ul li {
+  width: 15rem;
+  height: 1.4rem;
+  padding: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.totalbox .pro-box .pro-list ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.totalbox .pro-box .pro-list ul li .name {
+  float: left;
+  width: 5.5rem;
+  height: 1.4rem;
+  line-height: 1.4rem;
+}
+.totalbox .pro-box .pro-list ul li .price {
+  float: left;
+  width: 4rem;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  text-align: center;
+  color: #f40;
+}
+.totalbox .pro-box .pro-list ul li .numbox {
+  margin-top: 0;
+}
+.totalbox .pro-box .pro-list ul li .numbox a {
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1.1rem;
+}
+div.show {
+  height: auto;
+}
+div.showzoom {
+  display: block;
+}
+.coupondetail {
+  width: 16rem;
+  position: relative;
+  top: 2rem;
+  padding-bottom: 2rem;
+}
+.coupondetail .imgbox {
+  width: 16rem;
+  height: 7rem;
+}
+.coupondetail .imgbox img {
+  display: block;
+  width: 16rem;
+  height: 7rem;
+}
+.coupondetail .couponinfo {
+  width: 15rem;
+  padding: 0 .5rem;
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.coupondetail .couponinfo .coupon-title {
+  width: 15rem;
+  height: 1rem;
+  padding-top: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.coupondetail .couponinfo .coupon-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.coupondetail .couponinfo .coupon-title h3 {
+  float: left;
+  height: 1rem;
+  width: 12rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-size: .6rem;
+  font-weight: bolder;
+  color: #86d4eb;
+}
+.coupondetail .couponinfo .coupon-title .share {
+  float: right;
+  height: 1rem;
+  width: 2.5rem;
+  margin-left: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.coupondetail .couponinfo .coupon-title .share:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.coupondetail .couponinfo .coupon-title .share i {
+  float: left;
+  width: 1.25rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+.coupondetail .couponinfo .coupon-title .share i.icon-xin {
+  line-height: 1.2rem;
+}
+.coupondetail .couponinfo .price {
+  width: 15rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.coupondetail .couponinfo .price:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.coupondetail .couponinfo .price h3 {
+  float: left;
+  line-height: 2rem;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: #86d4eb;
+}
+.coupondetail .couponinfo .price b {
+  float: left;
+  height: 2rem;
+  line-height: 2.5rem;
+  color: #999;
+  text-decoration: line-through;
+  font-size: .8rem;
+  font-weight: normal;
+  margin-left: .5rem;
+}
+.coupondetail .couponinfo .tips {
+  width: 15rem;
+  height: 1rem;
+  padding-bottom: .2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.coupondetail .couponinfo .tips:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.coupondetail .couponinfo .tips span {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  color: #d19f19;
+}
+.coupondetail .couponinfo .tips span.right {
+  float: right;
+}
+.coupondetail .shop-info {
+  width: 15rem;
+  padding: 0 .5rem;
+  margin-top: .5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+}
+.coupondetail .shop-info h3 {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+  color: #86d4eb;
+  font-size: .6rem;
+}
+.coupondetail .shop-info p {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .25rem 0;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.coupondetail .shop-info p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.coupondetail .shop-info p i {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .6rem;
+}
+.coupondetail .shop-info p a {
+  float: left;
+  height: 1rem;
+  width: 10rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.coupondetail .shop-info p em {
+  float: right;
+  height: 1rem;
+  width: 4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-align: right;
+}
+.coupondetail .coupon-detail {
+  width: 15rem;
+  padding: 0 .5rem;
+  margin-top: .5rem;
+  margin-bottom: 2.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+}
+.coupondetail .coupon-detail h3 {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+  color: #86d4eb;
+  font-size: .6rem;
+}
+.coupondetail .coupon-detail .coupon-list {
+  width: 15rem;
+  position: relative;
+}
+.coupondetail .coupon-detail .coupon-list p {
+  color: #666;
+  line-height: 1.5rem;
+}
+.coupondetail .buy-info {
+  width: 15rem;
+  padding: 0 .5rem .5rem .5rem;
+  margin-top: .5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+}
+.coupondetail .buy-info h3 {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+  color: #86d4eb;
+  font-size: .6rem;
+}
+.coupondetail .buy-info ul {
+  position: relative;
+}
+.coupondetail .buy-info ul li {
+  width: 15rem;
+}
+.coupondetail .buy-info ul li span {
+  display: inline-block;
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #b5b5b5;
+  font-size: .6rem;
+}
+.coupondetail .buy-info ul li p {
+  padding-left: .5rem;
+  color: #000;
+  font-size: .6rem;
+}
+.buy-now {
+  width: 15rem;
+  padding: .25rem .5rem;
+  height: 1.5rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 9;
+  border-top: 1px solid #e5e5e5;
+  min-height: 1px;
+  zoom: 1;
+}
+.buy-now:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.buy-now .info-left {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.buy-now .info-left span {
+  font-size: .6rem;
+  color: #86d4eb;
+}
+.buy-now .info-left span b {
+  font-size: 1rem;
+  font-weight: bolder;
+  margin: 0 .2rem;
+}
+.buy-now .info-left em {
+  text-decoration: line-through;
+  color: #999;
+}
+.buy-now a {
+  float: right;
+  width: 5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #fff;
+  background-color: #86d4eb;
+  border-radius: .25rem;
+}
+.couponorder {
+  width: 16rem;
+  position: relative;
+  top: 2rem;
+}
+.couponorder .couorder-item {
+  width: 16rem;
+  margin: .5rem 0;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+.couponorder .couorder-item ul {
+  width: 16rem;
+  position: relative;
+}
+.couponorder .couorder-item ul li {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.couponorder .couorder-item ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.couponorder .couorder-item ul li .linkhref {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.couponorder .couorder-item ul li b {
+  float: left;
+  font-weight: normal;
+  color: #000;
+}
+.couponorder .couorder-item ul li em {
+  float: right;
+}
+.couponorder .couorder-item ul li input {
+  float: right;
+  width: 6rem;
+  height: .6rem;
+  line-height: .6rem;
+  padding: .2rem;
+  border: none;
+  text-align: center;
+}
+.couponorder .couorder-item ul li .numbox {
+  float: right;
+  margin-top: 0;
+  width: auto;
+}
+.couponorder .couorder-item ul li .gofor {
+  float: right;
+  color: #ccc;
+}
+.gopay {
+  display: none;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 16rem;
+  height: 2rem;
+  min-height: 1px;
+  zoom: 1;
+}
+.gopay:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.gopay .totalprice {
+  float: left;
+  padding-left: .5rem;
+  width: 11.5rem;
+  height: 2rem;
+  line-height: 2rem;
+  background-color: #414242;
+}
+.gopay .totalprice span {
+  color: #fff;
+  font-size: .6rem;
+}
+.gopay .totalprice b {
+  color: #fff;
+  font-size: .7rem;
+  margin-left: .2rem;
+  font-weight: normal;
+}
+.gopay .pay-btn {
+  float: left;
+  width: 4rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fff;
+  background-color: #12b1f0;
+}
+.messagebox {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 16rem;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 19;
+  display: table;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+}
+.messagebox p {
+  vertical-align: middle;
+  display: table-cell;
+  width: 14rem;
+  line-height: 1rem;
+  padding: 0 1rem;
+  color: #fff;
+  text-align: center;
+}
+.recommodmain {
+  width: 16rem;
+  position: relative;
+  margin-top: 2rem;
+  background-color: #f6f6f6;
+}
+.recommodmain a {
+  display: block;
+  width: 16rem;
+  height: 14rem;
+  position: relative;
+}
+.recommodmain a img {
+  width: 16rem;
+}
+.recommodmain a em {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  font-size: 2rem;
+  width: 16rem;
+  height: 14rem;
+  line-height: 14rem;
+  text-align: center;
+  color: #cdd7e0;
+}
+.recommodmain a em span {
+  font-size: .8rem;
+  color: #999;
+  margin-left: .2rem;
+}
+.recommodmain h5 {
+  width: 16rem;
+  font-size: .6rem;
+  line-height: 1.5rem;
+  text-align: center;
+  font-weight: normal;
+  color: #333;
+}
+.recommodmain h3 {
+  width: 16rem;
+  font-size: .8rem;
+  line-height: 1rem;
+  text-align: center;
+  font-weight: normal;
+  color: #333;
+}
+.recommodmain .gorule {
+  display: inline-block;
+  width: 16rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: .5rem;
+  color: #999;
+}
+.recommodmain .gorule i {
+  font-size: .5rem;
+  color: #999;
+}
+.recommodnow {
+  display: inline-block;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 1rem .5rem;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+  color: #171717;
+  border-radius: .25rem;
+}

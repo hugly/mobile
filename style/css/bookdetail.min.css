@@ -1,0 +1,402 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.congratulations {
+  width: 16rem;
+  position: relative;
+  margin-top: 2.5rem;
+  padding-bottom: .5rem;
+  margin-bottom: .5rem;
+  height: 4rem;
+  background-color: #fff;
+  min-height: 1px;
+  zoom: 1;
+}
+.congratulations:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.congratulations i {
+  float: left;
+  width: 16rem;
+  font-size: 2rem;
+  text-align: center;
+  color: #3aaba9;
+}
+.congratulations span {
+  float: left;
+  width: 16rem;
+  text-align: center;
+}
+.orderinfo {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+}
+.orderinfo ul {
+  width: 15rem;
+  position: relative;
+  overflow: hidden;
+}
+.orderinfo ul li {
+  float: left;
+  width: 15rem;
+  min-height: 1rem;
+  padding: .25rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.orderinfo ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.orderinfo ul li span {
+  float: left;
+  width: 4rem;
+  min-height: 1rem;
+  line-height: 1rem;
+  margin-right: .5rem;
+  color: #999;
+  font-size: .6rem;
+}
+.orderinfo ul li em {
+  float: left;
+  width: 10.5rem;
+  min-height: 1rem;
+  line-height: 1rem;
+  color: #999;
+  font-size: .6rem;
+}
+.operate {
+  width: 16rem;
+  height: 2rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  background-color: #414242;
+  border-top: 1px solid #e5e5e5;
+}
+.operate span {
+  float: left;
+  padding: 0 .5rem;
+  line-height: 2rem;
+  color: #fff;
+}
+.operate .godetail {
+  float: right;
+  height: 2rem;
+  padding: 0 .5rem;
+  margin-bottom: .5rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fff;
+  background-color: #86d4e8;
+}
+.operate .gopay {
+  float: right;
+  height: 2rem;
+  padding: 0 .5rem;
+  margin-bottom: .5rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fff;
+  background-color: #f10215;
+}
+.order-box {
+  width: 15.5rem;
+  padding: .25rem;
+  position: relative;
+  margin-top: .5rem;
+  background-color: #fff;
+}
+.order-box h3 {
+  width: 15rem;
+  padding-left: .5rem;
+  height: 1rem;
+  line-height: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  color: #000;
+  font-size: .6rem;
+}
+.order-box .way {
+  width: 6rem;
+  text-indent: .5rem;
+}
+.order-box .num {
+  width: 4rem;
+  text-align: center;
+}
+.order-box .price {
+  width: 5rem;
+  text-align: center;
+}
+.order-box .order-title {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .1rem 0;
+  margin: 0 .25rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.order-box .order-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-box .order-title span {
+  float: left;
+  font-size: .5rem;
+  color: #000;
+}
+.order-box .order-list {
+  width: 15rem;
+  margin: 0 .25rem;
+}
+.order-box .order-list .list-title {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .2rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  font-size: .6rem;
+  color: #555;
+}
+.order-box .order-list .list-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-box .order-list .list-title div {
+  float: left;
+}
+.order-box .order-list .list-title div.way {
+  text-indent: .5rem;
+}
+.order-box .order-list .list-title div.price {
+  color: #e4393c;
+}
+.order-box .order-list ul {
+  position: relative;
+}
+.order-box .order-list ul li {
+  width: 15rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  font-size: .6rem;
+}
+.order-box .order-list ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-box .order-list ul li div {
+  float: left;
+  color: #555;
+}
+.order-box .order-list ul li div.way {
+  text-indent: 1rem;
+}
+.order-box .order-list ul li div.price {
+  color: #e4393c;
+}
+.order-box .order-list .more {
+  display: inline-block;
+  width: 15rem;
+  height: .5rem;
+  margin-top: .25rem;
+  border-top: 1px solid #eee;
+  position: relative;
+}
+.order-box .order-list .more i {
+  position: absolute;
+  left: 50%;
+  margin-left: -0.75rem;
+  width: 1.5rem;
+  height: .8rem;
+  line-height: .8rem;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  border-top: none;
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+  color: #999;
+  background-color: #fff;
+  margin-top: -1px;
+}
+.combox {
+  width: 15rem;
+  padding: 0 .5rem 0 .5rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: .5rem;
+}
+.combox .payway {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+  font-weight: bolder;
+  color: #000;
+}
+.combox .invoice {
+  padding: .3rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+.combox .invoice h3 {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .6rem;
+  color: #000;
+  font-weight: bolder;
+}
+.combox .invoice ul {
+  position: relative;
+  padding-left: .5rem;
+}
+.combox .invoice ul li {
+  width: 14.5rem;
+  height: .8rem;
+  line-height: .8rem;
+  color: #999;
+  font-size: .5rem;
+}
+.combox .totalprice {
+  padding: .3rem 0;
+  position: relative;
+}
+.combox .totalprice h3 {
+  width: 15rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: .7rem;
+  color: #000;
+  font-weight: bolder;
+  position: relative;
+  overflow: hidden;
+}
+.combox .totalprice h3 span {
+  float: right;
+  text-align: left;
+  color: #e4393c;
+}
+.combox .totalprice h3 span b {
+  font-size: .8rem;
+  font-weight: normal;
+}
+.combox .totalprice ul {
+  position: relative;
+}
+.combox .totalprice ul li {
+  width: 15rem;
+  height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  color: #999;
+  font-size: .6rem;
+}
+.combox .totalprice ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.combox .totalprice ul li span {
+  float: left;
+  padding-left: .5rem;
+}
+.combox .totalprice ul li em {
+  float: right;
+  color: #e4393c;
+}

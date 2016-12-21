@@ -1,0 +1,132 @@
+@import "lib.less";
+
+.headerone{ background-color: #fff; box-shadow: 0 0 1px #999; overflow: inherit; z-index: 15;
+  .back-btn{
+    i{ color: #505050; }
+  }
+  h3{ color: #505050; width: 11rem; }
+  .link{ color: #505050; }
+  .nav{ display: none; width: 4rem; padding: 0 .5rem; background-color: #fff; position: absolute; right: 0; top: 2.05rem;
+    ul{ position: relative;
+      li{ width: 4rem; height: 1.5rem; line-height: 1.5rem; text-align: center; border-bottom: 1px solid #cecece; }
+      li:last-child{ border-bottom: none; }
+    }
+  }
+}
+.zoom{ display: none; width: 16rem; height: 100%; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background-color: rgba(0,0,0,.4); z-index: 12; }
+.zoom1{ display: none; width: 16rem; height: 100%; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background-color: rgba(0,0,0,.4); z-index: 12; }
+
+.flow-detail{ width: 16rem; position: absolute; left: 0; top: 2rem; right: 0; bottom: 2rem; overflow-y: scroll;
+  .flow-timeline{ width: 16rem; height: .8rem; position: relative; background-color: #dddddd; margin-top: .5rem;
+    span{ position: absolute; left:0; top: 0; width: 90%; height: .8rem; background-color: #e03030; z-index: 3; }
+    em{ position: absolute; right: 0; top: 0; height: .8rem; line-height: .8rem; margin: 0 .5rem; color: #fff; font-size: .6rem; z-index: 9;
+      i{ color: #fff; font-size: .6rem; vertical-align: middle; }
+    }
+  }
+  .flow-title{ width: 15rem; height: 1rem; padding: .5rem; border-bottom: 1px solid #cecece; background-color: #fff; position: relative; .cf();
+    .t-left{ float: left; height: 1rem;
+      i{ display: inline-block; width: 1rem; height: 1rem; line-height: 1rem; text-align: center; font-size: 1rem; vertical-align: middle; }
+      span{ display: inline-block; line-height: 1rem; vertical-align: middle; }
+      em{ font-size: .6rem; }
+    }
+    div.pickup{
+      i{ color: #e7b330; }
+      span{ color: #e7b330; }
+    }
+    div.send{
+      i{ color: #237290; }
+      span{ color: #237290; }
+    }
+
+    .t-right{ float: right; height: 1rem;
+      span{ display: inline-block; height: 1rem; line-height: 1rem; color: #505050; font-size: .6rem;
+        b{ color: #e03030; font-size: .8rem; font-weight: normal; }
+      }
+    }
+  }
+  .flow-time{ width: 15rem; padding: .5rem; background-color: #fff;
+    p{
+      span{ font-size: .7rem; color: #101010; }
+      b{ color: #e03030; font-weight: normal; }
+    }
+  }
+  .verfy{ width: 15rem; height: 1rem; padding: .5rem; background-color: #fff; margin-top: .5rem; position: relative;
+    a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+      span{ float: left; color: #101010; }
+      em{ float: right; color: #babac4;
+        i{ color: #babac4; }
+      }
+    }
+  }
+  .flow-info{ width: 15rem; padding: .5rem .5rem 0 .5rem; position: relative; background-color: #fff; margin-top: .5rem; .cf();
+    .info-item{ float: left; width: 15rem; position: relative; .cf();
+      span{ float: left; width: 1.2rem; height: 1.2rem; line-height: 1.2rem; margin-top: .1rem; text-align: center; border-radius: 50%; border: 2px solid #e7b330; color: #e7b330; }
+      span.pickup{ border-color: #e7b330; color: #e7b330; }
+      span.send{ border-color: #237290; color: #237290; }
+      .item-center{ float: left; width: 11rem; margin-left: .3rem; margin-bottom: .5rem; position: relative; .cf();
+        h3{ float: left; width: 11rem; height: 1.4rem; line-height: 1.5rem; font-weight: normal; color: #101010; .omit();
+          b{ font-weight: normal; color: #e14242; margin-left: .5rem; }
+        }
+        em{ float: left; width: 11rem; line-height: .8rem; font-size: .6rem; color: #959595; }
+      }
+      a{ float: left; width: 2rem; height: 2.4rem; line-height: 2.4rem; position: relative;
+        i{ display: inline-block; width: 2rem; height: 2.4rem; line-height: 2.4rem; text-align: center; font-size: 1.2rem; color: #237290; }
+      }
+    }
+  }
+  .pro-info{ width: 16rem; position: relative; background-color: #fff; margin-top:.5rem;
+    h3{ width: 15rem; padding: 0 .5rem; height: 2rem; line-height: 2rem; color: #505050; border-bottom: 1px solid #cecece; }
+    .info{ width: 15rem; position: relative; padding: .5rem;
+      h5{ font-weight: normal; height: 1rem; line-height: 1rem; font-size: .6rem; }
+      ul{ position: relative;
+        li{ width: 15rem; position: relative;
+          span{ display: inline-block; width: 15rem; font-size: .6rem; }
+          p{ width: 15rem; position: relative; .cf();
+            b{ float: left; height: 1rem; line-height: 1rem; font-weight: normal; font-size: .6rem; }
+            em{ float: left; height: 1rem; line-height: 1rem; font-size: .6rem; margin: 0 .3rem;
+              i{ font-size: .6rem; }
+            }
+          }
+        }
+      }
+    }
+  }
+  .customer-remark{ width: 15rem; line-height: 1rem; padding: .5rem; margin-top: .5rem; position: relative; background-color: #fff; .cf();
+    span{ color: #101010;
+      em{color: #505050; }
+    }
+  }
+  .remark-box{ width: 15rem; padding: .5rem; position: relative; background-color: #fff; margin-top: .5rem;
+    ul{ width: 15rem; position: relative;
+      li{ width: 15rem; line-height: 1rem; position: relative; .cf();
+        span{ float: left; width: 3rem; color: #101051; }
+        em{ float: left; width: 12rem; color: #101051; word-break: break-all; word-wrap: break-word; }
+      }
+    }
+    .add-mark{ width: 15rem; height: 1rem; margin: .25rem 0; position: relative; .cf();
+      i{ float: left; width: 1.5rem; height: 1.5rem; line-height: 1.5rem; text-align: center; color: #237290; font-size: 1.2rem; }
+      span{ float: left; height: 1.5rem; line-height: 1.5rem; }
+    }
+  }
+}
+.operate{ width: 16rem; height: 1.5rem; padding: .25rem 0; position: fixed; left: 0; bottom: 0; z-index: 9999; .cf(); box-shadow: 0 0 1px #999; background-color: #fff;
+  a{ float: left; width: 5.33rem; height: 1.5rem; line-height: 1.5rem; text-align: center; border-right: 1px solid #ccc; box-sizing: border-box; }
+  a:last-child{ border-right: none; }
+}
+.print{ width: 16rem; height: 2rem; position: fixed; left: 0; bottom: 0; background-color: #fff; z-index: 9999;
+  a{ display: inline-block; width: 16rem; height: 2rem; line-height: 2rem; text-align: center; background-color: #92d8ed; color: #fff; }
+}
+.modify-box{ display: none; position: fixed; left: 1rem; top: 50%; margin-top: -6.5rem; width: 14rem; background-color: #fff; border-radius: .25rem; overflow: hidden; z-index: 20;
+  .modify-title{ height: 1.5rem; width: 13.5rem; padding-left: .5rem; position: relative; border-bottom: 1px solid #cecece; .cf();
+    span{ float: left; line-height: 1.5rem; }
+    i{ float: right; width: 1.5rem; height: 1.5rem; line-height: 1.5rem; text-align: center; color: #505050; }
+  }
+  ul{ width: 14rem; position: relative;
+    li{ width: 13rem; margin: 0 .5rem; padding: .25rem 0; position: relative; border-bottom: 1px solid #cecece; .cf();
+      input{ float: left; border: none; width: 12.5rem; height: 1rem; padding: .25rem; }
+      i{ width: 1.5rem; height: 1.5rem; font-size: 1rem; line-height: 1.5rem; text-align: center; color: #237290; position: absolute; right: 0; top: .25rem; }
+      textarea{ border: none; resize: none; padding: .25rem; width: 12.5rem; height: 3rem; line-height: 1rem; }
+    }
+  }
+  a{ float: right; width: 3rem; height: 1.6rem; line-height: 1.6rem; text-align: center; background-color: #92d8ed; color: #fff; margin: .5rem; border-radius: .25rem; }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/cropper.min.css">
+    <link rel="stylesheet" href="../../style/css/logistics.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/logistics/verifydetailonlyread.js"></script>
+</head>
+<body class="ms-controller" ms-controller="verifydetail">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem;">核实单详情</h3>
+</div>
+<div class="verifydetail">
+    <p style=" width: 15rem; line-height: 1rem; font-size: .6rem; text-align: center; padding: .5rem; background-color: #d85256; color: #fff; ">请仔细核对商品，如核对错误，平台不承担任何责任！</p>
+    <div class="title">
+        <ul>
+            <li ms-class-1="active:left == 0" ms-on-tap="changeFn(0)">核实信息</li>
+            <li ms-class-1="active:left == -16" ms-on-tap="changeFn(-16)">核实图片</li>
+        </ul>
+    </div>
+    <div class="detailbox" ms-css-transform ="translateX({{left}}rem)">
+        <div class="detailitem">
+            <div class="peritem" ms-repeat="perDataModel">
+                <h3>{{el.CheckGroupName}}</h3>
+                <ul>
+                    <li ms-repeat="el.CheckItems">
+                        <span>{{el.CheckAttrName}}</span>
+                        <i class="iconfont" ms-class-1="icon-xuanze:!el.IsCheckRight" ms-class-2="icon-cuowu:el.IsCheckRight"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="remarks">
+                <textarea placeholder="请输入备注" ms-duplex="remark" readonly></textarea>
+            </div>
+        </div>
+        <div class="detailitem">
+            <p ms-if="imageList.size() === 0" style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;">暂无图片</p>
+            <div class="imgbox" ms-if="imageList.size() > 0">
+                <div class="imgitem" ms-repeat="imageList">
+                    <img ms-attr-src="el">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

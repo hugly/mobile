@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/quick.min.css">
+    <!--<link rel="stylesheet" href="../../style/css/mobiscroll.custom-2.16.1.min.css">-->
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <!--<script type="text/javascript" src="../../js/lib/mobiscroll.custom-2.17.2.min.js"></script>-->
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/fillorder.js"></script>
+</head>
+<body class="ms-controller" ms-controller="fillorder">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="backFn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 10rem;">填写订单</h3>
+    <!--<a href="../personal/person.html" class="message-btn">-->
+        <!--<i class="iconfont icon-xiaoxi"></i>-->
+        <!--<b></b>-->
+    <!--</a>-->
+</div>
+<!--取货地址-->
+<div class="pickaddress">
+    <!--ms-if-loop="hasAddress"-->
+    <div class="address">
+        <a ms-attr-href="chooseaddress.html?{{searchData}}">
+            <h3 ms-if-loop="hasAddress"><span>{{pickupAddress.ReceiverName}}</span><em>{{pickupAddress.Phone}}</em></h3>
+            <!--{{pickupAddress.DetailAddress}}-->
+            <p ms-if-loop="hasAddress"><i class="iconfont icon-dingwei"></i><span>{{pickupAddress.DetailAddress}}</span></p>
+            <b ms-if-loop="!hasAddress" style=" display: inline-block; width: 16rem; height: 2rem; line-height: 2rem; color: #f23030; text-align: center;">请选择取件地址</b>
+            <i ms-if-loop="hasAddress" class="more iconfont icon-xiangyou"></i>
+        </a>
+    </div>
+    <div class="line"></div>
+</div>
+<!--送货时间-->
+<div class="date" id="picktime">
+    <a ms-attr-href="choosepickuptimefill.html?{{searchData}}">
+        <div class="left">
+            <h4>取件时间</h4>
+            <p><span>{{showPickupTime}}</span></p>
+        </div>
+        <div class="right">
+            <i class="iconfont icon-rili"></i>
+        </div>
+    </a>
+</div>
+<!--支付配送部分-->
+<div class="distribution">
+    <a ms-attr-href="chooseways.html?{{searchData}}">
+        <div class="pay">
+            <h3>支付配送</h3>
+            <!--<i ms-if="distype !== 1" class="iconfont icon-xiangyou"></i>-->
+            <i class="iconfont icon-xiangyou" style="line-height: 2.2rem;"></i>
+            <div class="pay-info">
+                <p>{{paytype === 1?'在线支付':'货到付款'}}</p>
+                <p>{{distype === 1?'到店自提':'送货上门'}}</p>
+            </div>
+            <h5 ms-if="distype !== 1">配送时间:{{SendTime}}</h5>
+        </div>
+        <!--<div class="distribox" ms-visible="distype === 2">-->
+            <!--<p class="distime"><span>配送时间</span><em>{{SendTime}}</em></p>-->
+            <!--<div class="address">-->
+                    <!--<h3><span>{{disAddress.ReceiverName}}</span><em>{{disAddress.Phone}}</em></h3>-->
+                    <!--<p><i class="iconfont icon-dingwei"></i>{{disAddress.Area}}{{disAddress.DetailAddress}}</p>-->
+                    <!--<i class="more iconfont icon-xiangyou"></i>-->
+
+            <!--</div>-->
+            <!--<div class="line"></div>-->
+        <!--</div>-->
+    </a>
+</div>
+<!--优惠券信息-->
+<div class="condition">
+    <ul>
+        <!--<li><a href="javascript:;">-->
+            <!--<span>是否使用优惠券</span>-->
+            <!--<div class="right" ms-on-tap="changeShowDis">-->
+                <!--<i class="iconfont" style="font-size: 1.5rem;" ms-class-2="icon-kaiguankai:!showDis" ms-class-1="icon-kaiguanguan-copy-copy show:showDis"></i>-->
+            <!--</div>-->
+        <!--</a></li>-->
+        <li><a ms-attr-href="../account/choosecoupons.html?{{searchData}}">
+            <span>优惠券</span>
+            <div class="right">
+                <em>{{couponName === ''?'请选择优惠券':couponName}}</em>
+                <i class="iconfont icon-xiangyou"></i>
+            </div>
+        </a></li>
+        <!--<li><a href="javascript:;">-->
+            <!--<span>洗衣会员卡</span>-->
+            <!--<div class="right">-->
+                <!--<em>无可用</em>-->
+                <!--<i class="iconfont icon-xiangyou"></i>-->
+            <!--</div>-->
+        <!--</a></li>-->
+        <!--<li><a href="javascript:;">-->
+            <!--<span>积分 <em>共{{totalScore}}分,可抵{{totalScore}}元 <i class="iconfont icon-icontishitishi"></i> </em> </span>-->
+            <!--<div class="right" ms-if-loop="totalScore > 0">-->
+                <!--<input type="tel" ms-visible="useScore" ms-duplex="score" ms-on-keyup="calcuteScore" placeholder="请输入使用积分">-->
+                <!--<i class="score iconfont" ms-class-1="icon-yuanxuankuang:!useScore" ms-class-2="hasColor icon-gouxuan:useScore" ms-on-tap="changeScore"></i>-->
+                <!--<em>使用积分</em>-->
+            <!--</div>-->
+        <!--</a></li>-->
+    </ul>
+</div>
+<!--优惠券信息-->
+<div class="condition" ms-if="memberCardObj">
+    <ul>
+        <li><a href="javascript:;">
+            <span>是否余额支付(<b style="color: #c00;">{{memberCardObj.Balance | currency}}</b>)</span>
+            <div class="right" ms-on-tap="changeShowDis">
+                <i class="iconfont" style="font-size: 1.5rem;" ms-class-2="icon-kaiguankai:!showDis" ms-class-1="icon-kaiguanguan-copy-copy show:showDis"></i>
+            </div>
+        </a></li>
+    </ul>
+</div>
+<!--产品信息-->
+<div class="productbox">
+    <a ms-attr-href="productlist.html?{{searchData}}">
+        <div class="shopInfo">
+            <i class="iconfont icon-shangjia"></i>
+            <em>{{shopInfo.Name}}</em>
+        </div>
+        <div class="product-list" ms-if="skuData.size() > 1">
+            <img ms-repeat="skuData" ms-attr-src="el.SubCategoryImage" ms-if-loop="$index < 4">
+        </div>
+        <div class="product-detail" ms-if="skuData.size() === 1">
+            <img ms-attr-src="skuData[0].SubCategoryImage">
+            <div class="detail-info">
+                <h3>{{skuData[0].CategoryName}}-{{skuData[0].SubCategoryName}}<em>({{skuData[0].saleTypeName}})</em></h3>
+                <p><b>{{skuData[0].Price | currency}}</b><em>x{{skuData[0].Num}}</em></p>
+            </div>
+        </div>
+        <i class="rightfo iconfont icon-xiangyou"></i>
+        <span>共{{TotalNum}}件</span>
+    </a>
+</div>
+<!--发票信息-->
+<div class="condition">
+    <ul>
+        <!--<li><a href="javascript:;">-->
+        <!--<span>发票名称:<input type="text" ms-duplex="ticketname" placeholder="请输入发票名称"></span>-->
+        <!--</a></li>-->
+        <!--<li><a ms-attr-href="invoice.html?{{searchData}}">-->
+        <!--<span>发票信息</span>-->
+        <!--<div class="right">-->
+        <!--<span>{{ticketname}}-{{ticketType}}</span>-->
+        <!--<i class="iconfont icon-xiangyou"></i>-->
+        <!--</div>-->
+        <!--</a></li>-->
+        <li><a href="javascript:;">
+            <span>备注:<input type="text" ms-duplex="remark" placeholder="选项,可填写你的要求"></span>
+        </a></li>
+    </ul>
+</div>
+<!--订单列表-->
+<!--<div class="order-box">-->
+    <!--<h3>订单列表</h3>-->
+    <!--<div class="order-title">-->
+        <!--<span class="way">维护方式</span>-->
+        <!--<span class="num">数量</span>-->
+        <!--<span class="price">价格</span>-->
+    <!--</div>-->
+    <!--<div class="order-list" ms-repeat="proList" ms-if-loop="el.value.size()>0">-->
+        <!--<div class="list-title">-->
+            <!--<div class="way">-->
+                <!--<i></i>{{el.name}}-->
+            <!--</div>-->
+            <!--<div class="num">小计:{{el.value.size()}}</div>-->
+        <!--</div>-->
+        <!--<ul>-->
+            <!--<li ms-repeat="el.value">-->
+                <!--<div class="way">{{el.SubCategoryName}}</div>-->
+                <!--<div class="num">x {{el.Num}}</div>-->
+                <!--<div class="price">￥{{el.Num*el.Price | number(2)}}</div>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</div>-->
+<!--支付方式\发票\价格合计-->
+<div class="combox">
+    <div class="totalprice">
+        <h3 ms-if="(Price+PickFee+LogicFee-score-couponPrice) > 0">订单总额 <span>￥<b>{{Price+PickFee+LogicFee-score-couponPrice | number(2)}}</b></span></h3>
+        <h3 ms-if="(Price+PickFee+LogicFee-score-couponPrice) <= 0">订单总额 <span>￥<b>0</b></span></h3>
+        <ul>
+            <li><span>商品金额</span><em>￥{{Price | number(2) }}</em></li>
+            <li ms-if-loop="PickFee !== 0"><span>取件费用</span><em>+￥{{PickFee | number(2)}}</em></li>
+            <li ms-if-loop="LogicFee !== 0"><span>配送费用</span><em>+￥{{LogicFee | number(2)}}</em></li>
+            <li ms-visible="score>0"><span>积分抵扣</span><em>-￥{{score | number(2)}}</em></li>
+            <li ms-visible="couponPrice>0"><span>{{couponName}}</span><em>-￥{{couponPrice | number(2)}}</em></li>
+            <li ms-visible="(OriPrice-payAble)>0"><span>会员折扣</span><em>-￥{{OriPrice-payAble | number(2)}}</em></li>
+        </ul>
+    </div>
+</div>
+<div  style=" width: 16rem; height: 2.5rem;"></div>
+<!--去支付-->
+<div class="gopay" style="display: block; ">
+    <div class="totalprice">
+        <span>应付款:￥{{OriPrice | number(2)}}</span>
+        <b>实付款:￥{{(payAble-couponPrice-score)<0?0:(payAble-couponPrice-score)|number(2)}}</b>
+    </div>
+    <a href="javascript:;" class="pay-btn" ms-if="!isPaying" ms-on-tap="createOrder">去支付</a>
+    <a href="javascript:;" class="pay-btn" ms-if="isPaying" style="background-color: #ccc;" >支付中</a>
+</div>
+</body>
+</html>

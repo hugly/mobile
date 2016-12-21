@@ -1,0 +1,322 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+body {
+  background-color: #fff;
+}
+.circle {
+  width: 12rem;
+  height: 12rem;
+  position: absolute;
+  left: 2rem;
+  border-radius: 50%;
+  background: #86d4eb;
+}
+.pie_left,
+.pie_right {
+  width: 12rem;
+  height: 12rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.left,
+.right {
+  width: 12rem;
+  height: 12rem;
+  background: #f4f6f5;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  transform: rotate(0deg);
+}
+.pie_right,
+.right {
+  clip: rect(0, auto, auto, 6rem);
+}
+.pie_left,
+.left {
+  clip: rect(0, 6rem, auto, 0);
+}
+.mask {
+  width: 11.6rem;
+  height: 11.6rem;
+  border-radius: 50%;
+  left: .2rem;
+  top: .2rem;
+  background: #fff;
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  color: #86d4eb;
+}
+.circle1 {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  left: 3rem;
+  top: 1rem;
+  border-radius: 50%;
+  background: #c2c5c8;
+}
+.pie_left1,
+.pie_right1 {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.left1,
+.right1 {
+  width: 10rem;
+  height: 10rem;
+  background: #f4f6f5;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  transform: rotate(0deg);
+}
+.pie_right1,
+.right1 {
+  clip: rect(0, auto, auto, 5rem);
+}
+.pie_left1,
+.left1 {
+  clip: rect(0, 5rem, auto, 0);
+}
+.mask1 {
+  width: 9.6rem;
+  height: 9.6rem;
+  border-radius: 50%;
+  left: .2rem;
+  top: .2rem;
+  background: #fff;
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  color: #86d4eb;
+}
+.mask1 em {
+  color: #b1b1b1;
+  font-size: 1rem;
+  font-family: -webkit-body;
+  line-height: 5rem;
+  font-weight: normal;
+}
+.mask1 em i {
+  font-size: .6rem;
+  font-family: -webkit-body;
+  color: #b1b1b1;
+  font-weight: normal;
+}
+.mask1 p {
+  color: #86d4eb;
+  line-height: 3rem;
+  font-family: -webkit-body;
+}
+.circulbox {
+  width: 15rem;
+  position: absolute;
+  left: .5rem;
+  top: 2rem;
+  right: .5rem;
+  bottom: .5rem;
+  background-color: #fff;
+  border-radius: .5rem;
+}
+.circulbox .circulstatus {
+  width: 15rem;
+  position: relative;
+}
+.circulbox .circulstatus h3 {
+  width: 14rem;
+  padding: 0 1rem;
+  height: 1rem;
+  color: #01dbf5;
+}
+.circulbox .circulstatus .title {
+  width: 14rem;
+  position: relative;
+  overflow: hidden;
+  margin: .5rem 1rem;
+  box-sizing: border-box;
+  border: 1px solid #e5e5e5;
+  border-radius: .5rem;
+}
+.circulbox .circulstatus .title ul {
+  width: 14rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.circulbox .circulstatus .title ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.circulbox .circulstatus .title ul li {
+  float: left;
+  width: 3.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+  border-right: 1px solid #e5e5e5;
+  text-align: center;
+  box-sizing: border-box;
+}
+.circulbox .circulstatus .title ul li.active {
+  background-color: #86d4eb;
+  color: #fff;
+}
+.circulbox .circulstatus .circlelist {
+  width: 16rem;
+  height: 12rem;
+  position: relative;
+  margin-top: 2rem;
+}
+.circulbox .circulstatus .circlelist .interpre {
+  position: absolute;
+  right: 1rem;
+  bottom: -2.5rem;
+}
+.circulbox .circulstatus .circlelist .interpre p {
+  width: 5rem;
+  height: .8rem;
+  line-height: .8rem;
+  font-size: .5rem;
+}
+.circulbox .circulstatus .circlelist .interpre p b {
+  display: inline-block;
+  width: 2rem;
+  height: 2px;
+  margin-left: .5rem;
+}
+.circulbox .circulstatus .circlelist .interpre p b.grey {
+  background-color: #aaa;
+}
+.circulbox .circulstatus .circlelist .interpre p b.blue {
+  background-color: #86d4eb;
+}
+.circulbox .circulstatus .circlebox {
+  width: 12rem;
+  height: 12rem;
+  margin: 2rem auto;
+  border: 2px solid #eee;
+  border-radius: 50%;
+  position: relative;
+}
+.circulbox .circulstatus .circlebox span {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #eee;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin-left: -1rem;
+  margin-top: 5rem;
+  opacity: 0;
+}
+.circulbox .circulstatus .info {
+  width: 13rem;
+  padding: 0 1rem;
+  position: relative;
+  margin-top: .5rem;
+}
+.circulbox .circulstatus .info p {
+  width: 13rem;
+  line-height: 1rem;
+  color: #5b5b5b;
+  font-size: .7rem;
+}
+.circulbox .circulstatus .info p b {
+  font-weight: normal;
+}
+.circulbox .overstate {
+  display: none;
+  width: 15rem;
+  height: 1rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: .6rem;
+  color: #5ad9ff;
+}

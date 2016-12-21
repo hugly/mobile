@@ -1,0 +1,258 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+body {
+  background-color: #fff;
+  position: relative;
+}
+.offline {
+  width: 16rem;
+  position: relative;
+  margin-top: 2.5rem;
+}
+.offline ul {
+  width: 16rem;
+  position: relative;
+}
+.offline ul li {
+  width: 15rem;
+  height: 1.2rem;
+  padding: .5rem;
+  margin-bottom: .5rem;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.offline ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.offline ul li .left-part {
+  float: left;
+  width: 3.5rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+}
+.offline ul li .right-part {
+  float: left;
+  width: 11rem;
+  height: 1.2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.offline ul li .right-part:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.offline ul li .right-part .phone {
+  float: left;
+  width: 8.5rem;
+  height: 1.2rem;
+  border: none;
+}
+.offline ul li .right-part .check-btn {
+  float: left;
+  width: 2.5rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+  background-color: #86d4e8;
+  color: #fff;
+  border-radius: .2rem;
+}
+.offline ul li .right-part .normal-label {
+  float: left;
+  width: 11rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.offline ul li .right-part .normal-input {
+  float: left;
+  width: 11rem;
+  height: 1.2rem;
+  border: none;
+}
+.ordersearch {
+  width: 15rem;
+  padding: 0 .5rem;
+  margin-top: 3rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.ordersearch:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.ordersearch input {
+  float: left;
+  width: 15rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  padding: .4rem;
+  border-radius: .2rem;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.acquirers-btn {
+  display: inline-block;
+  width: 15rem;
+  height: 2rem;
+  margin: .5rem;
+  line-height: 2rem;
+  border-radius: .25rem;
+  text-align: center;
+  color: #fff;
+  background-color: #86d4e8;
+}
+.main-offline {
+  width: 16rem;
+  position: absolute;
+  top: 2.2rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.main-offline ul {
+  width: 16rem;
+  margin: 2rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.main-offline ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.main-offline ul li {
+  float: left;
+  width: 7rem;
+  height: 6rem;
+  margin: 0 .5rem;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: .25rem;
+}
+.main-offline ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.main-offline ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.main-offline ul li a .title {
+  float: left;
+  width: 4rem;
+  height: 4rem;
+  line-height: 4.5rem;
+  margin: 0 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+.main-offline ul li a span {
+  float: left;
+  width: 7rem;
+  height: 2rem;
+  line-height: 1rem;
+  text-align: center;
+}
+.main-offline ul li a .right {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: .8rem;
+  color: #ccc;
+  text-align: right;
+}

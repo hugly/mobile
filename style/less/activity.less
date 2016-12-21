@@ -1,0 +1,96 @@
+@import "lib.less";
+
+body{ background-color: #fff; }
+.topbar{ width: 16rem; height: 7rem; position: relative;
+  img{ position: absolute; left: 0; top: 0; width: 16rem; }
+  a{ position: absolute; left: 0; top: 0; width: 15.5rem; height: 2rem; padding-left: .5rem; line-height: 2rem; z-index: 9;
+    i{ color: #fff; font-size: 1rem;}
+  }
+}
+.prize{ width: 15rem; height: 7.5rem; padding: 0 .5rem; position: relative;
+  img{ position: absolute; left: .5rem; top: 0; width: 15rem; height: 7.5rem; }
+  ul{ width: 8rem; position: absolute; left: 2rem; top: 2.5rem; overflow: hidden;
+    li{ float: left; width: 8rem; height: 1.1rem; line-height: 1.1rem; position: relative; .cf();
+      i{ float: left; width: .4rem; height: .4rem; margin: .35rem; background-color: #86d4eb; border-radius: 50%; }
+      span{ float: left; width: 6.8rem; height: 1.1rem; .omit(); color: #000;}
+    }
+  }
+}
+.joinactivity{ width: 15rem; padding: 0 .5rem; position: relative;
+  .jointitle{ width: 15rem; height: 3rem; position: relative;
+    img{ position: absolute; left: 0; top: 0; width: 8rem; height: 3rem; }
+    a{ position: absolute; right: 0; bottom: 0; height: 2rem; line-height: 3rem; color: #86d4eb;   }
+  }
+  .joincontent{ width: 15rem; position: relative;
+    ul{ width: 15rem; position: relative; .cf();
+      li{ float: left; width: 15rem; height: 2rem; margin-bottom: .5rem; position: relative; overflow: hidden;
+        span{ float: left; width: 3rem; height: 2rem; line-height: 2rem; text-align: center; }
+        .above{ float: left; width: 12rem; position: relative; .cf();
+          input{ float: left; width: 10rem; height: 1rem; line-height: 1rem; padding: .3rem .5rem; margin: .2rem 0; border:1px solid #c9c9c9; border-radius: .25rem; }
+          input.short{ width: 5rem; }
+          a{ float: left; width: 4.5rem; height: 1.7rem; line-height: 1.7rem; margin: .2rem 0 .2rem .5rem; font-size: .6rem; background-color: #eee; text-align: center; border-radius: .25rem; }
+        }
+      }
+    }
+    .iwantjoin{ display: inline-block; width: 14rem; height: 1.8rem; line-height: 1.8rem; text-align: center; margin: .5rem .5rem 0 .5rem; background-color: #86d4eb; color: #fff; border-radius: .25rem; }
+    .ranking{ display: inline-block; width: 14rem; height: 1.8rem; line-height: 1.8rem; text-align: center; margin: .5rem .5rem 0 .5rem; background-color: #fff; color: #86d4eb; border-radius: .25rem; border: 1px solid #86d4eb; box-sizing: border-box; }
+  }
+}
+.activityrank{ width: 16rem; position: relative; margin-top: 2rem;
+  .ranktop{ width: 16rem; height: 7rem; position: relative;
+    ul{ width: 15rem; position: absolute; left: .5rem; top: 2rem; z-index: 9; .cf();
+      li{ float: left; width: 15rem; height: .9rem; line-height: .9rem; position: relative; .cf();
+        span{ float: left; color: #000; font-size: .6rem;}
+        em{ float: left; color: #000; font-size: .6rem; margin: 0 .5rem;}
+        i{ float: left; color: #000; font-size: .6rem;}
+      }
+    }
+    img{ position: absolute; left: 0; top: 0; width: 16rem; height: 7rem; }
+  }
+  .ranktitle{ width: 15rem; margin: 0 .5rem; border-bottom: 1px solid #ccc; padding-bottom: .2rem; position: relative; .cf();
+    img{ float: left; width: 8rem; height: 3rem; }
+    div.timebox{ float: right; width: 5rem;
+      span{ display: inline-block; font-size: .6rem; margin-top: .4rem; }
+      b{ display: inline-block; height: 1.4rem; line-height: 1.4rem; padding: 0 .2rem; border-radius: .25rem; background-color: #86d4eb; color: #fff; font-size: .5rem; }
+    }
+  }
+  .rankbox{ width: 15rem; position: relative; padding: 0 .5rem;
+    ul{ padding: 1rem 0; position: relative;
+      li{ width: 15rem; height: 1rem; line-height: 1rem; margin-bottom: .5rem; position: relative; .cf();
+        span{ float: left; width: 3.5rem; height: 1rem; text-align: center; color: #000; }
+        .bar{ float: left; margin: 0 .5rem; width: 7rem; height: 1rem; background-color: #eee; position: relative;
+          .hasbar{ position: absolute; left: 0; top: 0; height: 1rem; background-color: #fd4f6a; z-index: 9; }
+        }
+        em{ float: left; width: 3.5rem; height: 1rem; text-align: center; color: #000; }
+      }
+    }
+  }
+}
+.rule{ width: 15rem; height: 5.5rem; margin: 0 .5rem; position: relative;
+  img{ position: absolute; left: .5rem; top: 0; width: 5rem; height: 2rem; }
+  ul{ width: 13rem; position: absolute; left: 2rem; top: 1.8rem; padding: .5rem 0; border-top: 1px solid #eee; overflow: hidden;
+    li{ float: left; width: 13rem; line-height: .9rem; position: relative; .cf();
+      i{ float: left; width: .4rem; height: .4rem; margin: .25rem; background-color: #86d4eb; border-radius: 50%; }
+      span{ float: left; width: 11.8rem; color: #000;}
+    }
+  }
+}
+div.rule1{
+  img{ left:10rem; }
+}
+div.rule2{ height: 11rem; }
+.helpbox{ width: 16rem; position: relative;
+  a{ display: block; width: 16rem; height: 16.5rem;
+    img{ width: 16rem; height: 16.5rem; }
+  }
+  p{  width: 15rem; height: 1.2rem; line-height: 1.2rem; font-size: .5rem; position: absolute; left: .5rem; bottom: 0.2rem; z-index: 9; border-top: 1px solid #b3c3cd; border-bottom: 1px solid #b3c3cd; text-align: center; }
+}
+.share{ width: 16rem; position: fixed; left: 0; top: 0; height: 100%; background-color: #191919;
+  .bgimg{ position: fixed; right: 1rem; top: 1rem; width: 4rem; height: 4rem; }
+  .normalacitivity{ display: inline-block; color: #fff; width: 16rem; text-align: center; font-family: initial; font-size: 1.2rem; margin-top: 8rem; }
+  .wantgo{ display: inline-block; width: 6rem; height: 1.6rem; line-height: 1.6rem; margin: 1rem 5rem; text-align: center; border:1px solid #fff; border-radius: .25rem; color: #fff; }
+}
+.sharesuccess{ width: 16rem; position: absolute; left: 0; top: 50%; margin-top: -5.5rem; background-color: #fff;
+  h3{ width: 16rem; height: 2rem; line-height: 2rem; color: #f00; text-align: center; font-size: 1rem; }
+  a{ display: inline-block; width: 8rem; height: 2rem; line-height: 2rem; text-align: center; margin: .5rem 4rem 0 4rem; background-color: #86d4eb; color: #fff; border-radius: .25rem; }
+}

@@ -1,0 +1,113 @@
+@import "lib.less";
+
+.headerone{
+  a.link{ width: 3rem; font-size: .5rem; }
+}
+.content{ width: 16rem; position: relative; top: 2rem;
+  .inivicename{ width: 16rem; height: 1.5rem; margin: .5rem 0; background-color: #fff; position: relative; .cf();
+    span{ float: left; width: 3.5rem; height: 1.5rem; line-height: 1.5rem; text-align: center; }
+    input{ float: left; width: 10rem; height: 1rem; line-height: 1rem; padding: .25rem; border: none; }
+  }
+  .choosecom{ width: 15rem; padding: 0 .5rem; background-color: #fff; margin-bottom: .3rem;
+    h3{ width: 15rem; height: 1.2rem; line-height: 1.6rem; font-size: .6rem;
+      i{ font-size: .6rem; margin-right: .2rem; }
+    }
+    .type1{ width: 15rem; position: relative; .cf(); padding: .5rem 0;
+      li{ float: left; height: 1.2rem; border: 1px solid #ccc; border-radius: .2rem; box-sizing: border-box; position: relative; margin-left: .5rem; .cf();
+        i{ display: none; float: left; height: 1.2rem; line-height: 1.2rem; padding-left: .2rem; color: #86d4eb; font-size: .6rem; }
+        span{ float: left; height: 1.2rem; line-height: 1.2rem; padding: 0 .2rem; font-size: .5rem; }
+      }
+      li.active{ border-color: #86d4eb;
+        i{ display: block; }
+        span{ color: #86d4eb; }
+      }
+    }
+    .type2{ width: 15rem; position: relative; .cf(); padding: .5rem 0;
+      li{ float: left; height: 1.2rem; line-height: 1.2rem; position: relative; .cf(); margin-right: .5rem;
+        i{ float: left; width: 1.2rem; height: 1.2rem; line-height: 1.2rem; text-align: center;}
+        span{}
+      }
+      li.active{
+        i{ color: #86d4eb; }
+      }
+    }
+    .type3{ width: 15rem; position: relative; .cf(); padding-top: .5rem;
+      li{ height: 1.5rem; line-height: 1.5rem; border-top: 1px solid #e5e5e5; position: relative; .cf();
+        span{ float: left; height: 1.5rem; line-height: 1.5rem; font-size: .5rem; }
+        input{ float: left; width: 10rem; height: 1rem; line-height: 1rem; border: none; margin: .25rem 0; margin-left: .5rem; }
+      }
+    }
+    .type4{ width: 15rem; position: relative; .cf(); padding: .5rem 0;
+      li{ float: left; width: 15rem; height: 1.2rem; line-height: 1.2rem; position: relative; .cf(); margin-right: .5rem;
+        i{ float: left; width: 1.2rem; height: 1.2rem; line-height: 1.2rem; text-align: center;}
+        span{}
+      }
+      li.active{
+        i{ color: #86d4eb; }
+      }
+    }
+  }
+  .combox{ background-color: #fff;
+    .date{ width: 15rem; margin: 0 .5rem; padding: .2rem 0; border-top: 1px solid #e5e5e5; position: relative; .cf();
+      .left{ float: left;
+        h4{ font-size: .5rem; height: .75rem; line-height: .75rem; font-weight: normal; }
+        p{ font-size: .5rem; height: .75rem; line-height: .75rem;
+          span{}
+        }
+      }
+      .right{ float: right; height: 1.5rem; width: 1.5rem; line-height: 1.5rem; text-align: center;
+        i{ color: #bfbfbf; font-size: 1rem; }
+      }
+      input{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        opacity: 0;
+      }
+    }
+    .address{ width: 15rem; margin: 0 .5rem; padding: .2rem 0; border-top: 1px solid #e5e5e5; position: relative; .cf();
+      h3{ font-size: .5rem; font-weight: bolder; height: 1rem; line-height: 1rem;
+        span{ font-size: .6rem; margin: 0 .5rem; }
+        em{}
+      }
+      p{ font-size: .5rem; height: 1rem; line-height: 1rem;
+        i{ font-size: .5rem; margin-right: .2rem; }
+      }
+      .more{ position: absolute; right: 0; top: .2rem; width: 1.5rem; height: 2rem; line-height: 2rem; text-align: center; color: #bfbfbf; }
+    }
+    .line{ width: 16rem; height: .1rem; background: url('images/line.png') repeat-x; background-size: 64px 3px; }
+  }
+  .sure-btn{ display: inline-block; width: 8rem; height: 2rem; line-height: 2rem; margin: 1rem 4rem; text-align: center; color: #fff; background-color: #86d4eb; border-radius: .25rem; }
+  .order{ width: 16rem; position: relative;
+    .satus{ width: 16rem; height: 2rem; line-height: 2rem; padding: 1rem 0; text-align: center; position: relative; .cf();
+      i{ float: left; width: 2rem; height: 2rem; line-height: 2rem; margin-left: 5rem; text-align: center; font-size: 2rem; color: #55ae24; }
+      span{ float: left; margin-left: .2rem; height: 2rem; line-height: 2rem; color: #55ae24; font-size: 1rem; }
+    }
+    div.error{
+      i{ color: #d0271f; }
+      span{ color: #d0271f; }
+    }
+    .info{ width: 15rem; background-color: #fff; position: relative; padding: 0 .5rem; border-bottom: 1px solid #e5e5e5;
+      ul{ position: relative;
+        li{ width: 15rem; height: 1.5rem; line-height: 1.5rem; position: relative; .cf();
+          span{ float: left; width: 5rem; height: 1.5rem; line-height: 1.5rem; color: #999; }
+          em{ float: right; width: 10rem; height: 1.5rem; line-height: 1.5rem; text-align: right; color: #999; }
+        }
+      }
+    }
+    .code{ width: 16rem; position: relative; text-align: center; margin: 1rem 0;
+      img{ display: inline-block; width: 6rem; height: 6rem; }
+      p{ width: 16rem; height: 1rem; line-height: 1rem; margin-top: .2rem; }
+    }
+    .tools{ width: 16rem; height: 2rem; background-color: #f9f9f9; position: relative; .cf();
+      .check{ float: left; width: 8rem; height: 2rem; line-height: 2rem; text-align: center; box-sizing: border-box; border-right: 1px solid #e5e5e5; }
+      .back{ float: left; width: 8rem; height: 2rem; line-height: 2rem; text-align: center; }
+      i{ position: absolute; left: 50%; margin-left: -1.5rem; bottom: .25rem; width: 3rem; height: 3rem; line-height: 2.75rem; text-align: center; color: #e5e5e5; border-radius: 50%; font-size: 3rem; background-color: #fff;  }
+    }
+  }
+}
+.sure{ position: fixed; left: 0; bottom: 0; width: 16rem; height: 2rem;
+  .sure-btn{ display: block; width: 100%; height: 100%; line-height: 2rem; text-align: center; background-color: #86d4eb; color: #fff;}
+}

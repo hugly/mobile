@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/offline_usrtest.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/offline/offline_erweicode.js"></script>
+</head>
+<body class="ms-controller" ms-controller="erweicode" style="background-color: #fff;">
+<!--公共头部-->
+<div class="headerone" style="background-color: #237290;">
+    <h3 style=" width: 16rem; padding: 0;">授权二维码</h3>
+</div>
+<div class="ercode">
+    <img class="loading" src="../../data-images/loading.gif" ms-if="loadingImgShow">
+    <img class="ercode" ms-attr-src="http://m.wziwash.com/QrCode/GetAuthorizeQrImg?type=1&authCode={{code}}" ms-if="!loadingImgShow">
+    <p>用户通过微信扫一扫，扫描该二维码。授权物流人员成功后，即可开始线下收单！</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../js/dropload/dropload.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/pickflow.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/dropload/dropload.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/proflow/waitpickflow.js"></script>
+</head>
+<body class="ms-controller" ms-controller="pickuptask">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>任务列表</h3>
+    <a href="completeflow.html" style="width: 4rem; font-size: .6rem;" class="link">已完成</a>
+</div>
+<div class="taskmenu">
+    <ul>
+        <li><a href="newtask.html">新任务</a></li>
+        <li class="active"><a href="javascript:;">待取货</a></li>
+        <li><a href="deliverflow.html">配送中</a></li>
+    </ul>
+    <!--<p style="width: 16rem; height: 1.6rem; line-height: 1.6rem; text-align: center; color: #f39233; background-color: #fde6d0; border-top: 1px solid #f5c99e; border-bottom: 1px solid #f5c99e;" ms-if="cacheNum > 0" ms-on-tap="pushFn">有{{cacheNum}}条新订单，点击查看</p>-->
+</div>
+<div class="waitpickflow">
+    <ul>
+        <li class="flow-item" ms-repeat="taskDataModel" ms-attr-code="el.Code">
+            <div class="flow-timeline" ms-if="el.RemainTime > 0">
+                <span></span>
+                <em></em>
+            </div>
+            <div class="flow-title">
+                <div class="t-left" ms-class-1="pickup:el.Type === 1" ms-class-2="send:el.Type === 2">
+                    <i class="iconfont icon-youdidehuoche"></i>
+                    <span>{{el.Type === 1?'取件':'送件'}}</span>
+                </div>
+                <div class="t-right" ms-on-tap="showOperFn(el)">
+                    <span>更多操作<i class="iconfont icon-xiangxia1"></i></span>
+                </div>
+                <div class="t-more" ms-visible="el.showSilder">
+                    <ul>
+                        <li class="li-item" ms-on-tap="verifyFn(el)">再次核实</li>
+                        <li class="li-item" ms-on-tap="showModifyFn(el)">添加备注</li>
+                        <li class="li-item" ms-on-tap="cancelFn(el,$remove)">取消</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flow-time">
+                <p><span>本单收入:</span><b>{{el.Price | currency}}</b></p>
+                <p>
+                    <span>预约时间:</span>
+                    <span ms-if="el.Type == 1 && !el.HasPickTimeRange">{{el.PickTime | date("yyyy.MM.dd HH:mm")}}</span>
+                    <span ms-if="el.Type == 1 && el.HasPickTimeRange">{{el.PickTime | date("yyyy.MM.dd HH:mm")}}  -  {{el.PickEndTime | date("HH:mm")}}</span>
+                    <span ms-if="el.Type == 2">{{el.realmark}}</span>
+                </p>
+            </div>
+            <div class="flow-info" ms-on-tap="goDetailFn(el)">
+                <div class="info-item">
+                    <span>取</span>
+                    <div class="item-center">
+                        <h3>{{el.PickName}}<b>{{ el.PickDist | number(0)}}km</b></h3>
+                        <em>{{el.PickDetailAddress}}</em>
+                    </div>
+                    <a ms-attr-href="'tel:'+el.PickPhone">
+                        <i class="iconfont icon-dadianhua"></i>
+                    </a>
+                </div>
+                <a href="tel:13709010408"></a>
+                <div class="info-item">
+                    <span class="send">送</span>
+                    <div class="item-center">
+                        <h3>{{el.SendName}}<b>{{ el.SendDist | number(0)}}km</b></h3>
+                        <em>{{el.SendDetailAddress}}</em>
+                    </div>
+                    <a ms-attr-href="'tel:'+el.SendPhone">
+                        <i class="iconfont icon-dadianhua"></i>
+                    </a>
+                </div>
+                <i class="iconfont icon-xiangyou"></i>
+            </div>
+            <div class="info-remark" ms-if="el.Remark">
+                <span>备注:</span>
+                <em>{{el.Remark}}</em>
+            </div>
+            <div class="operate">
+                <a href="javascript:;" ms-visible="!el.HasAllCheck && el.Type !== 2" ms-on-tap="verifyFn(el)">{{el.HasItem?'核实':'录入'}}商品</a>
+                <a href="javascript:;" ms-visible="el.Type === 1 && el.HasAllCheck && !el.isPick" ms-on-tap="hasPickFn(el,$remove)">确认收件</a>
+                <a href="javascript:;" ms-visible="el.Type === 2" ms-on-tap="hasPickFn(el,$remove)">确认收件</a>
+                <a href="javascript:;" ms-visible="el.HasAllCheck && el.isPick" style="background-color: #ccc;">处理中</a>
+            </div>
+            <div class="flow-order">
+                <span class="fl">物流编号:{{el.Code}}</span>
+                <span class="fr">{{el.CreateTime | date("yyyy.MM.dd HH:mm")}}</span>
+            </div>
+            <div class="hasver" ms-visible="el.HasAllCheck">已核实</div>
+        </li>
+    </ul>
+</div>
+<div class="zoom"></div>
+<div class="zoom1" ms-on-tap="closeIntemFn"></div>
+<div class="filter">
+    <ul>
+        <li class="filter-item" ms-on-tap="pushFn">
+            <div class="main-filter">
+                <span>刷新</span>
+            </div>
+        </li>
+        <li class="filter-item" ms-on-tap="tapItemFn($event)">
+            <div class="main-filter">
+                <i class="iconfont icon-shaixuan"></i>
+                <span>筛选</span>
+            </div>
+            <div class="silder-filter">
+                <ul>
+                    <li ms-on-tap="filterFn('Dist',3,$event)">最近3公里</li>
+                    <li ms-on-tap="filterFn('Type',1,$event)">取件</li>
+                    <li ms-on-tap="filterFn('Type',2,$event)">送件</li>
+                </ul>
+            </div>
+        </li>
+        <li class="filter-item" ms-on-tap="tapItemFn($event)">
+            <div class="main-filter">
+                <i class="iconfont icon-paixu"></i>
+                <span>筛选</span>
+            </div>
+            <div class="silder-filter">
+                <ul>
+                    <li ms-on-tap="filterOtherFn('Dist',$event)">按距离</li>
+                    <li ms-on-tap="filterOtherFn('Income',$event)">收入递增</li>
+                    <li ms-on-tap="filterOtherFn('OrderDate',$event)">预约时间</li>
+                    <li ms-on-tap="filterOtherFn('CreateDate',$event)">创建时间</li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="modify-box">
+    <div class="modify-title">
+        <span>编辑信息</span>
+        <i class="iconfont icon-cuo" ms-on-tap="closeModifyFn"></i>
+    </div>
+    <ul>
+        <li>
+            <input type="datetime-local" id="time" placeholder="请选择预约时间" ms-duplex="modifyDataModel.PickTime">
+        </li>
+        <li>
+            <input type="text" id="address" placeholder="请输入取件地址" ms-duplex="modifyDataModel.PickDetailAddress">
+        </li>
+        <li>
+            <textarea placeholder="请输入备注信息" id="remark" ms-duplex="modifyDataModel.Remark"></textarea>
+        </li>
+    </ul>
+    <a href="javascript:;" ms-if="!isModifing" ms-on-tap="modifyFn(modifyDataModel)">确定</a>
+    <a href="javascript:;" ms-if="isModifing" style="background-color: #ccc;">处理中</a>
+</div>
+</body>
+</html>

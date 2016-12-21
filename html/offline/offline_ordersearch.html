@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/offline_index.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/offline/offline_orderSearch.js"></script>
+</head>
+<body class="ms-controller" ms-controller="orderSearch">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style=" width: 12rem; padding: 0;">搜索订单</h3>
+</div>
+<div class="ordersearch">
+    <!--<span>取件地址:</span>-->
+    <input type="text" placeholder="请输入订单编号" ms-duplex="code">
+</div>
+<a href="javascript:;" class="acquirers-btn" ms-if="!isSearch" ms-on-tap="searchFn">搜索</a>
+<a href="javascript:;" class="acquirers-btn" style="background-color: #ccc;" ms-if="isSearch">搜索中</a>
+</body>
+</html>

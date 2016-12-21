@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/logistics.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/logistics/completetask.js"></script>
+</head>
+<body class="ms-controller" ms-controller="completetask">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem;">任务列表</h3>
+    <!--<a href="javascript:;" class="link" style="width: 4rem;">收支报表</a>-->
+</div>
+<div class="comtask">
+
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;" ms-if="!loadingImgShow && taskDataModel.size() === 0">暂无物流信息</p>
+    <div class="taskitem" ms-repeat="taskDataModel">
+        <!--<p class="count"><span class="fl">9月23日</span><span class="fr">完成23单,总金额12元</span></p>-->
+        <div class="item">
+            <a ms-attr-href="taskdetail.html?code={{el.LogisticsCode}}">
+                <p class="itemcount" style="padding: .5rem;">
+                    <span class="fl">运单号：{{el.Logistics.Code}}</span>
+                    <span class="fr spec">{{el.showStatus}}</span>
+                </p>
+                <p class="itemcount" style="border-top: 1px solid #e5e5e5;"><span class="fl">完成时间：</span><span class="fr">{{el.CompleteTime}}</span></p>
+                <div class="item-center">
+                    <div class="centerli">
+                        <i style="background-color: #fbb252;">取</i>
+                        <div class="info">
+                            <h3 ms-if="el.Logistics.PickAddress">{{el.Logistics.PickAddress}}</h3>
+                            <p ms-if="el.Logistics.PickDetailAddress">{{el.Logistics.PickDetailAddress}}</p>
+                        </div>
+                    </div>
+                    <div class="centerli">
+                        <i style="background-color: #70abe1;">送</i>
+                        <div class="info">
+                            <h3 ms-if="el.Logistics.SendAddress">{{el.Logistics.SendAddress}}</h3>
+                            <p ms-if="el.Logistics.SendDetailAddress">{{el.Logistics.SendDetailAddress}}</p>
+                        </div>
+                    </div>
+                    <div class="total">
+                        <em><b>{{el.Logistics.Price | currency}}</b>元</em>
+                        <i class="iconfont icon-xiangyou"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

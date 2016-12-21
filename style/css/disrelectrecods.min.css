@@ -1,0 +1,139 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.walletdetail {
+  width: 15rem;
+  padding: 0 .5rem;
+  margin-top: 2.2rem;
+  position: relative;
+}
+.walletdetail ul {
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.walletdetail ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.walletdetail ul li {
+  float: left;
+  width: 15rem;
+  padding: .2rem 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.walletdetail ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.walletdetail ul li .top-info {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  width: 15rem;
+}
+.walletdetail ul li .top-info span {
+  display: inline-block;
+  margin-right: .5rem;
+  color: #999;
+}
+.walletdetail ul li .bottom-info {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.walletdetail ul li .bottom-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.walletdetail ul li .bottom-info h3 {
+  float: left;
+  color: #333;
+  font-size: .7rem;
+}
+.walletdetail ul li .bottom-info p {
+  float: right;
+  font-size: .6rem;
+  color: #999;
+}

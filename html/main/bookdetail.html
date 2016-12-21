@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--<script type="text/javascript" src="http://m.wziwash.com/oauth"></script>-->
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/bookdetail.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/bookDetail.js"></script>
+</head>
+<body class="ms-controller" ms-controller="book">
+<!--公共头部-->
+<div class="headerone">
+    <a href="index.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 10rem;">预约详情</h3>
+</div>
+<div class="congratulations"><i class="iconfont icon-gouxuan"></i><span>预约成功！</span></div>
+<div class="orderinfo">
+    <ul>
+        <li>
+            <span>取件时间</span>
+            <em>{{orderData.Contacter.ThirdCode}}</em>
+        </li>
+        <li>
+            <span>取件联系人</span>
+            <em>{{orderData.Contacter.Name}}</em>
+        </li>
+        <li>
+            <span>取件地址</span>
+            <em>{{orderData.Contacter.Address}}</em>
+        </li>
+        <li>
+            <span>送件方式</span>
+            <em>{{orderData.IsLogist?'送货上门':'到店自提'}}</em>
+        </li>
+        <li ms-if="orderData.IsLogist">
+            <span>送件时间</span>
+            <em>{{LogistTime}}</em>
+        </li>
+        <li ms-if="orderData.IsLogist">
+            <span>送件联系人</span>
+            <em>{{orderData.LogistPicker.Name}}</em>
+        </li>
+        <li ms-if="orderData.IsLogist">
+            <span>送件地址</span>
+            <em>{{orderData.LogistPicker.Address}}</em>
+        </li>
+    </ul>
+</div>
+<div class="order-box" ms-if="hasProduct">
+    <h3>商品列表</h3>
+    <div class="order-title">
+        <span class="way">维护方式</span>
+        <span class="num">数量</span>
+        <span class="price">价格</span>
+    </div>
+    <div class="order-list" ms-repeat="proList" ms-if-loop="el.value.size()>0">
+        <div class="list-title">
+            <div class="way">
+                <i></i>{{el.name}}
+            </div>
+            <div class="num">小计:{{el.num}}</div>
+            <div class="price">小计:￥{{el.ttprice}}</div>
+        </div>
+        <ul>
+            <li ms-repeat="el.value">
+                <div class="way">{{el.Name}}</div>
+                <div class="num">x {{el.totalNum}}</div>
+                <div class="price">￥{{el.Price}}</div>
+            </li>
+        </ul>
+        <!--<a href="javascript:;" class="more"><i class="iconfont icon-weibiaoti1"></i></a>-->
+    </div>
+</div>
+<!--支付方式\发票\价格合计-->
+<div class="combox" ms-if="hasProduct">
+    <div class="payway" ms-if-loop="orderData.ShowPayType && orderData.ShowPayType !== 'NULL' && hasProduct">支付方式:{{orderData.ShowPayType}}</div>
+    <!--<div class="invoice" ms-if-loop="orderData.HasInvoice">-->
+    <!--<h3>发票信息</h3>-->
+    <!--<ul>-->
+    <!--<li>发票抬头:{{orderData.InvoiceType === 0?'个人':'单位'}}</li>-->
+    <!--<li>发票内容:{{orderData.InvoiceName}}</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <div class="totalprice">
+        <h3>订单总额 <span>￥<b>{{orderData.PayPrice | number(2)}}</b></span></h3>
+        <ul>
+            <!--<li ms-if="orderData.LogistCharge > 0"><span>商品金额</span><em>￥{{orderData.TotalPrice - orderData.LogistCharge | number(2)}}</em></li>-->
+            <li ms-if="orderData.TotalPrice>0"><span>商品金额</span><em>{{orderData.TotalPrice | currency)}}</em></li>
+            <li ms-if="orderData.LogistCharge > 0"><span>物流费用</span><em>{{orderData.LogistCharge | currency}}</em></li>
+            <li ms-if-loop="orderData.CounpPrice > 0"><span>店铺优惠券</span><em>-{{orderData.CounpPrice | currency}}</em></li>
+        </ul>
+    </div>
+</div>
+<div class="kong" style="width: 16rem; height: 3rem;"></div>
+<div class="operate">
+    <span ms-if="hasProduct">总计:{{orderData.PayPrice | currency}}</span>
+    <a ms-attr-href="../main/quickbook.html?type=person&code={{code}}" class="godetail" ms-if="!hasProduct">查看订单</a>
+    <a href="javascript:;" class="gopay" ms-if="hasProduct" ms-on-tap="payOrder">去支付</a>
+</div>
+</body>
+</html>

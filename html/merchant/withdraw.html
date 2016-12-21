@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/withdraw.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/withdraw.js"></script>
+</head>
+<body class="ms-controller" ms-controller="withdraw">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>提现</h3>
+</div>
+<div class="withdraw">
+    <ul>
+        <li>
+            <span>姓名</span>
+            <input type="text" placeholder="请输入提现人姓名" ms-duplex="withdrawModel.Name">
+        </li>
+        <li>
+            <span>手机</span>
+            <input type="tel" placeholder="请输入提现人手机号码" ms-duplex="withdrawModel.Phone">
+        </li>
+        <li>
+            <span>银行</span>
+            <select id="cardType">
+                <option value="-1">请选择</option>
+                <option ms-repeat="withdrawModel.arrBank" ms-attr-value="{{el.value}}">{{el.name}}</option>
+            </select>
+        </li>
+        <li>
+            <span>银行卡号</span>
+            <input type="tel" placeholder="请输入提现银行卡号" ms-on-keyup="checkValueFn" ms-duplex="withdrawModel.CardNum">
+        </li>
+    </ul>
+    <ul>
+        <li style="border-bottom: none;">
+            <span>提现金额</span>
+            <i>￥</i>
+            <input type="tel" style="width:10.2rem; padding-left: .8rem; border-bottom: 1px solid #eee;" placeholder="请输入提现金额" ms-on-keyup="checkValueFn" ms-duplex="withdrawModel.Amount">
+        </li>
+        <li class="spec">
+            <p>账户余额:<em>{{withdrawModel.Balance | currency}}</em>元</p>
+        </li>
+    </ul>
+    <a href="javascript:;" class="withdrawbtn" ms-if="!isWithdrawing" ms-on-tap="submitWithdraw">提现</a>
+    <a href="javascript:;" class="withdrawbtn" ms-if="isWithdrawing" style="background-color: #ccc; color: #bbb;">提现</a>
+    <p>单笔提现上限:<em>{{withdrawModel.LimitAmount | currency}}</em>。</p>
+    <p>手续费<em>{{withdrawModel.FeePercent/100 | number(2)}}%</em></p>
+</div>
+</body>
+</html>

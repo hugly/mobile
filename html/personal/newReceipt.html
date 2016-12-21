@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/newreceipt.js"></script>
+</head>
+<body class="ms-controller" ms-controller="newaddress">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>新建收货地址</h3>
+</div>
+<!--账户管理详细信息-->
+<div class="account">
+    <div class="itemlist">
+        <ul>
+            <li><a href="javascript:;">
+                <span class="haswidth require">收货人:</span>
+                <div class="right spec">
+                    <input type="text" ms-duplex-string="ReceiverName" placeholder="请输入收货人姓名">
+                </div>
+            </a></li>
+            <li><a href="javascript:;">
+                <span class="haswidth require">联系方式:</span>
+                <div class="right spec">
+                    <input type="tel" ms-duplex-string="Phone" placeholder="请输入收货人联系方式">
+                </div>
+            </a></li>
+            <li><a href="chooseaddress.html">
+                <span class="haswidth require">收货地址:</span>
+                <div class="right spec chooseAddress" ms-on-tap="changeShow">
+                    <em ms-if="nowAddress == ''">小区/写字楼/学校等</em>
+                    <em ms-if="nowAddress !== ''" style="color: #333;">{{nowAddress}}</em>
+                </div>
+            </a></li>
+            <li><a href="javascript:;">
+                <span class="haswidth require">详细地址:</span>
+                <div class="right spec">
+                    <input type="text" ms-duplex-string="DetailAddress" placeholder="街区门牌号等">
+                </div>
+            </a></li>
+            <li><a href="javascript:;">
+                <span class="haswidth" style="font-size: .6rem;">设为默认地址:</span>
+                <div class="right spec" ms-on-tap="changestatus">
+                    <i class="btn iconfont" ms-class-1="icon-kaiguankai:!isDefalute" ms-class-2="icon-kaiguanguan-copy-copy hasColor:isDefalute"></i>
+                </div>
+            </a></li>
+        </ul>
+    </div>
+    <a href="javascript:;" class="address-btn disabled" ms-if-loop="isLoading">保存中</a>
+    <a href="javascript:;" class="address-btn" ms-if-loop="!isLoading" ms-on-tap="addOrSavaFn">保存并使用</a>
+</div>
+</body>
+</html>

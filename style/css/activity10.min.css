@@ -1,0 +1,811 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.bannerimg {
+  width: 16rem;
+  height: 6rem;
+  position: relative;
+  margin-top: 2rem;
+}
+.bannerimg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.timesilder {
+  width: 16rem;
+  height: 2.4rem;
+  background-color: #3a3a3a;
+}
+.timesilder ul {
+  width: 16rem;
+  position: relative;
+  overflow: hidden;
+}
+.timesilder ul li {
+  float: left;
+  width: 5.33rem;
+  height: 2.4rem;
+  text-align: center;
+  border-right: 1px solid #444;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.timesilder ul li span {
+  float: left;
+  width: 5.33rem;
+  color: #8d8d8d;
+  font-size: .7rem;
+}
+.timesilder ul li span.timetop {
+  height: 1.2rem;
+  line-height: 1.5rem;
+}
+.timesilder ul li span.timebom {
+  height: 1.2rem;
+  line-height: .8rem;
+  font-size: .6rem;
+}
+.timesilder ul li b {
+  display: none;
+}
+.timesilder ul li i {
+  display: none;
+}
+.timesilder ul li:last-child {
+  border-right: none;
+}
+.timesilder ul li.active {
+  background-color: #ffd700;
+}
+.timesilder ul li.active span {
+  color: #c12000;
+}
+.timesilder ul li.nowtime span {
+  display: none;
+}
+.timesilder ul li.nowtime b {
+  display: block;
+  color: #c12000;
+  float: left;
+  width: 5.33rem;
+  height: 1.2rem;
+  line-height: .8rem;
+}
+.timesilder ul li.nowtime i {
+  display: block;
+  color: #c12000;
+  float: left;
+  width: 5.33rem;
+  height: 1.2rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+}
+.fixclass {
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 19;
+}
+.salelist {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+}
+.salelist .saleitem {
+  width: 15rem;
+  padding: .5rem;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.salelist .saleitem:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.salelist .saleitem .item-left {
+  float: left;
+  width: 4rem;
+  margin-right: .5rem;
+  position: relative;
+}
+.salelist .saleitem .item-left img {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+}
+.salelist .saleitem .item-left .tips {
+  position: absolute;
+  left: .3rem;
+  top: 0;
+  width: 1.8rem;
+  height: 2rem;
+  overflow: hidden;
+  z-index: 9;
+}
+.salelist .saleitem .item-left .tips p {
+  width: 1.8rem;
+  height: 1rem;
+  line-height: 1.2rem;
+  background-color: #e73047;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+.salelist .saleitem .item-left .tips p b {
+  color: #fff;
+  font-weight: normal;
+}
+.salelist .saleitem .item-left .tips p i {
+  color: #fff;
+  font-size: .45rem;
+}
+.salelist .saleitem .item-left .tips p em {
+  color: #fff;
+  font-size: .45rem;
+}
+.salelist .saleitem .item-left .tips .jiao {
+  position: absolute;
+  z-index: 9;
+  left: -0.7rem;
+  top: .8rem;
+  width: 0;
+  height: 0;
+  border-left: 1.6rem solid transparent;
+  border-right: 1.6rem solid transparent;
+  border-top: .6rem solid #e73047;
+}
+.salelist .saleitem .item-right {
+  float: left;
+  width: 10.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.salelist .saleitem .item-right:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.salelist .saleitem .item-right h3 {
+  float: left;
+  width: 10.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.salelist .saleitem .item-right h3 i {
+  color: #9d9d9d;
+  margin-right: .2rem;
+}
+.salelist .saleitem .item-right h3 span {
+  color: #555;
+  font-size: .6rem;
+}
+.salelist .saleitem .item-right p {
+  float: left;
+  width: 10.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  margin: .2rem 0;
+  min-height: 1px;
+  zoom: 1;
+}
+.salelist .saleitem .item-right p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.salelist .saleitem .item-right p i {
+  float: left;
+  color: #f5473f;
+  margin-right: .2rem;
+}
+.salelist .saleitem .item-right p span {
+  float: left;
+  color: #333;
+  font-size: .7rem;
+}
+.salelist .saleitem .item-right p em {
+  float: left;
+  display: inline-block;
+  padding: 0 .2rem;
+  line-height: 1rem;
+  font-size: .5rem;
+  background-color: #86d4e8;
+  color: #fff;
+  border-radius: .3rem;
+  margin-left: .2rem;
+}
+.salelist .saleitem .item-right .process {
+  float: left;
+  width: 10.5rem;
+  height: .8rem;
+  margin-bottom: .3rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.salelist .saleitem .item-right .process:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.salelist .saleitem .item-right .process .processbar {
+  width: 6rem;
+  height: .6rem;
+  margin: .1rem 0;
+  border: 1px solid #f1f1f1;
+  border-radius: .3rem;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.salelist .saleitem .item-right .process .processbar .probar {
+  position: absolute;
+  height: .6rem;
+  left: 0;
+  top: 0;
+  background-color: #86d4e8;
+}
+.salelist .saleitem .item-right .process span {
+  float: left;
+  margin-left: .2rem;
+  height: .8rem;
+  line-height: .8rem;
+  font-size: .5rem;
+  color: #f94843;
+}
+.salelist .saleitem .item-right .right-info {
+  float: left;
+  width: 10.5rem;
+  height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.salelist .saleitem .item-right .right-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.salelist .saleitem .item-right .right-info i {
+  float: left;
+  height: 1rem;
+  color: #f94843;
+  font-size: .6rem;
+  line-height: 1.3rem;
+  font-family: monospace;
+}
+.salelist .saleitem .item-right .right-info b {
+  float: left;
+  height: 1rem;
+  color: #f94843;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+.salelist .saleitem .item-right .right-info span {
+  float: left;
+  height: 1rem;
+  line-height: 1.3rem;
+  font-family: monospace;
+  text-decoration: line-through;
+  color: #999;
+  margin-left: .3rem;
+}
+.salelist .saleitem .item-right .right-info a {
+  float: right;
+  margin-top: -0.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  padding: 0 .3rem;
+  font-size: .6rem;
+  border-radius: .25rem;
+  border: 1px solid #f94843;
+  color: #f94843;
+}
+.snapped-box {
+  width: 16rem;
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+.snapped-box div.rota {
+  transform: translateX(-16rem);
+  -webkit-transform: translateX(-16rem);
+}
+.snapped-box .snapp-list {
+  width: 32rem;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-height: 1px;
+  zoom: 1;
+}
+.snapped-box .snapp-list:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.snapped-box .snapp-list .first-box {
+  float: left;
+  width: 16rem;
+  height: 100%;
+  position: relative;
+  overflow-y: scroll;
+  background-color: #f0f2f5;
+}
+.snapped-box .snapp-list .first-box .snapped-banner img {
+  display: block;
+  width: 16rem;
+}
+.snapped-box .snapp-list .first-box .snapped-list {
+  width: 16rem;
+  position: relative;
+  margin-top: .5rem;
+}
+.snapped-box .snapp-list .first-box .snapped-list ul {
+  width: 15rem;
+  padding: .5rem;
+}
+.snapped-box .snapp-list .first-box .snapped-list ul li {
+  width: 15rem;
+  box-shadow: 0 0 2px #ccc;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+.snapped-box .snapp-list .first-box .snapped-list ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.snapped-box .snapp-list .first-box .snapped-list ul li a .top-bar {
+  width: 15rem;
+  height: 4.5rem;
+  position: relative;
+}
+.snapped-box .snapp-list .first-box .snapped-list ul li a .top-bar img {
+  display: block;
+  width: 15rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.snapped-box .snapp-list .first-box .snapped-list ul li a .top-bar .opa {
+  display: block;
+  width: 15rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.snapped-box .snapp-list .first-box .snapped-list ul li a .top-bar h3 {
+  display: block;
+  width: 14rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  line-height: 3rem;
+  padding-left: 1rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  color: #fff;
+}
+.snapped-box .snapp-list .first-box .snapped-list ul li a .bottom-bar {
+  width: 14rem;
+  padding: .5rem;
+  position: relative;
+}
+.snapped-box .snapp-list .first-box .snapped-list ul li a .bottom-bar p {
+  display: inline-block;
+  width: 10rem;
+  margin-right: .5rem;
+  vertical-align: middle;
+  font-size: .6rem;
+}
+.snapped-box .snapp-list .first-box .snapped-list ul li a .bottom-bar span {
+  display: inline-block;
+  width: 3rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+  background-color: #92d8ed;
+  color: #fff;
+  border-radius: .2rem;
+  vertical-align: middle;
+}
+.snapped-box .snapp-list .first-box .snapped-list ul li.disable .bottom-bar span {
+  background-color: #ccc;
+}
+.snapped-box .snapp-list .second-box {
+  float: left;
+  width: 16rem;
+  height: 100%;
+}
+.snapped-box .snapp-list .second-box .order-list-box {
+  width: 16rem;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-type {
+  float: left;
+  width: 4rem;
+  height: 22rem;
+  border-bottom: 1px solid #d5d5d5;
+  border-right: 1px solid #d5d5d5;
+  box-sizing: border-box;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-type .ordertypebox {
+  width: 4rem;
+  box-sizing: border-box;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-type .ordertypebox ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-type .ordertypebox ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-type .ordertypebox ul li {
+  float: left;
+  width: 4rem;
+  height: 2rem;
+  border-left: .1rem solid #f0f2f5;
+  border-bottom: 1px solid #d5d5d5;
+  text-align: center;
+  display: table;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-type .ordertypebox ul li a {
+  vertical-align: middle;
+  display: table-cell;
+  line-height: .6rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-type .ordertypebox ul li.active {
+  background-color: #fff;
+  border-left-color: #86d4eb;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con {
+  float: left;
+  width: 12rem;
+  height: 22rem;
+  background-color: #fff;
+  position: relative;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul {
+  position: relative;
+  padding: .3rem 0 .3rem .3rem;
+  width: 11.7rem;
+  overflow: hidden;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li {
+  float: left;
+  width: 11.5rem;
+  height: 4.5rem;
+  padding: .1rem;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li img {
+  float: left;
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  margin: .2rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .p-info {
+  float: left;
+  width: 6.7rem;
+  margin-top: .5rem;
+  margin-left: .2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .p-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .p-info h3 {
+  float: left;
+  width: 6.7rem;
+  font-size: .6rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-weight: bolder;
+  overflow: hidden;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .p-info b {
+  float: left;
+  display: inline-block;
+  font-size: .6rem;
+  width: 6.7rem;
+  color: #f40;
+  height: 1rem;
+  line-height: 1rem;
+  font-weight: normal;
+  margin-top: .2rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .p-info b span {
+  font-size: .45rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .numbox {
+  width: 6.5rem;
+  text-align: right;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .leftSilder {
+  position: absolute;
+  right: 2.5rem;
+  top: 0;
+  z-index: 9;
+  opacity: 0;
+  width: 2.5rem;
+  height: 4.5rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .rightSilder {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  opacity: 0;
+  width: 2.5rem;
+  height: 4.5rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .sizebox {
+  float: left;
+  width: 6.7rem;
+  margin-top: .4rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .sizebox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .sizebox .sizecon {
+  float: right;
+  height: 1rem;
+  padding: 0 .2rem;
+  background-color: #86d4e8;
+  position: relative;
+  font-size: .6rem;
+  border-radius: .5rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .sizebox .sizecon span {
+  color: #fff;
+  line-height: 1rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .order-ul li .sizebox .sizecon em {
+  position: absolute;
+  right: -0.2rem;
+  top: -0.2rem;
+  width: .6rem;
+  height: .6rem;
+  border-radius: 50%;
+  line-height: .6rem;
+  text-align: center;
+  background-color: #f40;
+  color: #fff;
+  font-size: .5rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .singal-ul {
+  position: relative;
+  padding: .3rem 0 .3rem .3rem;
+  width: 11.7rem;
+  overflow: hidden;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .singal-ul li {
+  float: left;
+  width: 5.8rem;
+  height: 4.5rem;
+  padding: .1rem;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .singal-ul li img {
+  float: left;
+  display: block;
+  width: 2.3rem;
+  height: 2.3rem;
+  margin: 0.3rem 0 0 .3rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .singal-ul li .p-info {
+  float: left;
+  width: 2.8rem;
+  margin-top: .5rem;
+  text-align: center;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .singal-ul li .p-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .singal-ul li .p-info h3 {
+  float: left;
+  width: 2.8rem;
+  font-size: .6rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  overflow: hidden;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .singal-ul li .p-info b {
+  float: left;
+  display: inline-block;
+  font-size: .6rem;
+  width: 2.8rem;
+  color: #f40;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-weight: normal;
+  margin-top: .2rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .singal-ul li .p-info b span {
+  font-size: .45rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .singal-ul li .leftSilder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  opacity: 0;
+  width: 2.9rem;
+  height: 4.5rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .singal-ul li .rightSilder {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  opacity: 0;
+  width: 2.9rem;
+  height: 4.5rem;
+}
+.snapped-box .snapp-list .second-box .order-list-box .order-con .singal-ul li:nth-child(even) {
+  border-right: none;
+}
+.zoombox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 19;
+  background-color: rgba(0, 0, 0, 0.4);
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  will-change: all;
+  -webkit-transition: all 0.001s ease-in-out;
+  -moz-transition: all 0.001s ease-in-out;
+  -ms-transition: all 0.001s ease-in-out;
+  transition: all 0.001s ease-in-out;
+}

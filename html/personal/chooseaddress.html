@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/address.min.css">
+    <link rel="stylesheet" href="../../style/css/Destination.css"/>
+    <script src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/fx.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=XAJBZ-AILWF-4TGJA-JLE2G-XKVDT-CGF56"></script>
+    <script type="text/javascript" src="../../js/personal/chooseaddress.js"></script>
+</head>
+<body class="ms-controller" ms-controller="city">
+<div class="citytitle" ms-class-1="ohter:tabQue">
+    <div class="locat" ms-on-click="changeState(3)">
+        <span>{{cityname}}</span>
+        <i class="iconfont icon-xiangxia"></i>
+    </div>
+    <em ms-on-tap="changeState(1)">请输入你的位置</em>
+    <input type="text" class="address" style="width: 10rem;" placeholder="请输入你的位置" ms-duplex="keyword" ms-on-focus="focusFn" ms-on-keyup="getAddressByKeyword">
+    <a href="javascript:;" class="cancel" ms-on-tap="return_prepage()">取消</a>
+</div>
+<div class="mainbox">
+    <div id="slider" class="slider" ms-visible="showhistory === 3">
+        <div class="slider-content">
+            <ul>
+                <li ms-repeat="cityDataModel" ms-attr-id="el.Letter" ms-if-loop="el.AreaList.size()>0"><a href="javascript:;" class="title">{{el.Letter}}</a>
+                    <ul>
+                        <li ms-repeat="el.AreaList" ms-on-tap="chooseCityFn()" class="listitem" ms-data-code="el.Code" ms-data-shortCode="el.ShortCode" ms-data-name="el.Name"><a href="javascript:;">{{el.Name}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="slider-nav">
+            <ul>
+                <li ms-repeat="citySilderModel" ms-on-click="cityCodeFn(el)"><a href="javascript:;">{{el}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="citylist" ms-visible="showhistory === 2">
+        <div class="loadingLiubox" style="padding: 4rem 0;" ms-if-loop="loadingImgShow">
+            <img src="../../data-images/loading.gif">
+        </div>
+        <ul>
+            <li ms-repeat="addressList" ms-on-tap="chooseAddress(0)" ms-data-code="el.FromAreaCode" ms-data-name="el.Name" ms-data-address="el.Address" ms-data-lng="el.Longitude" ms-data-lat="el.Latitude">
+                <a href="javascript:;">
+                    <span>{{el.Name}}</span>
+                    <p>{{el.Address}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="history" ms-visible="showhistory === 1">
+        <h3>当前地址</h3>
+        <div class="focus"><span ms-on-tap="chooseAddress" ms-data-code="addressCode" ms-data-name="shortaddress" ms-data-address="localAddress" ms-data-lng="nowLng" ms-data-lat="nowLat">{{localAddress}}</span><a href="javascript:;" ms-on-tap="getNowLocation"><i class="iconfont icon-dingwei1"></i>重新定位</a></div>
+        <h3>历史地址</h3>
+        <ul>
+            <li ms-repeat="historyList" ms-on-tap="chooseAddress(1)" ms-data-code="el.FromAreaCode || el.code" ms-data-name="el.name" ms-data-address="el.address+el.name" ms-data-lng="el.lon" ms-data-lat="el.lat"><a href="javascript:;">{{el.address}}{{el.name}}</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/wallet.js"></script>
+</head>
+<body ms-controller="wallet">
+<div class="headerone" style="background-color: #fff;">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui" style="color: #848689;"></i>
+    </a>
+    <h3 style="width: 10rem;color: #555;">我的钱包</h3>
+    <a href="../merchant/walletdetail.html" class="message-btn" style=" width:2.5rem;color: #555; text-align: center;">明细</a>
+</div>
+
+<!--公共头部-->
+<div class="mer-con" style="top: 2rem;">
+    <div class="mainaccount">
+        <div class="mainBalance">
+            <h3>余额账户(元)</h3>
+            <h1>{{account.Balance | currency}}</h1>
+        </div>
+        <div class="accountList">
+            <ul>
+                <li><a href="../merchant/withdraw.html">
+                    <i class="iconfont icon-tixian left" style="color: #f59901; font-size: 1.2rem;"></i>
+                    <span>提现</span>
+                    <i class="iconfont icon-xiangyou right"></i>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

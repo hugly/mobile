@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/logistics.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/logistics/verify.js"></script>
+</head>
+<body class="ms-controller" ms-controller="verify">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem;">衣物核实单</h3>
+</div>
+<div class="verifybox">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;" ms-if="!loadingImgShow && perDataModel.size() === 0">暂无相关数据</p>
+    <div class="verifyitem" ms-repeat="perDataModel">
+        <a ms-attr-href="verifydetailonlyread.html?ocode={{oCode}}&tcode={{tCode}}&scode={{el.SubOrderCode}}&isCheck={{el.IsCheckRight}}">
+            <img ms-attr-src="{{el.ItemDefaultImage}}">
+            <div class="iteminfo">
+                <h3>{{el.ItemName}}</h3>
+                <span><em class="fl price">{{el.Price | currency(0)}}</em></span>
+            </div>
+            <div class="status">
+                <span ms-if="!el.IsCheckRight">去核实</span>
+                <span ms-if="el.IsCheckRight" class="spec">已核实</span>
+                <i class="iconfont icon-xiangyou" ms-if="!el.IsCheckRight"></i>
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,283 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.listbox {
+  width: 16rem;
+  position: relative;
+  top: 2.5rem;
+}
+.listbox ul {
+  width: 16rem;
+  position: relative;
+  overflow: hidden;
+}
+.listbox ul li {
+  float: left;
+  width: 18.5rem;
+  height: 2rem;
+  padding: 0 0 0 .5rem;
+  margin-bottom: .05rem;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.listbox ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.listbox ul li .mainpart {
+  float: left;
+  width: 15.5rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.listbox ul li .mainpart:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.listbox ul li .mainpart .name {
+  float: left;
+  width: 10rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.listbox ul li .mainpart .status {
+  float: left;
+  width: 4rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.listbox ul li .mainpart .iconfont {
+  float: left;
+  width: 1rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0 .25rem;
+  text-align: center;
+  font-size: .8rem;
+  color: #aaa;
+}
+.listbox ul li .mainpart .edit {
+  float: left;
+  width: 3rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #007aff;
+  font-size: .6rem;
+  color: #fff;
+}
+.listbox ul li .mainpart em.red {
+  color: red;
+}
+.listbox ul li .mainpart em.green {
+  color: green;
+}
+.listbox ul li .dele {
+  float: left;
+  width: 3rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #ff3b30;
+  font-size: .6rem;
+  color: #fff;
+}
+.printsettings {
+  width: 16rem;
+  position: relative;
+  top: 2.5rem;
+}
+.printsettings .part {
+  width: 16rem;
+  position: relative;
+}
+.printsettings .part ul {
+  width: 16rem;
+  border-top: 1px solid #e5e5e5;
+  background-color: #fff;
+}
+.printsettings .part ul li {
+  width: 15rem;
+  height: 1rem;
+  padding: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.printsettings .part ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.printsettings .part ul li span {
+  float: left;
+  width: 4rem;
+  text-align: left;
+  font-size: .6rem;
+}
+.printsettings .part ul li span.require:before {
+  content: "*";
+  color: #c00;
+}
+.printsettings .part ul li .item {
+  float: left;
+  width: 11rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  text-align: right;
+}
+.printsettings .part ul li .item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.printsettings .part ul li .item input {
+  float: left;
+  width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  border: 0;
+}
+.printsettings .part ul li .item textarea {
+  float: left;
+  width: 11rem;
+  height: 5rem;
+  line-height: 1rem;
+  border: 0;
+  resize: none;
+}
+.printsettings .part ul li .item em {
+  float: right;
+  width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  color: #000;
+}
+.printsettings .part ul li .item i {
+  float: right;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  line-height: 1rem;
+  font-size: .6rem;
+  color: #bfbfbf;
+}
+.printsettings .part ul li .item i.show {
+  color: #86d4eb;
+}
+.printsettings .part ul li .item i.icon-kaiguanguan-copy-copy {
+  width: 1.5rem;
+  font-size: 1.5rem;
+  color: #86d4eb;
+  transform: rotate(180deg);
+}
+.printsettings .part ul li .item i.icon-kaiguankai {
+  width: 1.5rem;
+  font-size: 1.5rem;
+  transform: rotate(180deg);
+}
+.printsettings .part ul li .item select {
+  float: right;
+  width: 10rem;
+  text-align: right;
+  border: 0;
+  background-color: #fff;
+}

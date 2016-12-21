@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <link rel="stylesheet" href="../../style/css/dropload.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/dropload.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/orderlist.js"></script>
+</head>
+<body class="ms-controller" ms-controller="orderlist">
+<!--公共头部-->
+<div class="headerone haslist">
+    <a href="mymerchant.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 ms-on-tap="changeMarketShow">{{marketName}}<i class="iconfont icon-xiangxia"></i></h3>
+</div>
+<div class="listbox" ms-visible="marketIsShow">
+    <ul>
+        <li ms-on-tap="changeMarketFn(-1,'全部')" ms-class-1="active:marketIndex === -1"><a href="javascript:;">全部</a></li>
+        <li ms-on-tap="changeMarketFn(1,'在线预订')" ms-class-1="active:marketIndex === 1"><a href="javascript:;">在线预订</a></li>
+        <li ms-on-tap="changeMarketFn(2,'商城订单')" ms-class-1="active:marketIndex === 2"><a href="javascript:;">商城订单</a></li>
+        <li ms-on-tap="changeMarketFn(3,'团购订单')" ms-class-1="active:marketIndex === 3"><a href="javascript:;">团购订单</a></li>
+        <li ms-on-tap="changeMarketFn(4,'预约订单')" ms-class-1="active:marketIndex === 4"><a href="javascript:;">预约订单</a></li>
+    </ul>
+</div>
+<div class="mer-con">
+    <div class="orderlist">
+        <div class="order-title">
+            <!--<a href="javascript:;" class="btn left-btn" ms-on-tap="leftMoveFn">-->
+                <!--<i class="iconfont icon-fanhui"></i>-->
+            <!--</a>-->
+            <div class="statebox">
+                <ul ms-class-1="showmore:showMore">
+                    <li ms-repeat="orderState" ms-data-code="el.code" ms-class-1="active:el.isActive" ms-on-tap="changeState($index)"><a href="javascript:;">{{el.name}}</a></li>
+                </ul>
+            </div>
+            <!--<a href="javascript:;" class="btn right-btn" ms-on-tap="rightMoveFn">-->
+                <!--<i class="iconfont icon-xiangyou"></i>-->
+            <!--</a>-->
+        </div>
+        <div class="order-box">
+            <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+                <img src="../../data-images/loading.gif">
+            </div>
+
+            <ul>
+                <li ms-if-loop="orderData.size() === 0 && !loadingImgShow" style="line-height: 1.5rem; text-align: center;">暂无数据</li>
+                <li ms-repeat="orderData" ms-class-1="type3:el.Market === 1 || el.Market === 4 " ms-class-2="type4:el.Market === 3">
+                    <a class="orderfull" ms-attr-href="el.linkhref">
+                        <div class="title" ms-if-loop="marketName === '全部'">
+                            <!--<i class="iconfont" ms-class-1="icon-tuangouwangzhan:el.Market === 3" ms-class-2="icon-xiyiji:el.Market === 1" ms-class-3="icon-kuaisuyuyue:el.Market === 4"></i>-->
+                            <i class="iconfont" ms-class-1="icon-tuan:el.Market === 3" ms-class-2="icon-xiyiji:el.Market === 1" ms-class-3="icon-kuaisuyuyue:el.Market === 4"></i>
+                            <h3 ms-if-loop="el.orderType">{{el.orderType}}</h3>
+                            <b style="color: #999;">{{el.CreateTime | date("yyyy-MM-dd")}}</b>
+                        </div>
+                        <div class="line"></div>
+                        <div class="title">
+                            <i class="iconfont icon-stroe-copy" style="color: #ccc; font-size: .7rem; line-height: 1rem;"></i>
+                            <span>{{el.Orders[0].Seller.ShopName}}</span>
+                            <!--<h3 ms-if-loop="el.orderType">{{el.orderType}}</h3>-->
+                            <b>{{el.Orders[0].ShowStatus}}</b>
+                        </div>
+                        <div class="detail">
+                            <div class="prolist" ms-visible="el.Market === 1 || el.Market === 4">
+                                <div ms-if="el.Orders[0].SubOrders.size() > 0">
+                                    <div class="imgitem" ms-repeat="el.Orders[0].SubOrders" ms-if-loop="$index < 4 && $outer.el.Orders[0].SubOrders.size() > 1">
+                                        <img ms-attr-src="el.Item.DefaultImage">
+                                        <span>{{el.Item.Name}}</span>
+                                    </div>
+                                    <!--<div class="item" ms-repeat="el.Orders[0].SubOrders" ms-if-loop="$index < 5">-->
+                                    <!--<span>{{el.Item.Name}}</span>-->
+                                    <!--<em>x{{el.Num}}</em>-->
+                                    <!--</div>-->
+                                    <div class="singalItem" ms-if="el.Orders[0].SubOrders.size() === 1">
+                                        <img ms-attr-src="el.Orders[0].SubOrders[0].Item.DefaultImage">
+                                        <div class="detail-info">
+                                            <h3>{{el.Orders[0].SubOrders[0].Item.Name}}</h3>
+                                            <p><b>{{el.Orders[0].SubOrders[0].Item.Price | currency}}</b><em class="singal2">x{{el.Orders[0].SubOrders[0].Num}}</em></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p style="line-height: 1.3rem;" ms-if-loop="el.Orders[0].SubOrders.size() === 0">未录入商品</p>
+                            </div>
+
+                            <!--<div class="prolist">-->
+                                <!--<div ms-if-loop="el.Orders[0].SubOrders.size() !== 0">-->
+                                    <!--<div class="item" ms-repeat="el.Orders[0].SubOrders">-->
+                                        <!--<span>{{el.Item.Name}}</span>-->
+                                        <!--<em>x{{el.Num}}</em>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<p style="line-height: 1.3rem;" ms-if-loop="el.Orders[0].SubOrders.size() === 0">未录入商品</p>-->
+                            <!--</div>-->
+                            <div class="order-info">
+                                <h3 ms-if-loop="el.Market !== 3"><b>{{el.Status === 9?el.LogistPicker.Name:el.Contacter.Name}}</b><span>{{el.Status === 9?el.LogistPicker.Phone:el.Contacter.Phone}}</span></h3>
+                                <p ms-visible="el.Contacter.Address" ms-if-loop="el.Market !== 3"><i class="iconfont icon-weizhi"></i>{{el.Status === 9?el.LogistPicker.Address:el.Contacter.Address}}</p>
+                                <p ms-if-loop="el.Market === 3">有效时间:2016-02-01到2016-09-01</p>
+                            </div>
+                        </div>
+                        <div class="total">
+                            <b ms-if-loop="el.Market !== 3">{{el.Orders[0].IsLogist?'送货上门':'到店自提'}}{{el.Orders[0].IsPlateLogister?'(平台配送)':''}}</b>
+                            <span ms-if-loop="el.totalNum > 0">共{{el.totalNum}}件商品,实付款:￥{{el.PayPrice}}</span>
+                            <span ms-if-loop="el.totalNum === 0">待定</span>
+                        </div>
+                    </a>
+                    <div class="oper" ms-if-loop="el.actionList.size() > 0">
+                        <div class="oop">
+                            <a href="javascript:;" ms-repeat="el.actionList" ms-on-tap="operateFn(el.value,$outer.el.Orders[0].Code,$outer.el)">{{el.text}}</a>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/proflow.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+</head>
+<body class="ms-controller" ms-controller="moresettings">
+<!--公共头部-->
+<div class="headerone">
+    <h3 style="width: 16rem;">洗速达物流系统</h3>
+</div>
+<div class="main-box">
+    <ul>
+        <li><a href="newflow.html">订单中心</a></li>
+        <li><a href="/SSOAccount/LogOff">退出</a></li>
+    </ul>
+    <a href="javascript:;" class="print-btn" ms-on-tap="goPrintFn">打印设置</a>
+</div>
+<script>
+    /**
+     * Created by hulgy on 17/12/2016.
+     */
+    (function(){
+        'use strict';
+
+        require(['domReady!'],function(avalon){
+            var vm=avalon.define({
+                $id: "moresettings",
+                //版本号
+                version: 0,
+                //获取版本号
+                getVersion: function () {
+                    getBaseVersion(function (rs) {
+                        vm.version = rs;
+                    });
+                },
+                goPrintFn:function () {
+                    setLocalstorage('printHref',window.location.href);
+                    window.location.href = '../merchant/printsetting.html';
+                }
+            });
+            vm.getVersion();
+            avalon.scan();
+
+        });
+
+    })();
+</script>
+</body>
+</html>

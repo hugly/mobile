@@ -1,0 +1,692 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.headerone {
+  background-color: #fff;
+  box-shadow: 0 0 1px #999;
+  overflow: inherit;
+  z-index: 15;
+}
+.headerone .back-btn i {
+  color: #505050;
+}
+.headerone h3 {
+  color: #505050;
+  width: 11rem;
+}
+.headerone .link {
+  color: #505050;
+}
+.headerone .nav {
+  display: none;
+  width: 4rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  top: 2.05rem;
+}
+.headerone .nav ul {
+  position: relative;
+}
+.headerone .nav ul li {
+  width: 4rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #cecece;
+}
+.headerone .nav ul li:last-child {
+  border-bottom: none;
+}
+.zoom {
+  display: none;
+  width: 16rem;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 12;
+}
+.zoom1 {
+  display: none;
+  width: 16rem;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 12;
+}
+.flow-detail {
+  width: 16rem;
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  right: 0;
+  bottom: 2rem;
+  overflow-y: scroll;
+}
+.flow-detail .flow-timeline {
+  width: 16rem;
+  height: .8rem;
+  position: relative;
+  background-color: #dddddd;
+  margin-top: .5rem;
+}
+.flow-detail .flow-timeline span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 90%;
+  height: .8rem;
+  background-color: #e03030;
+  z-index: 3;
+}
+.flow-detail .flow-timeline em {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: .8rem;
+  line-height: .8rem;
+  margin: 0 .5rem;
+  color: #fff;
+  font-size: .6rem;
+  z-index: 9;
+}
+.flow-detail .flow-timeline em i {
+  color: #fff;
+  font-size: .6rem;
+  vertical-align: middle;
+}
+.flow-detail .flow-title {
+  width: 15rem;
+  height: 1rem;
+  padding: .5rem;
+  border-bottom: 1px solid #cecece;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.flow-detail .flow-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.flow-detail .flow-title .t-left {
+  float: left;
+  height: 1rem;
+}
+.flow-detail .flow-title .t-left i {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+.flow-detail .flow-title .t-left span {
+  display: inline-block;
+  line-height: 1rem;
+  vertical-align: middle;
+}
+.flow-detail .flow-title .t-left em {
+  font-size: .6rem;
+}
+.flow-detail .flow-title div.pickup i {
+  color: #e7b330;
+}
+.flow-detail .flow-title div.pickup span {
+  color: #e7b330;
+}
+.flow-detail .flow-title div.send i {
+  color: #237290;
+}
+.flow-detail .flow-title div.send span {
+  color: #237290;
+}
+.flow-detail .flow-title .t-right {
+  float: right;
+  height: 1rem;
+}
+.flow-detail .flow-title .t-right span {
+  display: inline-block;
+  height: 1rem;
+  line-height: 1rem;
+  color: #505050;
+  font-size: .6rem;
+}
+.flow-detail .flow-title .t-right span b {
+  color: #e03030;
+  font-size: .8rem;
+  font-weight: normal;
+}
+.flow-detail .flow-time {
+  width: 15rem;
+  padding: .5rem;
+  background-color: #fff;
+}
+.flow-detail .flow-time p span {
+  font-size: .7rem;
+  color: #101010;
+}
+.flow-detail .flow-time p b {
+  color: #e03030;
+  font-weight: normal;
+}
+.flow-detail .verfy {
+  width: 15rem;
+  height: 1rem;
+  padding: .5rem;
+  background-color: #fff;
+  margin-top: .5rem;
+  position: relative;
+}
+.flow-detail .verfy a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.flow-detail .verfy a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.flow-detail .verfy a span {
+  float: left;
+  color: #101010;
+}
+.flow-detail .verfy a em {
+  float: right;
+  color: #babac4;
+}
+.flow-detail .verfy a em i {
+  color: #babac4;
+}
+.flow-detail .flow-info {
+  width: 15rem;
+  padding: .5rem .5rem 0 .5rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: .5rem;
+  min-height: 1px;
+  zoom: 1;
+}
+.flow-detail .flow-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.flow-detail .flow-info .info-item {
+  float: left;
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.flow-detail .flow-info .info-item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.flow-detail .flow-info .info-item span {
+  float: left;
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  margin-top: .1rem;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid #e7b330;
+  color: #e7b330;
+}
+.flow-detail .flow-info .info-item span.pickup {
+  border-color: #e7b330;
+  color: #e7b330;
+}
+.flow-detail .flow-info .info-item span.send {
+  border-color: #237290;
+  color: #237290;
+}
+.flow-detail .flow-info .info-item .item-center {
+  float: left;
+  width: 11rem;
+  margin-left: .3rem;
+  margin-bottom: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.flow-detail .flow-info .info-item .item-center:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.flow-detail .flow-info .info-item .item-center h3 {
+  float: left;
+  width: 11rem;
+  height: 1.4rem;
+  line-height: 1.5rem;
+  font-weight: normal;
+  color: #101010;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.flow-detail .flow-info .info-item .item-center h3 b {
+  font-weight: normal;
+  color: #e14242;
+  margin-left: .5rem;
+}
+.flow-detail .flow-info .info-item .item-center em {
+  float: left;
+  width: 11rem;
+  line-height: .8rem;
+  font-size: .6rem;
+  color: #959595;
+}
+.flow-detail .flow-info .info-item a {
+  float: left;
+  width: 2rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  position: relative;
+}
+.flow-detail .flow-info .info-item a i {
+  display: inline-block;
+  width: 2rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #237290;
+}
+.flow-detail .pro-info {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: .5rem;
+}
+.flow-detail .pro-info h3 {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 2rem;
+  line-height: 2rem;
+  color: #505050;
+  border-bottom: 1px solid #cecece;
+}
+.flow-detail .pro-info .info {
+  width: 15rem;
+  position: relative;
+  padding: .5rem;
+}
+.flow-detail .pro-info .info h5 {
+  font-weight: normal;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .6rem;
+}
+.flow-detail .pro-info .info ul {
+  position: relative;
+}
+.flow-detail .pro-info .info ul li {
+  width: 15rem;
+  position: relative;
+}
+.flow-detail .pro-info .info ul li span {
+  display: inline-block;
+  width: 15rem;
+  font-size: .6rem;
+}
+.flow-detail .pro-info .info ul li p {
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.flow-detail .pro-info .info ul li p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.flow-detail .pro-info .info ul li p b {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  font-weight: normal;
+  font-size: .6rem;
+}
+.flow-detail .pro-info .info ul li p em {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .6rem;
+  margin: 0 .3rem;
+}
+.flow-detail .pro-info .info ul li p em i {
+  font-size: .6rem;
+}
+.flow-detail .customer-remark {
+  width: 15rem;
+  line-height: 1rem;
+  padding: .5rem;
+  margin-top: .5rem;
+  position: relative;
+  background-color: #fff;
+  min-height: 1px;
+  zoom: 1;
+}
+.flow-detail .customer-remark:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.flow-detail .customer-remark span {
+  color: #101010;
+}
+.flow-detail .customer-remark span em {
+  color: #505050;
+}
+.flow-detail .remark-box {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: .5rem;
+}
+.flow-detail .remark-box ul {
+  width: 15rem;
+  position: relative;
+}
+.flow-detail .remark-box ul li {
+  width: 15rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.flow-detail .remark-box ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.flow-detail .remark-box ul li span {
+  float: left;
+  width: 3rem;
+  color: #101051;
+}
+.flow-detail .remark-box ul li em {
+  float: left;
+  width: 12rem;
+  color: #101051;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.flow-detail .remark-box .add-mark {
+  width: 15rem;
+  height: 1rem;
+  margin: .25rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.flow-detail .remark-box .add-mark:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.flow-detail .remark-box .add-mark i {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #237290;
+  font-size: 1.2rem;
+}
+.flow-detail .remark-box .add-mark span {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.operate {
+  width: 16rem;
+  height: 1.5rem;
+  padding: .25rem 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9999;
+  min-height: 1px;
+  zoom: 1;
+  box-shadow: 0 0 1px #999;
+  background-color: #fff;
+}
+.operate:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.operate a {
+  float: left;
+  width: 5.33rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.operate a:last-child {
+  border-right: none;
+}
+.print {
+  width: 16rem;
+  height: 2rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 9999;
+}
+.print a {
+  display: inline-block;
+  width: 16rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #92d8ed;
+  color: #fff;
+}
+.modify-box {
+  display: none;
+  position: fixed;
+  left: 1rem;
+  top: 50%;
+  margin-top: -6.5rem;
+  width: 14rem;
+  background-color: #fff;
+  border-radius: .25rem;
+  overflow: hidden;
+  z-index: 20;
+}
+.modify-box .modify-title {
+  height: 1.5rem;
+  width: 13.5rem;
+  padding-left: .5rem;
+  position: relative;
+  border-bottom: 1px solid #cecece;
+  min-height: 1px;
+  zoom: 1;
+}
+.modify-box .modify-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.modify-box .modify-title span {
+  float: left;
+  line-height: 1.5rem;
+}
+.modify-box .modify-title i {
+  float: right;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #505050;
+}
+.modify-box ul {
+  width: 14rem;
+  position: relative;
+}
+.modify-box ul li {
+  width: 13rem;
+  margin: 0 .5rem;
+  padding: .25rem 0;
+  position: relative;
+  border-bottom: 1px solid #cecece;
+  min-height: 1px;
+  zoom: 1;
+}
+.modify-box ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.modify-box ul li input {
+  float: left;
+  border: none;
+  width: 12.5rem;
+  height: 1rem;
+  padding: .25rem;
+}
+.modify-box ul li i {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #237290;
+  position: absolute;
+  right: 0;
+  top: .25rem;
+}
+.modify-box ul li textarea {
+  border: none;
+  resize: none;
+  padding: .25rem;
+  width: 12.5rem;
+  height: 3rem;
+  line-height: 1rem;
+}
+.modify-box a {
+  float: right;
+  width: 3rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+  background-color: #92d8ed;
+  color: #fff;
+  margin: .5rem;
+  border-radius: .25rem;
+}

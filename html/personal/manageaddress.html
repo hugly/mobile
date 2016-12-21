@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/manageAddress.js"></script>
+</head>
+<body class="ms-controller" ms-controller="manage">
+<!--公共头部-->
+<div class="headerone">
+    <a href="personcenter.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>管理收货地址</h3>
+    <a href="javascript:;" class="message-btn" ms-on-tap="addressFn">
+        <i class="iconfont icon-jia"></i>
+    </a>
+</div>
+<!--账户管理详细信息-->
+<div class="addresslist">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <ul>
+        <li ms-repeat="addressList">
+            <div class="top">
+                <h5><span>{{el.ReceiverName}}</span><em>{{el.Phone}}</em></h5>
+                <p>{{el.DetailAddress}}{{el.Address}}</p>
+            </div>
+            <div class="bottom">
+                <div class="left" ms-data-code="el.Code" ms-on-tap="setDefaultAddress($index)"><i class="iconfont" ms-class-1="icon-gouxuan active:el.IsDefault" ms-class-2="icon-yuanxuankuang:!el.IsDefault"></i>设为默认地址</div>
+                <div class="right"><a href="javascript:;" ms-on-tap="editAddress(el)"><i class="iconfont icon-bianji"></i>编辑</a><a href="javascript:;" ms-data-code="el.Code" ms-on-tap="deleAddress($index,el)"><i class="iconfont icon-lajitong"></i> 删除</a></div>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/detail.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/simpScroller-min.js"></script>
+    <!--<script type="text/javascript" src="../../js/lib/iscroll.js"></script>-->
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/main/detail.js"></script>
+</head>
+<body class="ms-controller" ms-controller="detail">
+<!--详情页头部-->
+<div class="header-detail">
+    <a href="list.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <div class="main-silder">
+        <a href="javascript:;" class="active">商品</a>
+        <a ms-attr-href="shopdetail.html?dataid={{ShopCode}}">商家</a>
+        <a ms-attr-href="shopevaluate.html?dataid={{ShopCode}}" class="">评价</a>
+    </div>
+    <div class="sharebox">
+        <a href="javascript:;" class="collection" ms-on-tap="collectionFn">
+            <i class="iconfont" ms-class-1="icon-heart:isCollection" ms-class-2="icon-xin1:!isCollection"></i>
+        </a>
+    </div>
+</div>
+<!--style=" transform: translateY({{top}}rem);  -webkit-transform: translateY(0rem);"-->
+<div class="shop-box" ms-css-transform="translateY({{top}}rem)" ms-css-webkit-transform="translateY({{top}}rem)">
+    <!--店铺详情-->
+    <div class="shop-detail">
+        <div class="imgbox">
+            <img ms-attr-src="{{BaseInfo.Shop.DefaultImage}}">
+            <p>营业时间: {{shopInfo.BusinessBeginTime}}-{{shopInfo.BusinessEndTime}}</p>
+            <!--<video ms-if="ShopCode == 20160907111900190180" src="http://image.wziwash.com/video/repairbag.mp4" width="100%" height="100%" loop="loop" controls="controls" poster="http://image.wziwash.com/upload/1002232C1001CA1001/I20160907130747747191.jpg"></video>-->
+        </div>
+        <div class="shop-info">
+            <h3>{{shopInfo.Name}}</h3>
+            <p ms-if="!BaseInfo.Shop.IsPlateLogister">
+                取/送费:
+                <em ms-if-loop="BaseInfo.Shop.PickType === 1">免费</em>
+                <em ms-if-loop="BaseInfo.Shop.PickType !== 1">{{BaseInfo.Shop.PickFee | currency}}</em>
+                /
+                <em ms-if-loop="BaseInfo.Shop.LogicType === 1">免费</em>
+                <em ms-if-loop="BaseInfo.Shop.LogicType !== 1">{{BaseInfo.Shop.LogicFee | currency}}</em>
+            </p>
+            <p ms-if="BaseInfo.Shop.IsPlateLogister">配送：平台配送</p>
+            <div class="shopaddress">
+                <i class="iconfont icon-weizhi"></i>
+                <span>{{BaseInfo.Shop.Address}}</span>
+            </div>
+        </div>
+    </div>
+    <!--店铺地址以及联系方式-->
+    <div class="shop-fn">
+        <div class="notice" ms-if-loop="BaseInfo.Shop.Notice" ms-on-tap="showNoticeFn">
+            <em>公告:</em>
+            <p>{{BaseInfo.Shop.Notice}}</p>
+            <i class="iconfont icon-xiangyou"></i>
+        </div>
+    </div>
+    <div class="menutitle">
+        <a ms-attr-href="couponlist.html?dataid={{ShopCode}}"><i class="iconfont icon-xianjinquan" style="color: #7cd5db;"></i>优惠券</a>
+        <a ms-attr-href="grouplist.html?dataid={{ShopCode}}"><i class="iconfont icon-quan4" style="color: #7ca9db;"></i>团购券</a>
+        <a href="javascript:;"><i class="iconfont icon-huiyuanqia" style="color: #35c8fc;"></i>会员卡 <b>暂未开放</b></a>
+    </div>
+    <!--店铺菜单切换-->
+    <div class="mainmenu">
+        <div class="silder-box">
+            <div class="orderbox" ms-visible="tabindex === 0">
+                <div class="order-fn">
+                    <ul>
+                        <li ms-repeat="washTypeList" ms-on-tap="chooseType(el)" ms-data-type="el.SaleWashType" ms-class-1="type1:el.SaleWashType === 1" ms-class-2="type2:el.SaleWashType === 2" ms-class-3="type3:el.SaleWashType === 3" ms-class-4="type4:el.SaleWashType === 4" ms-class="active:el.SaleWashType === SaleWashTypeCode" ms-data-id="el.SaleWashType"><a href="javascript:;"><span>{{el.Name}}</span></a></li>
+                    </ul>
+                </div>
+                <div class="order-list-box">
+                    <div class="order-type">
+                        <div class="ordertypebox">
+                            <ul>
+                                <li ms-repeat="categoryList" ms-on-tap="chooseCate(el)" ms-class="active:el.CategoryCode === SaleCategoryCode"><a href="javascript:;">{{el.Name}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="order-con" ms-on-swipedown="swipeDownFn" ms-on-swipeup="swipeUpFn">
+                        <div class="loadingLiubox" style="padding: 5rem 0;" ms-if-loop="loadingImgShow">
+                            <img src="../../data-images/loading.gif">
+                        </div>
+                        <ul class="order-ul">
+                            <p style="width: 12rem; height: 12rem; line-height: 12rem; text-align: center;" ms-if-loop="subcateList.size() === 0 && !loadingImgShow">暂无相关数据</p>
+                            <li ms-repeat="subcateList" ms-data-id="el.Code">
+                                <img ms-attr-src="el.Image" >
+                                <div class="p-info">
+                                    <h3>{{el.Name}}</h3>
+                                    <b><span>￥</span>{{el.Price | number(2)}}<em style="font-size: .6rem; margin-left: .2rem; text-decoration: line-through; color: #999;">￥{{el.OriPirce | number(2)}}</em></b>
+                                </div>
+                                <div class="numbox" ms-if="!el.Children">
+                                    <a href="javascript:;" class="prev-btn" ms-if="el.num > 0" ms-data-id="el.Code" ms-data-type="el.type" ms-on-tap="reFn($remove,$index)">
+                                        <i class="iconfont icon-jian"></i>
+                                    </a>
+                                    <span ms-if="el.num > 0">{{el.num}}</span>
+                                    <a href="javascript:;" class="next-btn" ms-data-id="el.Code" ms-data-type="el.type" ms-on-tap="addFn($index)">
+                                        <i class="iconfont icon-plus"></i>
+                                    </a>
+                                </div>
+                                <div class="sizebox" ms-if="el.Children" ms-on-tap="showTypeBoxFn(el)">
+                                    <div class="sizecon">
+                                        <span>选规格</span>
+                                        <em ms-if="el.num !== 0">{{el.num}}</em>
+                                    </div>
+                                </div>
+                                <div ms-if="!el.Children" class="leftSilder" ms-data-id="el.Code" ms-data-type="el.type" ms-on-tap="reFn($remove,$index)"></div>
+                                <div ms-if="!el.Children" class="rightSilder" ms-data-id="el.Code" ms-data-type="el.type" ms-on-tap="addFn($index)"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="zoombox" ms-css-transform="translateY({{isshow}}%)" ms-on-tap="closeZoomFn"></div>
+<div class="zoombox" style="transform:translateX(0)" ms-visible="isShowTypebox" ms-on-tap="clooseFn"></div>
+<div class="messagebox" ms-css-transform = translateX({{showNotice}}%) ms-on-tap="hideNoticeFn">
+    <p>{{BaseInfo.Shop.Notice}}</p>
+</div>
+<div class="totalbox" ms-css-height="'auto'" ms-css-transform="translateY({{isshow}}%)">
+    <div class="totaltop">
+        <h3>购物车</h3>
+        <a href="javascript:;" class="empty" ms-on-tap="clearAll"><i class="iconfont icon-lajitong"></i>清空</a>
+    </div>
+    <div class="pro-box">
+        <div class="pro-list" ms-repeat="proList">
+            <h3 ms-if-loop="el.value.size()">{{el.name}}</h3>
+            <ul ms-if-loop="el.value.size()">
+                <li ms-repeat="el.value">
+                    <span class="name">{{el.name}}</span>
+                    <span class="price">￥{{el.price*el.num}}</span>
+                    <div class="numbox">
+                        <a href="javascript:;" class="prev-btn" ms-data-id="el.code" ms-data-type="el.type" ms-on-tap="reFn($remove,$index)">
+                            <i class="iconfont icon-jian"></i>
+                        </a>
+                        <span>{{el.num}}</span>
+                        <a href="javascript:;" class="next-btn" ms-data-id="el.code" ms-data-type="el.type" ms-on-tap="addFn($index)">
+                            <i class="iconfont icon-plus"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="bottom-silder">
+    <div class="left-silder">
+        <a href="javascript:;" class="silbtn cart" ms-class-1="hasPro:totalNum > 0" ms-on-tap="showList">
+            <div class="mainCart">
+                <i class="iconfont icon-gouwuche"></i>
+                <b ms-if-loop="totalNum > 0">{{totalNum}}</b>
+            </div>
+        </a>
+        <span class="totalprice">￥<b>{{totalPrice | number(2)}}</b></span>
+    </div>
+    <div class="right-silder">
+        <a href="javascript:;" ms-class-1="disabled:totalPrice === 0" ms-on-tap="settlementFn">去结算</a>
+    </div>
+</div>
+<div class="thirdbox" ms-visible="isShowTypebox">
+    <div class="third-title">
+        <h3>{{thirdDataModel.Name}}</h3>
+        <i class="iconfont icon-cuo" ms-on-tap="clooseFn"></i>
+    </div>
+    <div class="third-container">
+        <p>规格：</p>
+        <div class="type-box">
+            <ul>
+                <li ms-repeat="thirdDataModel.Children" ms-class-1="active:el.isSelect" ms-on-tap="changeTypeFn(el)">{{el.ScaleName}}</li>
+            </ul>
+        </div>
+    </div>
+    <div ms-repeat="thirdDataModel.Children">
+        <div class="third-operate" ms-if="el.isSelect">
+            <b>{{el.Price | currency }}<em style="margin-left: .2rem; text-decoration: line-through; color: #999; font-size: .6rem;">￥{{el.OriPirce | number(2)}}</em></b>
+            <span class="typename">({{el.ScaleName}})</span>
+            <div class="numbox" ms-if="el.num > 0">
+                <a href="javascript:;" class="prev-btn" ms-data-id="el.Code" ms-data-type="el.type" ms-on-tap="reFn($remove)">
+                    <i class="iconfont icon-jian"></i>
+                </a>
+                <span>{{el.num}}</span>
+                <a href="javascript:;" class="next-btn" ms-data-id="el.Code" ms-data-type="el.type" ms-on-tap="addFn">
+                    <i class="iconfont icon-plus"></i>
+                </a>
+            </div>
+            <a href="javascript:;" class="gocart" ms-on-tap="addFn" ms-data-id="el.Code" ms-data-type="el.type" ms-if="el.num === 0"><i class="iconfont icon-gouwuche"></i> 加入购物车</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

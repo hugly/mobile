@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <link rel="stylesheet" href="../../style/css/mobiscroll.custom-2.16.1.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/mobiscroll.custom-2.17.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/couponscreate.js"></script>
+</head>
+<body class="ms-controller" ms-controller="couponscreate">
+<!--公共头部-->
+<div class="headerone">
+    <a href="coupons.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>创建优惠券</h3>
+    <a href="javascript:;" class="link" ms-if-loop="!isSuccess" ms-on-tap="submitCoupons">保存</a>
+</div>
+<div class="mer-con">
+    <div class="createitem">
+        <div class="itembox">
+            <ul>
+                <li class="item">
+                    <span>优惠券名称</span>
+                    <input type="text" placeholder="输入优惠券名称" ms-duplex="Name">
+                </li>
+                <li class="item">
+                    <span>使用位置</span>
+                    <select>
+                        <option value="通用">通用</option>
+                    </select>
+                </li>
+                <li class="item">
+                    <span>面值</span>
+                    <select ms-duplex="Price">
+                        <option value="1">1元</option>
+                        <option value="2">2元</option>
+                        <option value="5">5元</option>
+                        <option value="10">10元</option>
+                        <option value="20">20元</option>
+                        <option value="50">50元</option>
+                        <option value="100">100元</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div class="specbox">
+            <p>请选择一项金额使用条件</p>
+            <ul>
+                <li class="spec" ms-on-tap="choose">
+                    <span>无金额限制</span>
+                    <i class="iconfont" style="display: block; font-size: 1.6rem;" ms-class-1="icon-kaiguankai:isCheck" ms-class-2="icon-kaiguanguan-copy-copy:!isCheck"></i>
+                </li>
+                <li ms-if-loop="isCheck" class="spec">
+                    <span>满<input type="tel" placeholder="金额" ms-duplex="LimitMin">元使用</span>
+                    <!--<i class="iconfont icon-gou" ms-visible="type === 1"></i>-->
+                </li>
+            </ul>
+        </div>
+        <div class="itembox">
+            <ul>
+                <li class="item">
+                    <span>开始时间</span>
+                    <input id="BeginDate">
+                </li>
+                <li class="item">
+                    <span>结束时间</span>
+                    <input id="ExpireDate" >
+                </li>
+                <li class="item">
+                    <span>发行量(张)</span>
+                    <select ms-duplex="Num">
+                        <option value="2">2</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value="500">500</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <!--<div class="itembox">-->
+            <!--<ul>-->
+                <!--<li class="item">-->
+                    <!--<textarea placeholder="请输入需要的备注信息"></textarea>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    </div>
+</div>
+</body>
+</html>

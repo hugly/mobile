@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家中心</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--<script type="text/javascript" src="http://m.wziwash.com/oauth"></script>-->
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/discovered.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/discovered.js"></script>
+</head>
+<body class="ms-controller" ms-controller="messagelist">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="font-size: .8rem; line-height: 2.2rem; width: 11rem;">发现</h3>
+</div>
+<div class="discovered">
+    <div class="activetoday">
+        <h3 class="main-title">
+            <span class="fl bing">日常活动</span>
+            <em>做任务,领红包</em>
+            <span class="fr" style="color: #9b9b9b;">已完成({{activityAccount}}/2)</span>
+        </h3>
+        <ul>
+            <li style="border-right: 1px solid #e5e5e5;" ms-on-tap="loginFn"><a href="javascript:;">
+                <div class="itemleft">
+                    <h3>首次登陆</h3>
+                    <span ms-if="!firstActivity">未完成</span>
+                    <span class="complete" ms-if="firstActivity">已完成</span>
+                </div>
+                <div class="itemright">
+                    <img src="../../data-images/discover1.jpg">
+                </div>
+                <!--<i class="iconfont icon-xuanzhong"></i>-->
+            </a></li>
+            <li ms-on-tap="shareFn"><a href="javascript:;">
+                <div class="itemleft">
+                    <h3>推荐分享</h3>
+                    <span ms-if="!secondActivity">去完成</span>
+                    <span class="complete" ms-if="secondActivity">已完成</span>
+                </div>
+                <div class="itemright">
+                    <img src="../../data-images/discover2.jpg">
+                </div>
+                <!--<i class="iconfont icon-xuanzhong"></i>-->
+            </a></li>
+        </ul>
+    </div>
+    <!--<div class="selectactivity">-->
+        <!--<h3 class="main-title">-->
+            <!--<span class="fl bing">精选活动</span>-->
+            <!--<em>参加新活动,好礼领不停。</em>-->
+        <!--</h3>-->
+        <!--<a href="javascript:;" class="normal">-->
+            <!--<img src="../../data-images/discover3.jpg">-->
+        <!--</a>-->
+        <!--&lt;!&ndash;<a href="javascript:;" class="normal">&ndash;&gt;-->
+            <!--&lt;!&ndash;<img src="../../data-images/discover4.jpg">&ndash;&gt;-->
+        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--<div class="shortlist">-->
+            <!--&lt;!&ndash;<div class="listbox">&ndash;&gt;-->
+                <!--&lt;!&ndash;<a href="javascript:;" class="short">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<img src="../../data-images/discover5.jpg">&ndash;&gt;-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;<a href="javascript:;" class="short">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<img src="../../data-images/discover6.jpg">&ndash;&gt;-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;<a href="javascript:;" class="short">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<img src="../../data-images/discover7.jpg">&ndash;&gt;-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="shopdynamic">
+        <h3 class="main-title">
+            <span class="fl bing">商家动态</span>
+            <em>关注新动态,发现新优惠。</em>
+        </h3>
+        <p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;" ms-if="messageListModel.size() === 0">暂无数据</p>
+        <ul ms-if="messageListModel.size() > 0">
+            <li ms-repeat="messageListModel">
+                <div class="dynamic-title">
+                    <img ms-attr-src="el.ShopImage">
+                    <div class="infobox">
+                        <span>{{el.ShopName}}</span>
+                        <em>{{el.CreateTime | date("yyyy-MM-dd")}}</em>
+                    </div>
+                    <div class="sharebox">
+                        <a href="javascript:;" class="collection" ms-on-tap="collectionFn(el)">
+                            <i class="iconfont" ms-class-1="icon-heart:el.isCollection" ms-class-2="icon-xin1:!el.isCollection"></i>
+                            <em>关注</em>
+                        </a>
+                    </div>
+                </div>
+                <div class="dynamic-content">
+                    <div class="content">{{el.Desc}}</div>
+                    <!--<a href="javascript:;">全文</a>-->
+                    <div class="imgbox" ms-if="el.Images.size() > 0" ms-class-1="big:el.Images.size() == 1">
+                        <img ms-repeat="el.Images" ms-attr-src="el">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

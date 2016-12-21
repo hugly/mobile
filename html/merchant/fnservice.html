@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/service.js"></script>
+</head>
+<body class="ms-controller" ms-controller="service">
+<!--公共头部-->
+<div class="headerone">
+    <a href="mymerchant.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>功能服务</h3>
+</div>
+<div class="mer-con">
+    <div class="fnservice">
+        <div class="fnservice-list">
+            <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <h3 class="title" ms-if="!loadingImgShow">洗护类型</h3>
+            <ul>
+                <li ms-repeat="baseDataModel"><a>
+                    <!--<img ms-attr-src="el.Image">-->
+                    <div class="left-item">
+                        <i class="iconfont" ms-class-1="icon-ganxi:el.Value === 1" ms-class-2="icon-qingxibaoyang:el.Value === 2" ms-class-3="icon-shechihuli:el.Value === 3" ms-class-4="icon-caijianweihu:el.Value === 4"></i>
+                    </div>
+                    <div class="fn-info">
+                        <h3 ms-class-1="middle:!el.Desc">{{el.Name}}</h3>
+                        <p ms-if-loop="el.Desc">申请条件:{{el.Desc}}</p>
+                    </div>
+                    <!--申请成功-->
+                    <div class="state" ms-if-loop="el.IsApply === 1">
+                        <div class="status success">
+                            <i class="iconfont icon-xuanze"></i>
+                        </div>
+                        <p>申请成功</p>
+                    </div>
+                    <!--申请失败-->
+                    <!--<div class="state" ms-if-loop="el.IsApply === 4">-->
+                        <!--<div class="status error">-->
+                            <!--<i class="iconfont icon-cuo"></i>-->
+                        <!--</div>-->
+                        <!--<p>申请失败</p>-->
+                    <!--</div>-->
+                    <!--正在申请-->
+                    <div class="apply" ms-if-loop="el.IsApply === 2" style="color:#35c1fc;">
+                        正在申请
+                    </div>
+                    <div class="applynow" ms-if-loop="el.IsApply === 4" ms-on-tap="applyNow($index,el)">重新申请</div>
+                    <!--立即申请-->
+                    <div class="applynow" ms-if-loop="el.IsApply === 3 && el.jump === false" ms-on-tap="applyNow($index,el)">
+                        <i class="iconfont icon-comiisjiahao"></i>
+                        <span>申请</span>
+                    </div>
+                    <!--跳转页面申请-->
+                    <div class="apply" ms-if-loop="el.IsApply === 3 && el.jump === true" ms-on-tap="jumpApply(el)">
+                        去申请 <i class="iconfont icon-xiangyou"></i>
+                    </div>
+                    <div class="more-info" ms-if-loop="el.IsApply === 4">
+                        <p>失败原因:{{el.Reason}}</p>
+                    </div>
+                </a></li>
+                <!--<li><a href="javascript:;">-->
+                    <!--<img src="../../data-images/ad.jpg">-->
+                    <!--<div class="fn-info">-->
+                        <!--<h3>干洗熨烫</h3>-->
+                        <!--<p>申请条件:月销售量>100</p>-->
+                    <!--</div>-->
+                    <!--<div class="state">-->
+                        <!--<div class="status error">-->
+                            <!--<i class="iconfont icon-cuo"></i>-->
+                        <!--</div>-->
+                        <!--<p>申请失败</p>-->
+                    <!--</div>-->
+                    <!--<div class="more-info">-->
+                        <!--<p>失败原因:月销量没有达到100</p>-->
+                    <!--</div>-->
+                <!--</a></li>-->
+            </ul>
+        </div>
+        <div class="fnserlist">
+            <h3 class="title" ms-if="!loadingImgShow">服务申请</h3>
+            <ul>
+                <li ms-repeat="serviceDataModel" ms-on-tap="jumpApply(el)">
+                    <div class="item-left">
+                        <i class="iconfont" ms-class-1="icon-huodaofukuan:el.Value === 0" ms-class-2="icon-fuwubaozhang:el.Value === 2" ms-class-3="icon-teyueshangjia:el.Value === 3" ms-class-4="icon-peifubaozhang:el.Value === 4" ms-class-5="icon-pingtaipeisong:el.Value === 5"></i>
+                    </div>
+                    <div class="item-right">
+                        <em>{{el.Name}}</em>
+                        <span ms-if-loop="el.IsApply === 3">去申请</span>
+                        <span class="red" ms-if-loop="el.IsApply === 2">正在申请中</span>
+                        <span class="gray" ms-if-loop="el.IsApply === 1">已成功</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--<div class="fnservice-list">-->
+            <!--<ul>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<img src="../../data-images/ad.jpg">-->
+                    <!--<div class="fn-info">-->
+                        <!--<h3>干洗熨烫</h3>-->
+                        <!--<p>申请条件:月销售量>100</p>-->
+                    <!--</div>-->
+                    <!--<div class="applynow">立即申请</div>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<img src="../../data-images/ad.jpg">-->
+                    <!--<div class="fn-info">-->
+                        <!--<h3>干洗熨烫</h3>-->
+                        <!--<p>申请条件:月销售量>100</p>-->
+                    <!--</div>-->
+                    <!--<div class="apply">-->
+                        <!--去申请 <i class="iconfont icon-xiangyou"></i>-->
+                    <!--</div>-->
+                <!--</a></li>-->
+
+            <!--</ul>-->
+        <!--</div>-->
+    </div>
+</div>
+</body>
+</html>

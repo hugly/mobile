@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../js/dropload/dropload.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/completeflow.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/dropload/dropload.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/proflow/completeflow.js"></script>
+
+</head>
+<body class="ms-controller" ms-controller="completetask">
+<!--公共头部-->
+<div class="headerone">
+    <div class="bgzoom">
+        <a href="waitpickflow.html" class="back-btn">
+            <i class="iconfont icon-fanhui"></i>
+        </a>
+        <h3>已完成任务</h3>
+        <a href="javascript:;" style="width: 2rem; font-size: .6rem;" class="link" ms-on-tap="showSearchFn"><i class="iconfont icon-sousuo"></i></a>
+        <a href="javascript:;" style="width: 2rem; font-size: .6rem;" class="link">
+            <i class="iconfont icon-rilishaixuan"></i>
+            <input type="date" ms-on-change="getTaskFn">
+        </a>
+    </div>
+    <div class="searchbox" ms-css-top="top">
+        <form action="completeflow.html">
+            <input type="search" name="key" ms-duplex="keyword" placeholder="请输入关键字搜索已完成订单" class="searchInput">
+        </form>
+    </div>
+</div>
+<div class="complete">
+    <ul>
+        <li ms-repeat="taskDataModel"><a ms-attr-href="detailflow.html?code={{el.Code}}">
+            <div class="item-title">
+                <span>运单号:{{el.Code}}</span>
+                <em>{{el.CreateTime | date("yyyy.MM.dd HH:mm")}}</em>
+            </div>
+            <div class="item-info">
+                <div class="r-info">
+                    <p>订单号：{{el.OCode}}</p>
+                    <p>服务类型：{{el.Type === 1?'取件':'送件'}}</p>
+                    <p>本单收入：{{el.Price | currency}}</p>
+                    <p>完成时间：{{el.EditTime | date("yyyy.MM.dd HH:mm")}}</p>
+                </div>
+                <i class="iconfont icon-xiangyou"></i>
+            </div>
+        </a></li>
+    </ul>
+</div>
+</body>
+</html>

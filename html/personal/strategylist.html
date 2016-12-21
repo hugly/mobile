@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--<script type="text/javascript" src="http://m.wziwash.com/oauth"></script>-->
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/strategylist.js"></script>
+</head>
+<body class="ms-controller" ms-controller="strategylist">
+<!--头部部分-->
+<div class="headerone moresetting">
+    <a href="strategyindex.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>攻略列表</h3>
+</div>
+<div class="strategylist">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <p ms-if-loop="strategy.size() === 0 && !loadingImgShow" style="line-height: 40px; text-align: center;">暂无相关数据</p>
+    <ul>
+        <li ms-repeat="strategy"><a class="mainStrate" ms-attr-href="strategydetail.html?id={{el.Code}}">
+            <img ms-attr-src="{{el.MainImage}}" alt="">
+            <div class="list-right">
+                <h3>{{el.Title}}</h3>
+                <div class="info">
+                    <em>{{el.Name}}</em>
+                </div>
+                <p>
+                    <span><i class="iconfont icon-yanjing"></i><b>{{el.ScannCount}}</b></span>
+                    <span><i class="iconfont icon-muzhi" ms-on-tap="addLikeFn(el,$event)"></i><b>{{el.ClickLikeCount}}</b></span>
+                </p>
+            </div>
+        </a></li>
+    </ul>
+</div>
+</body>
+</html>

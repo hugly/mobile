@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家中心</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <link rel="stylesheet" href="../../style/css/cropper.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/cropper.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/merchantinfo.js"></script>
+</head>
+<body class="ms-controller" ms-controller="maininfo">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>免费开店</h3>
+    <!--<a href="../personal/person.html" class="message-btn">-->
+        <!--<i class="iconfont icon-5"></i>-->
+    <!--</a>-->
+</div>
+<div class="mer-con">
+    <!--进度-->
+    <div class="process">
+        <ul>
+            <li class="active">
+                <a href="javascript:;"><b>1</b>店铺信息</a>
+                <em><strong></strong></em>
+            </li>
+            <li>
+                <a href="javascript:;"><b>2</b>掌柜信息</a>
+                <em><strong></strong></em>
+            </li>
+            <li>
+                <a href="javascript:;"><b>3</b>提交成功</a>
+                <em><strong></strong></em>
+            </li>
+        </ul>
+    </div>
+    <div class="part" style="margin-top: 3rem;">
+        <h3>基本信息</h3>
+        <ul>
+            <li>
+                <span class="require">店铺名称</span>
+                <div class="item">
+                    <input type="text" placeholder="店铺名称,注册成功后不可修改" ms-duplex="shopInfoModel.CompanyName">
+                </div>
+            </li>
+            <li>
+                <span class="require">所在地区</span>
+                <div class="item" ms-on-tap="changeShow">
+                    <i class="iconfont icon-xiangyou"></i>
+                    <em>{{area?area:'点击选择地区'}}</em>
+                </div>
+            </li>
+            <li>
+                <span class="require">详细地址</span>
+                <div class="item">
+                    <input type="text" placeholder="街道,楼牌号等" ms-duplex="shopInfoModel.CompanyAddress">
+                </div>
+            </li>
+            <li>
+                <span class="require">店铺电话</span>
+                <div class="item">
+                    <input type="tel" placeholder="卖家店铺电话" ms-duplex="shopInfoModel.Tel">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="part">
+        <h3>资质信息</h3>
+        <ul>
+            <li>
+                <span class="require">营业执照</span>
+                <div class="item">
+                    <input type="tel" placeholder="营业执照编号" ms-duplex="shopInfoModel.RegistrationNumber">
+                </div>
+            </li>
+            <li class="upload">
+                <p class="require">请拍摄清晰的营业执照</p>
+                <div class="upload-box">
+                    <div class="imagebox" ms-if="hasImage">
+                        <img ms-attr-src="{{uploadImg}}">
+                        <a href="javascript:;" ms-on-tap="deleimage">删除</a>
+                    </div>
+                    <div class="add-box" ms-class-1="opa:isUploadSuccess" ms-if="!hasImage">
+                        <i class="iconfont icon-plus"></i>
+                        <input type="file" id="fileinput">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="part">
+        <h3 class="require">销售属性</h3>
+        <div class="washtypebox">
+            <a href="javascript:;" ms-repeat="washTypeList" ms-on-tap="changeWashTypeFn(el)" ms-class-1="active:el.isSelect">{{el.name}}<b><i class="iconfont icon-gouxuan1"></i></b></a>
+        </div>
+        <!--<ul>-->
+            <!--<li ms-repeat="washTypeList">-->
+                <!--<span>{{el.name}}</span>-->
+                <!--<div class="item" ms-on-tap="changeWashTypeFn(el)">-->
+                    <!--<i class="iconfont" style="font-size: 1.5rem; margin-right: .5rem;" ms-class-2="icon-kaiguankai:!el.isSelect" ms-class-1="icon-kaiguanguan-copy-copy show:el.isSelect"></i>-->
+                <!--</div>-->
+            <!--</li>-->
+        <!--</ul>-->
+    </div>
+    <div class="part">
+        <h3>其它信息</h3>
+        <ul>
+            <li>
+                <span>店铺所属</span>
+                <div class="item">
+                    <i class="iconfont icon-xiangyou"></i>
+                    <select ms-duplex="shopInfoModel.CompanyType">
+                        <option value="民营">民营</option>
+                        <option value="私企">私企</option>
+                        <option value="国企">国企</option>
+                        <option value="央企">央企</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <span class="require">店铺规模</span>
+                <div class="item">
+                    <i class="iconfont icon-xiangyou"></i>
+                    <select ms-duplex="shopInfoModel.EmployeeNum">
+                        <option value="10-20人">10-20人</option>
+                        <option value="20-50人">20-50人</option>
+                        <option value="50-100人">50-100人</option>
+                        <option value="100-500人">100-500人</option>
+                        <option value="500人以上">500人以上</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <span class="require">店铺性质</span>
+                <div class="item">
+                    <i class="iconfont icon-xiangyou"></i>
+                    <select ms-duplex="shopInfoModel.CompanyNature">
+                        <option value="1">分店</option>
+                        <option value="2">独立门店</option>
+                        <option value="3">旗舰店</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <a href="javascript:;" class="ordernow" ms-if="!isNexting" ms-on-tap="saveModel">下一步</a>
+    <a href="javascript:;" class="ordernow" ms-if="isNexting" style="background-color: #ccc;">下一步</a>
+</div>
+<div class="imgzoomer" ms-on-tap="clearTouch($event)" ms-visible="isUpShow" >
+    <div class="imgcontainer">
+        <img src="" alt="">
+    </div>
+    <a href="javascript:;" class="submitimg" ms-if="!isuploading">确定</a>
+    <a href="javascript:;" class="submitimg" ms-if="isuploading" style="background-color: #ccc;">正在上传</a>
+</div>
+<div class="order_layer_iframe0 newAddress_xzcs clearfix" ms-visible="isShow">
+    <div class="container clearfix">
+        <!-- 选择城市 -->
+        <div class="content_xzcs clearfix">
+            <a class="close Left iconfont icon-cuo" ms-on-tap="changeShow" href="javascript:;"></a>
+            <ul class="position clearfix">
+                <li ms-repeat="currentArr" ms-data-code="el.Code" ms-data-type="el.Type" ms-on-tap="currentFn($index)"><a href="javascript:;">{{el.Name}}</a><i class="iconfont icon-xiangyou"></i></li>
+            </ul>
+            <dl class="order_area clearfix">
+                <dt>
+                <ul id="preArea">
+                    <li ms-class-1="current:el.isCurrent" ms-repeat="leftSilderData" ms-data-code="el.Code" ms-data-type="el.Type" ms-on-tap="changeLeftFn($index)"><a href='javascript:;'>{{el.Name}}</a></li>
+                </ul>
+                </dt>
+                <dd>
+                    <ul id="nextArea">
+                        <li ms-repeat="rightSilderData" ms-data-code="el.Code" ms-data-type="el.Type" ms-on-tap="changeRightFn($index)"><a href='javascript:;'>{{el.Name}}</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+</body>
+</html>

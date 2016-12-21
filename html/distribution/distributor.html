@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/disorder.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/distribution/distributor.js"></script>
+</head>
+<body class="ms-controller" ms-controller="distributor">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>分销人员列表</h3>
+</div>
+<!--<div class="order-title">-->
+<!--<ul>-->
+<!--<li class="active">进行中</li>-->
+<!--<li>已结算</li>-->
+<!--<li>已退款</li>-->
+<!--</ul>-->
+<!--</div>-->
+<div class="person-box">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <p ms-if-loop="account.size() === 0 && !loadingImgShow" style="line-height: 40px; text-align: center;">暂无相关数据</p>
+    <div class="person-con">
+        <ul>
+            <li ms-repeat="account" ms-on-click="showTypeboxFn(el)">
+                <div class="left-silder">
+                    <span>{{el.RealName}}</span>
+                </div>
+                <div class="right-silder">
+                    <a href="javascript:;">绑定会员卡</a>
+                    <i class="iconfont icon-xiangyou"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="zoombox" ms-visible="isShowTypebox" style="transform:translateX(0)" ms-on-tap="clooseFn"></div>
+<div class="distributor-thirdbox" ms-visible="isShowTypebox">
+    <div class="third-title">
+        <h3>绑定会员卡</h3>
+        <i class="iconfont icon-cuo" ms-on-tap="clooseFn"></i>
+    </div>
+    <div class="third-container">
+        <ul>
+            <li>
+                <span>最小值</span>
+                <input type="tel" placeholder="请输入最小值" ms-duplex="minValue">
+            </li>
+            <b></b>
+            <li>
+                <span>最大值</span>
+                <input type="tel" placeholder="请输入最大值" ms-duplex="maxValue">
+            </li>
+        </ul>
+    </div>
+    <div class="operate">
+        <a href="javascript:;" ms-if="!isBinding" ms-on-click="bindCardFn">绑定</a>
+        <a href="javascript:;" style="background-color: #ccc;" ms-if="isBinding">绑定中</a>
+    </div>
+</div>
+</body>
+</html>

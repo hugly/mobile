@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的预约</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/mybook.js"></script>
+</head>
+<body class="ms-controller" ms-controller="roborder">
+<!--公共头部-->
+<div class="headerone">
+    <a href="../personal/personcenter.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>我的预约单</h3>
+    <!--<a href="../personal/person.html" class="message-btn">-->
+        <!--<i class="iconfont icon-dingdan"></i>-->
+        <!--<b></b>-->
+    <!--</a>-->
+</div>
+<div class="mer-con">
+    <div class="roborder">
+        <!--<div class="intel">-->
+            <!--<h3>智能抢单<span>(仅限营业时间)</span></h3>-->
+            <!--<i class="iconfont icon-kaiguanguan"></i>-->
+        <!--</div>-->
+        <!--<div class="robinfo">-->
+        <!--<ul>-->
+        <!--<li><i class="iconfont icon-shijian1"></i> <span>09:00-21:00</span></li>-->
+        <!--<li><i class="iconfont icon-dingwei"></i> <span>万科魅力之城和美东路132号</span></li>-->
+        <!--</ul>-->
+        <!--<i class="iconfont icon-xiangyou mainbtn"></i>-->
+        <!--</div>-->
+        <!--<div class="sort">-->
+            <!--<div class="sort-title" ms-on-tap="changeSort">{{sortName}}<i class="iconfont icon-xiasanjiao-copy"></i></div>-->
+            <!--<div class="sortbox" ms-visible="isShow">-->
+                <!--<ul>-->
+                    <!--<li ms-on-tap="sortData(1,'智能排序','')" ms-data-sort="'CreateTime'"><i ms-visible="sortType === 1" class="iconfont icon-gou"></i>智能排序</li>-->
+                    <!--<li ms-on-tap="sortData(2,'离我最近','Distance')" ms-data-sort="'Distance'"><i ms-visible="sortType === 2" class="iconfont icon-gou"></i>离我最近</li>-->
+                    <!--<li ms-on-tap="sortData(3,'最新发布','CreateTime')" ms-data-sort="'CreateTime'"><i ms-visible="sortType === 3" class="iconfont icon-gou"></i>最新发布</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="order-box" style="top: 0;">
+            <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <p ms-if-loop="robOrderList.size() === 0 && !loadingImgShow" style="line-height: 1.5rem; text-align: center;">暂无数据</p>
+
+            <ul ms-if-loop="robOrderList.size() > 0">
+                <li ms-repeat="robOrderList"><a ms-attr-href="el.activeUrl">
+                    <div class="item-title" style="border-bottom: none;">
+                        <!--<img ms-attr-src="el.HeadImage">-->
+                        <!--<div class="user">-->
+                            <!--<span>{{el.UserName}}</span>-->
+                            <!--<em class="man"><i class="iconfont icon-nansheng"></i></em>-->
+                        <!--</div>-->
+                        <b ms-class-1="green:el.Status === 2" ms-class-2="grey:el.Status === 4">{{el.ShowStatus}}<em></em></b>
+                    </div>
+                    <div class="order-info">
+                        <!--<h3>取件时间:{{el.ExpectPickDateTime | date("yyyy-MM-dd HH:mm")}}</h3>-->
+                        <!--<em>距离{{el.Distance | number(2)}}KM</em>-->
+                        <h3>{{el.CreateTime | date("yyyy年MM月dd日 HH:mm:ss")}}</h3>
+                        <p ms-visible="el.SendDateRangeType"><i class="iconfont icon-shijian color3"></i>取件时间:&nbsp;&nbsp;{{el.ExpectPickDateTime}}</p>
+                        <p ms-visible="el.PickAddress"><i class="iconfont icon-dingwei color1"></i>取件地址:&nbsp;&nbsp;{{el.PickAddress}}</p>
+                        <p><i class="iconfont icon-yifahuo color2"></i>配送方式:&nbsp;&nbsp;{{el.SendType === 1?'到店自提':'送货上门'}}</p>
+                        <p ms-visible="el.SendDateRangeType" ms-if-loop="el.SendType !== 1"><i class="iconfont icon-shijian color3"></i>配送时间:&nbsp;&nbsp;{{el.sendTime}}</p>
+                        <p ms-visible="el.SendAddress" ms-if-loop="el.SendType !== 1"><i class="iconfont icon-dingwei color4"></i>送货地址:&nbsp;&nbsp;{{el.SendAddress}}</p>
+                        <p ms-if-loop="el.proList"><i class="iconfont icon-dingdan color5"></i>商品信息:&nbsp;&nbsp;{{el.proList}}</p>
+                    </div>
+                    <div class="totalprice" ms-if-loop="el.Status !== 1">
+                        <b ms-if-loop="el.TotalPrice > 0">元</b><b>{{el.TotalPrice <= 0?'价格待定': el.TotalPrice }}</b>
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

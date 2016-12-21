@@ -1,0 +1,700 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.headerone {
+  background-color: #fff;
+  box-shadow: 0 0 1px #999;
+  overflow: inherit;
+  z-index: 15;
+}
+.headerone .back-btn i {
+  color: #505050;
+}
+.headerone h3 {
+  color: #505050;
+  width: 10rem;
+  padding-left: 0;
+}
+.headerone .link {
+  color: #505050;
+  position: relative;
+}
+.headerone .link i {
+  color: #505050;
+  font-size: 1.2rem;
+}
+.headerone .link input {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  border: none;
+  opacity: 0;
+}
+.taskmenu {
+  width: 16rem;
+  height: 2rem;
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 9;
+  background-color: #fff;
+  border-bottom: 1px solid #dcdcdc;
+}
+.taskmenu ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.taskmenu ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.taskmenu ul li {
+  float: left;
+  width: 4rem;
+  margin: 0 .65rem;
+  height: 1.9rem;
+  line-height: 2rem;
+  border-bottom: .1rem solid #fafefe;
+  text-align: center;
+}
+.taskmenu ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.taskmenu ul li.active {
+  border-bottom-color: #237290;
+}
+.taskmenu ul li.active a {
+  color: #237290;
+}
+.waitpickflow {
+  width: 16rem;
+  position: absolute;
+  left: 0;
+  top: 4rem;
+  right: 0;
+  bottom: 2rem;
+  overflow-y: scroll;
+}
+.waitpickflow ul {
+  position: relative;
+  width: 100%;
+}
+.waitpickflow ul .flow-item {
+  width: 16rem;
+  margin-top: .5rem;
+  background-color: #fff;
+  position: relative;
+}
+.waitpickflow ul .flow-item .flow-timeline {
+  width: 16rem;
+  height: .8rem;
+  position: relative;
+  background-color: #dddddd;
+}
+.waitpickflow ul .flow-item .flow-timeline span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: .8rem;
+  background-color: #92d8ed;
+  z-index: 3;
+}
+.waitpickflow ul .flow-item .flow-timeline em {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: .8rem;
+  line-height: .8rem;
+  margin: 0 .5rem;
+  color: #e03030;
+  font-size: .6rem;
+  z-index: 9;
+}
+.waitpickflow ul .flow-item .flow-timeline em i {
+  color: #e03030;
+  font-size: .6rem;
+  vertical-align: middle;
+}
+.waitpickflow ul .flow-item .flow-title {
+  width: 15rem;
+  height: 2rem;
+  padding: 0 .5rem;
+  border-bottom: 1px solid #cecece;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.waitpickflow ul .flow-item .flow-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.waitpickflow ul .flow-item .flow-title .t-left {
+  float: left;
+  height: 1rem;
+  padding: .5rem 0;
+}
+.waitpickflow ul .flow-item .flow-title .t-left i {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+.waitpickflow ul .flow-item .flow-title .t-left span {
+  display: inline-block;
+  line-height: 1rem;
+  vertical-align: middle;
+}
+.waitpickflow ul .flow-item .flow-title div.pickup i {
+  color: #e7b330;
+}
+.waitpickflow ul .flow-item .flow-title div.pickup span {
+  color: #e7b330;
+}
+.waitpickflow ul .flow-item .flow-title div.send i {
+  color: #237290;
+}
+.waitpickflow ul .flow-item .flow-title div.send span {
+  color: #237290;
+}
+.waitpickflow ul .flow-item .flow-title .t-right {
+  float: right;
+  height: 1rem;
+  padding: .5rem 0;
+}
+.waitpickflow ul .flow-item .flow-title .t-right span {
+  display: inline-block;
+  height: 1rem;
+  line-height: 1rem;
+  color: #92d8ed;
+  font-size: .6rem;
+}
+.waitpickflow ul .flow-item .flow-title .t-right span i {
+  color: #92d8ed;
+  font-size: .6rem;
+}
+.waitpickflow ul .flow-item .flow-title .t-more {
+  display: none;
+  width: 4rem;
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  padding: 0 .5rem;
+  background-color: #fff;
+  z-index: 9;
+  overflow: hidden;
+  box-shadow: 0 0 2px #ccc;
+}
+.waitpickflow ul .flow-item .flow-title .t-more ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.waitpickflow ul .flow-item .flow-title .t-more ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.waitpickflow ul .flow-item .flow-title .t-more ul .li-item {
+  float: left;
+  width: 4rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  text-align: center;
+  border-bottom: 1px solid #eaeaea;
+}
+.waitpickflow ul .flow-item .flow-title .t-more ul .li-item:last-child {
+  border-bottom: none;
+}
+.waitpickflow ul .flow-item .flow-time {
+  width: 15rem;
+  margin: 0 .5rem;
+  padding: .5rem 0;
+  border-bottom: 1px dashed #eaeaea;
+}
+.waitpickflow ul .flow-item .flow-time p span {
+  font-size: .7rem;
+  color: #101010;
+}
+.waitpickflow ul .flow-item .flow-time p b {
+  color: #e03030;
+  font-weight: normal;
+}
+.waitpickflow ul .flow-item .flow-info {
+  width: 15rem;
+  padding: .5rem .5rem 0 .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.waitpickflow ul .flow-item .flow-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.waitpickflow ul .flow-item .flow-info .info-item {
+  float: left;
+  width: 14rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.waitpickflow ul .flow-item .flow-info .info-item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.waitpickflow ul .flow-item .flow-info .info-item span {
+  float: left;
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  margin-top: .1rem;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid #e7b330;
+  color: #e7b330;
+}
+.waitpickflow ul .flow-item .flow-info .info-item span.pickup {
+  border-color: #e7b330;
+  color: #e7b330;
+}
+.waitpickflow ul .flow-item .flow-info .info-item span.send {
+  border-color: #237290;
+  color: #237290;
+}
+.waitpickflow ul .flow-item .flow-info .info-item .item-center {
+  float: left;
+  width: 10rem;
+  margin-left: .3rem;
+  margin-bottom: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.waitpickflow ul .flow-item .flow-info .info-item .item-center:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.waitpickflow ul .flow-item .flow-info .info-item .item-center h3 {
+  float: left;
+  width: 10rem;
+  height: 1.4rem;
+  line-height: 1.5rem;
+  font-weight: normal;
+  color: #101010;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.waitpickflow ul .flow-item .flow-info .info-item .item-center h3 b {
+  font-weight: normal;
+  color: #e14242;
+  margin-left: .5rem;
+}
+.waitpickflow ul .flow-item .flow-info .info-item .item-center em {
+  float: left;
+  width: 10rem;
+  line-height: .8rem;
+  color: #959595;
+  font-size: .6rem;
+}
+.waitpickflow ul .flow-item .flow-info .info-item a {
+  float: left;
+  width: 2rem;
+  height: 2.4rem;
+  position: relative;
+}
+.waitpickflow ul .flow-item .flow-info .info-item a i {
+  display: inline-block;
+  width: 2rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #237290;
+}
+.waitpickflow ul .flow-item .flow-info i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.5rem;
+  height: 5.8rem;
+  line-height: 5.8rem;
+  text-align: center;
+  color: #ccc;
+  font-size: 1rem;
+}
+.waitpickflow ul .flow-item .info-remark {
+  width: 15rem;
+  margin: 0 .5rem;
+  padding: .5rem 0;
+  border-top: 1px dashed #eaeaea;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.waitpickflow ul .flow-item .info-remark:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.waitpickflow ul .flow-item .info-remark span {
+  float: left;
+  width: 1.5rem;
+  margin-right: .5rem;
+  color: #101010;
+  font-size: .6rem;
+  line-height: .8rem;
+}
+.waitpickflow ul .flow-item .info-remark em {
+  float: left;
+  width: 13rem;
+  color: #101010;
+  font-size: .6rem;
+  line-height: .8rem;
+}
+.waitpickflow ul .flow-item .operate {
+  width: 15rem;
+  padding: 0 .5rem .5rem .5rem;
+  position: relative;
+  border-bottom: 1px solid #cecece;
+}
+.waitpickflow ul .flow-item .operate a {
+  display: inline-block;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #92d8ed;
+  color: #fff;
+  border-radius: .25rem;
+}
+.waitpickflow ul .flow-item .flow-order {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.waitpickflow ul .flow-item .flow-order:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.waitpickflow ul .flow-item .flow-order span {
+  color: #c2baba;
+  font-size: .6rem;
+}
+.waitpickflow ul .flow-item .hasver {
+  display: none;
+  position: absolute;
+  top: 2.5rem;
+  right: 3rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 3px solid #828282;
+  color: #828282;
+  line-height: 2.4rem;
+  text-align: center;
+  border-radius: 50%;
+  font-size: .6rem;
+  font-weight: bolder;
+  -webkit-transform: rotateZ(-45deg);
+  -moz-transform: rotateZ(-45deg);
+  -o-transform: rotateZ(-45deg);
+  transform: rotateZ(-45deg);
+}
+.zoom1 {
+  display: none;
+  width: 16rem;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 15;
+}
+.zoom {
+  display: none;
+  width: 16rem;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 18;
+}
+.filter {
+  width: 16rem;
+  height: 1.6rem;
+  padding: .2rem 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  box-shadow: 0 0 1px #999;
+  background-color: #fff;
+  z-index: 16;
+}
+.filter ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.filter ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.filter ul .filter-item {
+  float: left;
+  width: 5.33rem;
+  height: 1.6rem;
+  border-right: 1px solid #cecece;
+  box-sizing: border-box;
+  position: relative;
+}
+.filter ul .filter-item .main-filter {
+  width: 5.33rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+}
+.filter ul .filter-item .main-filter i {
+  color: #101010;
+  font-size: .8rem;
+  vertical-align: middle;
+}
+.filter ul .filter-item .main-filter span {
+  color: #101010;
+  font-size: .6rem;
+  vertical-align: middle;
+}
+.filter ul .filter-item .silder-filter {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 1.82rem;
+  width: 5.33rem;
+  box-shadow: 0 0 2px #ccc;
+  background-color: #fff;
+  z-index: 16;
+}
+.filter ul .filter-item .silder-filter ul {
+  position: relative;
+  width: 4.33rem;
+  padding: 0 .5rem;
+}
+.filter ul .filter-item .silder-filter ul li {
+  width: 4.33rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+  border-bottom: 1px solid #cecece;
+}
+.filter ul .filter-item .silder-filter ul li:last-child {
+  border-bottom: none;
+}
+.filter ul .filter-item:last-child {
+  border-right: none;
+}
+.modify-box {
+  display: none;
+  position: fixed;
+  left: 1rem;
+  top: 50%;
+  margin-top: -6.5rem;
+  width: 14rem;
+  background-color: #fff;
+  border-radius: .25rem;
+  overflow: hidden;
+  z-index: 20;
+}
+.modify-box .modify-title {
+  height: 1.5rem;
+  width: 13.5rem;
+  padding-left: .5rem;
+  position: relative;
+  border-bottom: 1px solid #cecece;
+  min-height: 1px;
+  zoom: 1;
+}
+.modify-box .modify-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.modify-box .modify-title span {
+  float: left;
+  line-height: 1.5rem;
+}
+.modify-box .modify-title i {
+  float: right;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #505050;
+}
+.modify-box ul {
+  width: 14rem;
+  position: relative;
+}
+.modify-box ul li {
+  width: 13rem;
+  margin: 0 .5rem;
+  padding: .25rem 0;
+  position: relative;
+  border-bottom: 1px solid #cecece;
+  min-height: 1px;
+  zoom: 1;
+}
+.modify-box ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.modify-box ul li input {
+  float: left;
+  border: none;
+  width: 12.5rem;
+  height: 1rem;
+  padding: .25rem;
+}
+.modify-box ul li i {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #237290;
+  position: absolute;
+  right: 0;
+  top: .25rem;
+}
+.modify-box ul li textarea {
+  border: none;
+  resize: none;
+  padding: .25rem;
+  width: 12.5rem;
+  height: 3rem;
+  line-height: 1rem;
+}
+.modify-box a {
+  float: right;
+  width: 3rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+  background-color: #92d8ed;
+  color: #fff;
+  margin: .5rem;
+  border-radius: .25rem;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/circul.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/ordercircul.js"></script>
+</head>
+<body class="ms-controller" ms-controller="ordercircul" style="background-color: #86d4eb;">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem;">订单流程</h3>
+</div>
+<div class="circulbox">
+    <p ms-if="h === 0 && m === 0 && s === 0" class="overstate">订单清洗流程已完成，请等待商家质检包装</p>
+    <div class="circulstatus">
+        <h3></h3>
+        <div class="info">
+            <p>订单编号:{{orderDataModel.Code}}</p>
+            <p><b>{{ProduceProgress[nowIndex].WashSaleTypeName}}</b>  —  {{nowstatus}}</p>
+        </div>
+        <div class="circlelist">
+            <div class="circle">
+                <div class="pie_left"><div class="left"></div></div>
+                <div class="pie_right"><div class="right"></div></div>
+                <div class="mask"><span style="display: none;">20</span></div>
+            </div>
+            <div class="circle1">
+                <div class="pie_left1"><div class="left1"></div></div>
+                <div class="pie_right1"><div class="right1"></div></div>
+                <div class="mask1">
+                    <em>{{h}}<i>h</i>{{m}}<i>m</i>{{s}}<i>s</i></em>
+                    <p>{{nowstatus}}</p>
+                    <!--<span style="display: none;">{{leftTime/2592 | number(0)}}</span>-->
+                </div>
+            </div>
+            <div class="interpre">
+                <p>时间进度:<b class="grey"></b></p>
+                <p>流程进度:<b class="blue"></b></p>
+            </div>
+        </div>
+        <!--<div class="circlebox" id="circlebox"></div>-->
+        <div class="title" ms-if="itemLength > 1">
+            <ul>
+                <li ms-css-width="{{signalwidth}}rem" ms-repeat="ProduceProgress" ms-class-1="active:$index === nowIndex" ms-on-tap="changeNowindexFn($index)">{{el.WashSaleTypeName}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

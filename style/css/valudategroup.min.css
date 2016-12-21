@@ -1,0 +1,178 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.keyword {
+  width: 16rem;
+  padding: .5rem 0;
+  position: relative;
+  background-color: #3dc6b6;
+  min-height: 1px;
+  zoom: 1;
+}
+.keyword:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.keyword .back-btn {
+  float: left;
+  width: 2rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  text-align: center;
+}
+.keyword .back-btn i {
+  color: #fff;
+}
+.keyword span {
+  float: left;
+  width: 9.5rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  padding: .3rem .5rem;
+  margin-right: .5rem;
+  background-color: #337d75;
+  color: #fff;
+  font-size: .7rem;
+  text-align: center;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.keyword span i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff;
+  width: 1.8rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  text-align: center;
+  z-index: 0;
+}
+.keyword .clearBtn {
+  float: left;
+  width: 2.5rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  text-align: center;
+  background-color: #337d75;
+  color: #fff;
+}
+.keyword .clearBtn:active {
+  background-color: #16423d;
+}
+.keybord {
+  width: 12rem;
+  padding: .5rem 1rem;
+  position: relative;
+}
+.keybord ul {
+  width: 14rem;
+  position: relative;
+  overflow: hidden;
+}
+.keybord ul li {
+  float: left;
+  width: 3.6rem;
+  height: 3.6rem;
+  line-height: 3.6rem;
+  text-align: center;
+  margin: .5rem;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 1.8rem;
+}
+.keybord ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.8rem;
+  color: #424242;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.keybord ul li a:active {
+  background-color: #86d4eb;
+  color: #fff;
+}
+.keybord ul li.valBtn {
+  width: 8rem;
+  background-color: #ff9d3c;
+}
+.keybord ul li.valBtn a {
+  color: #fff;
+}
+.keybord ul li.grey {
+  background-color: #ccc;
+}

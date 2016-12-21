@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家主办的助学活动每天免费提供获取15种(iphone6s,xbox,电竞套装等)奖品的机会。每天准时开奖，隔天发放奖品!</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/activi.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/activity/activityindex.js"></script>
+</head>
+<body class="ms-controller" ms-controller="activityindex">
+<!--公共头部-->
+<div class="headerone specheader" style="background-color: #fc6368;">
+    <a href="../main/index.html" class="back-btn">
+        <i class="iconfont icon-fanhui" style="color: #fff;"></i>
+    </a>
+    <h3 style="width:9rem; color: #fff;">助学活动</h3>
+    <a href="activityrank.html" style="width: 4rem; color: #fff;" class="link">活动排名</a>
+</div>
+<div class="activitymain" style="margin-top: 2rem;">
+    <img src="../../data-images/activi1.png">
+    <span>离开奖还剩:<b>{{h}}</b>时<b>{{m}}</b>分<b>{{s}}</b>秒</span>
+</div>
+<div class="activitypart1">
+    <h3>参与步骤</h3>
+    <div class="step">
+        <span>参与助学活动</span>
+        <span>邀请好友助学</span>
+        <span>分享成功领大奖</span>
+    </div>
+</div>
+<div class="activitypart2">
+    <h3>活动奖品<span style=" font-weight: normal; font-size: .6rem; float: right;">更多好礼等您来拿!</span></h3>
+    <ul>
+        <li>
+            <img src="../../data-images/activi2.png" >
+            <span>iphone6s</span>
+            <em>已领{{productData.phone}}台</em>
+        </li>
+        <li>
+            <img src="../../data-images/activi3.png" >
+            <span>电竞套装</span>
+            <em>已领{{productData.keybord}}台</em>
+        </li>
+        <li>
+            <img src="../../data-images/activi4.png" >
+            <span>迷你缝纫机等</span>
+            <em>已领{{productData.ploy}}台</em>
+        </li>
+    </ul>
+</div>
+<div class="activityinfo">
+    <h3>活动说明</h3>
+    <p>1、每天晚上十二点准时开奖。</p>
+    <p>2、按照助学人数降序排名。</p>
+    <p>3、新注册用户即送0-10元红包。</p>
+</div>
+<div class="activitypart3" ms-if="isShowDia">
+    <ul>
+        <li>
+            <span>目前助学人数</span>
+            <b>{{currentDataModel.HelperCount}}人</b>
+        </li>
+        <li>
+            <span>目前排名</span>
+            <b>{{currentDataModel.Rank}}</b>
+        </li>
+        <li>
+            <span>距一等奖差</span>
+            <b>{{currentDataModel.ForFirstCount}}人</b>
+        </li>
+    </ul>
+</div>
+<!--<p class="actinfo" ms-if="isShowDia">当前助学人数:<b>{{currentDataModel.HelperCount}}</b>人,当前排名:<b>{{currentDataModel.Rank}}</b></p>-->
+<div style="width: 16rem; height: 3rem;"></div>
+<a href="javascript:;" class="gonow" ms-if="!isShowDia && !isLoading" ms-on-tap="joinFn">立即参与</a>
+<a href="javascript:;" class="gonow" style="background-color: #ccc;" ms-if="isLoading">校验中</a>
+<a ms-attr-href="{{hrefAddress}}" class="gonow" ms-if="isShowDia">去分享</a>
+</body>
+</html>

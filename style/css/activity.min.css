@@ -1,0 +1,573 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+body {
+  background-color: #fff;
+}
+.topbar {
+  width: 16rem;
+  height: 7rem;
+  position: relative;
+}
+.topbar img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16rem;
+}
+.topbar a {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 15.5rem;
+  height: 2rem;
+  padding-left: .5rem;
+  line-height: 2rem;
+  z-index: 9;
+}
+.topbar a i {
+  color: #fff;
+  font-size: 1rem;
+}
+.prize {
+  width: 15rem;
+  height: 7.5rem;
+  padding: 0 .5rem;
+  position: relative;
+}
+.prize img {
+  position: absolute;
+  left: .5rem;
+  top: 0;
+  width: 15rem;
+  height: 7.5rem;
+}
+.prize ul {
+  width: 8rem;
+  position: absolute;
+  left: 2rem;
+  top: 2.5rem;
+  overflow: hidden;
+}
+.prize ul li {
+  float: left;
+  width: 8rem;
+  height: 1.1rem;
+  line-height: 1.1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.prize ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.prize ul li i {
+  float: left;
+  width: .4rem;
+  height: .4rem;
+  margin: .35rem;
+  background-color: #86d4eb;
+  border-radius: 50%;
+}
+.prize ul li span {
+  float: left;
+  width: 6.8rem;
+  height: 1.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  color: #000;
+}
+.joinactivity {
+  width: 15rem;
+  padding: 0 .5rem;
+  position: relative;
+}
+.joinactivity .jointitle {
+  width: 15rem;
+  height: 3rem;
+  position: relative;
+}
+.joinactivity .jointitle img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8rem;
+  height: 3rem;
+}
+.joinactivity .jointitle a {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 2rem;
+  line-height: 3rem;
+  color: #86d4eb;
+}
+.joinactivity .joincontent {
+  width: 15rem;
+  position: relative;
+}
+.joinactivity .joincontent ul {
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.joinactivity .joincontent ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.joinactivity .joincontent ul li {
+  float: left;
+  width: 15rem;
+  height: 2rem;
+  margin-bottom: .5rem;
+  position: relative;
+  overflow: hidden;
+}
+.joinactivity .joincontent ul li span {
+  float: left;
+  width: 3rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.joinactivity .joincontent ul li .above {
+  float: left;
+  width: 12rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.joinactivity .joincontent ul li .above:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.joinactivity .joincontent ul li .above input {
+  float: left;
+  width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .3rem .5rem;
+  margin: .2rem 0;
+  border: 1px solid #c9c9c9;
+  border-radius: .25rem;
+}
+.joinactivity .joincontent ul li .above input.short {
+  width: 5rem;
+}
+.joinactivity .joincontent ul li .above a {
+  float: left;
+  width: 4.5rem;
+  height: 1.7rem;
+  line-height: 1.7rem;
+  margin: .2rem 0 .2rem .5rem;
+  font-size: .6rem;
+  background-color: #eee;
+  text-align: center;
+  border-radius: .25rem;
+}
+.joinactivity .joincontent .iwantjoin {
+  display: inline-block;
+  width: 14rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  text-align: center;
+  margin: .5rem .5rem 0 .5rem;
+  background-color: #86d4eb;
+  color: #fff;
+  border-radius: .25rem;
+}
+.joinactivity .joincontent .ranking {
+  display: inline-block;
+  width: 14rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  text-align: center;
+  margin: .5rem .5rem 0 .5rem;
+  background-color: #fff;
+  color: #86d4eb;
+  border-radius: .25rem;
+  border: 1px solid #86d4eb;
+  box-sizing: border-box;
+}
+.activityrank {
+  width: 16rem;
+  position: relative;
+  margin-top: 2rem;
+}
+.activityrank .ranktop {
+  width: 16rem;
+  height: 7rem;
+  position: relative;
+}
+.activityrank .ranktop ul {
+  width: 15rem;
+  position: absolute;
+  left: .5rem;
+  top: 2rem;
+  z-index: 9;
+  min-height: 1px;
+  zoom: 1;
+}
+.activityrank .ranktop ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.activityrank .ranktop ul li {
+  float: left;
+  width: 15rem;
+  height: .9rem;
+  line-height: .9rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.activityrank .ranktop ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.activityrank .ranktop ul li span {
+  float: left;
+  color: #000;
+  font-size: .6rem;
+}
+.activityrank .ranktop ul li em {
+  float: left;
+  color: #000;
+  font-size: .6rem;
+  margin: 0 .5rem;
+}
+.activityrank .ranktop ul li i {
+  float: left;
+  color: #000;
+  font-size: .6rem;
+}
+.activityrank .ranktop img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16rem;
+  height: 7rem;
+}
+.activityrank .ranktitle {
+  width: 15rem;
+  margin: 0 .5rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: .2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.activityrank .ranktitle:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.activityrank .ranktitle img {
+  float: left;
+  width: 8rem;
+  height: 3rem;
+}
+.activityrank .ranktitle div.timebox {
+  float: right;
+  width: 5rem;
+}
+.activityrank .ranktitle div.timebox span {
+  display: inline-block;
+  font-size: .6rem;
+  margin-top: .4rem;
+}
+.activityrank .ranktitle div.timebox b {
+  display: inline-block;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  padding: 0 .2rem;
+  border-radius: .25rem;
+  background-color: #86d4eb;
+  color: #fff;
+  font-size: .5rem;
+}
+.activityrank .rankbox {
+  width: 15rem;
+  position: relative;
+  padding: 0 .5rem;
+}
+.activityrank .rankbox ul {
+  padding: 1rem 0;
+  position: relative;
+}
+.activityrank .rankbox ul li {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin-bottom: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.activityrank .rankbox ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.activityrank .rankbox ul li span {
+  float: left;
+  width: 3.5rem;
+  height: 1rem;
+  text-align: center;
+  color: #000;
+}
+.activityrank .rankbox ul li .bar {
+  float: left;
+  margin: 0 .5rem;
+  width: 7rem;
+  height: 1rem;
+  background-color: #eee;
+  position: relative;
+}
+.activityrank .rankbox ul li .bar .hasbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 1rem;
+  background-color: #fd4f6a;
+  z-index: 9;
+}
+.activityrank .rankbox ul li em {
+  float: left;
+  width: 3.5rem;
+  height: 1rem;
+  text-align: center;
+  color: #000;
+}
+.rule {
+  width: 15rem;
+  height: 5.5rem;
+  margin: 0 .5rem;
+  position: relative;
+}
+.rule img {
+  position: absolute;
+  left: .5rem;
+  top: 0;
+  width: 5rem;
+  height: 2rem;
+}
+.rule ul {
+  width: 13rem;
+  position: absolute;
+  left: 2rem;
+  top: 1.8rem;
+  padding: .5rem 0;
+  border-top: 1px solid #eee;
+  overflow: hidden;
+}
+.rule ul li {
+  float: left;
+  width: 13rem;
+  line-height: .9rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.rule ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.rule ul li i {
+  float: left;
+  width: .4rem;
+  height: .4rem;
+  margin: .25rem;
+  background-color: #86d4eb;
+  border-radius: 50%;
+}
+.rule ul li span {
+  float: left;
+  width: 11.8rem;
+  color: #000;
+}
+div.rule1 img {
+  left: 10rem;
+}
+div.rule2 {
+  height: 11rem;
+}
+.helpbox {
+  width: 16rem;
+  position: relative;
+}
+.helpbox a {
+  display: block;
+  width: 16rem;
+  height: 16.5rem;
+}
+.helpbox a img {
+  width: 16rem;
+  height: 16.5rem;
+}
+.helpbox p {
+  width: 15rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: .5rem;
+  position: absolute;
+  left: .5rem;
+  bottom: 0.2rem;
+  z-index: 9;
+  border-top: 1px solid #b3c3cd;
+  border-bottom: 1px solid #b3c3cd;
+  text-align: center;
+}
+.share {
+  width: 16rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #191919;
+}
+.share .bgimg {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  width: 4rem;
+  height: 4rem;
+}
+.share .normalacitivity {
+  display: inline-block;
+  color: #fff;
+  width: 16rem;
+  text-align: center;
+  font-family: initial;
+  font-size: 1.2rem;
+  margin-top: 8rem;
+}
+.share .wantgo {
+  display: inline-block;
+  width: 6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  margin: 1rem 5rem;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: .25rem;
+  color: #fff;
+}
+.sharesuccess {
+  width: 16rem;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -5.5rem;
+  background-color: #fff;
+}
+.sharesuccess h3 {
+  width: 16rem;
+  height: 2rem;
+  line-height: 2rem;
+  color: #f00;
+  text-align: center;
+  font-size: 1rem;
+}
+.sharesuccess a {
+  display: inline-block;
+  width: 8rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  margin: .5rem 4rem 0 4rem;
+  background-color: #86d4eb;
+  color: #fff;
+  border-radius: .25rem;
+}

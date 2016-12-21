@@ -1,0 +1,170 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+body {
+  background-color: #fff;
+  position: relative;
+}
+.siginbox {
+  width: 4rem;
+  padding: 5rem 6rem 1rem 6rem;
+  position: relative;
+}
+.siginbox .circle {
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid #86d4eb;
+  border-radius: 50%;
+  position: relative;
+}
+.siginbox .circle .imgbox {
+  width: 2rem;
+  margin: 1rem;
+}
+.siginbox .circle .imgbox img {
+  display: block;
+  width: 2rem;
+}
+.siginbox .circle .dotted {
+  position: absolute;
+  right: 3rem;
+  top: .25rem;
+  width: .49rem;
+  height: .5rem;
+  background-color: #86d4e8;
+  border-radius: 50%;
+  -webkit-animation: clockwise 5s linear infinite;
+  animation: clockwise 5s linear infinite;
+  transform-origin: 1.5rem 1.75rem;
+}
+p.time {
+  width: 16rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #86d4eb;
+  text-align: center;
+}
+p.time span {
+  color: #d94058;
+  font-size: .8rem;
+  margin-right: .2rem;
+}
+.operatebox {
+  width: 16rem;
+  position: absolute;
+  bottom: .5rem;
+  left: 0;
+  overflow: hidden;
+}
+.operatebox .wechatsignin {
+  float: left;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #86d4e8;
+  color: #fff;
+  border-radius: .25rem;
+  margin: 0 .5rem;
+}
+.operatebox .othersignin {
+  float: left;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #86d4e8;
+  color: #86d4e8;
+  margin: .5rem;
+  border-radius: .25rem;
+}
+.operatebox .signup {
+  float: left;
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #86d4e8;
+  text-align: right;
+  margin: 0 .5rem;
+}
+@-webkit-keyframes clockwise {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes clockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/offline_info.min.css">
+    <link rel="stylesheet" href="../../style/css/mobiscroll.custom-2.16.1.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/mobiscroll.custom-2.17.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/offline/offline_infomodify.js"></script>
+</head>
+<body class="ms-controller" ms-controller="offlineInfo">
+<!--公共头部-->
+<div class="headerone" style="background-color: #237290;">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style=" width: 12rem; padding: 0;">订单详情</h3>
+</div>
+<div class="offline-info">
+    <div class="info-item">
+        <ul>
+            <li>
+                <span class="left-info">送件时间:</span>
+                <div class="right-info">
+                    <!--<a ms-attr-href="offline_choosetime.html?{{searchData}}">{{showpickupDate}}<i class="iconfont icon-xiangyou"></i></a>-->
+                    <a href="javascript:;">{{sendDate}}<i class="iconfont icon-xiangyou"></i></a>
+                </div>
+                <ul id="time3" style="display:none">
+                    <li data-val="随时">随时
+                        <ul>
+                            <li data-val="随时">随时</li>
+                            <li data-val="早上">早上</li>
+                            <li data-val="中午">中午</li>
+                            <li data-val="晚上">晚上</li>
+                        </ul>
+                    </li>
+                    <li data-val="周一至周五">周一至周五
+                        <ul>
+                            <li data-val="随时">随时</li>
+                            <li data-val="早上">早上</li>
+                            <li data-val="中午">中午</li>
+                            <li data-val="晚上">晚上</li>
+                        </ul>
+                    </li>
+                    <li data-val="周末">周末
+                        <ul>
+                            <li data-val="随时">随时</li>
+                            <li data-val="早上">早上</li>
+                            <li data-val="中午">中午</li>
+                            <li data-val="晚上">晚上</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="info-item">
+        <div class="title">
+            <h3>取件人信息</h3>
+        </div>
+        <ul>
+            <li>
+                <span class="left-info">姓名:</span>
+                <div class="right-info">
+                    <input type="text" placeholder="请输入取件人姓名" ms-duplex="pickupName" ms-on-keyup="changeOption('pickupName')">
+                </div>
+            </li>
+            <li>
+                <span class="left-info">联系电话:</span>
+                <div class="right-info">
+                    <input type="text" placeholder="请输入取件人联系电话" ms-duplex="pickupTel" ms-on-keyup="changeOption('pickupTel')">
+                </div>
+            </li>
+            <li>
+                <span class="left-info">取件地址:</span>
+                <div class="right-info">
+                    <a ms-attr-href="offline_choosepickaddress.html?{{searchData}}" style="border-bottom: 1px solid #e5e5e5;">{{pickupPoiName === ''?'请选择取件地址':pickupPoiName}}<i class="iconfont icon-xiangyou" style="border-bottom: 1px solid #e5e5e5;"></i></a>
+                    <input type="text" placeholder="请输入取件人详细地址" ms-duplex="pickupDetailAddress" ms-on-keyup="changeOption('pickupDetailAddress')">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="info-item">
+        <div class="title">
+            <h3>送件人信息</h3>
+            <div class="check" ms-on-tap="changeSameFn">
+                <i class="iconfont icon-xuanze" style="font-size: .7rem; color: #56d176;" ms-if="isSame"></i>
+                <i class="iconfont icon-quan1" ms-if="!isSame"></i>
+                <span>取送件地址是否保持一致?</span>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <span class="left-info">姓名:</span>
+                <div class="right-info">
+                    <input ms-if="isSame" type="text" placeholder="请输入送件人姓名" ms-duplex="pickupName" ms-on-keyup="changeOption('pickupName')">
+                    <input ms-if="!isSame" type="text" placeholder="请输入送件人姓名" ms-duplex="deliveryName" ms-on-keyup="changeOption('deliveryName')">
+                </div>
+            </li>
+            <li>
+                <span class="left-info">联系电话:</span>
+                <div class="right-info">
+                    <input ms-if="isSame" type="text" placeholder="请输入送件人联系电话" ms-duplex="pickupTel" ms-on-keyup="changeOption('pickupTel')">
+                    <input ms-if="!isSame" type="text" placeholder="请输入送件人联系电话" ms-duplex="deliveryTel" ms-on-keyup="changeOption('deliveryTel')">
+                </div>
+            </li>
+            <li>
+                <span class="left-info">送件地址:</span>
+                <div class="right-info" ms-if="isSame">
+                    <a ms-attr-href="offline_choosedeliaddress.html?{{searchData}}" style="border-bottom: 1px solid #e5e5e5;">{{pickupPoiName === '请选择取件地址'?'请选择送件地址':pickupPoiName}}<i class="iconfont icon-xiangyou" style="border-bottom: 1px solid #e5e5e5;"></i></a>
+                    <input type="text" placeholder="请输入送件人详细地址" ms-duplex="pickupDetailAddress" ms-on-keyup="changeOption('pickupDetailAddress')">
+                </div>
+                <div class="right-info" ms-if="!isSame">
+                    <a ms-attr-href="offline_choosedeliaddress.html?{{searchData}}" style="border-bottom: 1px solid #e5e5e5;">{{deliveryPoiName === ''?'请选择送件地址':deliveryPoiName}}<i class="iconfont icon-xiangyou" style="border-bottom: 1px solid #e5e5e5;"></i></a>
+                    <input type="text" placeholder="请输入送件人详细地址" ms-duplex="deliveryDetailAddress" ms-on-keyup="changeOption('deliveryDetailAddress')">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="info-item" ms-if="hasPro">
+        <div class="title">
+            <h3>商品信息</h3>
+        </div>
+        <div class="detail">
+            <div class="order-title">
+                <span class="way">维护方式</span>
+                <span class="num">数量</span>
+                <span class="price">价格</span>
+            </div>
+            <div class="order-list" ms-repeat="proList" ms-if-loop="el.value.size()>0">
+                <div class="list-title">
+                    <div class="way">
+                        <i></i>{{el.name}}
+                    </div>
+                    <div class="num">小计:{{el.num}}</div>
+                    <div class="price">小计:￥{{el.ttprice | number(2)}}</div>
+                </div>
+                <ul>
+                    <li ms-repeat="el.value">
+                        <div class="way">{{el.name}}</div>
+                        <div class="num">x {{el.num}}</div>
+                        <div class="price">￥{{el.price | number(2)}}</div>
+                    </li>
+                </ul>
+                <!--<a href="javascript:;" class="more"><i class="iconfont icon-weibiaoti1"></i></a>-->
+            </div>
+        </div>
+    </div>
+    <!--<a href="javascript:;" class="sure-btn">确认</a>-->
+</div>
+<div class="operate">
+    <a href="javascript:;" class="sure-btn" ms-if="!isSuring" ms-on-tap="makeSureFn">确认</a>
+    <a href="javascript:;" class="sure-btn" ms-if="isSuring" style="background-color: #ccc;">确认中</a>
+    <a ms-attr-href="offline_shoplist.html?{{searchData}}" class="modify-btn">录入商品</a>
+</div>
+</body>
+</html>

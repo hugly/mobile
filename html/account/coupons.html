@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/account.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/account/coupons.js"></script>
+</head>
+<body class="ms-controller" ms-controller="coupons">
+<!--公共头部-->
+<div class="headerone">
+    <a href="../personal/personcenter.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>优惠券</h3>
+</div>
+<div class="content">
+    <div class="coupons">
+        <div class="coupon-title">
+            <ul>
+                <li ms-on-tap="getCouponByStatus(3,false)" ms-class-1="active:index === 3"><a href="javascript:;">未使用{{num1>0?'('+num1+')':''}}</a></li>
+                <li ms-on-tap="getCouponByStatus(1,false)" ms-class-1="active:index === 1"><a href="javascript:;">已过期{{num2>0?'('+num2+')':''}}</a></li>
+                <li ms-on-tap="getCouponByStatus(2,false)" ms-class-1="active:index === 2"><a href="javascript:;">已使用{{num3>0?'('+num3+')':''}}</a></li>
+            </ul>
+        </div>
+        <div class="coupon-list">
+            <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <ul class="couponul">
+                <li ms-visible="couponsData.size() === 0 && !loadingImgShow" style="text-align: center;">暂无相关信息</li>
+                <li class="couponitem" ms-class-1="disabled:el.used" ms-repeat="couponsData"><a href="javascript:;">
+                    <div class="topbar">
+                        <strong></strong>
+                    </div>
+                    <div class="mainbar">
+                        <p class="maintitle">{{el.CouponName?el.CouponName:'优惠券'}}</p>
+                        <div class="main">
+                            <span>￥ <b>{{el.Price}}</b></span>
+                            <p>
+                                <em>{{el.Shop.Name}}</em>
+                                <em ms-if-loop="el.LimitMin !== 0">满{{el.LimitMin}}元可用</em>
+                                <em ms-if-loop="el.LimitMin === 0">不限金额</em>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="more">
+                        <p>
+                            <span>有效时间</span>
+                            <em>{{el.BeginDate | date("yyyy.MM.dd")}} - {{el.ExpireDate | date("yyyy.MM.dd")}}</em>
+                        </p>
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

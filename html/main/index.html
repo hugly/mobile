@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/index.min.css">
+    <script src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=XAJBZ-AILWF-4TGJA-JLE2G-XKVDT-CGF56"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/iscroll.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/islider.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/main/index.js"></script>
+</head>
+<body class="ms-controller" ms-controller="index">
+<!--公共头部-->
+<header class="indexheader">
+    <div class="headerbg" ms-css-opacity="{{opacity>1?1:opacity}}"></div>
+    <a href="maincity.html" class="dingwei">
+        <div class="dingweibox">
+            <i class="iconfont icon-dingwei"></i>
+            <span>{{currentAddress}}</span>
+            <i class="iconfont icon-sanjiao"></i>
+        </div>
+    </a>
+    <a href="search.html" class="sweep">
+        <i class="iconfont icon-sousuo"></i>
+    </a>
+</header>
+    <div class="banner" id="banner"></div>
+    <!--几大板块-->
+    <div class="parts" style="margin-top: .5rem;">
+        <ul>
+            <li><a href="list.html?title=干洗熨烫&washtype=1">
+                <img src="../../data-images/tips1.jpg">
+                <!--<i class="color2 iconfont icon-yundou"></i>-->
+                <p>干洗熨烫</p>
+            </a></li>
+            <li><a href="list.html?title=清洗维护&washtype=2">
+                <img src="../../data-images/tips2.jpg">
+                <!--<i class="color5 iconfont icon-xiexue2"></i>-->
+                <p>清洗维护</p>
+            </a></li>
+            <li><a href="list.html?title=裁剪维修&washtype=4">
+                <img src="../../data-images/tips3.jpg">
+                <!--<i class="color3 iconfont icon-coupon"></i>-->
+                <p>裁剪维修</p>
+            </a></li>
+            <li><a href="list.html?title=奢侈护理&washtype=3">
+                <img src="../../data-images/tips4.jpg">
+                <!--<i class="color4 iconfont icon-iconbaobao"></i>-->
+                <p>奢侈护理</p>
+            </a></li>
+            <li><a href="list.html?title=热卖&washtype=4">
+                <img src="../../data-images/tips5.jpg">
+                <!--<i class="color1 iconfont icon-kuaisuyuyuejiyang"></i>-->
+                <p>热卖</p>
+            </a></li>
+            <li><a href="../personal/grouplist.html">
+                <img src="../../data-images/tips6.jpg">
+                <!--<i class="color6 iconfont icon-quan3"></i>-->
+                <p>团购券</p>
+            </a></li>
+            <li><a href="../personal/strategyindex.html">
+                <img src="../../data-images/tips7.jpg">
+                <!--<i class="color7 iconfont icon-fuligonglve"></i>-->
+                <p>攻略宝典</p>
+            </a></li>
+            <li><a href="list.html">
+                <img src="../../data-images/tips8.jpg">
+                <!--<i class="color8 iconfont icon-peisong1"></i>-->
+                <p>平台专送</p>
+            </a></li>
+        </ul>
+    </div>
+    <!--优惠活动-->
+    <div class="activity">
+        <a href="../activity10/merrychristmas.html" class="activity1">
+            <img src="../../data-images/ad5.jpg">
+            <!--<div class="timebox">-->
+                <!--<span class="timeitem">{{h}}</span>-->
+                <!--<span class="timeitem">{{m}}</span>-->
+                <!--<span class="timeitem">{{s}}</span>-->
+            <!--</div>-->
+        </a>
+        <a href="../personal/recommond.html" class="activity3">
+            <img src="../../data-images/ad6.png">
+        </a>
+        <a href="/payment/ReReRecharge" class="activity4">
+            <img src="../../data-images/ad7.jpg">
+        </a>
+    </div>
+    <div class="guarantee">
+        <!--<h3>专业洗衣、品质保障</h3>-->
+        <ul>
+            <li>
+                <i class="iconfont icon-kuaisushenqing"></i>
+                <span>专业保障</span>
+            </li>
+            <li>
+                <i class="iconfont icon-baozhang"></i>
+                <span>赔付保障</span>
+            </li>
+            <li>
+                <i class="iconfont icon-zuanshi1"></i>
+                <span>品质服务</span>
+            </li>
+        </ul>
+    </div>
+    <div class="kong" style="height: 3rem;"></div>
+<div class="naver-index">
+    <ul>
+        <li class="active"><a href="../main/index.html">
+            <i class="iconfont icon-shouyemian"></i>
+            <b>首页</b>
+        </a></li>
+        <li><a href="../merchant/personorderlist.html">
+            <i class="iconfont icon-dingdan3 discover"></i>
+            <b>订单</b>
+        </a></li>
+        <li>
+            <a href="../main/book.html">
+                <div class="circle">
+                    <div class="smallcircle">
+                        <em>一键</em>
+                        <span>预约</span>
+                    </div>
+                    <img src="../../data-images/finger.png">
+                    <div class="w1"></div>
+                    <div class="w2"></div>
+                    <!--<div class="w3"></div>-->
+                </div>
+            </a>
+        </li>
+        <li><a href="../main/discovered.html">
+            <i class="iconfont icon-faxian3 discover"></i>
+            <b>发现</b>
+        </a></li>
+        <li><a href="../personal/personcenter.html">
+            <i class="iconfont icon-wode3"></i>
+            <b>我的</b>
+        </a></li>
+    </ul>
+</div>
+<script type="text/javascript" src="../../js/control/silder.js"></script>
+</body>
+</html>

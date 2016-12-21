@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/voucher.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+</head>
+<body>
+<div class="voucher">
+    <img src="../../data-images/xianjin2.png" class="bgimg">
+    <div class="voucherbox">
+        <div class="top" style="height: 12rem; ">
+            <h3 style="margin-top: 1rem;">洗衣之家<i>更专业的洗护平台</i></h3>
+            <img src="../../data-images/erweicode.jpg" class="erweima">
+            <p>长按图片,识别图中二维码。</p>
+            <p>获取更多惊喜!</p>
+        </div>
+        <div class="result">
+            <p><i class="iconfont icon-duihao"></i>分享成功!</p>
+            <div class="operate">
+                <a href="../personal/account.html" class="type1">我的红包</a>
+                <a href="../activity/activityindex.html" class="type2">我的排名</a>
+            </div>
+            <p class="grey">精选优质商家,提供多样化服务,让你安心享受购物。</p>
+        </div>
+    </div>
+</div>
+<script>
+$(function(){
+    var version = '';
+
+    getBaseVersion(function(rs){
+        version=rs;
+        checkCurrentUser();
+    });
+
+    //判断当前用户是否已经领取过红包
+    function checkCurrentUser() {
+        jsonp(host + '/jsonp/RewardActivity_HasExistRegisteReward_' + version + '.js', {
+            token: token,
+            code: $.getUrlParam('phone')
+        }, 'callback', function (rs) {
+            if (rs.Success) {
+                var data = rs.Data;
+
+                if (data) {
+                    $.redPackets({
+                        text:'新注册用户   现金奖励',
+                        url: host + 'jsonp/RewardActivity_GetRegisteReward_' + version + '.js',
+                        data: {
+                            phone: $.getUrlParam('phone'),
+                            token: token
+                        }
+                    })
+                }
+
+            } else {
+                $.message({
+                    msg: rs.Msg
+                });
+            }
+
+        }, function () {
+        });
+    }
+});
+</script>
+</body>
+</html>

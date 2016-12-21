@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/share.js"></script>
+</head>
+<body class="ms-controller" ms-controller="share">
+<div class="sharebox">
+    <img class="shareimg" src="../../data-images/share1.png">
+    <div class="invitation">
+        <input type="tel" placeholder="请输入手机号接受邀请" ms-duplex="phoneNum" ms-on-keyup="checkPhoneNum">
+        <a href="javascript:;" ms-class-1="active:isRight" ms-on-tap="getCashCoupon">领取10元代金券</a>
+    </div>
+    <img class="shareimg" src="../../data-images/share2.png">
+    <img class="shareimg" src="../../data-images/share3.png">
+    <img class="shareimg" src="../../data-images/share4.png">
+    <div class="erweima">
+        <img class="codeimg" src="../../data-images/erweima.jpg">
+        <div class="info">
+            <p class="first">长按左侧二维码   关注"洗衣之家"</p>
+            <p class="second">回复"洗衣之家"即可领取现金券</p>
+        </div>
+    </div>
+    <div class="dialogbox" ms-if="showDiabox">
+        <div class="diabox">
+            <h3 style="height: 1.2rem;">恭喜您!</h3>
+            <h3>您已成功领取10元代金券</h3>
+            <div class="fndiabox">
+                <a href="../main/index.html">去洗护</a>
+                <a href="../account/cashcoupons.html">我的代金券</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

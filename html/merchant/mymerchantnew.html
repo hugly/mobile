@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/mymerchant.js"></script>
+</head>
+<body class="ms-controller" ms-controller="mymerchant">
+<!--公共头部-->
+<div class="headerone">
+    <a href="../main/index.html" class="back-btn">
+        <i class="iconfont icon-fanhui" style="font-size: .8rem;"></i>
+    </a>
+    <h3>我的店铺</h3>
+</div>
+<div class="my-oper">
+    <ul>
+        <li>
+            <a href="../personal/shopaccount.html">
+                <div class="top">
+                    <i class="iconfont icon-yue1"></i>
+                </div>
+                <h3>{{shomeData.Account | currency}}</h3>
+            </a>
+        </li>
+        <li>
+            <a href="../personal/valudategroup.html">
+                <div class="top">
+                    <i class="iconfont icon-yanjuan"></i>
+                </div>
+                <h3>验券</h3>
+            </a>
+        </li>
+        <li>
+            <a href="roborder.html">
+                <div class="top">
+                    <i class="iconfont icon-qiangdan1"></i>
+                </div>
+                <h3>抢单</h3>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="statistics">
+    <a href="javascript:;" class="statistics-item itemleft">
+        <i class="iconfont icon-benyuejiaoyie"></i>
+        <div class="item-info">
+            <h3>本月交易单数</h3>
+            <b></b>
+            <p>{{shomeData.MonthNum}}次</p>
+        </div>
+    </a>
+    <a href="javascript:;" class="statistics-item itemright">
+        <i class="iconfont icon-jinrijiaoyie"></i>
+        <div class="item-info">
+            <h3>本月交易额</h3>
+            <b></b>
+            <p>{{shomeData.MonthTotalPrice | currency}}</p>
+        </div>
+    </a>
+</div>
+<div class="my-list">
+    <ul>
+        <li class="type1"><a href="promanage.html">
+            <i class="iconfont icon-shangpinguanli"></i>
+            <b>商品管理</b>
+        </a></li>
+        <li class="type2"><a href="orderlist.html">
+            <i class="iconfont icon-dingdanguanli"></i>
+            <b>订单管理</b>
+        </a></li>
+        <li class="type3"><a href="logistics.html">
+            <i class="iconfont icon-wuliupeisong"></i>
+            <b>物流配送</b>
+        </a></li>
+        <li class="type4"><a href="coupons.html">
+            <i class="iconfont icon-youhuiquan1"></i>
+            <b>优惠券</b>
+        </a></li>
+        <li class="type5"><a href="groupmanage.html">
+            <i class="iconfont icon-tuangou1"></i>
+            <b>团购券</b>
+        </a></li>
+        <li class="type6"><a href="notice.html">
+            <i class="iconfont icon-gonggao"></i>
+            <b>发布公告</b>
+        </a></li>
+        <li class="type7"><a href="staffmanage.html">
+            <i class="iconfont icon-dianyuanguanli"></i>
+            <b>店员管理</b>
+        </a></li>
+        <li class="type8"><a ms-attr-href="settings.html?shopCode={{mymerchantData.ShopCode}}">
+            <i class="iconfont icon-dianpuguanli"></i>
+            <b>店铺管理</b>
+        </a></li>
+        <li class="type9"><a href="javascript:;">
+            <i class="iconfont icon-mendianguanli"></i>
+            <b>门店管理</b>
+        </a></li>
+        <li class="type10"><a href="fnservice.html">
+            <i class="iconfont icon-jian1"></i>
+            <b>功能服务</b>
+        </a></li>
+        <li class="type11"><a href="javascript:;">
+            <i class="iconfont icon-tuiguang"></i>
+            <b>推广</b>
+        </a></li>
+        <li class="type12"><a href="../business/figures.html">
+            <i class="iconfont icon-baobiao2"></i>
+            <b>报表</b>
+        </a></li>
+        <li class="type13"><a href="membershipcardlist.html">
+            <i class="iconfont icon-huiyuanqia"></i>
+            <b>会员卡</b>
+        </a></li>
+        <li class="type14"><a href="withdraw.html">
+            <i class="iconfont icon-tixian1"></i>
+            <b>提现</b>
+        </a></li>
+        <li class="type15"><a href="trendslist.html">
+            <i class="iconfont icon-shangjiadongtai"></i>
+            <b>商家动态</b>
+        </a></li>
+        <li class="type16"><a href="membershiplist.html">
+            <i class="iconfont icon-huiyuanguanli2"></i>
+            <b>会员管理</b>
+        </a></li>
+        <!--<li class="type17"><a href="../print/printlist.html">-->
+        <!--<i class="iconfont icon-dayin"></i>-->
+        <!--<b>打印设置</b>-->
+        <!--</a></li>-->
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/activity10.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/activity10/percentsale.js"></script>
+</head>
+<body class="ms-controller" ms-controller="flashsale">
+<!--公共头部-->
+<div class="headerone" style="z-index: 15;">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem;">5折专区</h3>
+</div>
+<div class="bannerimg">
+    <img src="../../data-images/fiveoff.jpg">
+</div>
+<div class="salelist">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;" ms-if="!loadingImgShow && saleDataModel.size() === 0">暂无活动数据</p>
+    <div class="saleitem" ms-repeat="saleDataModel">
+        <div class="item-left">
+            <img ms-attr-src="el.Image">
+            <div class="tips" ms-if="el.DisType === 1">
+                <p><b>{{el.intDiscount}}</b><i>.{{el.decDiscount}}</i><em>折</em></p>
+                <span class="jiao"></span>
+            </div>
+        </div>
+        <div class="item-right">
+            <h3><i class="iconfont icon-dianpu1"></i><span>{{el.ShopName}}</span></h3>
+            <p><i class="iconfont icon-qiang"></i><span>{{el.Name}}</span><em>{{el.ShowSaleWashType}}</em></p>
+            <div class="process">
+                <div class="fl processbar">
+                    <div class="probar" style="width: 5rem;" ms-css-width="(el.SaleNum/el.Num)*6+'rem'"></div>
+                </div>
+                <span>剩余{{el.Num-el.SaleNum}}</span>
+            </div>
+            <div class="right-info">
+                <i>￥</i><b>{{el.Price | number(2)}}</b><span>￥{{el.OriPrice | number(2)}}</span>
+                <a href="javascript:;" ms-on-tap="settlementFn(el.SkuCode)">立即抢购</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

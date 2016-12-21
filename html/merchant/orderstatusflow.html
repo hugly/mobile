@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/orderstatusflow.js"></script>
+</head>
+<body class="ms-controller" ms-controller="flow" style="background-color: #86d4eb;">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>订单状态流水</h3>
+</div>
+<div class="mer-con">
+    <div class="orderstatusflow">
+        <div class="flow-title">
+            <p>订单编号:{{code}}</p>
+            <p style="float: right; text-align: right;">{{status}}</p>
+        </div>
+        <div class="flowmain" ms-if-loop="recodeList.size() > 0">
+            <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <ul>
+                <li ms-repeat="recodeList">
+                    <div class="time-box">
+                        <span>{{el.EditTime}}</span>
+                    </div>
+                    <div class="time-line">
+                        <b></b>
+                        <em></em>
+                    </div>
+                    <div class="flow-item">
+                        <p>{{el.ShowFromStatus}}<em ms-if="el.Desc">({{el.Desc}})</em></p>
+                        <p class="esp">即将进入{{el.ShowToStatus}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

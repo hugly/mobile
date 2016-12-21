@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/logistics.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/logistics/taskdetailnew.js"></script>
+</head>
+<body class="ms-controller" ms-controller="taskDetail">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem;">任务详情</h3>
+</div>
+<div class="taskdetail">
+    <div class="nonum">
+        <span class="fl">运单编号:{{taskDataModel.Code}}</span>
+        <span class="fr spec">{{taskDataModel.showStatus}}</span>
+    </div>
+    <div class="nonum" style="margin-top: .5rem;">
+        <span class="fl">订单编号:{{taskDataModel.TCode}}</span>
+    </div>
+    <div class="item-top">
+        <div class="topli">
+            <b>{{taskDataModel.Price | currency}}</b>
+            <span>本单收入</span>
+        </div>
+        <div class="topli">
+            <b ms-if="taskDataModel.Type == 1">{{taskDataModel.showTime | date(" MM-dd HH:mm")}}</b>
+            <b ms-if="taskDataModel.Type == 2">{{taskDataModel.realmark}}</b>
+            <span>取送时间</span>
+        </div>
+    </div>
+    <div class="item-center">
+        <div class="centerli">
+            <i style="background-color: #fbb252;">取</i>
+            <div class="info">
+                <h3 ms-if="taskDataModel.PickAddress">{{taskDataModel.PickAddress}}</h3>
+                <b ms-if="taskDataModel.PickName">{{taskDataModel.PickName}}</b>
+                <p ms-if="taskDataModel.PickDetailAddress">{{taskDataModel.PickDetailAddress}}</p>
+                <!--<span>应付金额:0.00元</span>-->
+            </div>
+            <a ms-attr-href="tel:{{taskDataModel.PickPhone}}" class="calltel"><i class="iconfont icon-dianhua1"></i></a>
+        </div>
+        <div class="centerli">
+            <i style="background-color: #70abe1;">送</i>
+            <div class="info">
+                <h3 ms-if="taskDataModel.SendAddress">{{taskDataModel.SendAddress}}</h3>
+                <b ms-if="taskDataModel.SendName">{{taskDataModel.SendName}}</b>
+                <p ms-if="taskDataModel.SendDetailAddress">{{taskDataModel.SendDetailAddress}}</p>
+                <!--<span>应付金额:0.00元</span>-->
+            </div>
+            <a ms-attr-href="tel:{{taskDataModel.SendPhone}}" class="calltel"><i class="iconfont icon-dianhua1"></i></a>
+        </div>
+    </div>
+    <div class="detail-item" ms-if="taskDataModel.Status !== 1" ms-on-tap="goVerfyFn">
+        <a href="javascript:;">
+            <span class="fl">核实单</span>
+            <span class="fr"><i class="iconfont icon-xiangyou"></i></span>
+        </a>
+    </div>
+    <div class="income">
+        <ul>
+            <!--<li>-->
+                <!--<span>收入详情</span>-->
+                <!--<em class="status">已结账</em>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<span>商家支付</span>-->
+                <!--<em class="price">￥5.00</em>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<span>支付方式</span>-->
+                <!--<em>平台结账</em>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<span>平台支付</span>-->
+                <!--<em class="price">￥5.00</em>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<span>平台奖励</span>-->
+                <!--<em class="price">￥5.00</em>-->
+            <!--</li>-->
+            <li>
+                <span>总收入</span>
+                <em class="price">{{taskDataModel.Price | currency}}</em>
+            </li>
+            <li>
+                <span>创建时间</span>
+                <em>{{taskDataModel.CreateTime}}</em>
+            </li>
+        </ul>
+    </div>
+    <!--<div class="print-btn" ms-on-tap="printFn" ms-if="taskDataModel.HasAllCheck">-->
+        <!--<i class="iconfont icon-dayin"></i>-->
+        <!--<span>打印订单</span>-->
+    <!--</div>-->
+    <div style="width: 16rem; height: 2.5rem;"></div>
+    <!--<div class="robbox" ms-if="taskDataModel.Status === 1" ms-on-tap="robOrderFn(taskDataModel)">-->
+        <!--<a href="javascript:;" ms-if="!taskDataModel.isRob">抢单</a>-->
+        <!--<a href="javascript:;" ms-if="taskDataModel.isRob" style="background-color: #ccc;">抢单中</a>-->
+    <!--</div>-->
+    <div class="operatebox" ms-if="taskDataModel.Status === 1 || taskDataModel.HasAllCheck">
+        <div class="robbox" ms-if="taskDataModel.Status === 1" ms-on-tap="robOrderFn(taskDataModel)">
+            <a href="javascript:;" ms-if="!taskDataModel.isRob">抢单</a>
+            <a href="javascript:;" ms-if="taskDataModel.isRob" style="background-color: #ccc;">抢单中</a>
+        </div>
+        <div class="print-btn" ms-on-tap="printFn" ms-if="taskDataModel.HasAllCheck && !isPrinting">
+            <a href="javascript:;">打印订单</a>
+        </div>
+        <div class="print-btn" ms-if="taskDataModel.HasAllCheck && isPrinting">
+            <a href="javascript:;" style="background-color: #ccc;">正在打印</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

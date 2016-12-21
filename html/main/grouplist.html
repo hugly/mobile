@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/detail.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/main/grouplist.js"></script>
+</head>
+<body class="ms-controller" ms-controller="grouplist">
+<!--详情页头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 10rem;">团购券</h3>
+</div>
+<!--店铺菜单切换-->
+<div class="mainmenu" style="margin-top: 2.5rem;">
+    <div class="silder-box">
+        <div class="groupon" style="display: block;">
+            <div class="loadingLiubox" style="padding: 5rem 0;" ms-if-loop="loadingImgShow2">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <p ms-visible="grouponsList.size() === 0" style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;">暂无数据</p>
+            <ul>
+                <li ms-repeat="grouponsList">
+                    <div class="left-border"></div>
+                    <a ms-attr-href="../merchant/groupdetail.html?code={{el.Code}}">
+                        <div class="shop-logo">
+                            <img ms-attr-src="el.Image">
+                        </div>
+                        <div class="copn">
+                            <h3>{{el.Name}}</h3>
+                            <em ms-if-loop="el.Desc">{{el.Desc}}</em>
+                            <p><span>￥<strong>{{el.Price}}</strong><b></b></span><s>￥{{el.ActivePrice}}</s><i>已售{{el.IssueNum-el.Stock}}张</i></p>
+                        </div>
+                        <!--<div class="cart">-->
+                        <!--<span>已售{{el.IssueNum-el.Stock}}张</span>-->
+                        <!--</div>-->
+                        <i class="right iconfont icon-xiangyou"></i>
+                    </a>
+                    <div class="right-border"></div>
+                    <div class="label" ms-class-1="statu2:el.Type === 2">{{el.Type === 1?'团购券':'代金券'}}</div>
+                </li>
+                <p ms-visible="hasGroupsList">暂无数据</p>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

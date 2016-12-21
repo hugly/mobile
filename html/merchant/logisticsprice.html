@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/logisticsprice.js"></script>
+</head>
+<body class="ms-controller" ms-controller="logisticsprice">
+<!--公共头部-->
+<div class="headerone">
+    <a href="logistics.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>配置物流价格</h3>
+    <a href="javascript:;" class="link" ms-on-tap="saveLogistFn">保存</a>
+</div>
+<div class="mer-con">
+    <div class="createitem">
+        <div class="specbox">
+            <p>选择取件价格</p>
+            <ul>
+                <li class="spec" ms-on-tap="showPickFn">
+                    <span>免费取件</span>
+                    <i class="iconfont" style="display: block; font-size: 1.5rem;" ms-class-2="icon-kaiguankai:showPick" ms-class-1="show icon-kaiguanguan-copy-copy:!showPick"></i>
+                </li>
+                <!--ms-on-tap="changePickFn(3)"-->
+                <li class="spec" ms-if-loop="showPick">
+                    <span>取件<input type="text" placeholder="金额" ms-duplex="PickFee">元</span>
+                    <i class="iconfont" ms-class-2="icon-xuanze1:pickupState === 1" ms-class-1="icon-xuanze:pickupState !== 1"></i>
+                </li>
+                <li class="spec" ms-if-loop="showPick" ms-on-tap="changePickFn()">
+                    <b>满</b>
+                    <span>满<input type="text" placeholder="金额" ms-duplex="FreePickAmount">元免费取件</span>
+                    <i class="iconfont" ms-class-2="icon-xuanze1:pickupState !== 2" ms-class-1="icon-xuanze:pickupState === 2"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="specbox">
+            <p>选择配送价格</p>
+            <ul>
+                <li class="spec" ms-on-tap="showDisFn">
+                    <span>免费配送</span>
+                    <i class="iconfont" style="display: block; font-size: 1.5rem;" ms-class-2="icon-kaiguankai:showDis" ms-class-1="show icon-kaiguanguan-copy-copy:!showDis"></i>
+                </li>
+                <!--ms-on-tap="changeDisFn(3)"-->
+                <li class="spec" ms-if-loop="showDis">
+                    <span>配送<input type="text" placeholder="金额" ms-duplex="LogicFee">元</span>
+                    <i class="iconfont" ms-class-2="icon-xuanze1:distriState === 1" ms-class-1="icon-xuanze:distriState !== 1"></i>
+                </li>
+                <li class="spec" ms-if-loop="showDis" ms-on-tap="changeDisFn()">
+                    <b>满</b>
+                    <span>满<input type="text" placeholder="金额" ms-duplex="FreeLogicAmount">元免费配送</span>
+                    <i class="iconfont" ms-class-2="icon-xuanze1:distriState !== 2" ms-class-1="icon-xuanze:distriState === 2"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

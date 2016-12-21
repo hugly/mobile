@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/choosestaff.js"></script>
+</head>
+<body>
+<!--公共头部-->
+<div class="headerone">
+    <a href="orderlist.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>选择取件人</h3>
+    <a href="../merchant/staffadd.html" class="message-btn">
+        <i class="iconfont icon-jia"></i>
+    </a>
+</div>
+<div class="mer-con ms-controller" ms-controller="staffmanage">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <div class="staff" ms-if-loop="staffModel.size() > 0">
+        <div class="staff-title">
+            <a href="javascript:;" class="name">名字</a>
+            <a href="javascript:;" class="male">性别</a>
+            <a href="javascript:;" class="age">年龄</a>
+            <a href="javascript:;" class="phone">联系方式</a>
+        </div>
+        <div class="staff-box">
+            <ul>
+                <li ms-repeat="staffModel" ms-class-1="showchoose:el.isShowDele" ms-on-tap="changeShowFn($index)">
+                    <a href="javascript:;">
+                        <div class="name">
+                            <img ms-if-loop="el.HeadImage" ms-attr-src="{{el.HeadImage}}">
+                            <img ms-if-loop="!el.HeadImage && el.Sex === 0" src="../../data-images/userman.png">
+                            <img ms-if-loop="!el.HeadImage && el.Sex === 1" src="../../data-images/userwoman.png">
+
+                            <!--<img src="../../data-images/ad.jpg" alt="">-->
+                            <span class="word">{{el.Name}}</span>
+                            <!--<em class="info">{{el.Name}}</em>-->
+                        </div>
+                        <div class="male">{{el.Sex === 0?'男':'女'}}</div>
+                        <div class="age">{{el.Sex}}</div>
+                        <div class="phone">{{el.Tel}}</div>
+                    </a>
+                    <a href="javascript:;" class="choose"><i class="iconfont icon-gouxuan1"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <a href="javascript:;" class="fullbtn" ms-if-loop="isLoading || hasStaff" style="background-color: #ccc;">等待中...</a>
+    <a href="javascript:;" class="fullbtn" ms-if-loop="!isLoading || hasStaff" ms-on-tap="sureFn">确定</a>
+    <a href="javascript:;" class="fullbtn" ms-if-loop="!hasStaff" style="background-color: #ccc;">确定</a>
+</div>
+</body>
+</html>

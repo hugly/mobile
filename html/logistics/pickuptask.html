@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/logistics.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/logistics/pickuptask.js"></script>
+</head>
+<body class="ms-controller" ms-controller="pickuptask">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>任务列表</h3>
+    <a href="completetask.html" style="width: 4rem; font-size: .6rem;" class="link">已完成任务</a>
+</div>
+<div class="taskmenu">
+    <ul>
+        <li><a href="newtask.html">新任务</a></li>
+        <li class="active"><a href="javascript:;">待取货</a></li>
+        <li><a href="distritask.html">配送中</a></li>
+    </ul>
+</div>
+<div class="tasklist">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;" ms-if="!loadingImgShow && taskDataModel.size() === 0">暂无物流信息</p>
+
+    <div class="taskitem" ms-repeat="taskDataModel">
+        <div class="item-title">
+            <span>{{el.Logistics.Type === 1?'取件':'送件'}}</span>
+            <em>{{el.Logistics.CreateTime | date("yyyy-MM-dd HH:mm:ss")}}</em>
+        </div>
+        <div class="item-top">
+            <div class="topli">
+                <b>{{el.Logistics.Price | currency}}</b>
+                <span>本单收入</span>
+            </div>
+            <div class="topli">
+                <b ms-if="el.Logistics.Type == 1">{{el.Logistics.showTime | date("MM-dd HH:mm")}}</b>
+                <b ms-if="el.Logistics.Type == 2">{{el.Logistics.realmark}}</b>
+                <span>取送时间</span>
+            </div>
+        </div>
+        <div class="item-center">
+            <div class="centerli">
+                <i style="background-color: #fbb252;">取</i>
+                <div class="info" style="width: 13rem;">
+                    <h3 ms-if="el.Logistics.PickAddress">{{el.Logistics.PickAddress}}</h3>
+                    <p ms-if="el.Logistics.PickDetailAddress">{{el.Logistics.PickDetailAddress}}</p>
+                </div>
+            </div>
+            <div class="centerli">
+                <i style="background-color: #70abe1;">送</i>
+                <div class="info" style="width: 13rem;">
+                    <h3 ms-if="el.Logistics.SendAddress">{{el.Logistics.SendName}}</h3>
+                    <p ms-if="el.Logistics.SendDetailAddress">{{el.Logistics.SendDetailAddress}}</p>
+                </div>
+            </div>
+        </div>
+        <a ms-attr-href="taskdetail.html?code={{el.Logistics.Code}}" class="checkmore">查看订单详情</a>
+        <div class="operate" ms-if="el.Logistics.Type == 1 && el.Logistics.HasItem">
+            <a href="javascript:;" ms-on-tap="verifyFn(el)" ms-if="!el.isVerfy">核实商品</a>
+            <a href="javascript:;" style="background-color: #ccc;" ms-if="el.isVerfy">核实中</a>
+            <a href="javascript:;" ms-on-tap="hasPickFn(el,$remove)" ms-if="!el.isPick">确认取货</a>
+            <a href="javascript:;" style="background-color: #ccc;" ms-if="el.isPick">确认中</a>
+        </div>
+        <div class="operate" ms-if="el.Logistics.Type == 1 && !el.Logistics.HasItem">
+            <a href="javascript:;" ms-on-tap="verifyFn(el)" style="width: 15rem;">录入商品</a>
+        </div>
+        <div class="operate" ms-if="el.Logistics.Type == 2">
+            <a href="javascript:;" style="width: 15rem;" ms-on-tap="hasPickFn(el,$remove)" ms-if="!el.isPick">确认取货</a>
+            <a href="javascript:;" style="width: 15rem; background-color: #ccc;" ms-if="el.isPick">确认中</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

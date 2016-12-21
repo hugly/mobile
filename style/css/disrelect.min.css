@@ -1,0 +1,221 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.withdraw {
+  width: 16rem;
+  margin-top: 2.5rem;
+}
+.withdraw ul {
+  width: 15rem;
+  padding: 0 .5rem;
+  position: relative;
+  margin-bottom: .5rem;
+  background-color: #fff;
+}
+.withdraw ul li {
+  width: 15rem;
+  height: 1rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
+}
+.withdraw ul li span {
+  float: left;
+  width: 4rem;
+  height: 1rem;
+  line-height: 1rem;
+}
+.withdraw ul li input {
+  float: left;
+  width: 11rem;
+  height: 1rem;
+  line-height: 1rem;
+  border: none;
+}
+.withdraw ul li select {
+  float: left;
+  width: 11rem;
+  height: 1rem;
+  line-height: 1rem;
+  border: none;
+  background-color: #fff;
+  text-align: right;
+}
+.withdraw ul li i {
+  position: absolute;
+  left: 4rem;
+  top: .5rem;
+  color: #333;
+  width: .5rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .6rem;
+}
+.withdraw ul li.spec {
+  padding: 0;
+}
+.withdraw ul li.spec p {
+  color: #555;
+}
+.withdraw ul li.spec p em {
+  color: #555;
+  margin: 0 .2rem;
+  font-size: .7rem;
+}
+.withdraw ul li:last-child {
+  border-bottom: none;
+}
+.withdraw .withdrawbtn {
+  display: inline-block;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  margin: .5rem;
+  border-radius: .25rem;
+  background-color: #86d4eb;
+  color: #fff;
+}
+.withdraw p {
+  color: #ccc;
+  width: 15rem;
+  margin: 0 .5rem;
+  text-align: center;
+  font-size: .6rem;
+  line-height: 1rem;
+}
+.withdraw p em {
+  color: #ff6703;
+  font-size: .8rem;
+  margin: 0 .2rem;
+}
+.withdrawsuccess {
+  width: 16rem;
+  position: relative;
+}
+.withdrawsuccess .top {
+  width: 16rem;
+  position: relative;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.withdrawsuccess .top i {
+  color: #3d86b9;
+  font-size: 5rem;
+}
+.withdrawsuccess .top h3 {
+  font-size: 1rem;
+  color: #000;
+}
+.withdrawsuccess .withdrawinfo {
+  width: 15rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+  position: relative;
+}
+.withdrawsuccess .withdrawinfo ul {
+  position: relative;
+}
+.withdrawsuccess .withdrawinfo ul li {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.withdrawsuccess .withdrawinfo ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.withdrawsuccess .withdrawinfo ul li em {
+  float: left;
+  width: 5rem;
+  color: #777;
+}
+.withdrawsuccess .withdrawinfo ul li span {
+  float: right;
+  width: 10rem;
+  text-align: right;
+  color: #000;
+}
+.withdrawsuccess .sure-btn {
+  display: inline-block;
+  width: 15rem;
+  margin: 1rem .5rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #1bac19;
+  color: #fff;
+  border-radius: .25rem;
+}

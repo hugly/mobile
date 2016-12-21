@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/activity10.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/activity10/flashsale.js"></script>
+</head>
+<body class="ms-controller" ms-controller="flashsale">
+<!--公共头部-->
+<div class="headerone" style="z-index: 15;">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem;">限时抢购</h3>
+</div>
+<div class="bannerimg">
+    <img src="../../data-images/killtime.jpg">
+</div>
+<div style="width: 16rem; height: 2.4rem;" ms-visible="isFix"></div>
+<div class="timesilder" ms-class-1="fixclass:isFix">
+    <ul>
+        <li ms-class-1="active:nowIndex === 1" ms-class-2="nowtime:nowHours>10 && nowHours<13 && nowIndex === 1" ms-on-tap="changeIndex(1,'1000',texttype1)">
+            <span class="timetop">10:00</span>
+            <span class="timebom">{{texttype1}}</span>
+            <i>距离结束</i>
+            <b>{{h}}:{{m}}:{{s}}</b>
+        </li>
+        <li ms-class-1="active:nowIndex === 2" ms-class-2="nowtime:nowHours>13 && nowHours<16 && nowIndex === 2" ms-on-tap="changeIndex(2,'1300',texttype2)">
+            <span class="timetop">13:00</span>
+            <span class="timebom">{{texttype2}}</span>
+            <i>距离结束</i>
+            <b>{{h}}:{{m}}:{{s}}</b>
+        </li>
+        <li ms-class-1="active:nowIndex === 3" ms-class-2="nowtime:nowHours>16 && nowHours<24 && nowIndex === 3" ms-on-tap="changeIndex(3,'1600',texttype3)">
+            <span class="timetop">16:00</span>
+            <span class="timebom">{{texttype3}}</span>
+            <i>距离结束</i>
+            <b>{{h}}:{{m}}:{{s}}</b>
+        </li>
+    </ul>
+</div>
+<div class="salelist">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;" ms-if="!loadingImgShow && saleDataModel.size() === 0">暂无活动数据</p>
+    <div class="saleitem" ms-repeat="saleDataModel">
+        <div class="item-left">
+            <img ms-attr-src="el.Image">
+            <div class="tips" ms-if="el.DisType === 1">
+                <p><b>{{el.intDiscount}}</b><i>.{{el.decDiscount}}</i><em>折</em></p>
+                <span class="jiao"></span>
+            </div>
+        </div>
+        <div class="item-right">
+            <h3><i class="iconfont icon-dianpu1"></i><span>{{el.ShopName}}</span></h3>
+            <p><i class="iconfont icon-qiang"></i><span>{{el.Name}}</span><em>{{el.ShowSaleWashType}}</em></p>
+            <div class="process">
+                <div class="fl processbar">
+                    <div class="probar" style="width: 5rem;" ms-css-width="((el.Num-el.SaleNum)/el.Num)*6+'rem'"></div>
+                </div>
+                <span>剩余{{el.Num-el.SaleNum}}</span>
+            </div>
+            <div class="right-info">
+                <i>￥</i><b>{{el.Price | number(2)}}</b><span>￥{{el.OriPrice | number(2)}}</span>
+                <a href="javascript:;" ms-if="!(canOrder && nowTime >= nextTime)" style="border-color: #ccc; color: #ccc;">立即抢购</a>
+                <a href="javascript:;" ms-if="canOrder && nowTime >= nextTime" ms-on-tap="settlementFn(el.SkuCode)">立即抢购</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

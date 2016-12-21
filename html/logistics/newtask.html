@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../js/dropload/dropload.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/proflow.min.css">
+    <script src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=XAJBZ-AILWF-4TGJA-JLE2G-XKVDT-CGF56"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/dropload/dropload.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/proflow/newflow.js"></script>
+</head>
+<body class="ms-controller" ms-controller="newtask">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>任务列表</h3>
+    <a href="completeflow.html" style="width: 4rem; font-size: .6rem;" class="link">已完成</a>
+</div>
+<div class="taskmenu">
+    <ul>
+        <li class="active"><a href="javascript:;">新任务</a></li>
+        <li><a href="waitpickflow.html">待取货</a></li>
+        <li><a href="deliverflow.html">配送中</a></li>
+    </ul>
+    <p style="width: 16rem; height: 1.6rem; line-height: 1.6rem; text-align: center; color: #f39233; background-color: #fde6d0; border-top: 1px solid #f5c99e; border-bottom: 1px solid #f5c99e;" ms-if="cacheNum > 0" ms-on-tap="pushFn">有{{cacheNum}}条新订单，点击查看</p>
+</div>
+<div class="newflow">
+    <!--<div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">-->
+    <!--<img src="../../data-images/loading.gif">-->
+    <!--</div>-->
+    <div class="dropload-load" ms-visible="isLocation">
+        <span class="loading"></span>正在获取您的位置
+    </div>
+    <ul>
+        <li ms-repeat="taskDataModel">
+            <div class="flow-title">
+                <div class="t-left" ms-class-1="pickup:el.Type === 1" ms-class-2="send:el.Type === 2">
+                    <i class="iconfont icon-youdidehuoche"></i>
+                    <span>{{el.Type === 1?'取件':'送件'}}</span>
+                </div>
+                <div class="t-right">
+                    <span>本单收入:<b>{{el.Price | currency}}</b></span>
+                </div>
+            </div>
+            <div class="flow-time">
+                <span>预约时间:</span>
+                <span ms-if="el.Type == 1 && !el.HasPickTimeRange">{{el.PickTime | date("yyyy.MM.dd HH:mm")}}</span>
+                <span ms-if="el.Type == 1 && el.HasPickTimeRange">{{el.PickTime | date("yyyy.MM.dd HH:mm")}}  -  {{el.PickEndTime | date("HH:mm")}}</span>
+                <span ms-if="el.Type == 2">{{el.realmark}}</span>
+            </div>
+            <div class="flow-info">
+                <a ms-attr-href="detailflow.html?code={{el.Code}}">
+                    <div class="info-item">
+                        <span>取</span>
+                        <div class="item-center">
+                            <h3>{{el.PickName}}<b>{{ el.PickDist | number(0)}}km</b></h3>
+                            <em>{{el.PickDetailAddress}}</em>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="send">送</span>
+                        <div class="item-center">
+                            <h3>{{el.SendName}}<b>{{ el.SendDist | number(0)}}km</b></h3>
+                            <em>{{el.SendDetailAddress}}</em>
+                        </div>
+                    </div>
+                    <i class="iconfont icon-xiangyou"></i>
+                </a>
+            </div>
+            <div class="operate">
+                <a href="javascript:;" ms-if="!el.isRob" ms-on-tap="robOrderFn(el,$remove)">抢单</a>
+                <a href="javascript:;" ms-if="el.isRob" style="background-color: #ccc;">抢单中</a>
+            </div>
+            <div class="flow-order">
+                <span class="fl">物流编号:{{el.Code}}</span>
+                <span class="fr">{{el.CreateTime | date("yyyy.MM.dd HH:mm")}}</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="zoom" ms-on-tap="closeIntemFn"></div>
+<div class="filter">
+    <ul>
+        <li class="filter-item" ms-on-tap="pushFn">
+            <div class="main-filter">
+                <span>刷新</span>
+            </div>
+        </li>
+        <li class="filter-item" ms-on-tap="tapItemFn($event)">
+            <div class="main-filter">
+                <i class="iconfont icon-shaixuan"></i>
+                <span>筛选</span>
+            </div>
+            <div class="silder-filter">
+                <ul>
+                    <li ms-on-tap="filterFn('Dist',3,$event)">最近3公里</li>
+                    <li ms-on-tap="filterFn('Type',1,$event)">取件</li>
+                    <li ms-on-tap="filterFn('Type',2,$event)">送件</li>
+                </ul>
+            </div>
+        </li>
+        <li class="filter-item" ms-on-tap="tapItemFn($event)">
+            <div class="main-filter">
+                <i class="iconfont icon-paixu"></i>
+                <span>排序</span>
+            </div>
+            <div class="silder-filter">
+                <ul>
+                    <li ms-on-tap="filterOtherFn('Dist',$event)">按距离</li>
+                    <li ms-on-tap="filterOtherFn('Income',$event)">收入递增</li>
+                    <li ms-on-tap="filterOtherFn('OrderDate',$event)">预约时间</li>
+                    <li ms-on-tap="filterOtherFn('CreateDate',$event)">创建时间</li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/account.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/account/yibi.js"></script>
+</head>
+<body class="ms-controller" ms-controller="yibi">
+<!--公共头部-->
+<div class="headerone specheader">
+    <a href="../personal/personcenter.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>我的衣币</h3>
+</div>
+<div class="content">
+    <div class="yibi">
+        <div class="yibi-main">
+            <img src="../../data-images/yibi.jpg">
+            <span>{{allPoint}}<em style="font-size: .5rem;">个</em></span>
+        </div>
+        <!--<div class="yibioper">-->
+            <!--<a href="javascript:;"><i class="iconfont icon-fangzi"></i>洗护商城</a>-->
+            <!--<a href="javascript:;"><i class="iconfont icon-kuaisuyuyue"></i>兑换记录</a>-->
+        <!--</div>-->
+        <div class="yibi-intro">
+            <a href="yibidetail.html">
+                <i class="iconfont icon-tishi"></i>衣币说明
+            </a>
+        </div>
+        <div class="yibi-list">
+            <div class="list-title"><span>衣币记录</span></div>
+            <ul>
+                <li ms-repeat="scoreList">
+                    <div class="left">
+                        <h3>{{el.Desc}}{{el.Type === 1?'收入':'支出'}}{{el.Point}}积分</h3>
+                        <p>{{el.CreateTime}}</p>
+                    </div>
+                    <span>{{el.Type === 1?'+':'-'}}{{el.Point}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

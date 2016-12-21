@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/detail.min.css">
+    <!--<script type="text/javascript" src="http://119.28.6.194:6060/oauth?returnurl=http://www.baidu.com"></script>-->
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <!--<script type="text/javascript" src="../../js/lib/iscroll.js"></script>-->
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/main/shopdetail.js"></script>
+    <!--<script>-->
+    <!--$(function(){-->
+    <!--var myScroll = new IScroll('#mainScroll', { mouseWheel: true });-->
+    <!--var myScroll1 = new IScroll('.order-type', { mouseWheel: true });-->
+    <!--var myScroll2 = new IScroll('.order-container', { mouseWheel: true });-->
+    <!--})-->
+    <!--</script>-->
+    <!--<style>-->
+    <!--#mainScroll{ position: absolute; left: 0; top: 2.2rem; bottom: 2rem; }-->
+    <!--</style>-->
+</head>
+<body class="ms-controller" ms-controller="detail">
+<!--详情页头部-->
+<div class="header-detail">
+    <a href="list.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <div class="main-silder">
+        <a ms-attr-href="detail.html?dataid={{ShopCode}}">商品</a>
+        <a href="javascript:;" class="active">商家</a>
+        <a ms-attr-href="shopevaluate.html?dataid={{ShopCode}}" class="">评价</a>
+    </div>
+    <div class="sharebox">
+        <a href="javascript:;" class="collection" ms-on-tap="collectionFn">
+            <i class="iconfont" ms-class-1="icon-heart:isCollection" ms-class-2="icon-xin1:!isCollection"></i>
+        </a>
+    </div>
+</div>
+<!--<div class="shopdetailinfo">-->
+    <!--<div class="shopinfo"></div>-->
+<!--</div>-->
+<!--店铺详情-->
+<!--<div class="shop-detail">-->
+    <!--<div class="imgbox">-->
+        <!--<img ms-attr-src="{{BaseInfo.Shop.DefaultImage}}">-->
+        <!--<p>营业时间: {{shopInfo.BusinessBeginTime}}-{{shopInfo.BusinessEndTime}}</p>-->
+    <!--</div>-->
+    <!--<div class="shop-info">-->
+        <!--<h3>{{shopInfo.Name}}</h3>-->
+        <!--<p>-->
+            <!--<span>取:-->
+                <!--<em ms-if-loop="BaseInfo.Shop.PickType === 1">免费</em>-->
+                <!--<em ms-if-loop="BaseInfo.Shop.PickType === 2">满{{BaseInfo.Shop.FreePickAmount | currency}}元,免配送费</em>-->
+                <!--<em ms-if-loop="BaseInfo.Shop.PickType === 3">{{BaseInfo.Shop.PickFee | currency}}</em>-->
+            <!--</span>-->
+            <!--<span>送:-->
+                <!--<em ms-if-loop="BaseInfo.Shop.LogicType === 1">免费</em>-->
+                <!--<em ms-if-loop="BaseInfo.Shop.LogicType === 2">满{{BaseInfo.Shop.FreeLogicAmount | currency}}元,免配送费</em>-->
+                <!--<em ms-if-loop="BaseInfo.Shop.LogicType === 3">{{BaseInfo.Shop.LogicFee | currency}}</em>-->
+            <!--</span>-->
+        <!--</p>-->
+        <!--&lt;!&ndash;<b>取送免费</b>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p><i>惠</i>在线支付100减50 50减20 20减5</p>&ndash;&gt;-->
+        <!--<div class="shopaddress">-->
+            <!--<i class="iconfont icon-weizhi"></i>-->
+            <!--<span>{{BaseInfo.Shop.Address}}</span>-->
+            <!--<a ms-attr-href="tel:{{BaseInfo.Shop.Tel}}">-->
+                <!--<i class="iconfont icon-dianhua4"></i>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="logisity">
+    <ul>
+        <li>
+            <em class="type1">平台配送</em>
+            <span>配送方式</span>
+        </li>
+        <li>
+            <em class="type2" ms-if-loop="BaseInfo.Shop.PickType === 1">免费</em>
+            <em class="type2" ms-if-loop="BaseInfo.Shop.PickType === 2">满{{BaseInfo.Shop.FreePickAmount | currency}}元,免配送费</em>
+            <em class="type2" ms-if-loop="BaseInfo.Shop.PickType === 3">{{BaseInfo.Shop.PickFee | currency}}</em>
+            <span>取件费</span>
+        </li>
+        <li>
+            <em class="type3" ms-if-loop="BaseInfo.Shop.LogicType === 1">免费</em>
+            <em class="type3" ms-if-loop="BaseInfo.Shop.LogicType === 2">满{{BaseInfo.Shop.FreeLogicAmount | currency}}元,免配送费</em>
+            <em class="type3" ms-if-loop="BaseInfo.Shop.LogicType === 3">{{BaseInfo.Shop.LogicFee | currency}}</em>
+            <span>送件费</span>
+        </li>
+    </ul>
+</div>
+<div class="shopitem" ms-if="BaseInfo.Shop.Notice">
+    <h3 class="short">公告与时间</h3>
+    <p>{{BaseInfo.Shop.Notice}}</p>
+</div>
+<div class="shopitem">
+    <h3 class="short">商家信息</h3>
+    <ul>
+        <li><span>商家名称:</span><em>{{shopInfo.Name}}</em></li>
+        <li><span>品类:</span><em>干洗熨烫、清洗保养、奢侈护理、维护裁剪</em></li>
+        <li><span>营业时间:</span><em>{{shopInfo.BusinessBeginTime}}-{{shopInfo.BusinessEndTime}}</em></li>
+        <li style="width: 14rem;"><span>商家地址:</span><em style="width: 10rem;">{{shopInfo.FullAddress}}</em>
+            <a ms-attr-href="tel:{{BaseInfo.Shop.Tel}}">
+                <i class="iconfont icon-dianhua4"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="shopitem" ms-if="BaseInfo.Shop.Images.size() > 0">
+    <h3 class="short">商家图片</h3>
+    <div class="imagebox">
+        <img ms-repeat="BaseInfo.Shop.Images" ms-attr-src="el.Path">
+    </div>
+</div>
+<!--店铺地址以及联系方式-->
+<!--<div class="shop-fn">-->
+    <!--<div class="address-box">-->
+        <!--<div class="address">-->
+            <!--<i class="iconfont icon-dingwei"></i>-->
+            <!--<p>{{shopInfo.FullAddress}}</p>-->
+        <!--</div>-->
+        <!--<div class="phone">-->
+            <!--<a ms-attr-href="tel:{{shopInfo.Tel}}">-->
+                <!--<i class="iconfont icon-dianhua"></i>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="notice" ms-if-loop="shopInfo.Notice" ms-on-tap="showNoticeFn">-->
+        <!--<i class="iconfont icon-laba color"></i>-->
+        <!--<p>{{shopInfo.Notice}}</p>-->
+        <!--<i class="iconfont icon-xiangyou"></i>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="zoombox" ms-css-transform="translateY({{isshow}}%)" ms-on-tap="closeZoomFn"></div>-->
+<!--<div class="messagebox" ms-css-transform = translateX({{showNotice}}%) ms-on-tap="hideNoticeFn">-->
+    <!--<p>{{shopInfo.Notice}}</p>-->
+<!--</div>-->
+</body>
+</html>

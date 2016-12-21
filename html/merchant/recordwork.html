@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/recordwork.js"></script>
+</head>
+<body class="ms-controller" ms-controller="evaluate">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>记录工作</h3>
+</div>
+<div class="mer-con">
+
+    <div class="cancelorder">
+        <div class="cancel-title">
+            <span>请选择工作状态</span>
+            <select ms-duplex="status">
+                <option value="1">消毒</option>
+                <option value="2">熨烫</option>
+                <option value="3">质检</option>
+                <option value="5">整理</option>
+                <option value="6">完成</option>
+            </select>
+        </div>
+        <div class="cancel-title">
+            <span>请输入备注</span>
+        </div>
+        <div class="cancel-form">
+            <textarea placeholder="请输入备注" ms-duplex="cancelResult"></textarea>
+        </div>
+    </div>
+
+    <a href="javascript:;" class="ordernow" ms-on-tap="submitCancel">确认</a>
+</div>
+</body>
+</html>

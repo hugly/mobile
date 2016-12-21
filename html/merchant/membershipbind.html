@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家中心</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/membershipcardadd.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/membershipbind.js"></script>
+</head>
+<body class="ms-controller" ms-controller="membershipbind">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>绑定会员卡</h3>
+    <a href="membershipcardlist.html" class="link" style="color: #fff;">取消</a>
+</div>
+<div class="membercardbox">
+    <div class="add-box">
+        <ul>
+            <li>
+                <span class="require">会员名称</span>
+                <div class="item">
+                    <input type="text" placeholder="请输入会员名称" ms-duplex="userName">
+                </div>
+            </li>
+            <li>
+                <span class="require">会员卡类型</span>
+                <div class="item">
+                    <select ms-duplex="cardTypeCode" ms-on-change="changeCardTypeFn">
+                        <option ms-repeat="typeList" ms-attr-value="el.Code">{{el.Name}}</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <span class="require">折扣</span>
+                <div class="item">
+                    <em>{{Discount | number(2)}}折</em>
+                </div>
+            </li>
+            <li>
+                <span class="require">电话号码</span>
+                <div class="item">
+                    <input type="text" placeholder="请输入电话号码" ms-duplex="phoneNumber">
+                </div>
+            </li>
+            <li>
+                <span class="require">验证码</span>
+                <div class="item">
+                    <input type="text" placeholder="请输入验证码" ms-duplex="valiudateCode" class="short">
+                    <a href="javascript:;" class="sendCode" ms-if="codeType === 1" ms-on-tap="sendCodeFn">发送验证码</a>
+                    <a href="javascript:;" class="sending" ms-if="codeType === 2">发送中</a>
+                    <a href="javascript:;" class="waitsend" ms-if="codeType === 3">{{timeleft}}s后重新发送</a>
+                </div>
+            </li>
+            <li>
+                <span class="require">充值金额</span>
+                <div class="item">
+                    <input type="number" placeholder="请输入充值金额!" ms-duplex="cash">
+                </div>
+            </li>
+
+        </ul>
+        <a href="javascript:;" class="ordernow" ms-if="!isLoading" ms-on-tap="bindMemberFn">绑定</a>
+        <a href="javascript:;" class="ordernow" ms-if="isLoading" style="background-color: #ccc;">绑定中</a>
+    </div>
+</div>
+</body>
+</html>

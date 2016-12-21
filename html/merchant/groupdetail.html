@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/detail.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/coupondetail.js"></script>
+</head>
+<body class="ms-controller" ms-controller="coupondetail">
+<!--团购券详情页头部-->
+<div class="header-detail">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 13.5rem; padding-right: 0;">{{groupData.Type === 1?'团购券':'代金券'}}详情</h3>
+    <!--<div class="sharebox">-->
+        <!--<a href="javascript:;" class="iconlist">-->
+            <!--<i class="iconfont icon-xin"></i>-->
+        <!--</a>-->
+        <!--<a href="javascript:;" class="iconlist">-->
+            <!--<i class="iconfont icon-5"></i>-->
+        <!--</a>-->
+    <!--</div>-->
+</div>
+<div class="coupondetail">
+    <div class="imgbox">
+        <img ms-attr-src="groupData.Image">
+    </div>
+    <div class="couponinfo">
+        <div class="coupon-title">
+            <h3>{{groupData.Name}}</h3>
+            <!--<div class="share">-->
+                <!--<i class="iconfont icon-xin"></i>-->
+                <!--<i class="iconfont icon-5"></i>-->
+            <!--</div>-->
+        </div>
+        <div class="price">
+            <h3>{{groupData.Price}}元</h3>
+            <b>{{groupData.ActivePrice}}元</b>
+        </div>
+        <div class="tips">
+            <span>随时退</span>
+            <span>过期自动退</span>
+            <span class="right">已售{{groupData.IssueNum - groupData.Stock}}张</span>
+        </div>
+    </div>
+    <div class="shop-info">
+        <h3>{{groupData.ShopName}}</h3>
+        <p><i class="iconfont icon-dingwei"></i><a href="javascript:;">{{groupData.ShopAddress}}</a><em ms-visible="groupData.Distance">距离{{groupData.Distance}}米</em></p>
+        <p><i class="iconfont icon-dianhua"></i><a ms-attr-href="tel:{{groupData.Tel}}">{{groupData.Tel}}</a></p>
+    </div>
+    <div class="buy-info">
+        <h3>购买须知</h3>
+        <ul>
+            <li>
+                <span>有效期</span>
+                <p ms-if="groupData.IsLimitTime">{{groupData.StartTime | date("yyyy-MM-dd")}} 至 {{groupData.EndTime | date("yyyy-MM-dd")}}</p>
+                <p ms-if="!groupData.IsLimitTime">永不过期</p>
+            </li>
+        </ul>
+    </div>
+    <div class="coupon-detail">
+        <h3>{{groupData.Type === 1?'团购券':'代金券'}}详情</h3>
+        <div class="coupon-list">
+            <p>{{groupData.Desc}}</p>
+        </div>
+    </div>
+</div>
+<div class="buy-now">
+    <div class="info-left">
+        <span>￥<b>{{groupData.Price}}</b></span>
+        <em>￥{{groupData.ActivePrice}}</em>
+    </div>
+    <a href="javascript:;" style="background-color: #ccc;" ms-if="groupData.Stock === 0">已售完</a>
+    <a href="javascript:;" style="background-color: #ccc;" ms-if="!groupData.InTime">已过期</a>
+    <a href="javascript:;" ms-if="groupData.Stock > 0 && groupData.InTime" ms-on-tap="rushFn">立即抢购</a>
+</div>
+</body>
+</html>

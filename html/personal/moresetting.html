@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+</head>
+<body class="ms-controller" ms-controller="moresettings">
+<!--公共头部-->
+<div class="headerone moresetting">
+    <a href="personcenter.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>设置</h3>
+</div>
+<!--账户管理详细信息-->
+<div class="account">
+    <!--<div class="itemlist">-->
+        <!--<ul>-->
+            <!--<li><a href="javascript:;">-->
+                <!--<span>推送消息设置</span>-->
+                <!--<div class="right spec">-->
+                    <!--<i class="iconfont icon-xiangyou"></i>-->
+                <!--</div>-->
+            <!--</a></li>-->
+            <!--<li><a href="javascript:;">-->
+                <!--<span>非WIFI环境下手动下载图片</span>-->
+                <!--<div class="right spec">-->
+                    <!--<i class="iconfont icon-xiangyou"></i>-->
+                <!--</div>-->
+            <!--</a></li>-->
+            <!--<li><a href="javascript:;">-->
+                <!--<span>清除本地缓存</span>-->
+                <!--<div class="right spec">-->
+                    <!--<i class="iconfont icon-xiangyou"></i>-->
+                <!--</div>-->
+            <!--</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <div class="itemlist">
+        <ul>
+            <li><a href="javascript:;" ms-on-tap="goPrintFn">
+                <span>打印设置</span>
+                <div class="right spec">
+                    <i class="iconfont icon-xiangyou"></i>
+                </div>
+            </a></li>
+            <li><a href="javascript:;">
+                <span>关于</span>
+                <div class="right spec">
+                    <i class="iconfont icon-xiangyou"></i>
+                </div>
+            </a></li>
+            <li><a href="javascript:;">
+                <span>联系我们</span>
+                <div class="right spec">
+                    <i class="iconfont icon-xiangyou"></i>
+                </div>
+            </a></li>
+            <li><a href="../merchant/complaint.html">
+                <span>意见反馈</span>
+                <div class="right spec">
+                    <i class="iconfont icon-xiangyou"></i>
+                </div>
+            </a></li>
+        </ul>
+    </div>
+    <a style="background-color: #e4393c;" href="/SSOAccount/LogOff" class="address-btn">退出登录</a>
+</div>
+<script>
+    /**
+     * Created by hulgy on 17/12/2016.
+     */
+    (function(){
+        'use strict';
+
+        require(['domReady!'],function(avalon){
+            var vm=avalon.define({
+                $id: "moresettings",
+                //版本号
+                version: 0,
+                //获取版本号
+                getVersion: function () {
+                    getBaseVersion(function (rs) {
+                        vm.version = rs;
+                    });
+                },
+                goPrintFn:function () {
+                    setLocalstorage('printHref',window.location.href);
+                    window.location.href = '../merchant/printsetting.html';
+                }
+            });
+            vm.getVersion();
+            avalon.scan();
+
+        });
+
+    })();
+</script>
+</body>
+</html>

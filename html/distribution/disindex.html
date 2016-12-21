@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/disindex.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/distribution/disindex.js"></script>
+</head>
+<body class="ms-controller" ms-controller="disindex">
+<!--公共头部-->
+<div class="headerone" style="background-color: #92d8ed;">
+    <a href="../main/index.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>我的佣金</h3>
+    <a href="disrelectrecods.html" class="link">明细</a>
+</div>
+<div class="money">
+    <p>余额<em>(元)</em></p>
+    <b>￥{{account | number(2)}}</b>
+</div>
+<div class="income">
+    <ul>
+        <li>
+            <span>本月收入</span>
+            <b>￥{{monthIncome | number(2)}}</b>
+        </li>
+        <li>
+            <span>总收入</span>
+            <b>￥{{totalIncome | number(2)}}</b>
+        </li>
+    </ul>
+</div>
+<div class="operate">
+    <ul>
+        <li class="type1"><a href="disrelect.html">
+            <i class="iconfont icon-wodeyongjin"></i>
+            <span>提现</span>
+        </a></li>
+        <li class="type2"><a href="disorder.html">
+            <i class="iconfont icon-dingdanliebiao"></i>
+            <span>订单列表</span>
+        </a></li>
+        <li class="type3"><a href="disdetail.html">
+            <i class="iconfont icon-shouzhimingxi"></i>
+            <span>收支明细</span>
+        </a></li>
+        <li class="type4"><a href="discenter.html">
+            <i class="iconfont icon-gerenzhongxin1"></i>
+            <span>个人中心</span>
+        </a></li>
+    </ul>
+</div>
+</body>
+</html>

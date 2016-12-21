@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家中心</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <link rel="stylesheet" href="../../style/css/cropper.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/cropper.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/settingsimg.js"></script>
+</head>
+<body class="ms-controller" ms-controller="settingsimg">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>店铺设置</h3>
+    <a href="javascript:;" ms-on-tap="saveShopDetail" ms-if-loop="isSave" class="link">保存</a>
+</div>
+<div class="mer-con" style="top: 4.2rem;">
+    <!--进度-->
+    <div class="process settings">
+        <ul>
+            <li>
+                <a ms-attr-href="../merchant/settings.html?shopCode={{shopCode}}">店铺信息</a>
+                <em></em>
+            </li>
+            <li class="active">
+                <a href="javascript:;">店铺图片</a>
+                <em></em>
+            </li>
+        </ul>
+    </div>
+    <div class="part imgbox">
+        <ul>
+            <p class="imgintro">店铺LOGO</p>
+            <li class="upload">
+                <div class="upload-box">
+                    <div class="imagebox" ms-if="defaultImage !== ''">
+                        <img ms-attr-src="{{defaultImage}}">
+                        <a href="javascript:;" ms-on-tap="deleimage">删除</a>
+                    </div>
+                    <div class="add-box" ms-if="defaultImage === ''">
+                        <i class="iconfont icon-plus"></i>
+                        <input type="file" class="fileinput">
+                    </div>
+                </div>
+            </li>
+            <p class="imgintro">店铺其它图片</p>
+            <li class="upload">
+                <div class="upload-box" style="height: auto;">
+                    <div class="upload-list">
+                        <div class="uploadimgbox" ms-repeat="imageList">
+                            <div class="imgitem">
+                                <img ms-attr-src="el">
+                                <a href="javascript:;" ms-on-tap="deleImageItem($remove)">删除</a>
+                            </div>
+                        </div>
+                        <div class="upload-item" style="height: 2rem; line-height: 2rem; border-style: dashed;">
+                            <i class="iconfont icon-plus"></i>
+                            <input type="file" class="fileinput" style=" width: 14rem; height: 2rem; position: absolute; left: 0; top: 0; z-index: 9; opacity: 0;">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="imgzoomer" ms-on-tap="clearTouch($event)" ms-visible="isUpShow" >
+    <div class="imgcontainer">
+        <img src="" alt="">
+    </div>
+    <a href="javascript:;" class="submitimg" ms-if="!uploading">确定</a>
+    <a href="javascript:;" class="submitimg" ms-if="uploading" style="background-color: #ccc;">正在上传</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <link rel="stylesheet" href="../../style/css/cropper.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/cropper.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/accountmanage.js"></script>
+</head>
+<body class="ms-controller" ms-controller="accountmanage">
+<!--公共头部-->
+<div class="headerone">
+    <a href="personcenter.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>账户管理</h3>
+</div>
+<!--账户管理详细信息-->
+<div class="account">
+    <div class="itemlist">
+        <ul>
+            <li class="hillhight"><a href="javascript:;">
+                <span class="headspec">头像</span>
+                <div class="right spec">
+                    <img ms-attr-src="userInfo.HeadImage">
+                    <i class="iconfont icon-xiangyou"></i>
+                </div>
+                <input type="file" id="headimg" class="head">
+            </a></li>
+            <li><a href="javascript:;">
+                <span>昵称</span>
+                <div class="right spec">
+                    <input type="text" ms-duplex="userInfo.NickName" style="text-align: right;" >
+                </div>
+            </a></li>
+            <li><a href="javascript:;">
+                <span>性别</span>
+                <div class="right spec">
+                    <select ms-duplex="userInfo.Sex">
+                        <option value="1">男</option>
+                        <option value="0">女</option>
+                    </select>
+                    <i class="iconfont icon-xiangyou"></i>
+                </div>
+            </a></li>
+            <li><a href="javascript:;">
+                <span>出生日期</span>
+                <div class="right spec">
+                    <input id="birdate" type="date" style="width: 8rem;" >
+                    <i class="iconfont icon-xiangyou"></i>
+                </div>
+            </a></li>
+            <li><a href="myqrcode.html">
+                <span>我的二维码</span>
+                <div class="right spec">
+                    <i class="iconfont icon-erweima"></i>
+                    <i class="iconfont icon-xiangyou"></i>
+                </div>
+            </a></li>
+        </ul>
+    </div>
+    <h3>账号绑定</h3>
+    <div class="itemlist">
+        <ul>
+            <li><a href="javascript:;">
+                <span>手机</span>
+                <div class="right spec">
+                    <em ms-if-loop="userInfo.MyNumber != ''">{{userInfo.MyNumber}}</em>
+                    <!--<input type="tel" placeholder="请输入手机号码" ms-duplex="userInfo.Tel">-->
+                    <span ms-if-loop="userInfo.MyNumber === ''" style="text-align: right; color: #ff0000;" ms-on-tap="goBindFn">绑定手机号</span>
+                </div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="itemlist">
+        <ul>
+            <li><a ms-attr-href="/SSOAccount/UpdatePassword?returnUrl={{hreflink}}">
+                <span>账户安全</span>
+                <div class="right spec">
+                    <em>可修改密码</em>
+                    <i class="iconfont icon-xiangyou"></i>
+                </div>
+            </a></li>
+        </ul>
+    </div>
+    <a href="javascript:;" class="address-btn" ms-on-tap="saveUserFn" ms-if="!isloading">保存</a>
+    <a href="javascript:;" class="address-btn" style="background-color: #ccc;" ms-if="isloading">保存中</a>
+</div>
+<div class="mycode" ms-visible="showCode" ms-on-tap="changeShowCode">
+    <img src="../../data-images/code.png">
+</div>
+<div class="imgzoomer" ms-on-tap="clearTouch($event)" ms-visible="isUpShow" >
+    <div class="imgcontainer">
+        <img src="" alt="">
+    </div>
+    <a href="javascript:;" class="submitimg" style="background-color: #ccc;" ms-if="uploading">上传中</a>
+    <a href="javascript:;" class="submitimg" ms-if="!uploading">确定</a>
+</div>
+</body>
+</html>

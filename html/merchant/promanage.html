@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家中心</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/promanage.js"></script>
+</head>
+<body class="ms-controller" ms-controller="promanage">
+<!--公共头部-->
+<div class="headerone">
+    <a href="mymerchant.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>商品管理</h3>
+    <!--<a href="../personal/person.html" class="message-btn">-->
+        <!--<i class="iconfont icon-xiaoxi"></i>-->
+        <!--<b></b>-->
+    <!--</a>-->
+</div>
+<div class="mer-con">
+    <div class="product">
+        <div class="pro-title">
+            <ul>
+                <li ms-on-tap="changeCurrentTypeFn(el)" ms-class-1="active:currentType === el.SaleWashType" ms-class-2="type1:el.SaleWashType === 1" ms-class-3="type2:el.SaleWashType === 2" ms-class-4="type3:el.SaleWashType === 3" ms-class-5="type4:el.SaleWashType === 4" ms-repeat="saleWashType">
+                    <a href="javascript:;"><b></b><span>{{el.Name}}</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="con-title">
+            <div class="name">分类名称</div>
+            <div class="price">价格</div>
+            <div class="issell">是否可卖</div>
+        </div>
+        <div class="pro-con">
+            <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;" ms-if="secondList.size() == 0 && !loadingImgShow">暂无数据</p>
+            <div class="con-item" ms-repeat="secondList" ms-on-tap="showThirdFn(el)">
+                <div class="name">
+                    <span>{{el.CategoryName}}</span>
+                </div>
+                <div class="price">
+                    <input type="text" placeholder="默认为系统价格" ms-on-change="changSecFn(el)" ms-on-tap="focusFn($event)" ms-duplex="el.Price" ms-attr-readonly="!el.IsSale">
+                </div>
+                <div class="issell">
+                    <i class="left iconfont" ms-class-1="icon-kaiguanguan-copy-copy active:el.IsSale" ms-class-2="icon-kaiguankai:!el.IsSale" ms-on-tap="changeShowState(el)"></i>
+                    <i class="right iconfont icon-xiangyou"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pro-silder" ms-class-1="left0:isShow" ms-on-tap="hideZoomer">
+    <div class="prosilder-con" ms-on-tap="preventFn($event)">
+        <h3><span>类别:<b>{{typeName}}</b></span><a href="javascript:;" ms-on-tap="hideZoomer">确定</a></h3>
+        <div class="prosilder-title">
+            <span class="name">分类名称</span>
+            <span class="price">价格</span>
+            <span class="sell">是否可卖</span>
+        </div>
+        <div class="prosildermain" ms-css-height="height">
+            <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShowOther">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <div class="prosilder-item" ms-repeat="thirdList">
+                <div class="name">
+                    <span>{{el.CategoryName}}</span>
+                </div>
+                <div class="price">
+                    <input type="text" placeholder="请输入价格" ms-on-change="changeFn(el)" ms-duplex="el.Price">
+                </div>
+                <div class="sell">
+                    <i class="iconfont" ms-class-1="icon-kaiguanguan-copy-copy active:el.IsSale" ms-class-2="icon-kaiguankai:!el.IsSale" ms-on-tap="changeShow(el,$event)"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/list.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/main/list.js"></script>
+</head>
+<body class="ms-controller" ms-controller="list">
+<!--公共头部-->
+<div class="headerone">
+    <a href="index.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>{{title}}</h3>
+    <a href="search.html" class="search-btn">
+        <i class="iconfont icon-sousuo"></i>
+    </a>
+    <!--<a href="../personal/person.html" class="message-btn">-->
+        <!--<i class="iconfont icon-xiaoxi"></i>-->
+        <!--<b></b>-->
+    <!--</a>-->
+</div>
+<!--筛选部分-->
+<div class="screen">
+    <ul class="mainul">
+        <li ms-on-tap="showSortFn"><a href="javascript:;">
+            <span>{{typeStr}}</span>
+            <i class="iconfont icon-xiangxia"></i>
+        </a></li>
+        <li ms-on-tap="showFilterFn"><a href="javascript:;">
+            <span>筛选</span>
+            <i class="iconfont icon-shaixuan"></i>
+        </a></li>
+    </ul>
+    <div class="intelligent" ms-on-tap="dispelledFn" ms-css-transform="translateY({{showSort}})">
+        <ul>
+            <li ms-on-tap="chooseType('智能排序',$event)" ms-data-column="''" class="active"><a href="javascript:;">智能排序 <i class="iconfont icon-gou"></i></a></li>
+            <li ms-on-tap="chooseType('销量最高',$event)" ms-data-column="'SaleNum'"><a href="javascript:;">销量最高<i class="iconfont icon-gou"></i></a></li>
+            <li ms-on-tap="chooseType('评分最高',$event)" ms-data-column="'CommentNum'"><a href="javascript:;">评分最高<i class="iconfont icon-gou"></i></a></li>
+            <li ms-on-tap="chooseType('离我最近',$event)" ms-data-column="'location'"><a href="javascript:;">离我最近<i class="iconfont icon-gou"></i></a></li>
+            <li ms-on-tap="chooseType('最新发布',$event)" ms-data-column="'EditTime'"><a href="javascript:;">最新发布<i class="iconfont icon-gou"></i></a></li>
+        </ul>
+    </div>
+</div>
+<div class="listbox">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;" ms-if="!loadingImgShow && listData.size() === 0">暂无商家数据</p>
+    <ul ms-if="listData.size() > 0">
+        <li ms-repeat="listData"><a ms-attr-href="detail.html?dataid={{el.ShopCode}}">
+            <div class="list-left">
+                <img ms-attr-src="el.DefaultImage?el.DefaultImage:''">
+            </div>
+            <!--<span class="label yuyue">免预约</span>-->
+            <div class="list-right">
+                <div class="top">
+                    <div class="labelbox">
+                        <span class="te">特</span>
+                        <span class="bao">保</span>
+                        <span class="zuan">专</span>
+
+                    </div>
+                    <h3>
+                        <span class="name">{{el.Name}}</span>
+                    </h3>
+                    <div class="score">
+                       <div class="scorebox">
+                           <div class="basecore"></div>
+                           <div class="topcore" ms-css-width="{{el.CommentIntScore}}rem">
+                               <div class="ccore"></div>
+                           </div>
+                       </div>
+                        <span ms-if-loop="el.CommentScore" style="color: #35c1fc;">{{el.CommentScore | number(1)}}</span>
+                        <span ms-if-loop="el.SaleNum">月售{{el.SaleNum}}单</span>
+                    </div>
+                    <p class="price" ms-if="!el.IsPlateLogister"><i class="iconfont icon-wuliu"></i><span>取/送费:<i>{{el.ShowPickUpFee === 0 ? "￥0":"￥"+el.ShowPickUpFee}}</i>/<i>{{el.ShowLogistFee === 0 ? "￥0":"￥"+el.ShowLogistFee}}</i></span></p>
+                    <p class="price" ms-if="el.IsPlateLogister"><i class="iconfont icon-wuliu"></i><span>平台配送</span></p>
+                    <!--<p class="address"><i class="iconfont icon-shijian"></i>{{el.BusinessBeginTime}}-{{el.BusinessEndTime}}</p>-->
+                    <!--<p class="char"><em><i class="iconfont icon-dingwei"></i>{{el.FullAddress}}</em><span>距您{{(el.Dist|number) > 0 ? (el.Dist|number(2))+"km":((el.Dist*100)|number(0))+'m'}}</span></p>-->
+                    <p class="char"><em><i class="iconfont icon-dingwei"></i>{{el.FullAddress}}</em><span ms-if="el.ShopCode != 20160907111900190180">{{el.Dist|number(2)}}km</span></p>
+                </div>
+                <!--<div class="bottom">-->
+                    <!--<p><b class="type1">团</b>78代100元</p>-->
+                    <!--<p><b class="type2">首</b>78代100元</p>-->
+                    <!--<p><b class="type3">减</b>78代100元</p>-->
+                <!--</div>-->
+            </div>
+        </a></li>
+    </ul>
+</div>
+<!--导航部分-->
+<div class="naver">
+    <ul>
+        <li><a href="../main/index.html">
+            <i class="iconfont icon-shouyexianxing"></i>
+            <b>首页</b>
+        </a></li>
+        <li><a href="../merchant/personorderlist.html">
+            <i class="iconfont icon-dingdan3 discover"></i>
+            <b>订单</b>
+        </a></li>
+        <li><a href="../main/discovered.html">
+            <i class="iconfont icon-faxian3 discover"></i>
+            <b>发现</b>
+        </a></li>
+        <li><a href="../personal/personcenter.html">
+            <i class="iconfont icon-wode3"></i>
+            <b>我的</b>
+        </a></li>
+    </ul>
+
+        <!--<li><a href="index.html">-->
+            <!--<i class="iconfont icon-shouye1"></i>-->
+            <!--<b>首页</b>-->
+        <!--</a></li>-->
+        <!--<li><a href="../merchant/personorderlist.html">-->
+            <!--<i class="iconfont icon-dingdan discover"></i>-->
+            <!--<b>订单</b>-->
+        <!--</a></li>-->
+        <!--<li><a href="../main/discovered.html">-->
+            <!--<i class="iconfont icon-faxian discover"></i>-->
+            <!--<b>发现</b>-->
+        <!--</a></li>-->
+        <!--<li><a href="../personal/person.html">-->
+            <!--<i class="iconfont icon-wode2"></i>-->
+            <!--<b>我的</b>-->
+        <!--</a></li>-->
+</div>
+<!--筛选弹出层部分-->
+<div class="filter" ms-on-tap="closeFilter" ms-css-transform="translateX({{showFilter}}rem)">
+    <div class="filter-box" ms-on-tap="returnFn($event)">
+        <!--<div class="brand">-->
+            <!--<div class="brand-title">-->
+                <!--<h3>品牌</h3>-->
+                <!--<a href="javascript:;" class="showmore">-->
+                    <!--<span>全部</span>-->
+                    <!--<i class="iconfont icon-xiangxia"></i>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="brand-list">-->
+                <!--<a href="javascript:;" ms-repeat="FacetsData" ms-class-1="active:el.isSelect" ms-on-tap="chooseFacets(el,$event)">{{el.Name}}</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="service">
+            <h3>洗衣之家服务</h3>
+            <ul>
+                <li ms-repeat="service" ms-on-tap="chooseServiceFn(el)" ms-class-1="active:el.isSelect"><a href="javascript:;">
+                    <b ms-class-1="type1:$index === 0" ms-class-2="type2:$index === 1" ms-class-3="type3:$index === 2" ms-class-4="type4:$index === 3">{{el.tip}}</b>
+                    <span>{{el.name}}</span>
+                    <i ms-if-loop="el.isSelect" class="iconfont icon-gou"></i>
+                </a></li>
+            </ul>
+        </div>
+        <div class="preferential">
+            <h3>商家承诺</h3>
+            <ul>
+                <li><a href="javascript:;">
+                    <b class="type1">损</b>
+                    <span>损坏赔偿</span>
+                    <i class="iconfont icon-gou"></i>
+                </a></li>
+                <li><a href="javascript:;">
+                    <b class="type2">保</b>
+                    <span>质量保障</span>
+                    <i class="iconfont icon-gou"></i>
+                </a></li>
+                <li><a href="javascript:;">
+                    <b class="type3">支</b>
+                    <span>在线支付</span>
+                    <i class="iconfont icon-gou"></i>
+                </a></li>
+                <li><a href="javascript:;">
+                    <b class="type4">专</b>
+                    <span>平台专送</span>
+                    <i class="iconfont icon-gou"></i>
+                </a></li>
+            </ul>
+        </div>
+        <!--<div class="preferential">-->
+            <!--<h3>优惠活动</h3>-->
+            <!--<ul>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type1">新</b>-->
+                    <!--<span>新用户优惠</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type2">减</b>-->
+                    <!--<span>下单立减</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type3">在</b>-->
+                    <!--<span>在线支付</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type4">保</b>-->
+                    <!--<span>保障</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    </div>
+    <div class="operate">
+        <a href="javascript:;" class="reset-btn" ms-on-tap="closeFilter">取消</a>
+        <a href="javascript:;" class="ok-btn" ms-on-tap="sureFn($event)">确定</a>
+    </div>
+</div>
+</body>
+</html>

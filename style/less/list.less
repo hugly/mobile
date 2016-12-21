@@ -1,0 +1,224 @@
+@import "lib.less";
+
+.screen{ position: fixed; left: 0; top: 2rem; width: 16rem; z-index: 8;
+  .mainul{ background-color: #fff; width: 15rem; height: 1rem; padding: .5rem; position: relative; .cf(); border-bottom: .05rem solid #d5d5d5;
+    li:first-child{ border-right: 1px solid #d5d5d5;}
+    li{ float: left; width: 7.5rem; height: 1rem; box-sizing: border-box;
+      a{ display: block; width: 100%; height: 100%; text-align: center;
+        span{}
+        i{ font-size: .6rem;}
+      }
+    }
+  }
+  .intelligent{ position: fixed; left: 0; top: 4.05rem; width: 16rem; height: 100%; .trs(); transform: translateY(100%); -webkit-transform: translateY(100%); background-color: rgba(0,0,0,.4);
+    ul{ background-color: #fff; width: 15rem; padding: 0 .5rem;
+      li{ border-bottom: .05rem solid #e5e5e5; padding: .5rem;
+        a{ display: block; width: 100%; height: 100%;
+          i{ display: none; float: right; color: #86d4eb; font-size: .8rem; }
+        }
+      }
+      li.active{
+        a{
+          i{ display: block;}
+        }
+      }
+    }
+  }
+}
+.tips{ position: fixed; top: 4rem; z-index: 9; width: 16rem; height: 1.2rem; line-height: 1.2rem; text-align: center; color: #f39233; background-color: #fde6d0; border-top: 1px solid #f5c99e; border-bottom: 1px solid #f5c99e; }
+
+.shoplistbox{ width: 16rem; position: relative; margin-top: 2.3rem; padding-bottom: 2.2rem;
+  ul{ position: relative; width: 16rem;
+    li{ width: 16rem; background-color: #fff; padding-bottom: .5rem; margin-bottom: .3rem; overflow: hidden;
+        .list-top{ width: 16rem; height: 1rem; padding: .2rem 0; position: relative; overflow: hidden; border-bottom: 1px solid #e5e5e5;
+          .time{ float: left; margin-left: .3rem; line-height: 1rem; position: relative; overflow: hidden;
+            i{ float: left; font-size: .6rem; color: #86d4eb;}
+            span{ float: left; margin-left: .2rem;}
+          }
+          .price{ float: right; font-size: .5rem; margin-right: .2rem;
+            span:first-child{ border-right: 1px solid #e5e5e5;}
+            span{ padding: 0 .2rem; font-weight: 400;
+              i{ font-size: .6rem;}
+              i.yun{ color: #f53d54;}
+              i.song{ color: #f36f13;}
+            }
+          }
+        }
+        .list-left{ float: left; width: 5rem; height: 3rem; margin-top: .5rem; position: relative; overflow: hidden;
+          i{ float: left; width: 1rem; height: 3rem; line-height: 3rem; text-align: center; font-size: .6rem; color: #999; }
+          i.hasColor{ color: #86d4eb; }
+          img{ float: left; width: 4rem; height: 3rem; }
+        }
+        .list-right{ float: left; width: 10.4rem; margin-left: .4rem; margin-top: .5rem;
+          a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+
+            .top{ width: 10.6rem; height: 3rem; position: relative; .cf();
+            .right-btn{ position: absolute; right: 0; top: .4rem; color: #bfbfbf; font-size: .8rem; }
+            h3{ float: left; width: 10.4rem; height: .9rem; line-height: .9rem; color: #333; font-size: .6rem;}
+            .score{ float: left; width: 10.4rem; height: .7rem; line-height: .5rem; position: relative; overflow: hidden;
+              i{ float: left; width: .4rem; height: .5rem; font-size: .6rem; line-height: .5rem; text-align: center; color: #e9e9e9;}
+              i.active{ color: #86d4eb; }
+
+              .scoremain{ float: left; height: .5rem; width: 2.6rem; .bg('start.png',no-repeat,0 0); position: relative; background-size: cover;
+                .process{ width: 2rem; height: .5rem; overflow: hidden; position: absolute; left: 0; top: 0;
+                  .hasscore{ position: absolute; left: 0; top: 0; width: 2.6rem; height: .5rem; .bg('cstart.png',no-repeat,0 0); background-size: cover; }
+                }
+              }
+
+              em{ float: right; width: .6rem; height: .6rem; line-height: .6rem; margin-top: .2rem; text-align: center; border: 1px solid #fff; font-size: .4rem; box-sizing: border-box; margin-left: .2rem;}
+              em.pei{ border-color: #6cdbd4; color: #6cdbd4; }
+              em.fu{ border-color: #e74f5a; color: #e74f5a; }
+              em.xin{ border-color: #f78102; color: #f78102; }
+              span{ float: left; margin-left: .3rem; font-size: .45rem; line-height: .6rem; color: #777;}
+            }
+            .address{ float: left; width: 10.4rem; height: .7rem; line-height: .7rem; font-size: .45rem; .omit();
+              i{ font-size: .5rem; margin-right: .2rem; color: #80f0df; }
+              b{ display: inline-block; height: .8rem; line-height: .8rem; font-weight: normal; padding: 0 .3rem; background-color: #8c96a4; color: #fff;}
+            }
+            .char{ float: left; width: 10.4rem; height: .7rem; line-height: .7rem; font-size: .45rem; position: relative; .cf();
+              i{ font-size: .55rem; margin-right: .2rem; color: #5bcdf2; }
+              em{ float: left; width: 6rem; .omit(); }
+              span{ float: right; }
+            }
+          }
+          .bottom{ position: relative; width: 10.4rem; height: 1rem; .cf(); margin-top: .3rem; border-top: .05rem solid #e5e5e5;
+            p{ float: left; width: 2.74rem; margin-right: .26rem; height: .6rem; line-height: .7rem; margin-top: .4rem; font-size: .4rem; position: relative; overflow: hidden;
+              b{ float: left; width: .6rem; height: .6rem; line-height: .6rem; font-weight: normal; text-align: center; color: #fff; margin-right: .2rem; border-radius: .1rem; }
+              b.type1{ background-color: #faa706; }
+              b.type2{ background-color: #30d18f; }
+              b.type3{ background-color: #e74f5a; }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.listbox{ width: 16rem; position: relative; margin-top: 4.3rem; padding-bottom: 3rem;
+  ul{ position: relative; width: 16rem;
+    li{ width: 15.5rem; padding:.25rem; background-color: #fff; margin-bottom: .2rem; overflow: hidden;
+      a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+        .label{ position: absolute; left: -1.3rem; top: -.2rem; width: 3rem; height: .8rem; line-height: .8rem; text-align: center; font-size: .45rem; transform: rotate(-45deg); -webkit-transform: rotate(-45deg); z-index: 2; background-color: #12b1f0; color: #fff; }
+        span.new{ background-color: #fd9e17; }
+        .list-left{ float: left; width: 4.8rem; height: 3.6rem; position: relative; overflow: hidden;
+          img{ position: absolute; left: 0; top: 0; width: 4.8rem; height: 3.6rem; z-index: 0; }
+        }
+        .list-right{ float: left; width: 10.5rem; margin-left: .2rem;
+          .top{ width: 10.5rem; height: 3.5rem; position: relative; .cf();
+            .labelbox{ position: absolute; right: 0; top: 1.2rem; .cf();
+              span{ float: left; width: .8rem; height: .8rem; line-height: .8rem; text-align: center; font-size: .5rem; border-radius: .1rem; }
+              span.te{ color: #01dbf5; }
+              span.bao{  color: #ccc; }
+              span.zuan{ color: #f78102; }
+            }
+            h3{ float: left; width: 9.5rem; height: 1rem; line-height: 1rem; color: #333; font-size: .6rem; position: relative; overflow: hidden;
+              .name{ float: left; width: 10rem; height: 1rem; .omit(); }
+            }
+            .score{ float: left; width: 10.5rem; height: .9rem; line-height: 1rem; position: relative; overflow: hidden;
+              //i{ float: left; width: .4rem; height: .5rem; font-size: .6rem; line-height: .8rem; text-align: center; color: #e9e9e9;}
+              //i.active{ color: #86d4eb; }
+              .scorebox{ float: left; width: 3rem; height: .7rem; position: relative;
+                .basecore{ position: absolute; left: 0; top: 0; width: 3rem; height: .8rem; .bg("start.png",no-repeat,0 center);}
+                .topcore{ position: absolute; left: 0; top: 0; width: 3rem; height: .8rem; overflow: hidden;
+                  .ccore{ width: 3rem; height: .8rem; .bg("cstart.png",no-repeat,0 center);}
+                }
+              }
+
+              em{ float: right; width: .6rem; height: .6rem; line-height: .6rem; margin-top: .2rem; text-align: center; border: 1px solid #fff; font-size: .4rem; box-sizing: border-box; margin-left: .2rem;}
+              em.pei{ border-color: #6cdbd4; color: #6cdbd4; }
+              em.fu{ border-color: #e74f5a; color: #e74f5a; }
+              em.xin{ border-color: #f78102; color: #f78102; }
+              span{ float: left; margin-left: .3rem; font-size: .45rem; line-height: 1rem; color: #777;}
+            }
+            .price{ float: left; width: 10.5rem; height: 1rem; line-height: 1rem; font-size: .5rem; .omit();
+              i{ font-size: .6rem; color: #67c5b7; }
+              span{ font-weight: 400; font-size: .5rem; margin-left: .2rem;
+                i{ font-size: .5rem; color: #666; }
+                i.yun{ color: #f53d54;}
+                i.song{ color: #f36f13;}
+              }
+            }
+            .address{ float: left; width: 10.5rem; height: .8rem; line-height: .8rem; font-size: .5rem; .omit();
+              i{ font-size: .5rem; margin-right: .2rem; color: #80f0df; }
+              b{ display: inline-block; height: .8rem; line-height: .8rem; font-weight: normal; padding: 0 .3rem; background-color: #8c96a4; color: #fff;}
+            }
+            .char{ float: left; width: 10.5rem; height: 1rem; line-height: 1rem; font-size: .5rem; position: relative; .cf();
+              i{ font-size: .55rem; margin-right: .2rem; color: #5bcdf2; }
+              em{ float: left; width: 6rem; .omit(); }
+              span{ float: right; }
+            }
+          }
+          .bottom{ position: relative; width: 10.5rem; height: 1rem; .cf(); margin-top: .3rem; border-top: .05rem solid #e5e5e5;
+            p{ float: left; width: 3.4rem; margin-right: .26rem; height: .6rem; line-height: .7rem; margin-top: .4rem; font-size: .4rem; position: relative; overflow: hidden;
+              b{ float: left; width: .6rem; height: .6rem; line-height: .6rem; font-weight: normal; text-align: center; color: #fff; margin-right: .2rem; border-radius: .1rem; }
+              b.type1{ background-color: #faa706; }
+              b.type2{ background-color: #30d18f; }
+              b.type3{ background-color: #e74f5a; }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.filter{ position: fixed; right: 0; top: 0; width: 100%; height: 100%; .trs(); transform: translateX(16rem); -webkit-transform: translateX(16rem); background-color: rgba(0,0,0,.4); z-index: 9;
+  .filter-box{ position: absolute; width: 14rem; height: 100%; right: 0; top: 0; background-color: #f0f2f5; overflow-y: scroll;
+    .brand{ width: 13rem; padding: 0 .5rem; background-color: #fff; border-bottom: 1px solid #e5e5e5;
+      .brand-title{ height: 1rem; line-height: 1rem; width: 13rem; position: relative; overflow: hidden;
+        h3{ float: left; font-size: .5rem; color: #000; font-weight: bolder;}
+        .showmore{ float: right; color: #999; font-size: .5rem;
+          span{ margin-right: .2rem;}
+          i{ color: #999; font-size: .5rem;}
+        }
+      }
+      .brand-list{ width: 13rem; position: relative; .cf();
+        a{ float: left; width: 3.73rem; height: 1rem; line-height: 1rem; font-size: .5rem; text-align: center; background-color: #eee; margin: .3rem; border-radius: .15rem;}
+        a.active{ background-color: #86d4eb; color: #fff; }
+      }
+    }
+    .service{ width: 14rem; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;
+      h3{ height: 1.2rem; line-height: 1.2rem; padding-left: .5rem; font-size: .5rem; font-weight: bolder; border-bottom: 1px solid #e5e5e5; }
+      ul{ position: relative; padding: .2rem .5rem; .cf(); background-color: #fff;
+        li{ float: left; width: 3.73rem; height: 1.3rem; line-height: 1.3rem; margin: .3rem; border: 1px solid #e5e5e5; border-radius: .25rem; box-sizing: border-box;
+          a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+            b{ float: left; width: .8rem; height: .8rem; line-height: .8rem; margin: .21rem .1rem .21rem .3rem; text-align: center; font-size: .4rem; border: 1px solid #e5e5e5; box-sizing: border-box; border-radius: .15rem; }
+            b.type1{ border-color: #61c9ea; color: #61c9ea; }
+            b.type2{ border-color: #80b85c; color: #80b85c; }
+            b.type3{ border-color: #efab6e; color: #efab6e; }
+            b.type4{ border-color: #9a7ed0; color: #9a7ed0; }
+            b.type5{ border-color: #ff6c2b; color: #ff6c2b; }
+            b.type6{ border-color: #4d9feb; color: #4d9feb; }
+            span{ float: left; font-size: .4rem; }
+            i{ float: right; font-size: .5rem; margin-right: .1rem; color: #86d4eb; }
+          }
+        }
+        li.active{ border-color: #86d4eb; }
+      }
+    }
+    .preferential{ width: 14rem; position: relative;
+      h3{ height: 1.2rem; line-height: 1.2rem; padding-left: .5rem; font-size: .5rem; font-weight: bolder; border-bottom: 1px solid #e5e5e5; }
+      ul{ position: relative; background-color: #fff;
+        li{ width: 13rem; padding: 0 .5rem; height: 1.5rem; line-height: 1.5rem; border-bottom: 1px solid #e5e5e5;
+          a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+            b{ float: left; width: .8rem; height: .8rem; font-size: .6rem; margin: .35rem .35rem .35rem 0; font-weight: normal; border-radius: .15rem; text-align: center; line-height: .8rem; color: #fff; }
+            b.type1{ background-color: #e74f5a; }
+            b.type2{ background-color: #86d4eb; }
+            b.type3{ background-color: #fec602; }
+            b.type4{ background-color: #6b51d8; }
+            span{ float: left; color: #333; font-size: .5rem; }
+            i{ float: right; display: none; color: #86d4eb; font-size: .6rem; }
+          }
+        }
+      }
+    }
+  }
+  .operate{ position: fixed; right: 0; bottom: 0; width: 14rem; height: 1.5rem; z-index: 10; .cf(); border-top: 1px solid #e5e5e5;
+    a{ float: left; width: 7rem; height: 1.5rem; line-height: 1.5rem; text-align: center;}
+    a.reset-btn{}
+    a.ok-btn{ background-color: #12b1f0; color: #fff; }
+  }
+}
+.sure{ position: fixed; left: 0; bottom: 0; width: 16rem; height: 2rem;
+  .sure-btn{ display: block; width: 100%; height: 100%; line-height: 2rem; text-align: center; background-color: #86d4eb; color: #fff;}
+  a.disable{ background-color: #ccc;}
+}

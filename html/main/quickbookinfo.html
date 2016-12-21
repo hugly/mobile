@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/quick.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/quickboox.js"></script>
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=XAJBZ-AILWF-4TGJA-JLE2G-XKVDT-CGF56"></script>
+</head>
+<body class="ms-controller" ms-controller="orderinfo">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>订单配送信息详情</h3>
+    <!--<a href="../personal/person.html" class="message-btn">-->
+    <!--<i class="iconfont icon-xiaoxi"></i>-->
+    <!--<b></b>-->
+    <!--</a>-->
+</div>
+<div class="mainBox" style="margin-top: 2.7rem;">
+    <!--地址列表-->
+    <!--<div class="addressbox">-->
+        <!--<div class="addresslist" ms-if-loop="orderData.Contacter.Name !== ''">-->
+            <!--<ul>-->
+                <!--<li>-->
+                    <!--&lt;!&ndash;<i></i>&ndash;&gt;-->
+                    <!--<h3>{{orderData.Contacter.Name}}<b>{{orderData.Contacter.Phone}}</b></h3>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<i class="iconfont icon-peisong style1"></i>-->
+                    <!--<p>{{orderData.Orders[0].IsPickup?'上门取件':'到店'}}</p>-->
+                <!--</li>-->
+                <!--<li ms-if-loop="orderData.Contacter.ThirdCode">-->
+                    <!--<i class="iconfont icon-shijian1 style2"></i>-->
+                    <!--<p>{{orderData.Contacter.ThirdCode}}</p>-->
+                <!--</li>-->
+                <!--<li ms-if-loop="orderData.Contacter.Address">-->
+                    <!--<i class="iconfont icon-dingwei style3"></i>-->
+                    <!--<span>{{orderData.Contacter.Address}}</span>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <!--<span class="tab lab">取<b></b></span>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;ms-if-loop="orderData.LogistPicker.Name !== ''"&ndash;&gt;-->
+        <!--<div class="addresslist">-->
+            <!--<ul>-->
+                <!--<li ms-if-loop="orderData.LogistPicker.Name">-->
+                    <!--&lt;!&ndash;<i></i>&ndash;&gt;-->
+                    <!--<h3>{{orderData.LogistPicker.Name}}<b>{{orderData.LogistPicker.Phone}}</b></h3>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<i class="iconfont icon-peisong style1"></i>-->
+                    <!--<p>{{orderData.Orders[0].IsLogist?'送货上门':'到店自提'}}</p>-->
+                <!--</li>-->
+                <!--<li ms-if-loop="orderData.Orders[0].IsLogist">-->
+                    <!--<i class="iconfont icon-shijian1 style2"></i>-->
+                    <!--<p>{{LogistAddress}}</p>-->
+                <!--</li>-->
+                <!--<li ms-if-loop="orderData.Orders[0].IsLogist">-->
+                    <!--<i class="iconfont icon-dingwei style3"></i>-->
+                    <!--<span>{{orderData.LogistPicker.Address}}</span>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <!--<span class="tab rab">送<b></b></span>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="address-box">
+        <div class="address-item">
+            <div class="item-title">
+                <span class="fl"><em>取</em>配送方式</span>
+                <span class="fr">{{orderData.Orders[0].IsPickup?'上门取件':'到店'}}</span>
+            </div>
+            <div class="item-info">
+                <span class="name">{{orderData.Contacter.Name}}</span>
+                <div class="info-list">
+                    <span>{{orderData.Contacter.Phone}}</span>
+                    <span>地址：{{orderData.Contacter.Address}}</span>
+                    <span>取件时间：{{orderData.Contacter.ThirdCode?orderData.Contacter.ThirdCode:'现在'}}</span>
+                </div>
+            </div>
+            <div class="logist-info" ms-if="orderData.Orders[0].PickLogisterUser">
+                <span>物流人员：<em>{{orderData.Orders[0].PickLogisterUser.Name}}</em><em>{{orderData.Orders[0].PickLogisterUser.Phone}}</em></span>
+            </div>
+        </div>
+        <div class="address-item">
+            <div class="item-title">
+                <span class="fl"><em>送</em>配送方式</span>
+                <span class="fr">{{orderData.Orders[0].IsLogist?'送货上门':'自提'}}</span>
+            </div>
+            <div class="item-info" ms-if="orderData.Orders[0].IsLogist">
+                <span class="name">{{orderData.LogistPicker.Name}}</span>
+                <div class="info-list">
+                    <span>{{orderData.LogistPicker.Phone}}</span>
+                    <span>地址：{{orderData.LogistPicker.Address}}</span>
+                    <span>取件时间：{{LogistAddress}}</span>
+                </div>
+            </div>
+            <div class="logist-info" ms-if="orderData.Orders[0].SendLogisterUser && orderData.Orders[0].IsLogist">
+                <span>物流人员：<em>{{orderData.Orders[0].SendLogisterUser.Name}}</em><em>{{orderData.Orders[0].SendLogisterUser.Phone}}</em></span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

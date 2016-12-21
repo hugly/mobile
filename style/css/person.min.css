@@ -1,0 +1,2321 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.headerone {
+  border-bottom: 1px solid #d5d5d5;
+}
+.headerone .back-btn i {
+  color: #fff;
+}
+.headerone h3 {
+  color: #fff;
+  width: 11rem;
+}
+.moresetting {
+  background-color: #86d4eb;
+}
+.moresetting .back-btn i {
+  color: #fff;
+}
+.moresetting h3 {
+  color: #fff;
+  width: 11rem;
+}
+.require:before {
+  content: "*";
+  color: #c00;
+}
+.personheader {
+  background-color: #86d4eb;
+  height: 1.5rem;
+  width: 15rem;
+  padding: .25rem .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.personheader:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.personheader .message {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+.personheader .message i {
+  color: #fff;
+  font-size: 1rem;
+}
+.personheader .message b {
+  width: .5rem;
+  height: .5rem;
+  border: .05rem solid #86d4eb;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  right: .1rem;
+  top: .2rem;
+}
+.personheader .scan {
+  float: right;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+.personheader .scan i {
+  color: #fff;
+  font-size: 1rem;
+}
+.persontitle {
+  width: 15rem;
+  height: 3rem;
+  padding: 1rem .5rem;
+  background-color: #86d4eb;
+  z-index: 1;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.persontitle:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.persontitle .bgbanner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16rem;
+  height: 5rem;
+  z-index: 5;
+}
+.persontitle .imgbox {
+  float: left;
+  width: 3rem;
+  height: 3rem;
+  margin-left: .5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 9;
+}
+.persontitle .imgbox img {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+}
+.persontitle .personinfo {
+  float: left;
+  height: 2rem;
+  width: 6.5rem;
+  margin: .25rem 0 .25rem .5rem;
+  position: relative;
+  z-index: 9;
+}
+.persontitle .personinfo .register {
+  display: inline-block;
+  width: 6.5rem;
+  height: 1.2rem;
+  font-size: .8rem;
+  line-height: 1.5rem;
+  color: #fff;
+}
+.persontitle .personinfo .leval {
+  display: inline-block;
+  margin-top: .1rem;
+  height: .8rem;
+  line-height: .8rem;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.persontitle .personinfo .leval:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.persontitle .personinfo .leval b {
+  float: left;
+  color: #fff;
+  font-size: .5rem;
+  font-weight: normal;
+}
+.persontitle .personinfo .leval em {
+  float: left;
+  color: #fff;
+  font-size: .5rem;
+}
+.persontitle .personinfo .leval i {
+  float: left;
+  color: #fff;
+  font-size: .5rem;
+  margin-left: .2rem;
+}
+.persontitle .manamge {
+  float: right;
+  width: 4rem;
+  font-size: .6rem;
+  line-height: 3rem;
+  margin-right: .5rem;
+  text-align: right;
+  color: #fff;
+  position: relative;
+  z-index: 9;
+}
+.persontitle .manamge i {
+  color: #fff;
+  font-size: .6rem;
+  margin-left: .2rem;
+}
+.silderbar {
+  width: 16rem;
+  height: 2.5rem;
+  padding: .3rem 0;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.silderbar .silderlist {
+  float: left;
+  width: 5.33rem;
+  height: 2.5rem;
+  border-right: 1px solid #f1f1f1;
+  box-sizing: border-box;
+  position: relative;
+}
+.silderbar .silderlist a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.silderbar .silderlist a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.silderbar .silderlist a i {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin-left: 1.2rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #006f9b;
+}
+.silderbar .silderlist a span {
+  float: left;
+  width: 5.33rem;
+  height: 1rem;
+  font-size: .6rem;
+  line-height: 1rem;
+  color: #000;
+  text-align: center;
+}
+.silderbar .silderlist a b {
+  float: left;
+  width: 5.33rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .8rem;
+  text-align: center;
+  color: #e4393c;
+  font-weight: normal;
+}
+.silderbar .silderlist a b em {
+  font-size: .4rem;
+  font-weight: normal;
+  margin-left: .1rem;
+}
+.silderbar .silderlist a b.type1 {
+  color: #86d4eb;
+}
+.silderbar .silderlist a b.type2 {
+  color: #fa9b00;
+}
+.silderbar .silderlist a b.type3 {
+  color: #ff5b3d;
+}
+.silderbar .silderlist:last-child {
+  border-right: none;
+}
+.orderlist {
+  width: 16rem;
+  background-color: #fff;
+  position: relative;
+  margin-top: .3rem;
+}
+.orderlist .ordertitle {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin: 0 .5rem;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
+}
+.orderlist .ordertitle h3 {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #333;
+  font-size: .6rem;
+}
+.orderlist .ordertitle h3 i {
+  margin-right: .2rem;
+  font-size: .6rem;
+}
+.orderlist .ordertitle .allorder {
+  float: right;
+  color: #bababa;
+  font-size: .6rem;
+}
+.orderlist .ordertitle .allorder i {
+  display: inline-block;
+  width: 1rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+  color: #bababa;
+  text-align: center;
+}
+.orderlist .order-con {
+  width: 15rem;
+  padding: .5rem;
+}
+.orderlist .order-con ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.orderlist .order-con ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.orderlist .order-con ul li {
+  float: left;
+  width: 3rem;
+}
+.orderlist .order-con ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.orderlist .order-con ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.orderlist .order-con ul li a i {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0 .5rem;
+  font-size: .7rem;
+  text-align: center;
+  color: #888;
+}
+.orderlist .order-con ul li a i.type1 {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+.orderlist .order-con ul li a i.type2 {
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+.orderlist .order-con ul li a i.type3 {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+.orderlist .order-con ul li a i.type4 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+}
+.orderlist .order-con ul li a i.type5 {
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+.orderlist .order-con ul li a span {
+  float: left;
+  width: 3rem;
+  height: .8rem;
+  line-height: .6rem;
+  text-align: center;
+  font-size: .5rem;
+  color: #555;
+}
+.orderlist .order-con ul li a b {
+  position: absolute;
+  right: .6rem;
+  top: -0.1rem;
+  width: .8rem;
+  height: .8rem;
+  line-height: .8rem;
+  border-radius: 50%;
+  text-align: center;
+  font-size: .4rem;
+  background-color: #ff7f00;
+  color: #fff;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+}
+.assets {
+  width: 16rem;
+  background-color: #fff;
+  position: relative;
+  margin-top: .3rem;
+}
+.assets .assetstitle {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0 .5rem;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  overflow: hidden;
+}
+.assets .assetstitle h3 {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #333;
+}
+.assets .assetstitle h3 i {
+  margin-right: .2rem;
+  font-size: .6rem;
+}
+.assets .assetstitle .allorder {
+  float: right;
+  color: #999;
+}
+.assets .assetstitle .allorder i {
+  font-size: .6rem;
+  color: #999;
+  margin-left: .2rem;
+}
+.assets .assetsbox {
+  width: 15rem;
+  padding: 0 .5rem;
+}
+.assets .assetsbox ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.assets .assetsbox ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.assets .assetsbox ul li {
+  float: left;
+  width: 3.7rem;
+  height: 3rem;
+}
+.assets .assetsbox ul li a {
+  display: block;
+  width: 100%;
+  height: 2rem;
+  padding: .5rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.assets .assetsbox ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.assets .assetsbox ul li a b {
+  display: inline-block;
+  font-size: .7rem;
+  width: 3.75rem;
+  height: 1.2rem;
+  line-height: 1.4rem;
+  font-family: 'Helvetica';
+  text-align: center;
+  font-weight: normal;
+}
+.assets .assetsbox ul li a span {
+  display: inline-block;
+  font-size: .5rem;
+  width: 3.75rem;
+  height: .8rem;
+  line-height: .8rem;
+  text-align: center;
+}
+.assets .assetsbox ul li a i {
+  position: absolute;
+  right: -0.2rem;
+  top: 0;
+  height: 3rem;
+  line-height: 3rem;
+  color: #ccc;
+}
+.assets .assetsbox ul li:last-child {
+  border-left: 1px solid #E5E5E5;
+}
+.fnbox {
+  width: 16rem;
+  position: relative;
+  padding-top: .5rem;
+  margin-top: .3rem;
+  background-color: #fff;
+}
+.fnbox ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.fnbox ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.fnbox ul li {
+  float: left;
+  width: 4rem;
+  margin-bottom: .5rem;
+  text-align: center;
+}
+.fnbox ul li i {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1rem;
+}
+.fnbox ul li p {
+  display: inline-block;
+  width: 4rem;
+  font-size: .5rem;
+}
+.fnbox ul li.type1 i {
+  color: #fa3c3c;
+  font-size: 1rem;
+  line-height: 2.2rem;
+}
+.fnbox ul li.type2 i {
+  color: #56df6d;
+  line-height: 2.2rem;
+}
+.fnbox ul li.type3 i {
+  color: #ff7e45;
+  line-height: 2.1rem;
+}
+.fnbox ul li.type4 i {
+  color: #7790fe;
+  line-height: 2.2rem;
+}
+.fnbox ul li.type5 i {
+  color: #ff7e45;
+  font-size: 1.1rem;
+  line-height: 2.2rem;
+}
+.fnbox ul li.type6 i {
+  color: #86d4eb;
+  font-size: .9rem;
+}
+.fnbox ul li.type7 i {
+  color: #43d7bd;
+}
+.fnbox ul li.type8 i {
+  color: #c568f5;
+  line-height: 2.2rem;
+}
+.setting {
+  width: 15rem;
+  padding: .25rem .5rem;
+  margin-top: .3rem;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.setting:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.setting a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.setting a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.setting a i {
+  float: left;
+  width: 1rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+  text-align: center;
+  color: #bababa;
+}
+.setting a i.bigi {
+  font-size: 1rem;
+  color: #333;
+}
+.setting a span {
+  float: left;
+  width: 12rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+  color: #333;
+}
+.setting a span b {
+  color: #777;
+  font-size: .8rem;
+}
+.setting a em {
+  float: left;
+  font-size: .6rem;
+  width: 2rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: right;
+  color: #bababa;
+}
+.kong {
+  width: 16rem;
+  height: 3rem;
+  position: relative;
+}
+.account {
+  width: 16rem;
+  position: relative;
+  margin-top: 2rem;
+}
+.account h3 {
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .6rem;
+  font-weight: bolder;
+  padding-left: .5rem;
+}
+.account .itemlist {
+  width: 15rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+  margin-bottom: .5rem;
+}
+.account .itemlist ul {
+  position: relative;
+}
+.account .itemlist ul li {
+  width: 15rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding: .5rem 0;
+  position: relative;
+}
+.account .itemlist ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.account .itemlist ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.account .itemlist ul li a span {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: left;
+}
+.account .itemlist ul li a span.haswidth {
+  width: 4rem;
+}
+.account .itemlist ul li a span.headspec {
+  margin-top: .7rem;
+}
+.account .itemlist ul li a .right {
+  float: right;
+}
+.account .itemlist ul li a .right img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.account .itemlist ul li a .right em {
+  float: left;
+  width: 10.5rem;
+  height: auto;
+  text-align: right;
+  color: #999;
+  font-size: .6rem;
+}
+.account .itemlist ul li a .right span {
+  float: left;
+  width: 9.7rem;
+  height: auto;
+  text-align: left;
+}
+.account .itemlist ul li a .right input {
+  float: left;
+  border: none;
+  width: 10.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: right;
+}
+.account .itemlist ul li a .right input[type='date'] {
+  width: 5rem;
+}
+.account .itemlist ul li a .right i {
+  color: #999;
+  height: 1rem;
+  line-height: 1rem;
+}
+.account .itemlist ul li a .right i.btn {
+  display: inline-block;
+  font-size: 1.8rem;
+  width: 4rem;
+  text-align: right;
+  line-height: 1.2rem;
+}
+.account .itemlist ul li a .right i.hasColor {
+  color: #86d4eb;
+}
+.account .itemlist ul li a .right select {
+  border: none;
+  height: 1rem;
+  line-height: 1rem;
+  padding-left: 2rem;
+  background-color: #fff;
+}
+.account .itemlist ul li a .head {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.account .itemlist ul li.hillhight {
+  height: 2rem;
+}
+.account .itemlist ul li:last-child {
+  border-bottom: none;
+}
+.account .new-address {
+  width: 16rem;
+  background-color: #fff;
+  position: relative;
+}
+.account .new-address ul {
+  width: 15rem;
+  padding: 0 .5rem;
+  position: relative;
+}
+.account .new-address ul li {
+  width: 15rem;
+  height: 1.5rem;
+  padding: .25rem 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.account .new-address ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.account .new-address ul li input {
+  float: left;
+  border: none;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .25rem;
+  width: 14.5rem;
+  font-size: .6rem;
+}
+.account .new-address ul li .city {
+  display: inline-block;
+  width: 14.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0 .25rem;
+  font-size: .6rem;
+}
+.account .new-address ul li .main-address {
+  width: 13rem;
+}
+.account .new-address ul li .dingwei {
+  float: right;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #aeaeae;
+}
+.account .new-address ul li .loading {
+  float: right;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #aeaeae;
+  animation: loadingmove 2s infinite linear;
+  -webkit-animation: loadingmove 2s infinite linear;
+}
+.account .new-address ul li .sex-box {
+  float: left;
+  height: 1.5rem;
+  margin: 0 .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.account .new-address ul li .sex-box:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.account .new-address ul li .sex-box i {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.account .new-address ul li .sex-box .icon-quan1 {
+  color: #d4d4d4;
+  line-height: 1.6rem;
+}
+.account .new-address ul li .sex-box .icon-xuanze {
+  color: #42a2be;
+}
+.account .new-address ul li .sex-box span {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin-left: .25rem;
+  font-size: .6rem;
+}
+.account a.disabled {
+  background-color: #ccc;
+}
+.account .address-btn {
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #86d4eb;
+  position: fixed;
+  left: .5rem;
+  bottom: 1rem;
+  color: #fff;
+  border-radius: .25rem;
+}
+.address-box {
+  width: 15rem;
+  padding: 0 .5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+.address-box .add-top {
+  width: 15rem;
+  padding: .5rem 0;
+  position: relative;
+}
+.address-box .add-top input {
+  width: 15rem;
+  border: 1px solid #dbdbdb;
+  background-color: #f5f5f5;
+  height: 2rem;
+  line-height: 1rem;
+  padding: .5rem;
+  box-sizing: border-box;
+  border-radius: .25rem;
+}
+.address-box .add-top i {
+  position: absolute;
+  right: 0;
+  top: .5rem;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #aeaeae;
+}
+.address-box .current-add {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.address-box .current-add:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.address-box .current-add span {
+  float: left;
+  width: 11rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #000;
+  font-size: .6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.address-box .current-add span b {
+  color: #e95098;
+  font-weight: normal;
+  font-size: .6rem;
+}
+.address-box .current-add a {
+  float: right;
+  width: 4rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #92d8ed;
+  font-size: .6rem;
+  text-align: right;
+}
+.address-box .current-add a i {
+  color: #92d8ed;
+}
+.address-box .add-list {
+  width: 15rem;
+  position: relative;
+  border-top: 1px solid #cecece;
+  overflow-y: scroll;
+}
+.address-box .add-list ul {
+  position: relative;
+}
+.address-box .add-list ul li {
+  width: 15rem;
+  padding: .3rem 0;
+  border-bottom: 1px solid #cecece;
+}
+.address-box .add-list ul li h3 {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #000;
+  font-size: .7rem;
+}
+.address-box .add-list ul li p {
+  width: 15rem;
+  line-height: .8rem;
+  color: #505050;
+  font-size: .6rem;
+}
+.dropload-down {
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(134, 134, 134, 0.2);
+  z-index: 9;
+}
+.dropload-down .dropload-load {
+  top: 40%;
+  margin-top: -25px;
+  position: relative;
+}
+.addresslist {
+  width: 16rem;
+  position: relative;
+  margin-top: 2rem;
+}
+.addresslist ul {
+  width: 16rem;
+  position: relative;
+}
+.addresslist ul li {
+  width: 15rem;
+  padding: .2rem .5rem;
+  margin-bottom: .5rem;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.addresslist ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.addresslist ul li .top {
+  float: left;
+  width: 15rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.addresslist ul li .top h5 {
+  width: 15rem;
+  height: 1.2rem;
+  font-size: .6rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  font-weight: normal;
+}
+.addresslist ul li .top h5:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.addresslist ul li .top h5 span {
+  float: left;
+  height: 1.2rem;
+}
+.addresslist ul li .top h5 em {
+  float: right;
+  height: 1.2rem;
+}
+.addresslist ul li .top p {
+  line-height: .8rem;
+  font-size: .5rem;
+  margin-bottom: .2rem;
+}
+.addresslist ul li .bottom {
+  float: left;
+  width: 15rem;
+  margin-top: .2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.addresslist ul li .bottom:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.addresslist ul li .bottom .left {
+  float: left;
+  font-size: .5rem;
+  height: 1rem;
+  line-height: 1rem;
+}
+.addresslist ul li .bottom .left i {
+  font-size: .6rem;
+  margin-right: .2rem;
+}
+.addresslist ul li .bottom .left i.active {
+  color: #86d4eb;
+}
+.addresslist ul li .bottom .right {
+  float: right;
+  height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.addresslist ul li .bottom .right:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.addresslist ul li .bottom .right a {
+  float: left;
+  font-size: .5rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin-left: .8rem;
+}
+.addresslist ul li .bottom .right a i {
+  font-size: .6rem;
+}
+.cardlist {
+  width: 16rem;
+  position: relative;
+  margin-top: 2.5rem;
+}
+.cardlist ul {
+  position: relative;
+}
+.cardlist ul li {
+  width: 15rem;
+  margin: .5rem;
+  overflow: hidden;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.cardlist ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.cardlist ul li .cardinfo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: .5rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #86d4eb;
+}
+.cardlist ul li .cardinfo .info {
+  display: table;
+  float: left;
+  width: 14rem;
+  margin: .5rem .5rem 0 .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.cardlist ul li .cardinfo .info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.cardlist ul li .cardinfo .info img {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  box-sizing: border-box;
+  padding: .1rem;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: .5rem;
+}
+.cardlist ul li .cardinfo .info p {
+  width: 10rem;
+  height: 2rem;
+  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle;
+  color: #fff;
+}
+.cardlist ul li .cardinfo .card-info {
+  float: left;
+  width: 15rem;
+  margin: .5rem 0;
+}
+.cardlist ul li .cardinfo .card-info h3 {
+  width: 15rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1rem;
+  font-weight: bold;
+}
+.cardlist ul li .cardinfo .card-info h3 b {
+  font-size: 1rem;
+}
+.cardlist ul li .cardinfo .card-info p {
+  width: 15rem;
+  color: #fff;
+  text-align: center;
+}
+.cardlist ul li .cardinfo .card-type {
+  float: left;
+  width: 13rem;
+  padding: 0 1rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.cardlist ul li .cardinfo .card-type:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.cardlist ul li .cardinfo .card-type span {
+  float: left;
+  line-height: 2rem;
+  color: #fff;
+  font-size: .5rem;
+}
+.cardlist ul li .cardinfo .card-type em {
+  float: right;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  margin: .4rem 0;
+  padding: 0 .5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: .25rem;
+  color: #fff;
+}
+.cardlist ul li .other {
+  background-color: #86d4eb;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.cardlist ul li .other:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.cardlist ul li .other .info {
+  display: table;
+  float: left;
+  width: 13rem;
+  margin: 1rem 1rem 0 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.cardlist ul li .other .info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.cardlist ul li .other .info img {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  box-sizing: border-box;
+  padding: .1rem;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: .5rem;
+}
+.cardlist ul li .other .info p {
+  width: 10rem;
+  height: 2rem;
+  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle;
+  color: #fff;
+}
+.cardlist ul li .other .card-info {
+  float: left;
+  width: 15rem;
+  margin: 1rem 0;
+}
+.cardlist ul li .other .card-info h3 {
+  width: 15rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1rem;
+  font-weight: bold;
+}
+.cardlist ul li .other .card-info h3 b {
+  font-size: 1rem;
+}
+.cardlist ul li .other .card-info p {
+  width: 15rem;
+  color: #fff;
+  text-align: center;
+}
+.cardlist ul li .other .card-type {
+  float: left;
+  width: 13rem;
+  padding: 0 1rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.cardlist ul li .other .card-type:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.cardlist ul li .other .card-type span {
+  float: left;
+  line-height: 2rem;
+  color: #fff;
+  font-size: .5rem;
+}
+.cardlist ul li .other .card-type em {
+  float: right;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  margin: .4rem 0;
+  padding: 0 .5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: .25rem;
+  color: #fff;
+}
+.cardlist ul li .operate {
+  width: 15rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border: 1px solid #ccc;
+  border-top: none;
+  box-sizing: border-box;
+}
+.cardlist ul li .operate:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.cardlist ul li .operate a {
+  float: left;
+  width: 7.3rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+.cardlist ul li .operate a:first-child {
+  border-right: 1px solid #ccc;
+}
+.cardlist ul li.silver {
+  background: -webkit-linear-gradient(#c5c7ca, #85868a);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#c5c7ca, #85868a);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#c5c7ca, #85868a);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(#c5c7ca, #85868a);
+  /* 标准的语法 */
+}
+.cardlist ul li.golden {
+  background: -webkit-linear-gradient(#e7dbab, #bc9323);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#e7dbab, #bc9323);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#e7dbab, #bc9323);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(#e7dbab, #bc9323);
+  /* 标准的语法 */
+}
+.carddetails {
+  width: 16rem;
+  margin-top: 2rem;
+  position: relative;
+}
+.carddetails .card {
+  background-color: #fff;
+  padding: .25rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+.carddetails .card .card-info {
+  width: 15rem;
+  margin: .5rem;
+  border-radius: .5rem;
+  overflow: hidden;
+  position: relative;
+  background: -webkit-linear-gradient(#3474bc, #326fb3);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#3474bc, #326fb3);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#3474bc, #326fb3);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(#3474bc, #326fb3);
+  /* 标准的语法 */
+}
+.carddetails .card .card-info a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.carddetails .card .card-info a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.carddetails .card .card-info a .info {
+  display: table;
+  float: left;
+  width: 13rem;
+  margin: 1rem 1rem 0 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.carddetails .card .card-info a .info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.carddetails .card .card-info a .info img {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  box-sizing: border-box;
+  padding: .1rem;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: .5rem;
+}
+.carddetails .card .card-info a .info p {
+  width: 10rem;
+  height: 2rem;
+  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle;
+  color: #fff;
+}
+.carddetails .card .card-info a .card-info {
+  float: left;
+  width: 15rem;
+  margin: 1rem 0;
+}
+.carddetails .card .card-info a .card-info h3 {
+  width: 15rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1rem;
+  font-weight: bold;
+}
+.carddetails .card .card-info a .card-info h3 b {
+  font-size: 1rem;
+}
+.carddetails .card .card-info a .card-info p {
+  width: 15rem;
+  color: #fff;
+  text-align: center;
+}
+.carddetails .card .card-info a .card-type {
+  float: left;
+  width: 13rem;
+  padding: 0 1rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.carddetails .card .card-info a .card-type:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.carddetails .card .card-info a .card-type span {
+  float: left;
+  line-height: 2rem;
+  color: #fff;
+  font-size: .5rem;
+}
+.carddetails .card .card-info a .card-type em {
+  float: right;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  margin: .4rem 0;
+  padding: 0 .5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: .25rem;
+  color: #fff;
+}
+.carddetails .card .card-info a .card-type em i {
+  float: left;
+  color: #fff;
+  margin-right: .2rem;
+}
+.carddetails div.silver {
+  background: -webkit-linear-gradient(#c5c7ca, #85868a);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#c5c7ca, #85868a);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#c5c7ca, #85868a);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(#c5c7ca, #85868a);
+  /* 标准的语法 */
+}
+.carddetails div.golden {
+  background: -webkit-linear-gradient(#e7dbab, #bc9323);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#e7dbab, #bc9323);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#e7dbab, #bc9323);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(#e7dbab, #bc9323);
+  /* 标准的语法 */
+}
+.carddetails .detail-tab {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  margin-top: .3rem;
+}
+.carddetails .detail-tab .detail-title {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: 0 .5rem;
+  font-size: .5rem;
+  font-weight: bolder;
+  border-bottom: 1px solid #e5e5e5;
+}
+.carddetails .detail-tab .detail-box {
+  width: 15rem;
+  position: relative;
+  padding: .5rem;
+}
+.carddetails .detail-tab .detail-box ul {
+  width: 15rem;
+  position: relative;
+}
+.carddetails .detail-tab .detail-box ul li {
+  width: 15rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.carddetails .detail-tab .detail-box ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.carddetails .detail-tab .detail-box ul li i {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #86d4eb;
+  color: #fff;
+  margin-right: .5rem;
+}
+.carddetails .detail-tab .detail-box ul li span {
+  line-height: 1.5rem;
+}
+.carddetails .detail-tab .detail-box ul li .role {
+  float: left;
+  width: 13rem;
+}
+.carddetails .detail-tab .detail-box ul li .role h3 {
+  height: 1rem;
+  line-height: 1rem;
+  font-weight: bolder;
+  font-size: .5rem;
+}
+.carddetails .detail-tab .detail-box ul li .role p {
+  font-size: .5rem;
+}
+.carddetails .detail-tab .detail-box ul li:last-child {
+  border-bottom: none;
+}
+.carddetails .detail-tab .detail-box p {
+  line-height: .8rem;
+  font-size: .6rem;
+  margin-bottom: .5rem;
+}
+.carddetails .detail-tab .shopbox {
+  width: 16rem;
+  position: relative;
+}
+.carddetails .detail-tab .shopbox .address {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: 0 .5rem;
+  background-color: #f0f2f5;
+}
+.carddetails .detail-tab .shopbox .address span {
+  font-size: .5rem;
+}
+.carddetails .detail-tab .shopbox .address a {
+  color: #86d4eb;
+  margin-left: .2rem;
+  font-size: .5rem;
+}
+.carddetails .detail-tab .shopbox .shoplist {
+  width: 15rem;
+  margin: 0 .5rem;
+}
+.carddetails .detail-tab .shopbox .shoplist ul {
+  position: relative;
+}
+.carddetails .detail-tab .shopbox .shoplist ul li {
+  width: 15rem;
+  height: 2rem;
+  padding: .25rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.carddetails .detail-tab .shopbox .shoplist ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.carddetails .detail-tab .shopbox .shoplist ul li .shop-info {
+  float: left;
+  height: 2rem;
+  width: 10rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.carddetails .detail-tab .shopbox .shoplist ul li .shop-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.carddetails .detail-tab .shopbox .shoplist ul li .shop-info h3 {
+  float: left;
+  width: 10rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: .5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-weight: bolder;
+}
+.carddetails .detail-tab .shopbox .shoplist ul li .shop-info p {
+  float: left;
+  width: 10rem;
+  height: .8rem;
+  line-height: .8rem;
+  font-size: .5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.carddetails .detail-tab .shopbox .shoplist ul li .shop-go {
+  float: right;
+  height: 1rem;
+  line-height: 1rem;
+  padding: 0 .3rem;
+  font-size: .5rem;
+  border-radius: .2rem;
+  color: #86d4eb;
+  margin-top: .5rem;
+  border: 1px solid #86d4eb;
+}
+.carddetails .detail-tab .shopbox .shoplist ul li:last-child {
+  border-bottom: none;
+}
+.recommed-box {
+  width: 16rem;
+  position: relative;
+  top: 2.2rem;
+}
+.recommed-box ul {
+  width: 16rem;
+  position: relative;
+  border-top: 1px solid #e5e5e5;
+}
+.recommed-box ul li {
+  width: 15.6rem;
+  padding: .2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  overflow: hidden;
+}
+.recommed-box ul li img {
+  float: left;
+  width: 3rem;
+  height: 3rem;
+  border-radius: .25rem;
+}
+.recommed-box ul li .person-info {
+  float: left;
+  width: 12rem;
+  margin-left: .6rem;
+}
+.recommed-box ul li .person-info .top {
+  width: 12rem;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  margin-bottom: .2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.recommed-box ul li .person-info .top:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.recommed-box ul li .person-info .top span {
+  float: left;
+  width: 8rem;
+  height: 1.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.recommed-box ul li .person-info .top em {
+  float: right;
+  width: 4rem;
+  height: 1.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  color: #999;
+  text-align: center;
+}
+.recommed-box ul li .person-info p {
+  width: 12rem;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mycode {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9;
+}
+.mycode img {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -5rem;
+  margin-top: -5rem;
+}
+.strategylist {
+  width: 16rem;
+  position: relative;
+  top: 2rem;
+}
+.strategylist ul {
+  width: 16rem;
+  position: relative;
+  overflow: hidden;
+}
+.strategylist ul li {
+  float: left;
+  width: 19rem;
+  height: 4.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.strategylist ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.strategylist ul li .mainStrate {
+  float: left;
+  width: 15.5rem;
+  height: 4rem;
+  padding: .25rem;
+}
+.strategylist ul li .mainStrate img {
+  float: left;
+  width: 5.2rem;
+  height: 4rem;
+  margin-right: .3rem;
+}
+.strategylist ul li .mainStrate .list-right {
+  float: left;
+  width: 10rem;
+  height: 4rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.strategylist ul li .mainStrate .list-right:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.strategylist ul li .mainStrate .list-right h3 {
+  float: left;
+  width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .6rem;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.strategylist ul li .mainStrate .list-right .info {
+  float: left;
+  width: 10rem;
+  height: 2rem;
+  overflow: hidden;
+}
+.strategylist ul li .mainStrate .list-right .info em {
+  font-size: .5rem;
+}
+.strategylist ul li .mainStrate .list-right p {
+  float: left;
+  width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.strategylist ul li .mainStrate .list-right p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.strategylist ul li .mainStrate .list-right p span {
+  float: left;
+  text-align: center;
+}
+.strategylist ul li .mainStrate .list-right p span i {
+  color: #999;
+  font-size: .6rem;
+  vertical-align: middle;
+}
+.strategylist ul li .mainStrate .list-right p span i.icon-muzhi {
+  line-height: .8rem;
+}
+.strategylist ul li .mainStrate .list-right p span b {
+  color: #999;
+  font-weight: normal;
+  margin: 0 .5rem 0 .2rem;
+  vertical-align: middle;
+}
+.strategylist ul li .cancelBtn {
+  float: left;
+  width: 3rem;
+  height: 4.5rem;
+  line-height: 4rem;
+  text-align: center;
+  background-color: #e3393c;
+  color: #fff;
+}
+.strategylist ul li.showCancel {
+  -webkit-transform: translateX(-3rem);
+  -moz-transform: translateX(-3rem);
+  -o-transform: translateX(-3rem);
+  transform: translateX(-3rem);
+}
+.stratetype {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+  margin: .5rem 0;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+}
+.stratetype ul {
+  width: 16rem;
+  padding: .5rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.stratetype ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.stratetype ul li {
+  float: left;
+  width: 4rem;
+}
+.stratetype ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.stratetype ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.stratetype ul li a img {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  padding: 0 1rem;
+}
+.stratetype ul li a p {
+  float: left;
+  width: 4rem;
+  height: 1rem;
+  line-height: 1.2rem;
+  text-align: center;
+  font-size: .5rem;
+}
+.strategybox {
+  width: 16rem;
+  position: relative;
+  top: 2.1rem;
+}
+.strategybox .stratetitle {
+  width: 16rem;
+  position: relative;
+  height: 8rem;
+}
+.strategybox .stratetitle .strageimg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16rem;
+  height: 8rem;
+}
+.strategybox .stratetitle .strateinfo {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 15rem;
+  height: 3rem;
+  padding: 0 .5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  min-height: 1px;
+  zoom: 1;
+}
+.strategybox .stratetitle .strateinfo:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.strategybox .stratetitle .strateinfo h3 {
+  float: left;
+  width: 10rem;
+  height: 1.5rem;
+  line-height: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-size: .6rem;
+  color: #fff;
+}
+.strategybox .stratetitle .strateinfo p {
+  float: left;
+  width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.strategybox .stratetitle .strateinfo p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.strategybox .stratetitle .strateinfo p span {
+  float: left;
+}
+.strategybox .stratetitle .strateinfo p span i {
+  float: left;
+  color: #fff;
+  font-size: .6rem;
+}
+.strategybox .stratetitle .strateinfo p span b {
+  float: left;
+  color: #fff;
+  font-weight: normal;
+  margin: 0 .5rem 0 .2rem;
+}
+.strategybox .stratetitle .strateinfo .pinpai {
+  position: absolute;
+  width: 3.3rem;
+  right: .5rem;
+  top: .5rem;
+  z-index: 9;
+}
+.strategybox .stratetitle .strateinfo .pinpai .imgbox {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  padding: .15rem;
+  background-color: #fff;
+}
+.strategybox .stratetitle .strateinfo .pinpai .imgbox img {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+.strategybox .stratetitle .strateinfo .pinpai p {
+  width: 3.3rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .6rem;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.strategybox .stratecon {
+  width: 15rem;
+  padding: 2rem .5rem .5rem .5rem;
+  position: relative;
+  background-color: #fff;
+}
+.strategybox .stratecon img {
+  display: block;
+  width: 100% !important;
+}
+.sharebox {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+}
+.sharebox .shareimg {
+  display: block;
+  width: 16rem;
+  margin: 4rem 0;
+}
+.sharebox .shareimg:first-child {
+  margin: 0 0 1rem 0;
+}
+.sharebox .invitation {
+  width: 15rem;
+  margin: 0 .5rem;
+}
+.sharebox .invitation input {
+  width: 15rem;
+  height: 2rem;
+  line-height: 1rem;
+  text-align: center;
+  margin-bottom: .5rem;
+  padding: .5rem;
+  border: 1px solid #ccc;
+  border-radius: .5rem;
+  box-sizing: border-box;
+}
+.sharebox .invitation a {
+  display: inline-block;
+  width: 15rem;
+  height: 2rem;
+  line-height: 1rem;
+  text-align: center;
+  background-color: #eeeeee;
+  color: #fff;
+  margin-bottom: .5rem;
+  padding: .5rem;
+  border-radius: .5rem;
+  box-sizing: border-box;
+}
+.sharebox .invitation a.active {
+  background-color: #86d4eb;
+}
+.sharebox .erweima {
+  width: 15rem;
+  margin: 0 .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.sharebox .erweima:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.sharebox .erweima .codeimg {
+  float: left;
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+}
+.sharebox .erweima .info {
+  float: left;
+  width: 10rem;
+}
+.sharebox .erweima .info p {
+  font-size: .6rem;
+  height: 2rem;
+  line-height: 2rem;
+}
+.sharebox .erweima .info p.first {
+  line-height: 3rem;
+}
+.sharebox .erweima .info p.second {
+  line-height: 1rem;
+}
+.sharebox .dialogbox {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 16rem;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.sharebox .dialogbox .diabox {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  margin-top: -3.5rem;
+  width: 11rem;
+  height: 7rem;
+  background-color: #fff;
+  padding: .5rem;
+  border-radius: .25rem;
+}
+.sharebox .dialogbox .diabox h3 {
+  width: 11rem;
+  height: 2rem;
+  text-align: center;
+  color: #fc6368;
+  line-height: 2rem;
+  font-size: .8rem;
+  font-weight: bolder;
+}
+.sharebox .dialogbox .diabox p {
+  width: 11rem;
+  font-size: .5rem;
+  text-align: center;
+}
+.sharebox .dialogbox .diabox .fndiabox {
+  width: 11rem;
+  height: 2rem;
+  position: relative;
+  margin-top: 1rem;
+  text-align: center;
+}
+.sharebox .dialogbox .diabox .fndiabox a {
+  width: 4.2rem;
+  height: 2rem;
+  line-height: 2rem;
+  display: inline-block;
+  text-align: center;
+  background-color: #84cde1;
+  color: #fff;
+  border-radius: .25rem;
+  margin: 0 .25rem;
+}
+@keyframes loadingmove {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes loadingmove {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+  }
+}

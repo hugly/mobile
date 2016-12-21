@@ -1,0 +1,45 @@
+@import "lib.less";
+
+.offline-usrtest{ width: 16rem; position: absolute; top: 2.5rem; left: 0; bottom: 0; right: 0;
+  ul{ width: 15.5rem; padding-left: .5rem; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; background-color: #fff; position: relative;
+    li{ width: 15.5rem; height: 2rem; position: relative; .cf();
+      .phone{ float: left; width: 9rem; height: 1rem; line-height: 1rem; padding: .5rem; border: none; margin-right: .5rem; }
+      .valiatecode{ float: left; width: 14rem; height: 1rem; line-height: 1rem; padding: .5rem; border: none; }
+      .getcode{ float: left; width: 4rem; height: 1.5rem; margin: .25rem .5rem; line-height: 1.5rem; font-size: .6rem; text-align: center; border-radius: .25rem; background-color: #237290; color: #fff; }
+    }
+    li:first-child{ border-bottom: 1px solid #e5e5e5; }
+  }
+  .valiate-btn{ display: inline-block; width: 15rem; height: 2rem; line-height: 2rem; margin: .5rem; text-align: center; background-color: #56d176; border-radius: .25rem; color: #fff; }
+}
+
+.ercode{ position: relative; margin-top: 3rem;
+  .loading{ display: block; width: 2rem; height: 2rem; margin: 10rem 7rem 5rem 7rem; }
+  .ercode{ display: block; width: 8rem; height: 8rem; margin: 7rem 4rem 2rem 4rem; }
+  p{ width: 14rem; line-height: 1rem; color: #999; padding: .5rem 1rem; font-size: .6rem; text-align: center; }
+}
+
+.offline-usrauth{ width: 16rem; position: absolute; top: 2.5rem; left: 0; bottom: 0; right: 0;
+  .siginbox{ width: 4rem; padding: 4rem 6rem 3rem 6rem; position: relative;
+    .circle{ width: 4rem; height: 4rem; border: 1px solid #86d4eb; border-radius: 50%; position: relative;
+      .imgbox{ width: 2rem; margin: 1rem;
+        img{ display: block; width: 2rem; }
+      }
+      .dotted{ position: absolute; right: 3rem; top: .25rem; width: .49rem; height: .5rem; background-color: #86d4e8; border-radius: 50%;
+        -webkit-animation: clockwise 2s ease-in-out infinite; animation: clockwise 2s ease-in-out infinite; transform-origin: 1.5rem 1.75rem;
+      }
+    }
+  }
+  p{ width: 14rem; line-height: 1rem; color: #999; padding: .5rem 1rem; font-size: .6rem; text-align: center; margin-bottom: 2rem; }
+  .valiate-btn{ display: inline-block; width: 6.75rem; height: 2rem; line-height: 2rem; margin: .5rem; text-align: center; background-color: #56d176; border-radius: .25rem; color: #fff; }
+  .cancel-btn{ display: inline-block; width: 6.75rem; height: 2rem; line-height: 2rem; margin: .5rem; text-align: center; background-color: #f10215; border-radius: .25rem; color: #fff;  }
+}
+
+@-webkit-keyframes clockwise{
+  0%  { -webkit-transform: rotate(0deg) ;  }
+  100%{ -webkit-transform: rotate(360deg); }
+}
+
+@keyframes clockwise {
+  0%  { transform: rotate(0deg) ; }
+  100%{ transform: rotate(360deg); }
+}

@@ -1,0 +1,140 @@
+@import "lib.less";
+
+body{ background-color: #fff; }
+.circle {
+   width: 12rem;
+   height: 12rem;
+   position: absolute;
+   left:2rem;
+   border-radius: 50%;
+   background: #86d4eb;
+ }
+.pie_left, .pie_right {
+  width:12rem;
+  height:12rem;
+  position: absolute;
+  top: 0;left: 0;
+}
+.left, .right {
+  width:12rem;
+  height:12rem;
+  background:#f4f6f5;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  .trs();
+  transform: rotate(0deg);
+}
+.pie_right, .right {
+  clip:rect(0,auto,auto,6rem);
+}
+.pie_left, .left {
+  clip:rect(0,6rem,auto,0);
+}
+.mask {
+  width: 11.6rem;
+  height: 11.6rem;
+  border-radius: 50%;
+  left: .2rem;
+  top: .2rem;
+  background: #fff;
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  color: #86d4eb;
+}
+
+.circle1 {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  left:3rem;
+  top: 1rem;
+  border-radius: 50%;
+  background: #c2c5c8;
+}
+.pie_left1, .pie_right1 {
+  width:10rem;
+  height:10rem;
+  position: absolute;
+  top: 0;left: 0;
+}
+.left1, .right1 {
+  width:10rem;
+  height:10rem;
+  background:#f4f6f5;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  .trs();
+  transform: rotate(0deg);
+}
+.pie_right1, .right1 {
+  clip:rect(0,auto,auto,5rem);
+}
+.pie_left1, .left1 {
+  clip:rect(0,5rem,auto,0);
+}
+.mask1 {
+  width: 9.6rem;
+  height: 9.6rem;
+  border-radius: 50%;
+  left: .2rem;
+  top: .2rem;
+  background: #fff;
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  color: #86d4eb;
+}
+
+.mask1 em{
+  color: #b1b1b1;
+  font-size: 1rem;
+  font-family: -webkit-body;
+  line-height: 5rem;
+  font-weight: normal;
+}
+.mask1 em i{
+  font-size: .6rem;
+  font-family: -webkit-body;
+  color: #b1b1b1;
+  font-weight: normal;
+}
+.mask1 p{
+  color: #86d4eb;
+  line-height: 3rem;
+  font-family: -webkit-body;
+}
+
+.circulbox{ width: 15rem; position: absolute; left: .5rem; top: 2rem; right: .5rem; bottom: .5rem; background-color: #fff; border-radius: .5rem;
+  .circulstatus{ width: 15rem; position: relative;
+    h3{ width: 14rem; padding:0 1rem; height: 1rem; color: #01dbf5; }
+    .title{ width: 14rem; position: relative; overflow: hidden; margin: .5rem 1rem; box-sizing: border-box; border: 1px solid #e5e5e5; border-radius: .5rem;
+      ul{ width: 14rem; position: relative; .cf();
+        li{ float: left; width: 3.5rem; height: 1.5rem; line-height: 1.5rem; font-size: .6rem; border-right: 1px solid #e5e5e5; text-align: center; box-sizing: border-box; }
+        li.active{ background-color: #86d4eb; color: #fff; }
+      }
+    }
+    .circlelist{ width: 16rem; height: 12rem; position: relative; margin-top: 2rem;
+      .interpre{position: absolute; right: 1rem; bottom: -2.5rem;
+        p{ width: 5rem; height: .8rem; line-height: .8rem; font-size: .5rem;
+          b{ display: inline-block; width: 2rem; height: 2px; margin-left: .5rem; }
+          b.grey{ background-color: #aaa; }
+          b.blue{ background-color: #86d4eb; }
+        }
+      }
+    }
+    .circlebox{ width: 12rem; height: 12rem; margin: 2rem auto; border: 2px solid #eee; border-radius: 50%; position: relative;
+      span{ width: 2rem; height: 2rem; border: 2px solid #eee; background-color: #fff; border-radius: 50%; position:absolute; left:50%; margin-left:-1rem; margin-top:5rem; opacity:0; }
+    }
+    .info{ width: 13rem; padding:0 1rem; position: relative; margin-top: .5rem;
+      p{ width: 13rem; line-height: 1rem; color: #5b5b5b; font-size: .7rem;
+        b{ font-weight: normal; }
+      }
+    }
+  }
+  .overstate{ display: none; width: 15rem; height: 1rem; line-height: 2rem; text-align: center; font-size: .6rem; color: #5ad9ff; }
+}

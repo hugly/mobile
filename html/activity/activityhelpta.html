@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/activi.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/activity/actihelpta.js"></script>
+</head>
+<body class="ms-controller rank" ms-controller="actihelp">
+<!--公共头部-->
+<div class="headerone specheader" style="background-color: #fff; box-shadow: 0 0 .1rem #999;">
+    <a ms-attr-href="activityinvite.html?code={{joincode}}" class="back-btn">
+        <i class="iconfont icon-fanhui" style="color: #35c8fc;"></i>
+    </a>
+    <h3 style="width:11rem; color: #000;">帮他助学</h3>
+</div>
+<div class="joincontent" style="margin-top: 3rem;">
+    <ul>
+        <li>
+            <span>手机号:</span>
+            <div class="above">
+                <input type="tel" placeholder="为了保证奖品的顺利发放,请正确填写" ms-duplex="phone" ms-on-blur="checkUserIsRegister">
+            </div>
+        </li>
+        <li>
+            <span>验证码:</span>
+            <div class="above">
+                <input type="tel" placeholder="请输入验证码" class="short" ms-duplex="valiCode">
+                <a href="javascript:;" ms-if="state === 1" ms-on-tap="getCodeFn">获取验证码</a>
+                <a href="javascript:;" ms-if="state === 2" style="background-color: #ccc;">发送中</a>
+                <a href="javascript:;" ms-if="state === 3" style="background-color: #ccc;">{{timeleft}}s后获取</a>
+            </div>
+        </li>
+        <li ms-if="!isShowDia">
+            <span>初始密码:</span>
+            <div class="above">
+                <input type="password" placeholder="为了你的账户安全请设置" ms-duplex="password">
+            </div>
+        </li>
+    </ul>
+    <a href="javascript:;" class="iwantjoin" ms-if="!isSureing" ms-on-tap="joinFn">帮他助学</a>
+    <a href="javascript:;" class="iwantjoin" ms-if="isSureing" style="background-color: #ccc;">确认中</a>
+    <a ms-attr-href="{{linkUrl}}" style="display: inline-block; width: 14rem; height: 1.8rem; line-height: 1.8rem; text-align: center; margin: 1rem .5rem; color: #fff; background-color: #fc6368; border-radius: .25rem;">已注册用户,去登陆</a>
+</div>
+<!--<div class="gowork" ms-if="wantgo">-->
+    <!--<a href="../main/discovered.html" class="normalacitivity">参加日常活动<br>还能赢红包大奖</a>-->
+    <!--<a href="activityindex.html" class="wantgo">我要参加</a>-->
+    <!--<a href="../main/discovered.html" class="wantgo" style="margin: 0 5rem;">参加日常活动</a>-->
+<!--</div>-->
+</body>
+</html>

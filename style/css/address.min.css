@@ -1,0 +1,172 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.addressbox {
+  width: 16rem;
+  position: relative;
+  margin-top: 2rem;
+}
+.addressbox ul {
+  position: relative;
+  width: 15rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+}
+.addressbox ul li:last-child {
+  border-bottom: none;
+}
+.addressbox ul li {
+  width: 15rem;
+  height: 2rem;
+  padding: .5rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #d5d5d5;
+}
+.addressbox ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.addressbox ul li .left-con {
+  float: left;
+  width: 13rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.addressbox ul li .left-con:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.addressbox ul li .left-con .selsected {
+  display: none;
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.addressbox ul li .left-con .selsected i {
+  font-size: 1.2rem;
+  color: #da2d2d;
+}
+.addressbox ul li .left-con .addressitem {
+  float: left;
+  width: 11rem;
+  height: 2rem;
+}
+.addressbox ul li .left-con .addressitem h3 {
+  height: .8rem;
+  line-height: .8rem;
+  font-weight: bolder;
+  font-size: .7rem;
+}
+.addressbox ul li .left-con .addressitem h3 span {
+  margin-left: .2rem;
+}
+.addressbox ul li .left-con .addressitem p {
+  font-size: .5rem;
+  line-height: .6rem;
+  margin-top: .2rem;
+}
+.addressbox ul li .edit-btn {
+  float: right;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+  border-left: 1px solid #d5d5d5;
+}
+.addressbox ul li .edit-btn i {
+  font-size: 1rem;
+  color: #ccc;
+}
+.sure {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 16rem;
+  height: 2rem;
+}
+.sure .sure-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #86d4eb;
+  color: #fff;
+}

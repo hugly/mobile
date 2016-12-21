@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <link rel="stylesheet" href="../../style/css/mobiscroll.custom-2.16.1.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/mobiscroll.custom-2.17.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/creatgroup.js"></script>
+</head>
+<body class="ms-controller" ms-controller="addgroup">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>创建团购券</h3>
+    <a href="javascript:;" class="link" ms-if-loop="!isSuccess" ms-on-tap="modifyOrAddGroup">保存</a>
+</div>
+<div class="mer-con">
+    <div class="createitem">
+        <div class="itembox">
+            <ul>
+                <li class="item">
+                    <span>团购券名称</span>
+                    <input type="text" placeholder="输入团购券名称" ms-duplex="groupData.Name" ms-attr-readonly="groupData.readonly">
+                </li>
+                <li class="item">
+                    <span>类型</span>
+                    <em ms-visible="groupData.readonly">{{groupData.Type === 1?'团购券':'代金券'}}</em>
+                    <select ms-duplex="groupData.Type" ms-visible="!groupData.readonly">
+                        <option value="1">团购券</option>
+                        <option value="2">代金券</option>
+                    </select>
+                </li>
+                <li class="item">
+                    <span>面值(元)</span>
+                    <input type="tel" placeholder="团购券面值" ms-duplex="groupData.ActivePrice" ms-attr-readonly="groupData.readonly">
+                </li>
+                <li class="item">
+                    <span>折后价(元)</span>
+                    <input type="text" placeholder="请输入实付款" ms-duplex="groupData.Price" ms-attr-readonly="groupData.readonly">
+                </li>
+            </ul>
+        </div>
+        <div class="itembox">
+            <ul>
+                <li class="item" ms-on-tap="requireTime">
+                    <span>是否需要时间:</span>
+                    <i style="float: right; font-size: 1.6rem; height: 1.5rem; line-height: 1.5rem; vertical-align: middle;" class="iconfont" ms-class-1="icon-kaiguankai:!isShowTime" ms-class-2="show icon-kaiguanguan-copy-copy:isShowTime"></i>
+                </li>
+                <li class="item" ms-if-loop="isShowTime">
+                    <span>开始时间</span>
+                    <input id="benginTime" placeholder="请选择开始时间" ms-duplex="groupData.StartTime">
+                </li>
+                <li class="item" ms-if-loop="isShowTime">
+                    <span>结束时间</span>
+                    <input id="endTime" placeholder="请选择结束时间" ms-duplex="groupData.EndTime">
+                </li>
+                <li class="item">
+                    <span>发行量(张)</span>
+                    <input type="tel" placeholder="总发行量" ms-duplex="groupData.IssueNum" ms-attr-readonly="groupData.readonly">
+                </li>
+            </ul>
+        </div>
+        <div class="itembox">
+            <ul>
+                <li class="item">
+                    <textarea placeholder="请输入需要的备注信息" ms-duplex="groupData.Desc" ms-attr-readonly="groupData.readonly"></textarea>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

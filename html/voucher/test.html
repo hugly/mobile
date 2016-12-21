@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <style>
+        body{background:#444;}
+        @-webkit-keyframes opac{
+            from {opacity: .6;width:0;height:0;top:50%;left:50%;}
+            to {opacity : 0;width:100%;height:100%;top:0;left:0;}
+        }
+        .w1,.w2,.w3{ position:absolute;border-radius:50%; visibility: hidden; background-color:#92d8ed;}
+        .animate .w1{
+            visibility:visible;
+            -webkit-animation:opac 3s infinite;
+        }
+        .animate .w2{
+            visibility:visible;
+            -webkit-animation:opac 3s infinite;-webkit-animation-delay:.3s;
+        }
+        .animate .w3{
+            visibility:visible;
+            -webkit-animation:opac 3s infinite;-webkit-animation-delay:.6s;
+        }
+        .wave{width:400px;height:400px;position:absolute;top:0;left:0}
+
+    </style>
+
+</head>
+
+<body>
+<div class="wave animate">
+    <div class="w1"></div>
+    <div class="w2"></div>
+    <div class="w3"></div>
+    <div class="w4"></div>
+</div>
+</body>
+</html>

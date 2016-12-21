@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/prolist.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/main/productlist.js"></script>
+</head>
+<body class="ms-controller" ms-controller="productlist">
+    <div class="headerone">
+        <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+            <i class="iconfont icon-fanhui"></i>
+        </a>
+        <h3 style="width: 11rem; font-size: .8rem;">商品清单({{TotalNum}})</h3>
+        <!--<a href="javascript:;" class="link" style=" width: auto; padding: 0 .2rem;">共{{TotalNum}}件</a>-->
+    </div>
+    <div class="order-con">
+        <div class="loadingLiubox" style="padding: 5rem 0;" ms-if-loop="loadingImgShow">
+            <img src="../../data-images/loading.gif">
+        </div>
+        <ul class="order-ul">
+            <p style="width: 12rem; height: 12rem; line-height: 12rem; text-align: center;" ms-if-loop="skuData.size() === 0 && !loadingImgShow">暂无相关数据</p>
+            <li ms-repeat="skuData">
+                <div class="imgbox">
+                    <img ms-attr-src="el.SubCategoryImage" >
+                </div>
+                <div class="p-info">
+                    <h3>{{el.CategoryName}}-{{el.SubCategoryName}}<em>({{el.saleTypeName}})</em></h3>
+                    <b><span>{{el.Price | currency }}<i>x{{el.Num}}</i></span><em>{{ el.Price*el.Num | currency }}</em></b>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

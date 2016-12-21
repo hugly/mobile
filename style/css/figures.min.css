@@ -1,0 +1,249 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.figurebox {
+  width: 16rem;
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  right: 0;
+  bottom: 2.5rem;
+  background-color: #fff;
+}
+.figurebox .mainfig {
+  width: 16rem;
+  position: relative;
+  text-align: center;
+  padding: 1rem 0 .5rem;
+  background-color: #86d4eb;
+}
+.figurebox .mainfig span {
+  display: block;
+  color: #fff;
+}
+.figurebox .mainfig h3 {
+  display: inline-block;
+  color: #fff;
+  line-height: 3rem;
+  margin-bottom: .5rem;
+  font-size: 1.2rem;
+  padding: 0 .5rem;
+  border-bottom: 1px solid #8fe0f9;
+}
+.figurebox .mainfig p {
+  display: block;
+  color: #fff;
+  font-size: .5rem;
+}
+.figurebox .tabbox {
+  width: 16rem;
+  background-color: #f7f7f8;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+}
+.figurebox .tabbox ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.figurebox .tabbox ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.figurebox .tabbox ul li {
+  float: left;
+  width: 4rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: .6rem;
+}
+.figurebox .tabbox ul li.active {
+  color: #86d4eb;
+}
+.figurenav {
+  width: 16rem;
+  height: 2.5rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #f7f7f8;
+}
+.figurenav .navul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.figurenav .navul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.figurenav .navul li {
+  float: left;
+  width: 4rem;
+  text-align: center;
+}
+.figurenav .navul li a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.figurenav .navul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.figurenav .navul li a i {
+  float: left;
+  width: 4rem;
+  height: 1.5rem;
+  line-height: 1.7rem;
+  font-size: 1rem;
+  color: #666;
+}
+.figurenav .navul li a span {
+  float: left;
+  width: 4rem;
+  font-size: .5rem;
+  color: #666;
+}
+.figurenav .navul li.active a i {
+  color: #86d4eb;
+}
+.figurenav .navul li.active a span {
+  color: #86d4eb;
+}
+.figurenav .navsilder {
+  display: none;
+  width: 4rem;
+  position: absolute;
+  left: 0;
+  bottom: 2.5rem;
+}
+.figurenav .navsilder .silderul {
+  width: 4rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.figurenav .navsilder .silderul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.figurenav .navsilder .silderul li {
+  float: left;
+  width: 4rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+  background-color: #86d4eb;
+}
+.figurenav .navsilder .silderul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+.figurenav .navsilder i {
+  width: .4rem;
+  height: .4rem;
+  position: absolute;
+  left: 50%;
+  bottom: -0.2rem;
+  margin-left: -0.2rem;
+  background-color: #86d4eb;
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+.figurenav div.silder2 {
+  left: 4rem;
+}
+.figurenav div.silder3 {
+  left: 8rem;
+}
+.figurenav div.silder4 {
+  left: 12rem;
+}
+.figurenav div.active {
+  display: block;
+}

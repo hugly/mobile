@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchantinfo.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/mymerchant.js"></script>
+</head>
+<body class="ms-controller" ms-controller="mymerchant">
+    <div class="transactioninfo">
+        <ul>
+            <li>
+                <b>{{shomeData.MonthNum}}次</b>
+                <p>本月交易数</p>
+            </li>
+            <li>
+                <b>{{shomeData.MonthTotalPrice | currency}}</b>
+                <p>本月交易额</p>
+            </li>
+        </ul>
+    </div>
+    <div class="transactionbg"></div>
+    <div class="toolbar1">
+        <ul>
+            <li class="type1"><a href="orderlist.html">
+                <i class="iconfont icon-dingdanguanli"></i>
+                <em>订单管理</em>
+            </a></li>
+            <li class="type2"><a href="promanage.html">
+                <i class="iconfont icon-shangpinguanli"></i>
+                <em>商品管理</em>
+            </a></li>
+            <li class="type3"><a href="logistics.html">
+                <i class="iconfont icon-wuliupeisong"></i>
+                <em>物流配送</em>
+            </a></li>
+            <li class="type4"><a href="fnservice.html">
+                <i class="iconfont icon-jian1"></i>
+                <em>服务申请</em>
+            </a></li>
+        </ul>
+    </div>
+    <div class="toolbar2">
+        <h3>管理工具</h3>
+        <ul>
+            <li class="type1"><a href="membershiplist.html">
+                <i class="iconfont icon-huiyuanguanli2"></i>
+                <em>会员管理</em>
+            </a></li>
+            <li class="type2"><a href="../business/figures.html">
+                <i class="iconfont icon-baobiao2"></i>
+                <em>财务管理</em>
+            </a></li>
+            <li class="type3"><a href="staffmanage.html">
+                <i class="iconfont icon-dianyuanguanli"></i>
+                <em>员工管理</em>
+            </a></li>
+        </ul>
+    </div>
+    <div class="toolbar2">
+        <h3>营销推广</h3>
+        <ul>
+            <li class="type4"><a href="javascript:;">
+                <i class="iconfont icon-jiaruhuodong"></i>
+                <em>加入活动</em>
+            </a></li>
+            <li class="type5"><a href="groupmanage.html">
+                <i class="iconfont iconfont icon-tuangou1"></i>
+                <em>团购券</em>
+            </a></li>
+            <li class="type6"><a href="javascript:;">
+                <i class="iconfont icon-xianjinjuan"></i>
+                <em>代金券</em>
+            </a></li>
+            <li class="type7"><a href="coupons.html">
+                <i class="iconfont icon-youhuijuan"></i>
+                <em>优惠券</em>
+            </a></li>
+        </ul>
+    </div>
+    <div style="width: 16rem; height: 2.5rem;"></div>
+    <div class="naver-index">
+        <ul>
+            <li class="active"><a href="orderlist.html">
+                <i class="iconfont icon-dingdanmian discover"></i>
+                <b>订单</b>
+            </a></li>
+            <li><a href="../logistics/newtask.html">
+                <i class="iconfont icon-shoujian"></i>
+                <b>收件</b>
+            </a></li>
+            <li>
+                <a href="roborder.html">
+                    <div class="circle">
+                        <div class="smallcircle">
+                            <em>一键</em>
+                            <span>抢单</span>
+                        </div>
+                        <img src="../../data-images/finger.png">
+                        <div class="w1"></div>
+                        <div class="w2"></div>
+                        <!--<div class="w3"></div>-->
+                    </div>
+                </a>
+            </li>
+            <li><a ms-attr-href="settings.html?shopCode={{mymerchantData.ShopCode}}">
+                <i class="iconfont icon-mendianguanli1 discover"></i>
+                <b>门店管理</b>
+            </a></li>
+            <li><a href="../personal/shopaccount.html">
+                <i class="iconfont icon-wode4"></i>
+                <b>我的</b>
+            </a></li>
+        </ul>
+    </div>
+</body>
+</html>

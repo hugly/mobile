@@ -1,0 +1,40 @@
+@import "lib.less";
+@import "main.less";
+
+
+.myfootprint{ width: 16rem; position: relative; top: 2.2rem;
+  .footitem{ margin-bottom: .5rem; position: relative;
+    .date{ height: 1.5rem; line-height: 1.5rem; padding-left: .5rem; width: 15.5rem; background-color: #fff; border-bottom: 1px solid #e5e5e5; }
+    ul{ width: 16rem; position: relative; overflow: hidden;
+      li{ width: 18.5rem; position: relative; background-color: #fff; overflow: hidden; border-bottom: 1px solid #e5e5e5; transform: translateX(0); -webkit-transform: translateX(0); .trs();
+        .leftItem{ float: left; margin-left: .2rem; width: 15.8rem; padding: .2rem 0;
+          a{ display: block; position: relative; width: 100%; height: 100%; overflow: hidden;
+            img{ float: left; width: 4rem; height: 3rem;}
+            .shop-info{ float: left; width: 11.4rem; margin-left: .2rem;
+              h3{ width: 11.4rem; height: 1rem; line-height: 1rem; font-size: .6rem; font-weight:bolder; .omit(); }
+              .price{ font-size: .5rem; margin-right: .2rem;
+                span:first-child{ border-right: 1px solid #e5e5e5;}
+                span{ padding: 0 .2rem; font-weight: 400;
+                  i{ font-size: .6rem;}
+                  i.yun{ color: #f53d54;}
+                  i.song{ color: #f36f13;}
+                }
+                em{ float: right; }
+              }
+              .score{ float: left; width: 11rem; height: .9rem; line-height: 1rem; position: relative; overflow: hidden;
+                .scorebox{ float: left; width: 3rem; height: .7rem; position: relative;
+                  .basecore{ position: absolute; left: 0; top: 0; width: 3rem; height: .8rem; .bg("start.png",no-repeat,0 center);}
+                  .topcore{ position: absolute; left: 0; top: 0; width: 3rem; height: .8rem; overflow: hidden;
+                    .ccore{ width: 3rem; height: .8rem; .bg("cstart.png",no-repeat,0 center);}
+                  }
+                }
+                span{ float: left; margin-left: .3rem; font-size: .45rem; line-height: 1rem; color: #777;}
+              }
+            }
+          }
+        }
+        .righItem{ float: left; width: 2.5rem; height: 3.4rem; line-height: 3.4rem; text-align: center; background-color: #35c1fc; color: #fff; font-size: .5rem; }
+      }
+    }
+  }
+}

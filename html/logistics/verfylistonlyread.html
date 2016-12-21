@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/verfy.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/proflow/verfylist.js"></script>
+</head>
+<body class="ms-controller" ms-controller="verify">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>商品核实单列表</h3>
+</div>
+<div class="verfy-list">
+    <ul>
+        <li ms-repeat="perDataModel">
+            <div class="item-top">
+                <img ms-attr-src="el.ItemDefaultImage">
+                <div class="item-info">
+                    <p>服务类型:{{el.ServiceType}}</p>
+                    <p>商品名称:{{el.ItemName}}</p>
+                    <span><em ms-visible="el.BrandName">{{el.BrandName}}-</em><em ms-visible="el.Color">{{el.Color}}-</em>{{el.CheckLableStr}}</span>
+                </div>
+                <div class="item-op">
+                    <span>{{el.Price | currency}}</span>
+                    <!--<a href="javascript:;">录入价格</a>-->
+                </div>
+                <div class="hasver" ms-visible="el.IsCheckRight">已核实</div>
+            </div>
+            <div class="item-operate">
+                <a style="width: 15rem;" ms-attr-href="verfydetailonlyread.html?ocode={{oCode}}&tcode={{tCode}}&scode={{el.SubOrderCode}}&isCheck={{el.IsCheckRight}}&code={{el.Code === undefined?'':el.Code}}">去查看</a>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

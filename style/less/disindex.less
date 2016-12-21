@@ -1,0 +1,48 @@
+@import "lib.less";
+
+.money{ width: 14rem; position: relative; margin-top: 2rem; background-color: #92d8ed; padding: 1rem 1rem .5rem 1rem;
+  p{ width: 14rem; height: 1.5rem; line-height: 1.5rem; color: #fff;
+    em{ margin: 0 .3rem; color: #fff; }
+  }
+  b{ width: 14rem; height: 2rem; line-height: 2rem; color: #fff; font-size: 1.2rem; font-weight: normal; }
+}
+.income{ width: 15rem; padding: .5rem; margin-bottom: .5rem; position: relative; background-color: #fff;
+  ul{ width: 15rem; position: relative; .cf();
+    li{ float: left; width: 7.5rem; padding: .3rem 0; box-sizing: border-box;
+      span{ display: inline-block; width: 7.5rem; text-align: center; color: #bababa; font-size: .6rem; }
+      b{ display: inline-block; width: 7.5rem; text-align: center; color: #7d7d7d; font-size: 1rem; font-weight: normal; }
+    }
+    li:first-child{ border-right: 1px solid #eee; }
+  }
+}
+
+.operate{ width: 15rem; padding: .5rem; border-bottom: 1px solid #eee; position: relative; background-color: #fff;
+  ul{ width: 15rem; position: relative; .cf();
+    li{ float: left; width: 7.5rem; height: 5rem; box-sizing: border-box;
+      a{ display: inline-block; width: 100%; height: 100%;
+        i{ display: inline-block; width: 7.5rem; height: 3rem; line-height: 4rem; font-size: 2rem; text-align: center; }
+        span{ display: inline-block; width: 7.5rem; height: 2rem; line-height: 1.5rem; font-size: .7rem; text-align: center; }
+      }
+    }
+    li.type1{ border-right: 1px solid #eee; border-bottom: 1px solid #eee;
+      a{
+        i{ color: #f6cb31; }
+      }
+    }
+    li.type2{ border-bottom: 1px solid #eee;
+      a{
+        i{ color: #4fcadd; }
+      }
+    }
+    li.type3{ border-right: 1px solid #eee;
+      a{
+        i{ color: #86d4eb; }
+      }
+    }
+    li.type4{
+      a{
+        i{ color: #e03737; }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/membershipcardlist.js"></script>
+</head>
+<body class="ms-controller" ms-controller="membershipcardlist">
+<!--公共头部-->
+<div class="headerone moresetting">
+    <a href="mymerchant.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>会员卡类型列表</h3>
+    <a href="membershipcardadd.html" class="message-btn">
+        <i class="iconfont icon-jia"></i>
+    </a>
+</div>
+<div class="cardlist">
+    <ul>
+        <li class="normal" ms-repeat="cardList">
+            <div class="other" ms-css-background-color="#{{el.Image}}">
+                <div class="card-info">
+                    <h3>享受本店<b>{{el.Discount*10 | number(2)}}</b>折</h3>
+                    <p>{{el.Title}}</p>
+                </div>
+                <div class="card-type">
+                    <span>{{el.Name}}</span>
+                    <em class="no">
+                        最低充值:{{el.RechargePrice | currency }}
+                    </em>
+                </div>
+            </div>
+            <div class="operate">
+                <a ms-attr-href="membershipcardadd.html?cardid={{el.Code}}">修改</a>
+                <a ms-attr-href="membershiplist.html?cardid={{el.Code}}">会员</a>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

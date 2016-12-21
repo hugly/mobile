@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/detail.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/main/couponlist.js"></script>
+</head>
+<body class="ms-controller" ms-controller="couponlist">
+<!--详情页头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem;">优惠券</h3>
+</div>
+<!--店铺菜单切换-->
+<div class="mainmenu" style="margin-top: 2rem;">
+    <div class="silder-box">
+        <div class="coupons">
+            <div class="loadingLiubox" style="padding: 5rem 0;" ms-if-loop="loadingImgShow1">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <ul>
+                <li ms-repeat="couponsList"><a href="javascript:;">
+                    <div class="topbar">
+                        <strong></strong>
+                    </div>
+                    <div class="mainbar">
+                        <p class="maintitle">{{el.Name?el.Name:'优惠券'}}</p>
+                        <div class="main">
+                            <span>￥ <b>{{el.Price}}</b></span>
+                            <p>
+                                <em style="background-color: #35c8fc; color: #fff; line-height: 1.5rem;" ms-data-code="el.Code" ms-on-tap="getCoupon">领取</em>
+                                <em ms-if-loop="el.LimitMin === 0"></em>
+                                <em ms-if-loop="el.LimitMin > 0">满{{el.LimitMin}}元可用</em>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="more">
+                        <p>
+                            <span>有效时间</span>
+                            <em>{{el.BeginDate | date("yyyy.MM.dd")}} - {{el.ExpireDate | date("yyyy.MM.dd")}}</em>
+                        </p>
+                    </div>
+                </a></li>
+                <p ms-visible="hasCouponsList" style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;">暂无数据</p>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

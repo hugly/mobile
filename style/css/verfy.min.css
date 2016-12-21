@@ -1,0 +1,486 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.headerone {
+  background-color: #fff;
+  box-shadow: 0 0 1px #999;
+  overflow: inherit;
+  z-index: 15;
+}
+.headerone .back-btn i {
+  color: #505050;
+}
+.headerone h3 {
+  color: #505050;
+  width: 11rem;
+}
+.headerone .link {
+  color: #505050;
+}
+.headerone .nav {
+  display: none;
+  width: 4rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  top: 2.05rem;
+}
+.headerone .nav ul {
+  position: relative;
+}
+.headerone .nav ul li {
+  width: 4rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #cecece;
+}
+.headerone .nav ul li:last-child {
+  border-bottom: none;
+}
+.verfy-list {
+  width: 16rem;
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  right: 0;
+  bottom: 0;
+}
+.verfy-list ul {
+  position: relative;
+}
+.verfy-list ul li {
+  width: 16rem;
+  margin-top: .5rem;
+  background-color: #fff;
+  position: relative;
+}
+.verfy-list ul li .item-top {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verfy-list ul li .item-top:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verfy-list ul li .item-top img {
+  float: left;
+  width: 3rem;
+  height: 3rem;
+}
+.verfy-list ul li .item-top .item-info {
+  float: left;
+  width: 8rem;
+  margin: 0 .25rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verfy-list ul li .item-top .item-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verfy-list ul li .item-top .item-info p {
+  float: left;
+  width: 8rem;
+  line-height: 1rem;
+  color: #505050;
+}
+.verfy-list ul li .item-top .item-info span {
+  float: left;
+  width: 8rem;
+  line-height: .8rem;
+  color: #e03030;
+  font-size: .6rem;
+}
+.verfy-list ul li .item-top .item-info span em {
+  color: #e03030;
+}
+.verfy-list ul li .item-top .item-op {
+  float: left;
+  width: 3.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verfy-list ul li .item-top .item-op:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verfy-list ul li .item-top .item-op span {
+  float: left;
+  width: 3.5rem;
+  height: 1rem;
+  color: #e03030;
+  text-align: center;
+  word-break: break-all;
+}
+.verfy-list ul li .item-top .item-op a {
+  float: left;
+  margin-left: 1.5rem;
+  width: 3rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+  box-sizing: border-box;
+  color: #92d8ed;
+  border-radius: .25rem;
+  border: 1px solid #92d8ed;
+  font-size: .6rem;
+}
+.verfy-list ul li .item-top .hasver {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 3px solid #828282;
+  color: #828282;
+  line-height: 2.4rem;
+  text-align: center;
+  border-radius: 50%;
+  font-size: .6rem;
+  font-weight: bolder;
+  -webkit-transform: rotateZ(-45deg);
+  -moz-transform: rotateZ(-45deg);
+  -o-transform: rotateZ(-45deg);
+  transform: rotateZ(-45deg);
+}
+.verfy-list ul li .item-operate {
+  width: 16rem;
+  height: 1.5rem;
+  padding: .25rem 0;
+  border-top: 1px solid #cecece;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verfy-list ul li .item-operate:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verfy-list ul li .item-operate a {
+  float: left;
+  width: 8rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #101010;
+  text-align: center;
+  border-right: 1px solid #cecece;
+  box-sizing: border-box;
+}
+.verfy-list ul li .item-operate a:last-child {
+  border-right: none;
+}
+.verfy-detail {
+  width: 16rem;
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  right: 0;
+  bottom: 0;
+}
+.verfy-detail .tips {
+  width: 16rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  text-align: center;
+  font-size: .6rem;
+  background-color: #fff;
+  color: #e03030;
+  word-break: break-all;
+  z-index: 9;
+  border-bottom: 1px solid #cecece;
+}
+.verfy-detail .detail-info {
+  width: 16rem;
+  margin-top: 1.5rem;
+  background-color: #fff;
+  position: relative;
+}
+.verfy-detail .detail-info .item {
+  width: 16rem;
+  padding: .25rem 0;
+  height: 1.5rem;
+  border-bottom: 1px solid #cecece;
+}
+.verfy-detail .detail-info .item input {
+  width: 15.5rem;
+  padding: .25rem;
+  height: 1rem;
+  line-height: 1rem;
+  border: none;
+}
+.verfy-detail .detail-label {
+  width: 15rem;
+  padding: .5rem;
+  margin-top: .5rem;
+  background-color: #fff;
+  position: relative;
+}
+.verfy-detail .detail-label .label-top {
+  width: 15rem;
+  height: 2rem;
+  margin-top: .5rem;
+  background-color: #ececec;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verfy-detail .detail-label .label-top:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verfy-detail .detail-label .label-top .t-left {
+  float: left;
+  width: 12rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verfy-detail .detail-label .label-top .t-left:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verfy-detail .detail-label .label-top .t-left span {
+  float: left;
+  padding: 0 .3rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  border: 1px solid #9d9d9d;
+  border-radius: .25rem;
+  box-sizing: border-box;
+  margin: .4rem 0 .4rem .4rem;
+  text-align: center;
+}
+.verfy-detail .detail-label .label-top .t-left span.active {
+  border-color: #92d8ed;
+  background-color: #92d8ed;
+  color: #fff;
+}
+.verfy-detail .detail-label .label-top .t-right {
+  float: right;
+  width: 3rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #dcdcdc;
+  color: #505050;
+}
+.verfy-detail .detail-label .label-top .t-right i {
+  color: #505050;
+  font-size: .7rem;
+}
+.verfy-detail .detail-label .img-box {
+  width: 15rem;
+  margin-top: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verfy-detail .detail-label .img-box:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verfy-detail .detail-label .img-box .img-item {
+  float: left;
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  margin-right: .7rem;
+  margin-bottom: .5rem;
+}
+.verfy-detail .detail-label .img-box .img-item img {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: .25rem;
+  overflow: hidden;
+}
+.verfy-detail .detail-label .img-box .img-item i {
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #e03030;
+  position: absolute;
+  right: -0.3rem;
+  top: -0.3rem;
+}
+.verfy-detail .detail-label .img-box .add-item {
+  float: left;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  background-color: #eee;
+  position: relative;
+  border: 1px solid #cdcdcd;
+  box-sizing: border-box;
+}
+.verfy-detail .detail-label .img-box .add-item i {
+  color: #9e9e9e;
+  font-size: 1.5rem;
+}
+.verfy-detail .detail-label .img-box .add-item input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3rem;
+  height: 3rem;
+  z-index: 999;
+  opacity: 0;
+}
+.verfy-detail .detail-label .label-list {
+  display: none;
+  width: 15rem;
+  background-color: #fff;
+  border: 1px solid #cecece;
+  box-sizing: border-box;
+  border-top: none;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verfy-detail .detail-label .label-list:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verfy-detail .detail-label .label-list span {
+  float: left;
+  padding: 0 .3rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  border: 1px solid #9d9d9d;
+  border-radius: .25rem;
+  box-sizing: border-box;
+  margin: .4rem 0 .4rem .5rem;
+  text-align: center;
+}
+.verfy-detail .detail-label .label-list span.active {
+  border-color: #92d8ed;
+  background-color: #92d8ed;
+  color: #fff;
+}
+.verfy-detail .remark {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: .5rem;
+}
+.verfy-detail .remark textarea {
+  width: 15rem;
+  height: 3rem;
+  padding: .5rem;
+  line-height: 1rem;
+  border: none;
+  resize: none;
+}
+.verfy-detail .makesure {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 16rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #92d8ed;
+  color: #fff;
+}

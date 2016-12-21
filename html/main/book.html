@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--<script type="text/javascript" src="http://m.wziwash.com/oauth"></script>-->
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/quick.min.css">
+    <link rel="stylesheet" href="../../style/css/mobiscroll.custom-2.16.1.min.css">
+    <script src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/mobiscroll.custom-2.17.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/book.js"></script>
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=XAJBZ-AILWF-4TGJA-JLE2G-XKVDT-CGF56"></script>
+</head>
+<body class="ms-controller" ms-controller="book">
+<!--公共头部-->
+<div class="headerone">
+    <a href="index.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>我要预约</h3>
+    <!--<a href="../personal/person.html" class="message-btn">-->
+        <!--<i class="iconfont icon-xiaoxi"></i>-->
+        <!--<b></b>-->
+    <!--</a>-->
+</div>
+<!--预约详情-->
+<div class="mapbox" id="mapbox"></div>
+<!--<div class="choosetype">-->
+    <!--<div class="left-btn" ms-if-loop="washTypeLen > 4">-->
+        <!--<i class="iconfont icon-fanhui"></i>-->
+    <!--</div>-->
+    <!--<div class="typebox">-->
+        <!--<ul>-->
+            <!--<li ms-class-1="active:washType === 1" ms-on-tap="chooseWashType(1)">干洗熨烫</li>-->
+            <!--<li ms-class-1="active:washType === 2" ms-on-tap="chooseWashType(2)">清洗保养</li>-->
+            <!--<li ms-class-1="active:washType === 3" ms-on-tap="chooseWashType(3)">奢侈护理</li>-->
+            <!--<li ms-class-1="active:washType === 4" ms-on-tap="chooseWashType(4)">裁剪维修</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="right-btn">-->
+    <!--<div class="right-btn">-->
+        <!--<i class="iconfont icon-xiangyou"></i>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="orderbox">
+    <!--<a href="javascript:;" class="close-btn" ms-visible="isShow" ms-on-tap="changeShow"><i class="iconfont icon-cuo"></i></a>-->
+    <div class="order-options">
+        <div class="order-detail">
+            <div class="order-step1" ms-visible="!isShowSend">
+                <ul>
+                    <li style="padding: .8rem .5rem .5rem .5rem;">
+                        <i class="iconfont icon-shijian type1"></i>
+                        <p class="pickupTips" style=" position: absolute; left: 2rem; top: .1rem; font-size: .5rem; color: #999;">取件时间</p>
+                        <a ms-attr-href="choosepickuptime.html?{{searchData}}" class="hasline">{{showpickupDate}}</a>
+                    <li><i class="iconfont icon-dingwei type2"></i><a href="javascript:;" ms-on-tap="chooseSend(2)" class="searchAdd">{{pickupAddress}}</a></li>
+                </ul>
+                <a href="javascript:;" class="showmore" ms-on-tap="changeShow">
+                    <i class="iconfont" ms-class-1="icon-jiahao:!isShow" ms-class-2="icon-jianhao:isShow"></i>
+                </a>
+            </div>
+            <div class="order-step2 dis" ms-visible="isShowSend">
+                <div class="time-box" style="padding: .8rem 0 .5rem 0;">
+                    <p class="pickupTips" style=" position: absolute; left: 4rem; color: #999; font-size: .5rem; top: .1rem;">取件时间</p>
+                    <p class="containerTips" style=" position: absolute; left: 10rem; color: #999; font-size: .5rem; top: .1rem;">配送时间</p>
+                    <i class="iconfont icon-shijian"></i>
+                    <a ms-attr-href="choosepickuptime.html?{{searchData}}" class="hasline">{{showpickupDate}}</a>
+                    <ul id="time3" style="display:none">
+                        <li data-val="随时">随时
+                            <ul>
+                                <li data-val="随时">随时</li>
+                                <li data-val="早上">早上</li>
+                                <li data-val="中午">中午</li>
+                                <li data-val="晚上">晚上</li>
+                            </ul>
+                        </li>
+                        <li data-val="周一至周五">周一至周五
+                            <ul>
+                                <li data-val="随时">随时</li>
+                                <li data-val="早上">早上</li>
+                                <li data-val="中午">中午</li>
+                                <li data-val="晚上">晚上</li>
+                            </ul>
+                        </li>
+                        <li data-val="周末">周末
+                            <ul>
+                                <li data-val="随时">随时</li>
+                                <li data-val="早上">早上</li>
+                                <li data-val="中午">中午</li>
+                                <li data-val="晚上">晚上</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="address-box">
+                    <div class="address-icon">
+                        <i class="iconfont icon-dingwei type2"></i>
+                    </div>
+                    <ul>
+                        <li><a href="javascript:;" ms-on-tap="chooseSend(2)" class="searchAdd">{{pickupAddress}}</a></li>
+                        <li><a href="javascript:;" ms-on-tap="chooseSend(1)" class="searchAdd">{{sendAddress}}</a></li>
+                    </ul>
+                    <a href="javascript:;" class="showmore" ms-on-tap="changeShow">
+                        <i class="iconfont" ms-class-1="icon-jiahao:!isShow" ms-class-2="icon-jianhao:isShow"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="distribution">
+            <a href="javascript:;">
+                <div class="way"><i class="iconfont icon-peisong"></i>配送方式</div>
+                <div class="disway" ms-on-tap="chooseWays(2)">送货上门<i class="iconfont" ms-class-1="icon-zhengfangxingkuangkuang:wayType !== 2" ms-class-2="active icon-xuanzhong:wayType === 2"></i></div>
+                <div class="disway" ms-on-tap="chooseWays(1)">到店自提<i class="iconfont" ms-class-1="icon-zhengfangxingkuangkuang:wayType !== 1" ms-class-2="active icon-xuanzhong:wayType === 1"></i></div>
+            </a>
+        </div>
+        <div class="distribution" >
+            <a ms-attr-href="chooseclassical.html?{{searchData}}">
+                <div class="way"><i class="iconfont icon-fenlei type1"></i></div>
+                <div class="beat">
+                    <span>{{proCount>0?'已选择'+proCount+'件商品':'选择洗护商品'}}</span>
+                </div>
+                <div class="right"><i class="iconfont icon-xiangyou"></i></div>
+            </a>
+        </div>
+        <div class="distribution dis" ms-visible="isShow" >
+            <a href="javascript:;">
+                <div class="way"><i class="iconfont icon-liuyanicon type1"></i></div>
+                <div class="beat">
+                    <input type="text" placeholder="备注" ms-duplex="remark" ms-on-keyup="remarkFn">
+                </div>
+            </a>
+        </div>
+        <!--<div class="distribution bigHeight">-->
+            <!--<div class="typebox">-->
+                <!--<ul>-->
+                    <!--<li style="margin: 0 .25rem 0 0;" ms-class-1="active:washType === 1" ms-on-tap="chooseWashType(1)">干洗熨烫<b><i class="iconfont icon-gouxuan1"></i></b></li>-->
+                    <!--<li ms-class-1="active:washType === 2" ms-on-tap="chooseWashType(2)">清洗保养<b><i class="iconfont icon-gouxuan1"></i></b></li>-->
+                    <!--<li ms-class-1="active:washType === 3" ms-on-tap="chooseWashType(3)">奢侈护理<b><i class="iconfont icon-gouxuan1"></i></b></li>-->
+                    <!--<li style="margin: 0 0 0 .25rem;" ms-class-1="active:washType === 4" ms-on-tap="chooseWashType(4)">裁剪维修<b><i class="iconfont icon-gouxuan1"></i></b></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <a href="javascript:;" class="ordernow" ms-if="!canBook" style="background-color: #ccc;">预约</a>
+    <a href="javascript:;" class="ordernow" ms-if="canBook" ms-class-1="disable:isBooking" ms-on-tap="orderFn">{{isBooking?'预约中...':'立即预约'}}</a>
+</div>
+<script>
+    $(document).ready(function(){
+        $.setQQMap({
+            obj:"mapbox",
+            zoom:17,
+            lon:getLocalstorage('lon'),
+            lat:getLocalstorage('lat'),
+            imgsrc:"../../data-images/tag.png"
+        });
+    });
+</script>
+</body>
+</html>

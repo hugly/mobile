@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/trends.min.css">
+    <link rel="stylesheet" href="../../style/css/cropper.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/cropper.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/trendadd.js"></script>
+</head>
+<body class="ms-controller" ms-controller="trendadd">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>添加动态</h3>
+    <a href="javascript:;" class="link" style="width: 3rem;" ms-if="!isLoading" ms-on-tap="saveTrendFn">发送</a>
+</div>
+<div class="trendadd">
+    <textarea placeholder="这一刻的想法..." ms-duplex="trendText"></textarea>
+    <div class="uploadbox">
+        <div class="imagelist" ms-repeat="imageArr">
+            <img ms-attr-src="el">
+            <i class="iconfont icon-close" ms-on-tap="deleFn($remove)"></i>
+        </div>
+        <div class="imageadd">
+            <i class="iconfont icon-jia"></i>
+            <input type="file" id="addimage">
+        </div>
+    </div>
+</div>
+<div class="imgzoomer" ms-on-tap="clearTouch($event)" ms-visible="isUpShow" >
+    <div class="imgcontainer">
+        <img src="" alt="">
+    </div>
+    <a href="javascript:;" class="submitimg" ms-if="!isuploading">确定</a>
+    <a href="javascript:;" class="submitimg" ms-if="isuploading" style="background-color: #ccc;">正在上传</a>
+</div>
+</body>
+</html>

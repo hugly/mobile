@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家中心</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/membershipcardadd.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/membershipcardadd.js"></script>
+</head>
+<body class="ms-controller" ms-controller="membershipcardadd">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>{{tabtitle}}</h3>
+    <a href="membershipcardlist.html" class="link" style="color: #fff;">取消</a>
+</div>
+<div class="membercardbox">
+    <div class="add-box">
+        <ul>
+            <li>
+                <span class="require">名称</span>
+                <div class="item">
+                    <input type="text" placeholder="请输入会员卡名称" ms-duplex="name">
+                </div>
+            </li>
+            <li>
+                <span class="require">标题</span>
+                <div class="item">
+                    <input type="text" placeholder="请输入会员卡标题" ms-duplex="title">
+                </div>
+            </li>
+            <li>
+                <span class="require">模板</span>
+                <div class="item">
+                    <b class="type1" ms-on-tap="chooseTem(1)" ms-class-1="active:temindex === 1"></b>
+                    <b class="type2" ms-on-tap="chooseTem(2)" ms-class-1="active:temindex === 2"></b>
+                    <b class="type3" ms-on-tap="chooseTem(3)" ms-class-1="active:temindex === 3"></b>
+                    <b class="type4" ms-on-tap="chooseTem(4)" ms-class-1="active:temindex === 4"></b>
+                    <b class="type5" ms-on-tap="chooseTem(5)" ms-class-1="active:temindex === 5"></b>
+                </div>
+            </li>
+            <li>
+                <span class="require">最低充值金额</span>
+                <div class="item">
+                    <input type="text" placeholder="请输入会员卡最低充值金额" ms-duplex="price">
+                </div>
+            </li>
+            <li>
+                <span class="require">折扣</span>
+                <div class="item">
+                    <input type="number" placeholder="请输入会员卡折扣,0-1之间!" ms-duplex="discount">
+                </div>
+            </li>
+
+        </ul>
+        <a href="javascript:;" class="ordernow" ms-if="!isLoading" ms-on-tap="submitCardinfoFn">保存</a>
+        <a href="javascript:;" class="ordernow" ms-if="isLoading" style="background-color: #ccc;">提交中</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家中心</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/submitsuccess.js"></script>
+</head>
+<body class="ms-controller" ms-controller="submitsuccess">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>免费开店</h3>
+    <!--<a href="javascript:;" class="message-btn">-->
+        <!--<i class="iconfont icon-5"></i>-->
+    <!--</a>-->
+</div>
+<div class="mer-con">
+    <!--进度-->
+    <div class="process" style="position: relative; top: 0;">
+        <ul>
+            <li class="active">
+                <a href="javascript:;"><b>1</b>店铺信息</a>
+                <em><strong></strong></em>
+            </li>
+            <li class="active">
+                <a href="javascript:;"><b>2</b>掌柜信息</a>
+                <em><strong></strong></em>
+            </li>
+            <li class="active">
+                <a href="javascript:;"><b>3</b>提交成功</a>
+                <em><strong></strong></em>
+            </li>
+        </ul>
+    </div>
+    <div class="success-info">恭喜你,提交成功</div>
+    <div class="part">
+        <ul>
+            <li>
+                <span>审核状态</span>
+                <div class="item">
+                    <em>{{state}}</em>
+                </div>
+            </li>
+            <li>
+                <span>审核编号</span>
+                <div class="item">
+                    <em>{{no}}</em>
+                </div>
+            </li>
+            <li>
+                <span>申请时间</span>
+                <div class="item">
+                    <em>{{date | date("yyyy-MM-dd  HH:mm:ss")}}</em>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <a href="../main/index.html" class="back-btn">返回首页</a>
+</div>
+</body>
+</html>

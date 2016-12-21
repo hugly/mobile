@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--<script type="text/javascript" src="http://119.28.6.194:6060/oauth?returnurl=http://www.baidu.com"></script>-->
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/quick.min.css">
+    <style>
+        .header-normal {
+            width: 16rem;
+            height: 2.5rem;
+            background-color: #fff;
+            position: fixed;
+            left: 0;
+            top: 0;
+            min-height: 1px;
+            zoom: 1;
+            border-bottom: 1px solid #ccc;
+            z-index: 9;
+        }
+        .header-normal:after {
+            content: "020";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        .header-normal .back-btn {
+            float: left;
+            width: 2rem;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            text-align: center;
+        }
+        .header-normal .back-btn i {
+            color: #999;
+            font-size: 1rem;
+        }
+        .header-normal .searchbox{ float: left; position: relative; width: 13rem; margin: .5rem .5rem .5rem 0; height: 1.5rem;
+        }
+        .header-normal .searchbox form{
+            width: 13rem; height: 1.5rem; position: relative;
+        }
+        .header-normal .searchbox form input{
+            position: absolute; left: 0; top: 0; font-size: .6rem; width: 13rem; height: 1.5rem; padding: .25rem; border: 1px solid #ccc; border-radius: .25rem; box-sizing: border-box;
+        }
+        .header-normal .searchbox input:focus{
+            font-size: .6rem;
+        }
+        .header-normal .cancel{ float: right; width: 1.5rem; height: 1.5rem; line-height: 1.3rem; text-align: center; font-size: .8rem;border: 1px solid #ccc; border-left: none; border-top-right-radius: .25rem;  border-bottom-right-radius: .25rem; box-sizing: border-box;
+        }
+        .header-normal .cancel i{ font-size: .8rem;}
+        .header-normal h3 {
+            float: left;
+            width: 12rem;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            font-size: .8rem;
+            font-weight: bolder;
+            margin-right: 2rem;
+            text-align: center;
+        }
+
+        .searchlist {
+            background-color: #fff;
+            margin-top: 3rem;
+        }
+        .searchlist h3 {
+            height: 1.6rem;
+            line-height: 1.6rem;
+            padding: 0 .5rem;
+            width: 15rem;
+            border-bottom: 1px solid #ebeef1;
+        }
+        .searchlist ul {
+            position: relative;
+        }
+        .searchlist ul li {
+            height: 2rem;
+            line-height: 2rem;
+            padding: 0 .5rem;
+            width: 15rem;
+            border-bottom: 1px solid #ebeef1;
+        }
+        .searchlist ul li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .searchlist ul li.espc a {
+            color: #ee4b4b;
+            position: relative;
+        }
+        .searchlist ul li.espc a i {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 2rem;
+            line-height: 2rem;
+            color: #ee4b4b;
+            font-size: 1rem;
+            z-index: 9;
+        }
+    </style>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/search.js"></script>
+</head>
+<body ms-controller="search">
+<!--头部部分-->
+<div class="header-normal">
+    <a href="index.html" class="back-btn"><i class="iconfont icon-fanhui"></i></a>
+    <div class="searchbox">
+        <form action="list.html">
+            <input type="search" name="key" ms-on-focus="focusFn" ms-on-input="checkInfoFn" ms-duplex="keyword" placeholder="搜索商品" class="searchInput">
+        </form>
+        <!--<a href="javascript:;" class="cancel"><i class="iconfont icon-sousuo"></i></a>-->
+    </div>
+</div>
+<div class="searchlist mtp3R" ms-if-loop="shopList.size() === 0">
+    <h3>最近搜索</h3>
+    <ul>
+        <li class="espc"><a href="javascript:;">删除搜索历史<i class="iconfont icon-shanchu1"></i></a></li>
+    </ul>
+</div>
+<div class="searchlist mtp3R" ms-if-loop="shopList.size() > 0">
+    <ul>
+        <li ms-repeat="shopList"><a ms-on-tap="tapFn(el.Name)">{{el.Name}}</a></li>
+    </ul>
+</div>
+<script>
+    (function(){
+        var arr=JSON.parse(getLocalstorage("key")) || [];
+
+        for(var i= 0,j=arr.length;i<j;i++){
+            $('<li><a href="list.html?key='+arr[i].val+'">'+arr[i].val+'</a></li>').insertBefore($("li.espc"));
+        }
+
+        $("li.espc").on("touchstart",function(){
+            deleLocalstorage("key");
+            $(this).siblings().remove();
+        });
+    })();
+</script>
+</body>
+</html>

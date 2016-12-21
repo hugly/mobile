@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--<script type="text/javascript" src="http://m.wziwash.com/oauth"></script>-->
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/islider.js"></script>
+    <script type="text/javascript" src="../../js/personal/strategyindex.js"></script>
+</head>
+<body class="ms-controller" ms-controller="strategyindex">
+<!--头部部分-->
+<!--公共头部-->
+<header class="indexheader">
+    <div class="headerbg" ms-css-opacity="{{opacity}}"></div>
+    <a href="../main/index.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <form action="strategylist.html" class="strsearch">
+        <input type="text" name="keyword" placeholder="请输入你要搜索的攻略">
+        <i class="iconfont icon-sousuo"></i>
+    </form>
+</header>
+<div class="stratetop">
+    <div class="banner" id="banner"></div>
+</div>
+<div class="stratetype" ms-if="guideTypeList.size() > 0">
+    <ul>
+        <li><a ms-attr-href="strategylist.html?type={{guideTypeList[0].Code}}">
+            <img src="../../data-images/strate1.png">
+            <p>{{guideTypeList[0].Name}}</p>
+        </a></li>
+        <li><a ms-attr-href="strategylist.html?type={{guideTypeList[1].Code}}">
+            <img src="../../data-images/strate2.png">
+            <p>{{guideTypeList[1].Name}}</p>
+        </a></li>
+        <li><a ms-attr-href="strategylist.html?type={{guideTypeList[2].Code}}">
+            <img src="../../data-images/strate3.png">
+            <p>{{guideTypeList[2].Name}}</p>
+        </a></li>
+        <li><a ms-attr-href="strategylist.html?type={{guideTypeList[3].Code}}">
+            <img src="../../data-images/strate4.png">
+            <p>{{guideTypeList[3].Name}}</p>
+        </a></li>
+    </ul>
+</div>
+<div class="strategylist" style="top: 0; padding-bottom: 2.5rem;">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <p ms-if-loop="strategy.size() === 0 && !loadingImgShow" style="line-height: 40px; text-align: center;">暂无相关数据</p>
+    <ul>
+        <li ms-repeat="strategy"><a class="mainStrate" ms-attr-href="strategydetail.html?id={{el.Code}}">
+            <img ms-attr-src="{{el.MainImage}}" alt="">
+            <div class="list-right">
+                <h3>{{el.Title}}</h3>
+                <div class="info">
+                    <em>{{el.Name}}</em>
+                </div>
+                <p>
+                    <span><i class="iconfont icon-yanjing"></i><b>{{el.ScannCount}}</b></span>
+                    <span><i class="iconfont icon-muzhi" ms-on-tap="addLikeFn(el,$event)"></i><b>{{el.ClickLikeCount}}</b></span>
+                </p>
+            </div>
+        </a></li>
+    </ul>
+</div>
+<!--公共底部-->
+<div class="naver">
+    <ul>
+        <li><a href="../main/index.html">
+            <i class="iconfont icon-shouyexianxing"></i>
+            <b>首页</b>
+        </a></li>
+        <li><a href="../merchant/personorderlist.html">
+            <i class="iconfont icon-dingdan3 discover"></i>
+            <b>订单</b>
+        </a></li>
+        <li><a href="../main/discovered.html">
+            <i class="iconfont icon-faxian3 discover"></i>
+            <b>发现</b>
+        </a></li>
+        <li><a href="../personal/personcenter.html">
+            <i class="iconfont icon-wode3"></i>
+            <b>我的</b>
+        </a></li>
+
+    </ul>
+</div>
+</body>
+</html>

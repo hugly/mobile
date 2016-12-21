@@ -1,0 +1,36 @@
+@import "lib.less";
+
+body{ background-color: #fff; position: relative; }
+
+.offline{ width: 16rem; position: relative; margin-top: 2.5rem;
+  ul{ width: 16rem; position: relative;
+    li{ width: 15rem; height: 1.2rem; padding: .5rem; margin-bottom: .5rem; border-bottom: 1px solid #e5e5e5; position: relative; .cf();
+      .left-part{ float: left; width: 3.5rem; height: 1.2rem; line-height: 1.2rem; }
+      .right-part{ float: left; width: 11rem; height: 1.2rem; position: relative; .cf();
+        .phone{ float: left; width: 8.5rem; height: 1.2rem; border: none; }
+        .check-btn{ float: left; width: 2.5rem; height: 1.2rem; line-height: 1.2rem; text-align: center; background-color: #86d4e8; color: #fff; border-radius: .2rem; }
+        .normal-label{ float: left; width: 11rem; height: 1.2rem; line-height: 1.2rem; .omit(); }
+        .normal-input{ float: left; width: 11rem; height: 1.2rem; border: none; }
+      }
+    }
+  }
+}
+
+.ordersearch{ width: 15rem; padding: 0 .5rem; margin-top: 3rem; position: relative; .cf();
+  //span{ float: left; width: 3.5rem; height: 2rem; line-height: 2rem; }
+  input{ float: left; width: 15rem; height: 2rem; line-height: 1.2rem; padding: .4rem; border-radius: .2rem; border: 1px solid #ccc; box-sizing: border-box; }
+}
+
+.acquirers-btn{ display: inline-block; width: 15rem; height: 2rem; margin: .5rem; line-height: 2rem; border-radius: .25rem; text-align: center; color: #fff; background-color: #86d4e8; }
+
+.main-offline{ width: 16rem; position: absolute; top: 2.2rem; left: 0; bottom: 0; right: 0;
+  ul{ width: 16rem; margin: 2rem 0; position: relative; .cf();
+    li{ float: left; width: 7rem; height: 6rem; margin: 0 .5rem; border: 1px solid #e5e5e5; box-sizing: border-box; border-radius: .25rem;
+      a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+        .title{ float: left; width: 4rem; height: 4rem; line-height: 4.5rem; margin: 0 1.5rem; font-size: 2rem; text-align: center; }
+        span{ float: left; width: 7rem; height: 2rem; line-height: 1rem; text-align: center; }
+        .right{ float: left; width: 2rem; height: 2rem; line-height: 2rem; font-size: .8rem; color: #ccc; text-align: right; }
+      }
+    }
+  }
+}

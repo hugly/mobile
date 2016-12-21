@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/index.min.css">
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=XAJBZ-AILWF-4TGJA-JLE2G-XKVDT-CGF56"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/iscroll.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/islider.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/main/index.js"></script>
+    <!--<script>-->
+    <!--$(function(){-->
+    <!--$('#mainScroll').height($(window).height());-->
+
+    <!--var myScroll = new IScroll('#mainScroll', { mouseWheel: true });-->
+    <!--})-->
+    <!--</script>-->
+</head>
+<body class="ms-controller" ms-controller="index">
+<!--公共头部-->
+<header class="indexheader">
+    <div class="headerbg" ms-css-opacity="{{opacity}}"></div>
+    <a href="maincity.html" class="dingwei">
+        <div class="dingweibox">
+            <i class="iconfont icon-dingwei"></i>
+            <span>{{currentAddress}}</span>
+            <i class="iconfont icon-sanjiao"></i>
+        </div>
+    </a>
+    <a href="search.html" class="sweep">
+        <i class="iconfont icon-sousuo"></i>
+    </a>
+</header>
+<!--<div id="mainScroll">-->
+<!--<div id="mainContainer">-->
+<!--banner部分-->
+<div class="banner" id="banner">
+</div>
+<!--主要功能-->
+<div class="mainfn">
+    <div class="mainfnbox">
+        <a href="book.html" class="main-left">
+            <i class="iconfont icon-kuaisuyuyue1"></i>
+            <div class="info">
+                <h3>我要洗护</h3>
+                <p>提供品质服务</p>
+            </div>
+        </a>
+        <a href="list.html" class="main-right">
+            <i class="iconfont icon-shangjiaquan"></i>
+            <div class="info">
+                <h3>洗护商圈</h3>
+                <p>精选优质商家</p>
+            </div>
+        </a>
+    </div>
+</div>
+<!--几大板块-->
+<div class="parts">
+    <ul>
+        <li><a href="../personal/grouplist.html">
+            <i class="color2 iconfont icon-tuangou"></i>
+            <p>团购券</p>
+        </a></li>
+        <li><a href="../personal/strategyindex.html">
+            <i class="color3 iconfont icon-gonglve2"></i>
+            <p>洗护攻略</p>
+        </a></li>
+        <li><a href="list.html?title=奢侈护理&washtype=3">
+            <i class="color4 iconfont icon-gaoduanhuli"></i>
+            <p>奢侈护理</p>
+        </a></li>
+        <li><a href="list.html?title=裁剪维修&washtype=4">
+            <i class="color5 iconfont icon-fuzhuangxiujian"></i>
+            <p>裁剪维修</p>
+        </a></li>
+    </ul>
+</div>
+<!--优惠活动-->
+<div class="activity">
+    <a href="../main/discovered.html" class="activity1">
+        <img src="../../data-images/ad1.jpg">
+    </a>
+    <a href="../personal/recommond.html" class="activity3">
+        <img src="../../data-images/ad2.jpg">
+    </a>
+    <a href="/Payment/ReReRecharge" class="activity4">
+        <img src="../../data-images/ad3.jpg">
+    </a>
+</div>
+<!--推荐商家-->
+<!--<div class="recommend">-->
+<!--<div class="recomm">-->
+<!--<i class="iconfont icon-youdiicon"></i>-->
+<!--<h3>附近商家</h3>-->
+<!--</div>-->
+<!--&lt;!&ndash;<div class="recomm-title">&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="javascript:;" ms-on-tap="chooseShop" ms-data-saletype="'1,2'" ms-class-1="active:hasActive === 0">干洗熨烫/清洗保养</a>&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="javascript:;" ms-on-tap="chooseShop" ms-data-saletype="'3'" ms-class-1="active:hasActive === 1">奢侈护理</a>&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="javascript:;" ms-on-tap="chooseShop" ms-data-saletype="'4'" ms-class-1="active:hasActive === 2">服装裁剪</a>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--<div class="recomm-box">-->
+<!--<div class="loadingLiubox" ms-if-loop="loadingImgShow">-->
+<!--<img src="../../data-images/loading.gif">-->
+<!--</div>-->
+<!--<p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;" ms-if="!loadingImgShow && listData.size() === 0">暂无附近商家</p>-->
+<!--<div class="recomm-list" ms-if="listData.size() > 0">-->
+<!--<ul>-->
+<!--<li ms-repeat="listData"><a ms-attr-href="detail.html?dataid={{el.ShopCode}}">-->
+<!--<div class="list-left">-->
+<!--<img ms-attr-src="el.DefaultImage">-->
+<!--&lt;!&ndash;<span class="yuyue">免预约</span>&ndash;&gt;-->
+<!--</div>-->
+<!--<div class="list-right">-->
+<!--<div class="top">-->
+<!--<div class="bao">保</div>-->
+<!--<h3>-->
+<!--<span class="name">{{el.Name}}</span>-->
+<!--&lt;!&ndash;<div class="price"><span>取件:<i class="yun">{{el.ShowPickUpFee === 0 ? "免费":"￥"+el.ShowPickUpFee}}</i></span><span>收件:<i class="song">{{el.ShowLogistFee === 0 ? "免费":"￥"+el.ShowLogistFee}}</i></span></div>&ndash;&gt;-->
+<!--</h3>-->
+<!--<div class="score">-->
+<!--<div class="scorebox">-->
+<!--<div class="basecore"></div>-->
+<!--<div class="topcore" ms-css-width="{{el.CommentIntScore}}rem">-->
+<!--<div class="ccore"></div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<span ms-if-loop="el.CommentScore" style="color: #35c1fc;">{{el.CommentScore | number(1)}}</span>-->
+<!--<span ms-if-loop="el.SaleNum">月售{{el.SaleNum}}单</span>-->
+<!--</div>-->
+<!--<p class="price"><i class="iconfont icon-wuliu"></i><span>取/送费:<i>{{el.ShowPickUpFee === 0 ? "￥0":"￥"+el.ShowPickUpFee}}</i>/<i>{{el.ShowLogistFee === 0 ? "￥0":"￥"+el.ShowLogistFee}}</i></span></p>-->
+<!--<p class="char"><em><i class="iconfont icon-dingwei"></i>{{el.FullAddress}}</em><span ms-if="el.ShopCode != 20160907111900190180">{{el.Dist|number(2)}}km</span></p>-->
+<!--&lt;!&ndash;<p class="address">{{el.FullAddress}}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<p class="char"><em>{{el.Keyword}}</em><span>距您{{el.Dist|number(2)}}km</span></p>&ndash;&gt;-->
+<!--</div>-->
+<!--</div>-->
+<!--</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div style="width: 16rem; height: 4rem;"></div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="naver">
+    <ul>
+        <li class="active"><a href="../main/index.html">
+            <i class="iconfont icon-shouye"></i>
+            <b>首页</b>
+        </a></li>
+        <li><a href="../merchant/personorderlist.html">
+            <i class="iconfont icon-dingdan discover"></i>
+            <b>订单</b>
+        </a></li>
+        <li><a href="../main/discovered.html">
+            <i class="iconfont icon-faxian discover"></i>
+            <b>发现</b>
+        </a></li>
+        <li><a href="../personal/personcenter.html">
+            <i class="iconfont icon-wode2"></i>
+            <b>我的</b>
+        </a></li>
+    </ul>
+</div>
+<script type="text/javascript" src="../../js/control/silder.js"></script>
+</body>
+</html>

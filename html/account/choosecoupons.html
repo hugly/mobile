@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/account.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/account/choosecoupons.js"></script>
+</head>
+<body class="ms-controller" ms-controller="coupons">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>优惠券</h3>
+</div>
+<div class="content">
+    <div class="coupons">
+        <div class="coupon-list" style="top: 0;">
+            <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <ul class="couponul">
+                <li ms-if-loop="couponsData.size() === 0 && !loadingImgShow" style="text-align: center;">暂无相关信息</li>
+                <li class="couponitem" ms-repeat="couponsData" ms-on-tap="choose($index)"><a href="javascript:;">
+                    <div class="othertopbar">
+                        <strong></strong>
+                    </div>
+                    <div class="mainbar" style="background: none;">
+                        <div class="leftcoupon">￥<b>{{el.Price}}</b></div>
+                        <div class="centercoupon">
+                            <h3>{{el.CouponName?el.CouponName:'优惠券'}}</h3>
+                            <ul>
+                                <li>{{el.Shop.Name}}</li>
+                                <li ms-if-loop="el.LimitMin !== 0">满{{el.LimitMin}}元可用</li>
+                                <li ms-if-loop="el.LimitMin === 0">不限金额</li>
+                                <li>{{el.BeginDate | date("yyyy-MM-dd")}} 至 {{el.ExpireDate | date("yyyy-MM-dd")}}</li>
+                            </ul>
+                        </div>
+                        <div class="rightcoupon" ms-if-loop="el.isAcitve">
+                            <i class="iconfont icon-duihao"></i>
+                        </div>
+                    </div>
+                    <div class="filterbg" ms-if-loop="el.HasExpire"></div>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="bottombar">
+    <div class="leftcouponbar" ms-on-tap="changeIsNeedCoupon">
+        <i class="iconfont" ms-class-1="icon-yuanxuankuang:!IsNeedCoupon" ms-class-2="hascolor icon-duihao:IsNeedCoupon"></i>
+        <span>不使用优惠券</span>
+    </div>
+    <div class="rightcouponbar">
+        <a ms-attr-href="../main/fillorder.html?{{searchData}}">确定</a>
+    </div>
+</div>
+</body>
+</html>

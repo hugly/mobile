@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/detail.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/grouporder.js"></script>
+</head>
+<body class="ms-controller" ms-controller="couponorder">
+<!--团购券详情页头部-->
+<div class="header-detail">
+    <a href="groupmanage.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>填写订单</h3>
+</div>
+<div class="couponorder">
+    <div class="couorder-item">
+        <ul>
+            <li>
+                <a class="linkhref" ms-attr-href="../main/detail.html?dataid={{groupData.ShopSkus[0].Shop.Shop.Code}}" >
+                    <b>{{groupData.ShopSkus[0].Shop.Shop.Name}}</b>
+                    <i class="iconfont icon-xiangyou gofor"></i>
+                </a>
+            </li>
+            <li>
+                <b>{{groupData.OriPrice}}元代金券</b>
+                <em>{{groupData.Price}}元</em>
+            </li>
+            <li>
+                <b>数量</b>
+                <div class="numbox">
+                    <a href="javascript:;" class="prev-btn" ms-on-tap="subFn">
+                        <i class="iconfont icon-jian"></i>
+                    </a>
+                    <span>{{countNum}}</span>
+                    <a href="javascript:;" class="next-btn" ms-on-tap="addFn">
+                        <i class="iconfont icon-plus"></i>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <b>小计</b>
+                <em style="color: #E4393C">{{groupData.Price * countNum | number(2)}}元</em>
+            </li>
+        </ul>
+    </div>
+    <div class="couorder-item">
+        <ul>
+            <li>
+                <b>下单手机号</b>
+                <input type="tel" placeholder="请输入下单手机号" ms-duplex="phoneNum">
+            </li>
+        </ul>
+    </div>
+</div>
+<!--去支付-->
+<div class="gopay" style="display: block; ">
+    <div class="totalprice">
+        <span>应付款:￥{{groupData.OriPrice * countNum | number(2)}}</span>
+        <b>实付款:￥{{groupData.Price * countNum | number(2)}}</b>
+    </div>
+    <a href="javascript:;" class="pay-btn" ms-if-loop="isLoading" style="background-color: #ccc;">提交中</a>
+    <a href="javascript:;" class="pay-btn" ms-if-loop="!isLoading" ms-on-tap="submitOrder">提交订单</a>
+</div>
+</body>
+</html>

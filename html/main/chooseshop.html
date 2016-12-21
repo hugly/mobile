@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/list.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/chooseshop.js"></script>
+</head>
+<body class="ms-controller" ms-controller="chooseshop">
+<!--公共头部-->
+<div class="headerone">
+    <a href="index.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 10rem;">接单的商家</h3>
+    <a href="javascript:;" ms-on-tap="cancelOrder" class="message-btn" style="color: #fff; width: 2.5rem; text-align: center;">取消</a>
+</div>
+<!--筛选部分-->
+<!--<div class="screen">-->
+    <!--<ul class="mainul">-->
+        <!--<li ms-on-tap="changeShow"><a href="javascript:;">-->
+            <!--<span>智能排序</span>-->
+            <!--<i class="iconfont icon-xiangxia"></i>-->
+        <!--</a></li>-->
+        <!--<li><a href="javascript:;">-->
+            <!--<span>筛选</span>-->
+            <!--<i class="iconfont icon-shaixuan"></i>-->
+        <!--</a></li>-->
+    <!--</ul>-->
+    <!--<div class="intelligent" ms-visible="isShow">-->
+        <!--<ul>-->
+            <!--<li ms-class-1="active:state === 1" ms-on-tap="sortData(1,'智能排序','')" ms-data-sort="'CreateTime'"><a href="javascript:;">智能排序<i class="iconfont icon-gou"></i></a></li>-->
+            <!--<li ms-class-1="active:state === 2" ms-on-tap="sortData(2,'离我最近','Distance')" ms-data-sort="'Distance'"><a href="javascript:;">离我最近<i class="iconfont icon-gou"></i></a></li>-->
+            <!--<li ms-class-1="active:state === 3" ms-on-tap="sortData(3,'最新发布','CreateTime')" ms-data-sort="'CreateTime'"><a href="javascript:;">最新发布<i class="iconfont icon-gou"></i></a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="tips" style="top: 2rem;" ms-if-loop="showTips" ms-on-tap="unshiftFn">你有新的{{totalNum}}条预约</div>-->
+<div class="tips" style="top: 2rem;" ms-if="shopDataList.size() === 0">剩余时间:{{m}}分{{s}}秒</div>
+<div style="width: 16rem; height: 1.5rem;" ms-if="shopDataList.size() === 0"></div>
+<div class="shoplistbox">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <div class="loadingLiubox trans" style="padding: 6rem 0; position: relative;" ms-if-loop="shopDataList.size() === 0 && !loadingImgShow">
+        <img src="../../data-images/scan.png">
+        <p style="line-height: 1.5rem;">正在等待商家接单</p>
+
+    </div>
+    <ul>
+        <li ms-repeat="shopDataList">
+            <div class="list-top">
+                <div class="time">
+                    <i class="iconfont icon-shijian1"></i>
+                    <span>{{el.CreateTime}}</span>
+                </div>
+                <div class="price">
+                    <span>取件:<i class="yun">{{el.PickPrice === 0?"免费":"￥"+el.PickPrice}}</i></span>
+                    <span>收件:<i class="song">{{el.SendPrice === 0?"免费":"￥"+el.SendPrice}}</i></span>
+                </div>
+            </div>
+            <div class="list-left" ms-on-tap="chooseShop($index)">
+                <!--<i class="iconfont" ms-class-1="icon-quan:!el.isSelect" ms-class-2="icon-gouxuan hasColor:el.isSelect"></i>-->
+                <img ms-attr-src="{{el.ShopHeadImg}}">
+            </div>
+            <div class="list-right">
+                <a ms-attr-href="shopinfo.html?dataid={{el.ShopCode}}&ordercode={{el.BookingRequestCode}}&bookcode={{el.Code}}">
+                <div class="top">
+                    <i class="iconfont icon-xiangyou right-btn"></i>
+                    <h3>{{el.ShopName}}</h3>
+                    <div class="score">
+                        <div class="scoremain">
+                            <div class="process" ms-css-width="{{el.ShopScore*2.6/5}}rem">
+                                <div class="hasscore"></div>
+                            </div>
+                        </div>
+                        <span>{{el.ShopScore | number(2)}}分</span>
+                    </div>
+                    <p class="address"><i class="iconfont icon-shijian"></i>营业时间{{el.BusinessBeginTime}}-{{el.BusinessEndTime}}</p>
+                    <p class="char"><em><i class="iconfont icon-dingwei"></i>{{el.ShopAddress}}</em><span>距您{{el.Distance | number(2)}}km</span></p>
+                </div>
+                <!--<div class="bottom">-->
+                    <!--<p><b class="type1">团</b>78代100元</p>-->
+                    <!--<p><b class="type2">首</b>78代100元</p>-->
+                    <!--<p><b class="type3">减</b>78代100元</p>-->
+                <!--</div>-->
+                </a></div>
+            <p style="float: left; width: 15.5rem; height: 1rem; padding: 0 .25rem; line-height: 1.5rem; text-align: right; color: #d46262;"><span ms-if-loop="el.TotalPrice >= 0">￥</span><b style="font-size: .7rem; font-weight: normal; font-family: Verdana; margin: 0 .2rem;">{{el.TotalPrice < 0 ?'价格待定' : el.TotalPrice}}</b></p>
+        </li>
+    </ul>
+</div>
+<!--确定按钮-->
+<div class="sure" ms-if="shopDataList.size() > 0">
+    <a ms-attr-href="subHerf" ms-if="shopDataList[0].BookingRequest.Products.length === 0" class="sure-btn">查看详情</a>
+    <a ms-attr-href="subHerf" ms-if="shopDataList[0].BookingRequest.Products.length !== 0" class="sure-btn">去支付</a>
+</div>
+<!--筛选弹出层部分-->
+<!--<div class="filter">-->
+    <!--<div class="filter-box">-->
+        <!--<div class="brand">-->
+            <!--<div class="brand-title">-->
+                <!--<h3>品牌</h3>-->
+                <!--<a href="javascript:;" class="showmore">-->
+                    <!--<span>全部</span>-->
+                    <!--<i class="iconfont icon-xiangxia"></i>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="brand-list">-->
+                <!--<a href="javascript:;">阿玛尼洗衣</a><a href="javascript:;">阿玛尼洗衣</a><a href="javascript:;">阿玛尼洗衣</a>-->
+                <!--<a href="javascript:;">阿玛尼洗衣</a><a href="javascript:;">阿玛尼洗衣</a><a href="javascript:;">阿玛尼洗衣</a>-->
+                <!--<a href="javascript:;">阿玛尼洗衣</a><a href="javascript:;">阿玛尼洗衣</a><a href="javascript:;">阿玛尼洗衣</a>-->
+                <!--<a href="javascript:;">阿玛尼洗衣</a><a href="javascript:;">阿玛尼洗衣</a><a href="javascript:;">阿玛尼洗衣</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="service">-->
+            <!--<ul>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type1">新</b>-->
+                    <!--<span>新店开张</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type2">新</b>-->
+                    <!--<span>新店开张</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type3">新</b>-->
+                    <!--<span>新店开张</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type4">新</b>-->
+                    <!--<span>新店开张</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type5">新</b>-->
+                    <!--<span>新店开张</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type6">新</b>-->
+                    <!--<span>新店开张</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="preferential">-->
+            <!--<h3>优惠活动</h3>-->
+            <!--<ul>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type1">新</b>-->
+                    <!--<span>新用户优惠</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type2">减</b>-->
+                    <!--<span>新用户优惠</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type3">惠</b>-->
+                    <!--<span>新用户优惠</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+                <!--<li><a href="javascript:;">-->
+                    <!--<b class="type4">特</b>-->
+                    <!--<span>新用户优惠</span>-->
+                    <!--<i class="iconfont icon-gou"></i>-->
+                <!--</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="operate">-->
+        <!--<a href="javascript:;" class="reset-btn">重置</a>-->
+        <!--<a href="javascript:;" class="ok-btn">确定</a>-->
+    <!--</div>-->
+<!--</div>-->
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/discenter.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/distribution/discenter.js"></script>
+</head>
+<body class="ms-controller" ms-controller="discenter">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>个人中心</h3>
+</div>
+<div class="withdraw">
+    <ul>
+        <li>
+            <span>姓名</span>
+            <input type="text" placeholder="请输入姓名" ms-duplex="personInfo.RealName">
+        </li>
+        <li>
+            <span>联系方式</span>
+            <input type="tel" placeholder="请输入联系方式" ms-duplex="personInfo.Tel">
+        </li>
+        <li>
+            <span>银行</span>
+            <select ms-duplex="personInfo.BlankName">
+                <option value="微信">微信</option>
+                <option value="支付宝">支付宝</option>
+            </select>
+        </li>
+        <li>
+            <span>账号</span>
+            <input type="text" placeholder="请输入账号" ms-duplex="personInfo.accountName">
+        </li>
+    </ul>
+    <a href="javascript:;" class="withdrawbtn" ms-if="!isWithdrawing" ms-on-tap="updateUsrInfo">确定</a>
+    <a href="javascript:;" class="withdrawbtn" ms-if="isWithdrawing" style="background-color: #ccc; color: #bbb;">确定中</a>
+</div>
+</body>
+</html>

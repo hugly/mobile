@@ -1,0 +1,582 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.headerone a.link {
+  width: 3rem;
+  font-size: .5rem;
+}
+.content {
+  width: 16rem;
+  position: relative;
+  top: 2rem;
+}
+.content .inivicename {
+  width: 16rem;
+  height: 1.5rem;
+  margin: .5rem 0;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .inivicename:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .inivicename span {
+  float: left;
+  width: 3.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+.content .inivicename input {
+  float: left;
+  width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .25rem;
+  border: none;
+}
+.content .choosecom {
+  width: 15rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+  margin-bottom: .3rem;
+}
+.content .choosecom h3 {
+  width: 15rem;
+  height: 1.2rem;
+  line-height: 1.6rem;
+  font-size: .6rem;
+}
+.content .choosecom h3 i {
+  font-size: .6rem;
+  margin-right: .2rem;
+}
+.content .choosecom .type1 {
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  padding: .5rem 0;
+}
+.content .choosecom .type1:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .choosecom .type1 li {
+  float: left;
+  height: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: .2rem;
+  box-sizing: border-box;
+  position: relative;
+  margin-left: .5rem;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .choosecom .type1 li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .choosecom .type1 li i {
+  display: none;
+  float: left;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  padding-left: .2rem;
+  color: #86d4eb;
+  font-size: .6rem;
+}
+.content .choosecom .type1 li span {
+  float: left;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  padding: 0 .2rem;
+  font-size: .5rem;
+}
+.content .choosecom .type1 li.active {
+  border-color: #86d4eb;
+}
+.content .choosecom .type1 li.active i {
+  display: block;
+}
+.content .choosecom .type1 li.active span {
+  color: #86d4eb;
+}
+.content .choosecom .type2 {
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  padding: .5rem 0;
+}
+.content .choosecom .type2:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .choosecom .type2 li {
+  float: left;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  margin-right: .5rem;
+}
+.content .choosecom .type2 li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .choosecom .type2 li i {
+  float: left;
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+}
+.content .choosecom .type2 li.active i {
+  color: #86d4eb;
+}
+.content .choosecom .type3 {
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  padding-top: .5rem;
+}
+.content .choosecom .type3:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .choosecom .type3 li {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .choosecom .type3 li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .choosecom .type3 li span {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: .5rem;
+}
+.content .choosecom .type3 li input {
+  float: left;
+  width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  border: none;
+  margin: .25rem 0;
+  margin-left: .5rem;
+}
+.content .choosecom .type4 {
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  padding: .5rem 0;
+}
+.content .choosecom .type4:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .choosecom .type4 li {
+  float: left;
+  width: 15rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  margin-right: .5rem;
+}
+.content .choosecom .type4 li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .choosecom .type4 li i {
+  float: left;
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+}
+.content .choosecom .type4 li.active i {
+  color: #86d4eb;
+}
+.content .combox {
+  background-color: #fff;
+}
+.content .combox .date {
+  width: 15rem;
+  margin: 0 .5rem;
+  padding: .2rem 0;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .combox .date:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .combox .date .left {
+  float: left;
+}
+.content .combox .date .left h4 {
+  font-size: .5rem;
+  height: .75rem;
+  line-height: .75rem;
+  font-weight: normal;
+}
+.content .combox .date .left p {
+  font-size: .5rem;
+  height: .75rem;
+  line-height: .75rem;
+}
+.content .combox .date .right {
+  float: right;
+  height: 1.5rem;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+.content .combox .date .right i {
+  color: #bfbfbf;
+  font-size: 1rem;
+}
+.content .combox .date input {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+}
+.content .combox .address {
+  width: 15rem;
+  margin: 0 .5rem;
+  padding: .2rem 0;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .combox .address:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .combox .address h3 {
+  font-size: .5rem;
+  font-weight: bolder;
+  height: 1rem;
+  line-height: 1rem;
+}
+.content .combox .address h3 span {
+  font-size: .6rem;
+  margin: 0 .5rem;
+}
+.content .combox .address p {
+  font-size: .5rem;
+  height: 1rem;
+  line-height: 1rem;
+}
+.content .combox .address p i {
+  font-size: .5rem;
+  margin-right: .2rem;
+}
+.content .combox .address .more {
+  position: absolute;
+  right: 0;
+  top: .2rem;
+  width: 1.5rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #bfbfbf;
+}
+.content .combox .line {
+  width: 16rem;
+  height: .1rem;
+  background: url('images/line.png') repeat-x;
+  background-size: 64px 3px;
+}
+.content .sure-btn {
+  display: inline-block;
+  width: 8rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 1rem 4rem;
+  text-align: center;
+  color: #fff;
+  background-color: #86d4eb;
+  border-radius: .25rem;
+}
+.content .order {
+  width: 16rem;
+  position: relative;
+}
+.content .order .satus {
+  width: 16rem;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 1rem 0;
+  text-align: center;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .order .satus:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .order .satus i {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin-left: 5rem;
+  text-align: center;
+  font-size: 2rem;
+  color: #55ae24;
+}
+.content .order .satus span {
+  float: left;
+  margin-left: .2rem;
+  height: 2rem;
+  line-height: 2rem;
+  color: #55ae24;
+  font-size: 1rem;
+}
+.content .order div.error i {
+  color: #d0271f;
+}
+.content .order div.error span {
+  color: #d0271f;
+}
+.content .order .info {
+  width: 15rem;
+  background-color: #fff;
+  position: relative;
+  padding: 0 .5rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.content .order .info ul {
+  position: relative;
+}
+.content .order .info ul li {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .order .info ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .order .info ul li span {
+  float: left;
+  width: 5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #999;
+}
+.content .order .info ul li em {
+  float: right;
+  width: 10rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: right;
+  color: #999;
+}
+.content .order .code {
+  width: 16rem;
+  position: relative;
+  text-align: center;
+  margin: 1rem 0;
+}
+.content .order .code img {
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+}
+.content .order .code p {
+  width: 16rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin-top: .2rem;
+}
+.content .order .tools {
+  width: 16rem;
+  height: 2rem;
+  background-color: #f9f9f9;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .order .tools:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .order .tools .check {
+  float: left;
+  width: 8rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+  border-right: 1px solid #e5e5e5;
+}
+.content .order .tools .back {
+  float: left;
+  width: 8rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.content .order .tools i {
+  position: absolute;
+  left: 50%;
+  margin-left: -1.5rem;
+  bottom: .25rem;
+  width: 3rem;
+  height: 3rem;
+  line-height: 2.75rem;
+  text-align: center;
+  color: #e5e5e5;
+  border-radius: 50%;
+  font-size: 3rem;
+  background-color: #fff;
+}
+.sure {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 16rem;
+  height: 2rem;
+}
+.sure .sure-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #86d4eb;
+  color: #fff;
+}

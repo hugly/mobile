@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/withdraw.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/withdrawsuccess.js"></script>
+</head>
+<body class="ms-controller" ms-controller="withdrawsuccess">
+<!--公共头部-->
+<div class="withdrawsuccess">
+    <div class="top">
+        <i class="iconfont icon-shijian"></i>
+        <h3>提现申请成功</h3>
+    </div>
+    <div class="withdrawinfo">
+        <ul>
+            <li>
+                <em>储蓄卡</em>
+                <span>{{bankname}}  尾号{{cardno}}</span>
+            </li>
+            <li>
+                <em>提现金额</em>
+                <span>{{balance | currency}}</span>
+            </li>
+            <li>
+                <em>手续费</em>
+                <span>{{FeePercent/10000 * balance | currency}}</span>
+            </li>
+        </ul>
+    </div>
+    <a href="../merchant/mymerchant.html" class="sure-btn">完成</a>
+</div>
+</body>
+</html>

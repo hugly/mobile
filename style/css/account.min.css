@@ -1,0 +1,2096 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.specheader {
+  background-color: #fff;
+  border-bottom: 1px solid #d5d5d5;
+}
+.specheader .back-btn i {
+  color: #bfbfbf;
+}
+.specheader h3 {
+  color: #000;
+  width: 11rem;
+  font-weight: 400;
+}
+.noback h3 {
+  width: 16rem;
+  padding-left: 0;
+}
+.hassure h3 {
+  width: 14rem;
+  padding-left: 0;
+}
+div.black {
+  background-color: #1b1b20;
+}
+.content {
+  margin-top: 2rem;
+}
+.content .finishbtn {
+  display: inline-block;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0 .5rem;
+  text-align: center;
+  color: #fff;
+  background-color: #55ae24;
+  border-radius: .25rem;
+}
+.content .nextbtn {
+  display: inline-block;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0 .5rem;
+  text-align: center;
+  color: #fff;
+  background-color: #86d4eb;
+  border-radius: .25rem;
+}
+.content a.disable {
+  background-color: #ddd;
+  color: #bbb;
+}
+.content .summary {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: auto;
+  position: relative;
+  background-color: #373b3d;
+}
+.content .summary ul {
+  position: relative;
+  padding: 1rem 0;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .summary ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .summary ul li {
+  float: left;
+  width: 5rem;
+  height: 2rem;
+}
+.content .summary ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .summary ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .summary ul li a b {
+  float: left;
+  width: 5rem;
+  text-align: center;
+  color: #fff;
+  height: 1.2rem;
+  line-height: 1rem;
+}
+.content .summary ul li a span {
+  float: left;
+  width: 5rem;
+  text-align: center;
+  color: #fff;
+  height: .8rem;
+  line-height: .6rem;
+}
+.content .cardlist {
+  width: 16rem;
+  margin: .2rem 0;
+  position: relative;
+}
+.content .cardlist ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .cardlist ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .cardlist ul li {
+  float: left;
+  width: 5.33rem;
+  height: 4rem;
+  padding: .5rem;
+  position: relative;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.content .cardlist ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .cardlist ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .cardlist ul li a i {
+  float: left;
+  width: 4.33rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.content .cardlist ul li a i.orange {
+  color: #fcaf0b;
+}
+.content .cardlist ul li a i.blue {
+  color: #7790fe;
+}
+.content .cardlist ul li a i.green {
+  color: #03c381;
+}
+.content .cardlist ul li a i.yellow {
+  color: #ffc800;
+}
+.content .cardlist ul li a i.red {
+  color: #fa3c3c;
+}
+.content .cardlist ul li a i.tuan {
+  color: #4dabd9;
+}
+.content .cardlist ul li a i.icon-jiaoyimingxichaxun {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+.content .cardlist ul li a i.icon-chongzhi {
+  font-size: 1.2rem;
+}
+.content .cardlist ul li a i.icon-qiapian {
+  line-height: 1.6rem;
+}
+.content .cardlist ul li a i.icon-tuangouwangzhan {
+  font-size: 1.3rem;
+}
+.content .cardlist ul li a i.icon-yinxingqia {
+  font-size: 1.3rem;
+}
+.content .cardlist ul li a p {
+  float: left;
+  width: 4.33rem;
+  height: .8rem;
+  line-height: .8rem;
+  font-size: .5rem;
+  text-align: center;
+  font-weight: 500;
+}
+.content .cardlist ul li a span {
+  float: left;
+  width: 4.33rem;
+  height: .7rem;
+  line-height: .7rem;
+  font-size: .5rem;
+  text-align: center;
+  color: #ccc;
+}
+.content .ad {
+  width: 16rem;
+  height: 4rem;
+  position: relative;
+}
+.content .ad a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.content .ad a img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.content .mainfn {
+  width: 16rem;
+  height: auto;
+  margin: .2rem 0;
+  position: relative;
+  background-color: #fff;
+}
+.content .mainfn ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .mainfn ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .mainfn ul li {
+  float: left;
+  width: 5.333rem;
+  height: 3.5rem;
+  box-sizing: border-box;
+  border-right: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.content .mainfn ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .mainfn ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .mainfn ul li a i {
+  float: left;
+  width: 100%;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: .5rem  0 .25rem;
+}
+.content .mainfn ul li a i.type1 {
+  color: #ff3d3d;
+}
+.content .mainfn ul li a i.type2 {
+  color: #58e1d3;
+  font-size: 1.8rem;
+}
+.content .mainfn ul li a i.type3 {
+  color: #fa6937;
+}
+.content .mainfn ul li a i.type4 {
+  color: #489f55;
+}
+.content .mainfn ul li a i.type5 {
+  color: #8fb1d1;
+  line-height: 1.1rem;
+}
+.content .mainfn ul li a i.type6 {
+  color: #28c6f3;
+}
+.content .mainfn ul li a p {
+  text-align: center;
+  font-size: .5rem;
+  font-weight: bolder;
+}
+.content .mainfn ul li:nth-child(3n) {
+  border-right: 0;
+}
+.content .addcart h3 {
+  padding-left: 1rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: .5rem;
+  color: #333;
+}
+.content .addcart ul {
+  width: 16rem;
+  background-color: #fff;
+  margin-bottom: .5rem;
+  border-top: 1px solid #e5e5e5;
+}
+.content .addcart ul li {
+  width: 15rem;
+  height: 1rem;
+  padding: .5rem;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .addcart ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .addcart ul li span {
+  float: left;
+  width: 3rem;
+  height: 1rem;
+  line-height: 1rem;
+}
+.content .addcart ul li input {
+  float: left;
+  border: none;
+  width: 11rem;
+  height: 1rem;
+  line-height: 1rem;
+}
+.content .addcart ul li i {
+  display: none;
+  position: absolute;
+  width: .6rem;
+  height: .6rem;
+  line-height: .6rem;
+  text-align: center;
+  background-color: #bfbfbf;
+  color: #fff;
+  border-radius: 50%;
+  font-size: .3rem;
+  font-weight: bolder;
+  right: 1.6rem;
+  top: .6rem;
+}
+.content .addcart ul li a {
+  float: left;
+  width: .8rem;
+  height: .8rem;
+  line-height: .8rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #86d4eb;
+  color: #fff;
+  font-size: .5rem;
+}
+.content .addcart ul li em {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+}
+.content .addcart ul li em b {
+  height: 1rem;
+  line-height: 1rem;
+  margin: 0 .5rem;
+  font-weight: normal;
+}
+.content .credit {
+  width: 16rem;
+  height: auto;
+  position: relative;
+}
+.content .credit .complite {
+  width: 16rem;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+.content .credit .complite i {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 2rem;
+  color: #55ae24;
+  text-align: center;
+}
+.content .credit .complite h1 {
+  color: #55ae24;
+}
+.content .credit .creditinfo {
+  margin-bottom: 1rem;
+  background-color: #fff;
+  width: 15rem;
+  padding: .5rem;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.content .credit .creditinfo p {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  font-size: .5rem;
+}
+.content .credit .creditinfo p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .credit .creditinfo p span {
+  float: left;
+}
+.content .credit .creditinfo p em {
+  float: right;
+}
+.content .credit .activity {
+  width: 16rem;
+  position: relative;
+}
+.content .credit .activity p {
+  width: 15rem;
+  height: .5rem;
+  margin-bottom: 1rem;
+  padding: 0 .5rem;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+.content .credit .activity p b {
+  background-color: #f0f2f5;
+  padding: 0 .2rem;
+  line-height: 1rem;
+  font-weight: normal;
+}
+.content .credit .activity a {
+  display: block;
+  width: 16rem;
+  height: 5rem;
+}
+.content .credit .activity a img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.content .coupons {
+  width: 16rem;
+  position: relative;
+}
+.content .coupons .coupon-title {
+  width: 16rem;
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 9;
+}
+.content .coupons .coupon-title ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+}
+.content .coupons .coupon-title ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .coupons .coupon-title ul li {
+  float: left;
+  width: 5.33rem;
+  height: 1.5rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+.content .coupons .coupon-title ul li a {
+  display: inline-block;
+  padding: 0 .5rem;
+  height: 1.4rem;
+  border-bottom: .1rem solid #fff;
+}
+.content .coupons .coupon-title ul li.active a {
+  color: #86d4eb;
+  border-bottom-color: #86d4eb;
+}
+.content .coupons .coupon-list {
+  width: 16rem;
+  position: relative;
+  top: 1.5rem;
+}
+.content .coupons .coupon-list .couponul {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+}
+.content .coupons .coupon-list .couponul .couponitem {
+  width: 15rem;
+  background-color: #fff;
+  margin-bottom: .5rem;
+  box-shadow: 0 0 .1rem #999;
+  border-radius: .1rem;
+  overflow: hidden;
+}
+.content .coupons .coupon-list .couponul .couponitem a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.content .coupons .coupon-list .couponul .couponitem a .topbar {
+  width: 15rem;
+  height: .2rem;
+  background-color: #86d4eb;
+  position: relative;
+}
+.content .coupons .coupon-list .couponul .couponitem a .topbar strong {
+  float: left;
+  display: inline-block;
+  width: 15rem;
+  height: .1rem;
+  margin-top: .1rem;
+  background: transparent url("images/blueborder.png") repeat-x 0 0;
+  background-size: contain;
+}
+.content .coupons .coupon-list .couponul .couponitem a .othertopbar {
+  width: 15rem;
+  height: .2rem;
+  background-color: #ff523f;
+  position: relative;
+}
+.content .coupons .coupon-list .couponul .couponitem a .othertopbar strong {
+  float: left;
+  display: inline-block;
+  width: 15rem;
+  height: .1rem;
+  margin-top: .1rem;
+  background: transparent url("images/redborder.png") repeat-x 0 0;
+  background-size: contain;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar {
+  width: 14rem;
+  padding: 0 .5rem;
+  background: transparent url("images/quan.png") no-repeat -0.5rem top;
+  background-size: contain;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .maintitle {
+  float: left;
+  width: 14rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #10bdfa;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .main {
+  float: left;
+  width: 14rem;
+  height: 2rem;
+  line-height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: .1rem dotted #ccc;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .main:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .main span {
+  float: left;
+  height: 2rem;
+  color: #86d4eb;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .main span b {
+  color: #86d4eb;
+  font-size: 1.5rem;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .main p {
+  float: right;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .main p em {
+  display: block;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .5rem;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .leftcoupon {
+  float: left;
+  width: 3.5rem;
+  height: 3rem;
+  line-height: 3rem;
+  margin: 0.5rem 0 0.5rem -0.5rem;
+  text-align: center;
+  color: #ff5340;
+  font-size: .6rem;
+  border-right: 1px dashed #e1e1e1;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .leftcoupon b {
+  font-size: 1.5rem;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .centercoupon {
+  float: left;
+  width: 9.5rem;
+  height: 3rem;
+  margin: .5rem 0 .5rem .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .centercoupon:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .centercoupon h3 {
+  float: left;
+  width: 8rem;
+  height: .8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  margin-top: -0.2rem;
+  margin-bottom: .2rem;
+  color: #5a5a5a;
+  font-size: .7rem;
+  font-weight: bolder;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .centercoupon ul {
+  float: left;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  list-style: initial;
+  list-style-position: inside;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .centercoupon ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .centercoupon ul li {
+  float: left;
+  width: 8rem;
+  height: .8rem;
+  line-height: .8rem;
+  font-size: .55rem;
+  color: #b2b2b2;
+  list-style: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .rightcoupon {
+  float: left;
+  width: .5rem;
+  height: 3rem;
+  line-height: 3rem;
+  margin: .5rem 0;
+}
+.content .coupons .coupon-list .couponul .couponitem a .mainbar .rightcoupon i {
+  color: #4cd964;
+}
+.content .coupons .coupon-list .couponul .couponitem a .filterbg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 15rem;
+  height: 4.1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 9;
+}
+.content .coupons .coupon-list .couponul .couponitem a .more {
+  width: 14rem;
+  padding: 0 .5rem;
+  position: relative;
+}
+.content .coupons .coupon-list .couponul .couponitem a .more p {
+  width: 14rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .coupons .coupon-list .couponul .couponitem a .more p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .coupons .coupon-list .couponul .couponitem a .more p span {
+  float: left;
+  width: 4rem;
+  text-align: left;
+  font-size: .5rem;
+}
+.content .coupons .coupon-list .couponul .couponitem a .more p i {
+  float: left;
+  padding-left: 2rem;
+  width: 2rem;
+  text-align: center;
+  font-size: .5rem;
+}
+.content .coupons .coupon-list .couponul .couponitem a .more p em {
+  float: right;
+  width: 6rem;
+  text-align: right;
+  font-size: .5rem;
+}
+.content .coupons .coupon-list .couponul .couponitem a .more p.more-info {
+  display: none;
+  line-height: .6rem;
+  font-size: .5rem;
+}
+.content .coupons .coupon-list .couponul li.disabled a .topbar {
+  background-color: #ccc;
+}
+.content .coupons .coupon-list .couponul li.disabled a .topbar strong {
+  background: transparent url("images/border.png") repeat-x 0 0;
+  background-size: contain;
+}
+.content .coupons .coupon-list .couponul li.disabled a .mainbar .maintitle {
+  color: #999;
+}
+.content .coupons .coupon-list .couponul li.disabled a .mainbar .main span {
+  color: #999;
+}
+.content .coupons .coupon-list .couponul li.disabled a .mainbar .main span b {
+  color: #999;
+}
+.content .coupons .coupon-list .couponul li.active {
+  box-shadow: 0 0 .2rem #c00;
+}
+.content .cashcoupons {
+  width: 16rem;
+  position: relative;
+}
+.content .cashcoupons .cashcoupon-title {
+  width: 16rem;
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 9;
+}
+.content .cashcoupons .cashcoupon-title ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+}
+.content .cashcoupons .cashcoupon-title ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .cashcoupons .cashcoupon-title ul li {
+  float: left;
+  width: 5.33rem;
+  height: 1.5rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+.content .cashcoupons .cashcoupon-title ul li a {
+  display: inline-block;
+  padding: 0 .5rem;
+  height: 1.4rem;
+  border-bottom: .1rem solid #fff;
+}
+.content .cashcoupons .cashcoupon-title ul li.active a {
+  color: #86d4eb;
+  border-bottom-color: #86d4eb;
+}
+.content .cashcoupons .cashcoupon-list {
+  width: 16rem;
+  position: relative;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem {
+  width: 15rem;
+  background-color: #fff;
+  margin-bottom: .5rem;
+  box-shadow: 0 0 .1rem #999;
+  border-radius: .1rem;
+  overflow: hidden;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .topbar {
+  width: 15rem;
+  height: .2rem;
+  background-color: #86d4eb;
+  position: relative;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .topbar strong {
+  float: left;
+  display: inline-block;
+  width: 15rem;
+  height: .1rem;
+  margin-top: .1rem;
+  background: transparent url("images/blueborder.png") repeat-x 0 0;
+  background-size: contain;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .othertopbar {
+  width: 15rem;
+  height: .2rem;
+  background-color: #ff523f;
+  position: relative;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .othertopbar strong {
+  float: left;
+  display: inline-block;
+  width: 15rem;
+  height: .1rem;
+  margin-top: .1rem;
+  background: transparent url("images/redborder.png") repeat-x 0 0;
+  background-size: contain;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar {
+  width: 14rem;
+  padding: 0 .5rem;
+  background-color: #86d4eb;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .maintitle {
+  float: left;
+  width: 14rem;
+  height: 1rem;
+  line-height: 1.5rem;
+  color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .maintitle:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .maintitle span {
+  float: left;
+  color: #fff;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .maintitle em {
+  float: right;
+  color: #fff;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .main {
+  float: left;
+  width: 14rem;
+  height: 3rem;
+  line-height: 3rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .main:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .main span {
+  float: right;
+  height: 2rem;
+  color: #fff;
+  margin-right: 1rem;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .main span b {
+  color: #fff;
+  font-size: 1.5rem;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .main p {
+  float: right;
+  height: 3rem;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .main p b {
+  display: block;
+  height: 1.5rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #007da9;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .main p em {
+  display: block;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .6rem;
+  color: #007da9;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .leftcoupon {
+  float: left;
+  width: 3.5rem;
+  height: 3rem;
+  line-height: 3rem;
+  margin: 0.5rem 0 0.5rem -0.5rem;
+  text-align: center;
+  color: #ff5340;
+  font-size: .6rem;
+  border-right: 1px dashed #e1e1e1;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .leftcoupon b {
+  font-size: 1.5rem;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .centercoupon {
+  float: left;
+  width: 9.5rem;
+  height: 3rem;
+  margin: .5rem 0 .5rem .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .centercoupon:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .centercoupon h3 {
+  float: left;
+  width: 8rem;
+  height: .8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  margin-top: -0.2rem;
+  margin-bottom: .2rem;
+  color: #5a5a5a;
+  font-size: .7rem;
+  font-weight: bolder;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .centercoupon ul {
+  float: left;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  list-style: initial;
+  list-style-position: inside;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .centercoupon ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .centercoupon ul li {
+  float: left;
+  width: 8rem;
+  height: .8rem;
+  line-height: .8rem;
+  font-size: .55rem;
+  color: #b2b2b2;
+  list-style: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .rightcoupon {
+  float: left;
+  width: .5rem;
+  height: 3rem;
+  line-height: 3rem;
+  margin: .5rem 0;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .mainbar .rightcoupon i {
+  color: #4cd964;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .filterbg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 15rem;
+  height: 4.1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 9;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .more {
+  width: 14rem;
+  padding: 0 .5rem;
+  position: relative;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .more p {
+  width: 14rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .more p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .more p span {
+  float: left;
+  text-align: left;
+  font-size: .6rem;
+  margin-right: .5rem;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .more p i {
+  float: left;
+  padding-left: 2rem;
+  width: 2rem;
+  text-align: center;
+  font-size: .6rem;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .more p em {
+  float: left;
+  text-align: right;
+  font-size: .6rem;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul .cashcouponitem a .more p.more-info {
+  display: none;
+  line-height: .6rem;
+  font-size: .5rem;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul li.disabled a .topbar {
+  background-color: #ccc;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul li.disabled a .topbar strong {
+  background: transparent url("images/border.png") repeat-x 0 0;
+  background-size: contain;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul li.disabled a .mainbar .maintitle {
+  color: #999;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul li.disabled a .mainbar .main span {
+  color: #999;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul li.disabled a .mainbar .main span b {
+  color: #999;
+}
+.content .cashcoupons .cashcoupon-list .cashcouponul li.active {
+  box-shadow: 0 0 .2rem #c00;
+}
+.content .balance {
+  width: 16rem;
+  position: relative;
+  margin-top: 2.5rem;
+}
+.content .balance ul {
+  width: 16rem;
+  position: relative;
+  border-top: 1px solid #e5e5e5;
+}
+.content .balance ul li {
+  width: 15rem;
+  height: 1rem;
+  padding: .75rem .5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.content .balance ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .balance ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .balance ul li a span {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+}
+.content .balance ul li a .right {
+  float: right;
+  height: 1rem;
+  line-height: 1rem;
+}
+.content .balance ul li a .right i {
+  color: #bfbfbf;
+  font-size: .6rem;
+  margin-left: .2rem;
+}
+.content .payment {
+  width: 16rem;
+  position: relative;
+}
+.content .payment ul {
+  width: 14rem;
+  position: relative;
+  padding: .5rem 1rem;
+}
+.content .payment ul li {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  font-size: .6rem;
+}
+.content .payment ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .payment ul li span {
+  float: left;
+  width: 4rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  color: #999;
+}
+.content .payment ul li em {
+  float: right;
+  width: 10rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-align: right;
+  color: #333;
+}
+.content .paymentlist {
+  width: 16rem;
+  position: relative;
+}
+.content .paymentlist ul {
+  width: 16rem;
+  position: relative;
+  margin-top: 2.5rem;
+  border-top: 1px solid #e5e5e5;
+}
+.content .paymentlist ul li {
+  width: 14rem;
+  padding: .2rem 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .paymentlist ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .paymentlist ul li p {
+  float: left;
+  width: 14rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .paymentlist ul li p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .paymentlist ul li p b {
+  float: left;
+  width: 7rem;
+}
+.content .paymentlist ul li p span {
+  float: right;
+  width: 7rem;
+  text-align: right;
+  color: #666;
+}
+.content .paymentlist ul li p em {
+  float: left;
+  width: 7rem;
+  color: #666;
+}
+.content .paymentlist ul li p strong {
+  float: right;
+  width: 7rem;
+  text-align: right;
+}
+.content .paymentlist h3 {
+  padding-left: 1rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: .5rem;
+}
+.content .paymentlist .getcode {
+  width: 15rem;
+  height: 2rem;
+  padding: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .paymentlist .getcode:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .paymentlist .getcode .codebox {
+  float: left;
+  width: 10rem;
+  height: 2rem;
+  position: relative;
+}
+.content .paymentlist .getcode .codebox input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10rem;
+  height: 2rem;
+  border: 1px solid #e5e5e5;
+  padding: .5rem;
+  box-sizing: border-box;
+  border-radius: .25rem;
+}
+.content .paymentlist .getcode .codebox i {
+  width: .6rem;
+  height: .6rem;
+  line-height: .6rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #bfbfbf;
+  color: #fff;
+  font-size: .3rem;
+  position: absolute;
+  right: .5rem;
+  top: .7rem;
+  z-index: 9;
+}
+.content .paymentlist .getcode a.disable {
+  background-color: #ddd;
+  color: #bbb;
+}
+.content .paymentlist .getcode .getvalicode {
+  float: left;
+  width: 4.5rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  border-radius: .25rem;
+  background-color: #86d4eb;
+  color: #fff;
+  margin-left: .5rem;
+}
+.content .withdrawals {
+  width: 16rem;
+  position: relative;
+  margin-top: 2.5rem;
+}
+.content .withdrawals .drawallist {
+  width: 15rem;
+  padding: .25rem .5rem;
+  margin-top: .5rem;
+  background-color: #fff;
+  height: 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .withdrawals .drawallist:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .withdrawals .drawallist img {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: .5rem;
+}
+.content .withdrawals .drawallist p {
+  float: left;
+  width: 10rem;
+  height: 1.2rem;
+  margin: .15rem 0;
+  overflow: hidden;
+}
+.content .withdrawals .drawallist p strong {
+  display: block;
+  width: 11rem;
+  height: .6rem;
+  line-height: .6rem;
+  font-size: .6rem;
+  font-weight: normal;
+}
+.content .withdrawals .drawallist p b {
+  display: block;
+  width: 11rem;
+  height: .6rem;
+  line-height: .8rem;
+  font-size: .5rem;
+  font-weight: normal;
+}
+.content .withdrawals .drawallist p.charge {
+  line-height: 1.2rem;
+  font-size: .6rem;
+}
+.content .withdrawals .drawallist .icon-xiangyou {
+  float: right;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #ccc;
+  font-size: .6rem;
+}
+.content .withdrawals .drawallist span {
+  float: left;
+  width: 3rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #333;
+}
+.content .withdrawals .drawallist em {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #999;
+  font-size: .5rem;
+}
+.content .withdrawals .drawallist .edu {
+  float: left;
+  width: 12rem;
+  height: 1.5rem;
+  position: relative;
+}
+.content .withdrawals .drawallist .edu input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 12rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border: none;
+}
+.content .withdrawals .drawallist .edu i {
+  width: .6rem;
+  height: .6rem;
+  line-height: .6rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #bfbfbf;
+  color: #fff;
+  font-size: .3rem;
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+  z-index: 9;
+}
+.content .withdrawals div.marbon {
+  margin-bottom: 1rem;
+}
+.content .withdrawals p {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 2rem;
+  line-height: 1rem;
+  font-size: .4rem;
+}
+.content .yibi {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+}
+.content .yibi .yibi-main {
+  width: 16rem;
+  height: 3.5rem;
+  padding-top: 1rem;
+  margin-bottom: .5rem;
+  text-align: center;
+}
+.content .yibi .yibi-main img {
+  width: 3rem;
+  height: 3.5rem;
+}
+.content .yibi .yibi-main span {
+  display: block;
+  width: 16rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin-top: -1.2rem;
+  font-weight: bolder;
+  font-size: .8rem;
+  text-align: center;
+  color: #9d841d;
+}
+.content .yibi .yibioper {
+  width: 16rem;
+  height: 1.2rem;
+  margin: .5rem 0;
+  text-align: center;
+}
+.content .yibi .yibioper a {
+  display: inline-block;
+  border: 1px solid #e5e5e5;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  padding: 0 .5rem;
+  border-radius: .2rem;
+}
+.content .yibi .yibioper a i {
+  color: #86d4eb;
+  margin-right: .2rem;
+}
+.content .yibi .yibi-intro {
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+  font-size: .5rem;
+}
+.content .yibi .yibi-intro i {
+  font-size: .6rem;
+  color: #ccc;
+  margin-right: .2rem;
+}
+.content .yibi .yibi-list {
+  width: 15rem;
+  padding: 0 .5rem;
+  position: relative;
+}
+.content .yibi .yibi-list .list-title {
+  width: 15rem;
+  height: .5rem;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.content .yibi .yibi-list .list-title span {
+  line-height: 1rem;
+  background-color: #fff;
+  padding: 0 .25rem;
+}
+.content .yibi .yibi-list ul {
+  position: relative;
+}
+.content .yibi .yibi-list ul li {
+  width: 15rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .yibi .yibi-list ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .yibi .yibi-list ul li .left {
+  float: left;
+  width: 13rem;
+}
+.content .yibi .yibi-list ul li .left h3 {
+  font-size: .6rem;
+  width: 13rem;
+  height: .8rem;
+  line-height: .8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+.content .yibi .yibi-list ul li .left p {
+  font-size: .5rem;
+  width: 13rem;
+  height: .7rem;
+  line-height: .7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.content .yibi .yibi-list ul li span {
+  float: right;
+  width: 2rem;
+  text-align: center;
+  color: #10bdfa;
+  line-height: 1.5rem;
+  font-weight: bolder;
+}
+.content .yibi .yibi-list ul li:last-child {
+  border-bottom: none;
+}
+.content .yibi-detail {
+  width: 16rem;
+  position: relative;
+}
+.content .yibi-detail .yibi-detail {
+  width: 15rem;
+  padding: .5rem;
+}
+.content .yibi-detail .yibi-detail h3 {
+  height: 1rem;
+  line-height: 1rem;
+  margin-bottom: .2rem;
+  font-size: .6rem;
+}
+.content .yibi-detail .yibi-detail ul {
+  width: 14.5rem;
+  padding: .25rem;
+  background-color: #fff;
+  border-radius: .15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .yibi-detail .yibi-detail ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .yibi-detail .yibi-detail ul li {
+  float: left;
+  width: 14.5rem;
+}
+.content .yibi-detail .yibi-detail ul li h5 {
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .yibi-detail .yibi-detail ul li h5:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .yibi-detail .yibi-detail ul li h5 span {
+  float: left;
+  width: .6rem;
+  height: .6rem;
+  margin: .2rem;
+  text-align: center;
+  line-height: .7rem;
+  font-size: .4rem;
+  border-radius: 50%;
+  background-color: #86d4eb;
+  color: #fff;
+}
+.content .yibi-detail .yibi-detail ul li p {
+  margin-left: 1rem;
+  width: 13.5rem;
+  font-size: .5rem;
+  line-height: .8rem;
+}
+.content .bankcardlist {
+  width: 16rem;
+  height: 100%;
+  position: relative;
+  background-color: #2e3132;
+}
+.content .bankcardlist ul {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+}
+.content .bankcardlist ul li {
+  width: 15rem;
+  margin-bottom: .5rem;
+  border-radius: .25rem;
+  overflow: hidden;
+}
+.content .bankcardlist ul li .main {
+  display: block;
+  width: 17rem;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .bankcardlist ul li .main:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .bankcardlist ul li .main .main-left {
+  float: left;
+  width: 15rem;
+}
+.content .bankcardlist ul li .main .main-left .top {
+  float: left;
+  width: 14.5rem;
+  padding: .5rem 0 0 .5rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .bankcardlist ul li .main .main-left .top:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .bankcardlist ul li .main .main-left .top .left {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  margin-right: .5rem;
+}
+.content .bankcardlist ul li .main .main-left .top .left i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+.content .bankcardlist ul li .main .main-left .top .right {
+  float: left;
+  width: 12rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content .bankcardlist ul li .main .main-left .top .right:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content .bankcardlist ul li .main .main-left .top .right h3 {
+  color: #fff;
+  width: 12rem;
+  height: 1.2rem;
+  line-height: 1.4rem;
+  font-weight: bolder;
+}
+.content .bankcardlist ul li .main .main-left .top .right p {
+  color: #fff;
+  width: 12rem;
+  height: .8rem;
+  line-height: .6rem;
+}
+.content .bankcardlist ul li .main .main-left .bottom {
+  float: left;
+  width: 14rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0 .5rem .5rem .5rem;
+}
+.content .bankcardlist ul li .main .main-left .bottom p {
+  text-align: right;
+  color: #fff;
+  font-size: 1rem;
+}
+.content .bankcardlist ul li .main .dele {
+  float: left;
+  width: 2rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  text-align: center;
+  background-color: #a4afbc;
+}
+.content .bankcardlist ul li .main .dele a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: .5rem;
+}
+.content .bankcardlist ul li.type1 {
+  background-color: #008c77;
+}
+.bottombar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 15rem;
+  padding: .25rem .5rem;
+  height: 1.5rem;
+  background-color: #f5f5f5;
+  border-top: 1px solid #dfdfdf;
+  min-height: 1px;
+  zoom: 1;
+}
+.bottombar:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.bottombar .leftcouponbar {
+  float: left;
+  width: 10rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.bottombar .leftcouponbar:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.bottombar .leftcouponbar i {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  color: #dbdbdb;
+}
+.bottombar .leftcouponbar i.hascolor {
+  color: #ff523f;
+}
+.bottombar .leftcouponbar span {
+  float: left;
+  color: #959595;
+}
+.bottombar .rightcouponbar {
+  float: right;
+  width: 4rem;
+  height: 1.5rem;
+}
+.bottombar .rightcouponbar a {
+  display: block;
+  width: 4rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  background-color: #56d176;
+  color: #fff;
+  border-radius: .1rem;
+}
+.content-detail {
+  width: 15rem;
+  margin: 2rem .5rem .5rem .5rem;
+  border-radius: .25rem;
+  overflow: hidden;
+}
+.content-detail .tip1 {
+  width: 1rem;
+  height: 1rem;
+  background-color: #93d9ed;
+  position: absolute;
+  top: 1.5rem;
+  left: 0;
+  border-radius: 50%;
+  z-index: 9;
+}
+.content-detail .tip2 {
+  width: 1rem;
+  height: 1rem;
+  background-color: #93d9ed;
+  position: absolute;
+  top: 1.5rem;
+  right: 0;
+  border-radius: 50%;
+  z-index: 9;
+}
+.content-detail .detail-title {
+  width: 13rem;
+  padding: 0 1rem;
+  height: 2rem;
+  line-height: 2rem;
+  background-color: #fff;
+  border-bottom: 1px dashed #93d9ed;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content-detail .detail-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content-detail .detail-title span {
+  float: left;
+  color: #4f5054;
+}
+.content-detail .detail-title em {
+  float: right;
+  color: #bbb;
+}
+.content-detail .detail-info {
+  width: 14rem;
+  padding: .5rem;
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px dashed #93d9ed;
+}
+.content-detail .detail-info h3 {
+  width: 14rem;
+  margin-top: 1rem;
+  color: #bbb;
+  text-align: center;
+}
+.content-detail .detail-info p {
+  width: 14rem;
+  color: #333;
+  text-align: center;
+  line-height: 2rem;
+  font-size: .8rem;
+}
+.content-detail .detail-info p b {
+  color: #fe6e60;
+  font-size: 1.4rem;
+  margin: 0 .2rem;
+}
+.content-detail .detail-info a {
+  display: inline-block;
+  width: 6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  margin: 1rem 4rem 0 4rem;
+  text-align: center;
+  background-color: #93d9ed;
+  border-radius: .25rem;
+  color: #fff;
+}
+.content-detail .detail-info ul {
+  width: 14rem;
+  position: relative;
+  margin-top: .5rem;
+}
+.content-detail .detail-info ul li {
+  width: 14rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content-detail .detail-info ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content-detail .detail-info ul li span {
+  float: left;
+  width: 3.2rem;
+  line-height: 1rem;
+  color: #000;
+  font-size: .6rem;
+}
+.content-detail .detail-info ul li em {
+  float: left;
+  width: 10.8rem;
+  line-height: 1rem;
+  color: #bbb;
+  font-size: .6rem;
+}
+.content-detail .detail-de {
+  width: 15rem;
+  padding-top: .5rem;
+  padding-bottom: 1rem;
+  position: relative;
+  background-color: #fff;
+}
+.content-detail .detail-de img {
+  display: block;
+  width: 15rem;
+}
+.content-detail .detail-de .shop-info {
+  width: 14rem;
+  padding: 0 0 .2rem 0;
+  margin: 0 .5rem;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content-detail .detail-de .shop-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content-detail .detail-de .shop-info .left-info {
+  float: left;
+  width: 11rem;
+  height: 2.4rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.content-detail .detail-de .shop-info .left-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.content-detail .detail-de .shop-info .left-info h3 {
+  float: left;
+  width: 11rem;
+  height: 1.4rem;
+  line-height: 1.6rem;
+  color: #333;
+  font-size: .8rem;
+}
+.content-detail .detail-de .shop-info .left-info p {
+  float: left;
+  width: 11rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #bbb;
+  font-size: .6rem;
+}
+.content-detail .detail-de .shop-info .left-info p i {
+  color: #bbb;
+  font-size: .6rem;
+}
+.content-detail .detail-de .shop-info .right-info {
+  float: left;
+  width: 3rem;
+  height: 2.4rem;
+  box-sizing: border-box;
+  border-left: 1px solid #f0f0f0;
+}
+.content-detail .detail-de .shop-info .right-info a {
+  display: block;
+  width: 3rem;
+  height: 2.4rem;
+  text-align: center;
+  line-height: 2.4rem;
+}
+.content-detail .detail-de .shop-info .right-info a i {
+  color: #93d9ed;
+  font-size: 1.6rem;
+}

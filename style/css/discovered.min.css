@@ -1,0 +1,413 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.discovered {
+  width: 16rem;
+  position: relative;
+  margin-top: 2rem;
+}
+.discovered .main-title {
+  width: 16rem;
+  height: 1.5rem;
+  line-height: 1.8rem;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  overflow: hidden;
+}
+.discovered .main-title span {
+  color: #f990b1;
+  padding: 0 .2rem;
+  font-size: .6rem;
+}
+.discovered .main-title span.bing {
+  font-size: .7rem;
+}
+.discovered .main-title em {
+  color: #bababa;
+  margin-left: .2rem;
+  font-size: .5rem;
+}
+.discovered .activetoday {
+  width: 16rem;
+  background-color: #fff;
+  margin-bottom: .5rem;
+}
+.discovered .activetoday ul {
+  width: 16rem;
+  padding: .5rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.discovered .activetoday ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.discovered .activetoday ul li {
+  float: left;
+  width: 7.4rem;
+  padding: 0 .25rem;
+}
+.discovered .activetoday ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.discovered .activetoday ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.discovered .activetoday ul li a .itemleft {
+  float: left;
+  width: 4rem;
+  margin-left: .5rem;
+}
+.discovered .activetoday ul li a .itemleft h3 {
+  color: #000;
+}
+.discovered .activetoday ul li a .itemleft span {
+  color: #9b9b9b;
+  font-size: .6rem;
+}
+.discovered .activetoday ul li a .itemleft span.complete {
+  color: #77d08a;
+}
+.discovered .activetoday ul li a .itemright {
+  float: right;
+  width: 2rem;
+  height: 2rem;
+  margin-right: .5rem;
+}
+.discovered .activetoday ul li a .itemright img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.discovered .activetoday ul li a i {
+  position: absolute;
+  left: 4rem;
+  top: 0.5rem;
+  color: #f40;
+}
+.discovered .selectactivity {
+  width: 16rem;
+  background-color: #fff;
+  margin-bottom: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.discovered .selectactivity:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.discovered .selectactivity .normal {
+  float: left;
+  width: 15rem;
+  height: 5rem;
+  margin: .5rem .5rem 0 .5rem;
+  border-radius: .25rem;
+  overflow: hidden;
+}
+.discovered .selectactivity .normal img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.discovered .selectactivity .shortlist {
+  float: left;
+  width: 15rem;
+  margin: .5rem;
+  position: relative;
+  overflow: hidden;
+}
+.discovered .selectactivity .shortlist .listbox {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.discovered .selectactivity .shortlist .listbox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.discovered .selectactivity .shortlist .listbox .short {
+  float: left;
+  width: 4.85rem;
+  height: 4.8rem;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: .25rem;
+  overflow: hidden;
+  margin-right: .2rem;
+}
+.discovered .selectactivity .shortlist .listbox .short img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.discovered .shopdynamic {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+  margin-bottom: .5rem;
+}
+.discovered .shopdynamic ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.discovered .shopdynamic ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.discovered .shopdynamic ul li {
+  float: left;
+  width: 15rem;
+  padding: .5rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.discovered .shopdynamic ul li .dynamic-title {
+  width: 15rem;
+  height: 2rem;
+  margin-bottom: .2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.discovered .shopdynamic ul li .dynamic-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.discovered .shopdynamic ul li .dynamic-title img {
+  float: left;
+  width: 2.7rem;
+  height: 1.8rem;
+  overflow: hidden;
+}
+.discovered .shopdynamic ul li .dynamic-title .infobox {
+  float: left;
+  width: 8rem;
+  height: 2rem;
+  margin: 0 .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.discovered .shopdynamic ul li .dynamic-title .infobox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.discovered .shopdynamic ul li .dynamic-title .infobox span {
+  float: left;
+  width: 8rem;
+  height: 1rem;
+  line-height: 1.2rem;
+}
+.discovered .shopdynamic ul li .dynamic-title .infobox em {
+  float: left;
+  width: 8rem;
+  height: 1rem;
+  color: #999;
+  line-height: 1.2rem;
+  font-size: .6rem;
+}
+.discovered .shopdynamic ul li .dynamic-title .sharebox {
+  float: right;
+  height: 1.2rem;
+  padding: .3rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.discovered .shopdynamic ul li .dynamic-title .sharebox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.discovered .shopdynamic ul li .dynamic-title .sharebox a {
+  position: relative;
+  float: left;
+  height: 1.2rem;
+  width: 1rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.discovered .shopdynamic ul li .dynamic-title .sharebox a i {
+  font-size: .9rem;
+  color: #86d4eb;
+}
+.discovered .shopdynamic ul li .dynamic-title .sharebox a b {
+  width: .35rem;
+  height: .35rem;
+  border: .05rem solid #fff;
+  box-sizing: border-box;
+  background-color: #86d4eb;
+  border-radius: 50%;
+  position: absolute;
+  right: .1rem;
+  top: .6rem;
+}
+.discovered .shopdynamic ul li .dynamic-title .sharebox a.collection {
+  width: 3rem;
+  border: 1px solid #86d4eb;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  box-sizing: border-box;
+  border-radius: .25rem;
+}
+.discovered .shopdynamic ul li .dynamic-title .sharebox a.collection:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.discovered .shopdynamic ul li .dynamic-title .sharebox a.collection i {
+  float: left;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: .8rem;
+  margin-left: .3rem;
+}
+.discovered .shopdynamic ul li .dynamic-title .sharebox a.collection em {
+  float: left;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: .6rem;
+  margin-left: .1rem;
+}
+.discovered .shopdynamic ul li .dynamic-content {
+  width: 15rem;
+  position: relative;
+}
+.discovered .shopdynamic ul li .dynamic-content .content {
+  color: #505050;
+  max-height: 2rem;
+  margin-bottom: .5rem;
+  line-height: 1rem;
+  overflow: hidden;
+}
+.discovered .shopdynamic ul li .dynamic-content a {
+  color: #12b7f5;
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  display: inline-block;
+}
+.discovered .shopdynamic ul li .dynamic-content .imgbox {
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.discovered .shopdynamic ul li .dynamic-content .imgbox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.discovered .shopdynamic ul li .dynamic-content .imgbox img {
+  float: left;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: .25rem;
+  margin-right: .25rem;
+}
+.discovered .shopdynamic ul li .dynamic-content div.big img {
+  width: 12rem;
+  height: 12rem;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家中心</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <link rel="stylesheet" href="../../style/css/mobiscroll.custom-2.16.1.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/mobiscroll.custom-2.17.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/staffadd.js"></script>
+</head>
+<body class="ms-controller" ms-controller="staffadd">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>添加员工信息</h3>
+    <a href="javascript:;" class="link" ms-on-tap="saveData" ms-if-loop="!isSuccess">保存</a>
+</div>
+<div class="mer-con">
+    <div class="addstaff">
+        <div class="staffitem">
+            <p>基本信息</p>
+            <ul>
+                <li>
+                    <span class="require">员工名字</span>
+                    <input type="text" class="short" placeholder="请输入员工名字" ms-duplex="staffModel.Name">
+                    <div class="imgbox">
+                        <i class="iconfont icon-wo"></i>
+                        <span>添加照片</span>
+                        <input type="file" class="file">
+                    </div>
+                </li>
+                <li>
+                    <span class="require">性别</span>
+                    <select ms-duplex="staffModel.Sex">
+                        <option value="0">男</option>
+                        <option value="1">女</option>
+                    </select>
+                </li>
+                <li>
+                    <span class="require">民族</span>
+                    <input type="text" placeholder="请输入民族" ms-duplex="staffModel.FamilyName">
+                </li>
+                <li>
+                    <span>出生日期</span>
+                    <input placeholder="请选择出生日期" id="birthDate" ms-duplex="birthDate">
+                </li>
+                <li>
+                    <span class="require item-name">联系方式</span>
+                    <input type="tel" placeholder="请输入联系方式" ms-duplex="staffModel.Tel">
+                </li>
+            </ul>
+        </div>
+        <div class="staffitem">
+            <p>身份信息</p>
+            <ul>
+                <li>
+                    <span class="require">证件类型</span>
+                    <select ms-duplex="staffModel.CertiType">
+                        <option value="0">身份证</option>
+                        <option value="1">护照</option>
+                        <option value="2">港澳通行证</option>
+                    </select>
+                </li>
+                <li>
+                    <span class="require">证件号码</span>
+                    <input type="tel" placeholder="请输入证件号码" ms-duplex="staffModel.CertiNo">
+                </li>
+            </ul>
+        </div>
+        <div class="staffitem">
+            <p>更多信息</p>
+            <ul>
+                <li>
+                    <span class="require">所在部门</span>
+                    <input type="text" placeholder="部门名称" ms-duplex="staffModel.DepartmentName">
+                </li>
+                <li>
+                    <span>所在职位</span>
+                    <input type="text" placeholder="职位名称" ms-duplex="staffModel.Position">
+                </li>
+                <li>
+                    <span>教育程度</span>
+                    <input type="text" placeholder="请输入教育程度" ms-duplex="staffModel.Degree">
+                </li>
+                <li>
+                    <span>政治面貌</span>
+                    <input type="text" placeholder="请输入政治面貌" ms-duplex="staffModel.Political">
+                </li>
+                <li>
+                    <span>紧急联系人</span>
+                    <input type="text" placeholder="请输入紧急联系人" ms-duplex="staffModel.EmergencyContacter">
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

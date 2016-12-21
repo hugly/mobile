@@ -1,0 +1,227 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.voucher {
+  width: 16rem;
+  position: relative;
+}
+.voucher .bgimg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  width: 16rem;
+  z-index: 0;
+}
+.voucher .voucherbox {
+  position: absolute;
+  width: 14rem;
+  left: 1rem;
+  top: 2.5rem;
+  z-index: 9;
+}
+.voucher .voucherbox .top {
+  width: 14rem;
+  height: 8rem;
+  position: relative;
+}
+.voucher .voucherbox .top h3 {
+  width: 14rem;
+  height: 2rem;
+  line-height: 2rem;
+  color: #e45079;
+  font-size: .8rem;
+  margin-top: 2rem;
+  font-weight: bolder;
+  text-align: center;
+}
+.voucher .voucherbox .top h3 i {
+  font-weight: normal;
+  color: #e45079;
+  font-size: .75rem;
+  margin-left: 1rem;
+}
+.voucher .voucherbox .top .erweima {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  margin: .5rem 4.5rem;
+}
+.voucher .voucherbox .top p {
+  width: 14rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .6rem;
+  color: #000;
+  text-align: center;
+}
+.voucher .voucherbox .top span {
+  display: inline-block;
+  width: 14rem;
+  color: #000;
+  text-align: center;
+  font-size: 2rem;
+  font-style: italic;
+}
+.voucher .voucherbox .bottom {
+  width: 14rem;
+  position: relative;
+}
+.voucher .voucherbox .bottom .logo {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 6rem;
+  margin-top: 1rem;
+}
+.voucher .voucherbox .bottom h3 {
+  width: 14rem;
+  height: 2rem;
+  line-height: 2rem;
+  color: #000;
+  font-size: .7rem;
+  text-align: center;
+  margin-top: .5rem;
+}
+.voucher .voucherbox .bottom input {
+  width: 10.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  padding: .5rem;
+  border: .25rem solid #e5e5e5;
+  margin-left: 1rem;
+  margin-top: .5rem;
+}
+.voucher .voucherbox .bottom .getvoucher {
+  display: inline-block;
+  width: 12rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin-top: .5rem;
+  text-align: center;
+  background-color: #e45079;
+  color: #fff;
+  margin-left: 1rem;
+}
+.voucher .voucherbox .result {
+  width: 14rem;
+  position: relative;
+}
+.voucher .voucherbox .result p {
+  width: 12rem;
+  margin: 0 1rem;
+  text-align: center;
+  line-height: 1.5rem;
+  color: #000;
+}
+.voucher .voucherbox .result p i {
+  color: #52c08d;
+  font-size: .8rem;
+  margin-right: .5rem;
+}
+.voucher .voucherbox .result p.red {
+  color: #e45079;
+}
+.voucher .voucherbox .result p.grey {
+  color: #a4a6a5;
+  line-height: 1rem;
+  font-size: .6rem;
+}
+.voucher .voucherbox .result .operate {
+  width: 12rem;
+  margin: 1rem 1rem .75rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.voucher .voucherbox .result .operate:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.voucher .voucherbox .result .operate .type1 {
+  float: left;
+  width: 5.75rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #e45079;
+  color: #fff;
+  margin-right: .5rem;
+}
+.voucher .voucherbox .result .operate .type2 {
+  float: left;
+  width: 5.75rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #fff;
+  color: #000;
+}

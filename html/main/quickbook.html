@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/quick.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/quickboox.js"></script>
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=XAJBZ-AILWF-4TGJA-JLE2G-XKVDT-CGF56"></script>
+</head>
+<body class="ms-controller" ms-controller="orderinfo">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>订单详情</h3>
+</div>
+<div class="mainBox" style="margin-top: 2rem;">
+    <!--快递员信息-->
+    <div class="courier" ms-if="orderData.Orders[0].NextOrderStatus.HasNext && el.Orders[0].NextOrderStatus.NextStatusInter > 0">
+        <div class="time-box">
+            <div class="left-time">
+                <div class="left-part"></div>
+            </div>
+            <div class="right-time">
+                <div class="right-part"></div>
+            </div>
+            <span>{{time2Left}}</span>
+        </div>
+        <div class="courier-info">
+            <h3 ms-if="orderData.Orders[0].Status === 1">订单未支付</h3>
+            <h3 ms-if="orderData.Orders[0].Status === 5">正在安排快递人员取件</h3>
+            <h3 ms-if="orderData.Orders[0].Status === 6">快递人员正在路上</h3>
+            <h3 ms-if="orderData.Orders[0].Status === 8">{{orderData.Orders[0].ShowStatus}}</h3>
+            <h3 ms-if="orderData.Orders[0].Status === 9">正在安排快递人员送件</h3>
+            <h3 ms-if="orderData.Orders[0].Status === 10">快递人员正在路上</h3>
+            <p ms-if="orderData.Orders[0].NextOrderStatus.IsShowInter">{{orderData.Orders[0].NextOrderStatus.NextStatusShow}}:{{timeLeft}}<em></em></p>
+            <p ms-if="!orderData.Orders[0].NextOrderStatus.IsShowInter">{{orderData.Orders[0].NextOrderStatus.NextStatusShow}}:{{orderData.Orders[0].NextOrderStatus.GuessCompleteDate | date("yyyy-MM-dd")}}<em></em></p>
+        </div>
+        <a ms-if="orderData.Orders[0].Status === 6" ms-attr-href="tel:{{pickupModel.Phone}}" class="tel">联系快递员</a>
+        <a ms-if="orderData.Orders[0].Status === 10" ms-attr-href="tel:{{containModel.Phone}}" class="tel">联系快递员</a>
+        <a ms-if="orderData.Orders[0].Status === 8" ms-attr-href="../merchant/ordercircul.html?code={{code}}" class="tel">查看详情</a>
+    </div>
+    <!--快递单号-->
+    <div class="order-num"><a ms-attr-href="../merchant/orderstatusflow.html?code={{orderData.Orders[0].Code}}&status={{orderData.Orders[0].ShowStatus}}">
+        订单编号:{{code}}<i class="iconfont icon-xiangyou"></i><span>{{orderData.Orders[0].ShowStatus}}</span>
+    </a></div>
+    <!--地图-->
+    <div class="map" id="map" ms-if-loop="orderData.Status === 10"></div>
+    <!--订单状态-->
+    <div class="order-status" ms-if-loop="orderData.Orders[0].ShowStatusFlows.size() > 0">
+        <div class="statebox">
+            <ul>
+                <li ms-repeat="statusFlowsList" ms-class-1="passed:el.Value === 0" ms-class-2="active:el.Value === 1">
+                    <p ms-class-1="noline:$index === 4"><b></b><em></em></p>
+                    <span>{{el.Text}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--商家详情-->
+    <div class="person">
+        <a ms-attr-href="quickbookinfo.html?code={{code}}">
+            配送信息
+            <i class="iconfont icon-xiangyou right-btn"></i>
+            <span>{{orderData.Orders[0].ShowStatus}}</span>
+        </a>
+    </div>
+    <!--订单列表-->
+    <div class="neworder-box" ms-if-loop="hasPro">
+        <div class="pro-title">
+            <h3>商品信息</h3>
+            <!--<a href="javascript:;">查看核实信息</a>-->
+        </div>
+        <div class="pro-box">
+            <ul ms-css-height="proDataModel.size()>3?'9.2rem':proDataModel.size()*3+'rem'">
+                <li ms-repeat="proDataModel"><a href="javascript:;">
+                    <img ms-attr-src="el.DefaultImage">
+                    <div class="pro-info">
+                        <div class="left-info">
+                            <p>服务项目:{{el.Title}}</p>
+                            <p>商品名称:{{el.Name}}</p>
+                        </div>
+                        <div class="right-info">
+                            <em>￥{{el.Price}}</em>
+                            <em>x{{el.totalNum}}</em>
+                        </div>
+                    </div>
+                </a></li>
+            </ul>
+            <a href="javascript:;" class="more" ms-on-tap="checkMoreOtherFn" ms-if="isShowMore && proDataModel.size()>3">收起<i class="iconfont icon-xiangxia1-copy"></i></a>
+            <a href="javascript:;" class="more" ms-on-tap="checkMoreFn" ms-if="!isShowMore && proDataModel.size()>3">查看更多({{proTotalNum}})<i class="iconfont icon-xiangxia1"></i></a>
+        </div>
+        </div>
+    </div>
+    <!--支付方式\发票\价格合计-->
+    <div class="combox">
+        <div class="totalprice" ms-if-loop="orderData.PayPrice">
+            <ul>
+                <li><span>商品金额</span><em>{{proTotalPrice | currency}}</em></li>
+                <li ms-if="orderData.Orders[0].LogistCharge > 0"><span>物流费用</span><em>{{orderData.Orders[0].LogistCharge | currency}}</em></li>
+                <!--<li><span>配送</span><em>￥563.00</em></li>-->
+                <li ms-if-loop="orderData.Orders[0].CounpPrice !== 0"><span>店铺优惠券</span><em>-{{orderData.Orders[0].CounpPrice | currency}}</em></li>
+            </ul>
+            <div class="pay-info">
+                <h3>
+                    <span>{{orderData.ShowPayType}}</span>
+                    <em>实付:<b>{{orderData.Orders[0].PayPrice | currency}}</b></em>
+                </h3>
+                <p>下单时间:{{orderData.Orders[0].CreateTime | date("yyyy.MM.dd HH:mm")}}</p>
+            </div>
+        </div>
+    </div>
+    <!--商家详情-->
+    <div class="shopdetail" ms-if-loop="orderData.Orders[0].Seller.ShopName && orderData.Orders[0].Seller.Address">
+        <div class="shop-info">
+            <a ms-attr-href="detail.html?dataid={{orderData.Orders[0].Seller.ShopId}}">
+                <div class="shop-img">
+                    <img ms-attr-src="{{orderData.Orders[0].Seller.ShopLogo}}">
+                </div>
+                <div class="shop-time">
+                    <h3>{{orderData.Orders[0].Seller.ShopName}}</h3>
+                    <p>营业时间:{{orderData.Orders[0].Seller.ShopHours}}</p>
+                    <p>{{orderData.Orders[0].Seller.Address}}</p>
+                </div>
+            </a>
+        </div>
+        <div class="shop-video">
+            <a href="javascript:;">
+                <div href="javascript:;" class="video-info">
+                    <i class="iconfont icon-shipin"></i>
+                    <span>视频监控</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div style="width: 16rem; height: 3rem;"></div>
+</div>
+<!--退单\确定收货-->
+<div class="receipt" ms-visible="actionList.size() > 0">
+    <a href="javascript:;" ms-repeat="actionList" ms-on-tap="operateFn(el.value,orderData.Orders[0].Code,orderData)">{{el.text}}</a>
+</div>
+</body>
+</html>

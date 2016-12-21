@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/detail.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+</head>
+<body style="background-color: #f6f6f6;">
+    <!--详情页头部-->
+    <div class="header-detail">
+        <a href="javascript:;" class="back-btn" onclick="return_prepage()">
+            <i class="iconfont icon-fanhui"></i>
+        </a>
+        <h3>分享赢好礼</h3>
+        <!--<div class="sharebox">-->
+            <!--<a href="recommondPerson.html" class="collection" style="width: 4.5rem; color: #35c8fc;">推荐的好友</a>-->
+        <!--</div>-->
+
+    </div>
+    <div class="recommodmain">
+        <a href="recommondPerson.html">
+            <img src="../../data-images/recommd.jpg">
+            <em id="number">0<span>人</span></em>
+        </a>
+        <h5>送给好友10元代金券,当TA首次洗衣时</h5>
+        <h3>您将获得10元现金奖励</h3>
+        <!--<a href="javascript:;" class="gorule">奖励规则 <i class="iconfont icon-xiangyou"></i></a>-->
+    </div>
+    <a href="javascript:;" class="recommodnow">点击右上角分享给你的好友</a>
+    <div class="share" style=" display: none; position: fixed; width: 16rem; left: 0; top: 0; z-index: 9; background-color: rgba(0,0,0,.4); height: 100%;">
+        <img src="../../data-images/shareicon.png" style="position: absolute; right: .5rem; top: .5rem; width: 6rem;">
+        <p style="width: 16rem; text-align: center; line-height: 1rem; margin-top: 10rem; color: #fff; font-size: .8rem;">点击右上角完成分享</p>
+    </div>
+</body>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+//    m.wziwash.com/jsonp/wx_JSConfig_9.js?callback=jsonp0553329182875
+    $(function(){
+        var version = 0;
+
+        getBaseVersion(function(rs){
+            version=rs;
+            getConfig();
+            getRecommendFriend();
+        });
+
+        $('.recommodnow').on('click',this,function(){
+            $('.share').show();
+        });
+        $('.share').on('click',this,function(){
+            $('.share').hide();
+        });
+
+
+        function getRecommendFriend(){
+            jsonp(host+'/jsonp/RecommendFriend_GetPageBySsoUserCode_'+version+'.js',{
+                token:token,
+                PageIndex:1,
+                PageSize:10
+            },'callback',function(rs){
+                if(rs.Success){
+                    $('#number').html(rs.TotalPages+'<span>人</span>');
+                }
+            },function(){
+            });
+        }
+
+        function shareSuccess(){
+            jsonp(host+'/jsonp/DailyActivity_InsertUserRecord_'+version+'.js',{
+                token:token,
+                value:2
+            },'callback',function(rs){
+                if(rs.Success){
+                    if(rs.Data){
+                        $.redPackets({
+                            text:'日常活动   现金奖励',
+                            url:host+'jsonp/DailyActivity_InsertReward_'+version+'.js'
+                        })
+                    }
+                }
+            },function(){
+            });
+        }
+
+        function getConfig(){
+            jsonp(host+'/jsonp/wx_JSConfig_'+version+'.js',{
+                token:token,
+                url:window.location.href
+            },'callback',function(rs){
+                var data = rs.Data;
+                getUserCode(data);
+            },function(){
+            });
+        }
+
+        function getUserCode(options){
+            jsonp(host+'/jsonp/Account_GetUserCode_'+version+'.js',{
+                token:token
+            },'callback',function(rs){
+                if(rs.Success){
+                    var data = rs.Data;
+                    wxStart(options,data);
+                }else{
+                    $.message({
+                        msg:rs.Msg
+                    })
+                }
+            },function(){
+            });
+        }
+
+        function wxStart(data,code){
+
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: data.appId, // 必填，公众号的唯一标识
+                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                signature: data.signature,// 必填，签名，见附录1
+                jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+
+            wx.ready(function () {
+
+                // 分享到朋友圈
+                wx.onMenuShareTimeline({
+                    title: WEIXINSHARE.title,
+                    desc: WEIXINSHARE.desc, // 分享描述
+                    link: window.location.host+'/Html/html/personal/share.html?code='+code, // 分享链接：
+                    imgUrl: WEIXINSHARE.imgUrl, // 分享图标
+                    success:function(){
+                        shareSuccess();
+                    }
+                });
+
+                //分享给朋友
+                wx.onMenuShareAppMessage({
+                    title: WEIXINSHARE.title,
+                    desc: WEIXINSHARE.desc, // 分享描述
+                    link: window.location.host+'/Html/html/personal/share.html?code='+code, // 分享链接：
+                    imgUrl: WEIXINSHARE.imgUrl, // 分享图标
+                    success:function(){
+                        shareSuccess();
+                    }
+                });
+
+                //分享给qq
+                wx.onMenuShareQQ({
+                    title: WEIXINSHARE.title,
+                    desc: WEIXINSHARE.desc, // 分享描述
+                    link: window.location.host+'/Html/html/personal/share.html?code='+code, // 分享链接：
+                    imgUrl: WEIXINSHARE.imgUrl, // 分享图标
+                    success:function(){
+                        shareSuccess();
+                    }
+                });
+
+                //分享给腾讯微博
+                wx.onMenuShareWeibo({
+                    title: WEIXINSHARE.title,
+                    desc: WEIXINSHARE.desc, // 分享描述
+                    link: window.location.host+'/Html/html/personal/share.html?code='+code, // 分享链接：
+                    imgUrl: WEIXINSHARE.imgUrl, // 分享图标
+                    success:function(){
+                        shareSuccess();
+                    }
+                });
+
+                //分享到QQ空间
+                wx.onMenuShareQZone({
+                    title: WEIXINSHARE.title,
+                    desc: WEIXINSHARE.desc, // 分享描述
+                    link: window.location.host+'/Html/html/personal/share.html?code='+code, // 分享链接：
+                    imgUrl: WEIXINSHARE.imgUrl, // 分享图标
+                    success:function(){
+                        shareSuccess();
+                    }
+                });
+
+            });
+
+        }
+    });
+</script>
+</html>

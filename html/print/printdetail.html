@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/print.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/dropload.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/print/printdetail.js"></script>
+</head>
+<body class="ms-controller" ms-controller="printdetail">
+<!--公共头部-->
+<div class="headerone haslist">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem; padding-right: 0;">打印设置</h3>
+    <a href="javascript:;" style="width: 3rem;" class="link" ms-if="!isProcessing" ms-on-tap="saveFn">保存</a>
+</div>
+<div class="printsettings">
+    <div class="part">
+        <ul>
+            <li>
+                <span class="require">设备编号</span>
+                <div class="item">
+                    <input type="text" placeholder="请输入设备编号" ms-duplex="printDataModel.No">
+                </div>
+            </li>
+            <li>
+                <span class="require">设备密钥</span>
+                <div class="item" ms-on-tap="changeShow">
+                    <input type="text" placeholder="请输入设备密钥" ms-duplex="printDataModel.key">
+                </div>
+            </li>
+            <li>
+                <span class="require">流量卡号</span>
+                <div class="item">
+                    <input type="tel" placeholder="请输入流量卡号" ms-duplex="printDataModel.phone">
+                </div>
+            </li>
+            <li>
+                <span class="require">打印机别名</span>
+                <div class="item">
+                    <input type="text" placeholder="打印机别名" ms-duplex="printDataModel.nickname">
+                </div>
+            </li>
+            <li>
+                <span class="require">自动打印</span>
+                <div class="item" ms-on-tap="changeAutoFn">
+                    <i class="iconfont" ms-class-1="icon-kaiguankai:!printDataModel.autoPrint" ms-class-2="icon-kaiguanguan-copy-copy:printDataModel.autoPrint"></i>
+                </div>
+            </li>
+            <li ms-if="code !== ''">
+                <span class="require">打印机状态</span>
+                <div class="item">
+                    <i class="iconfont icon-xiangyou"></i>
+                    <select ms-duplex="printDataModel.status">
+                        <option value="1">在线</option>
+                        <option value="2">缺纸</option>
+                        <option value="3">离线</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/print.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/dropload.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/print/printlist.js"></script>
+</head>
+<body class="ms-controller" ms-controller="printlist">
+<!--公共头部-->
+<div class="headerone haslist">
+    <a href="javascript:;" class="back-btn" ms-on-tap="gobackFn()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11.8rem; padding-right: 0;">打印列表</h3>
+    <a href="printdetail.html" style="width: 2rem; text-align: center;" class="message-btn">
+        <i class="iconfont icon-jia"></i>
+    </a>
+</div>
+<div class="listbox">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;" ms-if="!loadingImgShow && listDataModle.size() === 0">暂无打印机。请点击右上角添加</p>
+    <ul ms-if="listDataModle.size() > 0">
+        <li ms-repeat="listDataModle" ms-on-swipeleft="leftFn(el)" ms-on-swiperight="rightFn(el)" ms-on-swipedown="rightFn(el)" ms-css-transform="translateX(-{{el.isShow?'3':0}}rem)">
+            <a ms-attr-href="printdetail.html?code={{el.Code}}" class="mainpart">
+                <span class="name">{{el.Name}}</span>
+                <em class="status" ms-class-1="green:el.State === 1" ms-class-2="red:el.State !== 1">{{el.statusText}}</em>
+                <i class="iconfont icon-jiantouzuo"></i>
+            </a>
+            <a href="javascript:;" class="dele" ms-on-tap="deleFn(el,$remove)">删除</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

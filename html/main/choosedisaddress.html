@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/address.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/disaddresslist.js"></script>
+</head>
+<body class="ms-controller" ms-controller="address">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>取件地址/收件地址</h3>
+    <a href="javascript:;" class="message-btn" ms-on-tap="addressFn">
+        <i class="iconfont icon-jia"></i>
+    </a>
+</div>
+<!--地址列表-->
+<div class="addressbox">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <ul>
+        <li ms-repeat="addressList" ms-on-tap="tapFn($index)">
+            <a href="javascript:;" class="selsected" ms-visible="el.isSelect">
+                <i class="iconfont icon-gou"></i>
+            </a>
+            <div class="addressitem">
+                <h3>{{el.ReceiverName}}<span>{{el.Phone}}</span></h3>
+                <p>{{el.DetailAddress}}</p>
+            </div>
+            <a ms-attr-href="../personal/newaddress.html?code={{el.Code}}" class="edit-btn">
+                <i class="iconfont icon-bianji1"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="sure">
+    <a ms-attr-href="chooseways.html?{{searchData}}" class="sure-btn">保存</a>
+</div>
+</body>
+</html>

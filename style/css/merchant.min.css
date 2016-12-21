@@ -1,0 +1,4940 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.mapbox {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.listbox {
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  width: 15rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: 0 0 .2rem #ccc;
+}
+.listbox ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.listbox ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.listbox ul li {
+  float: left;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+.listbox ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.listbox ul li:last-child {
+  border-bottom: none;
+}
+.listbox ul li.active a {
+  color: #86d4eb;
+}
+.mer-title {
+  width: 16rem;
+  height: 1.6rem;
+  padding: .2rem 0;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 9;
+}
+.mer-title ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-title ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-title ul li {
+  float: left;
+  width: 7.9rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+}
+.mer-title ul li.active {
+  color: #86d4eb;
+}
+.mer-title ul li:first-child {
+  border-right: 1px solid #ccc;
+}
+.mer-con {
+  position: relative;
+  width: 16rem;
+  top: 2rem;
+  overflow: hidden;
+}
+.mer-con .mainaccount {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .mainaccount .mainBalance {
+  width: 15rem;
+  height: 5rem;
+  background-color: #5ba4ec;
+  padding: 1rem .5rem;
+}
+.mer-con .mainaccount .mainBalance h3 {
+  line-height: 2rem;
+  color: #fff;
+  font-size: .6rem;
+}
+.mer-con .mainaccount .mainBalance h1 {
+  line-height: 3rem;
+  color: #fff;
+  font-size: 1.6rem;
+}
+.mer-con .mainaccount .accountList {
+  width: 16rem;
+  position: relative;
+  margin-top: .5rem;
+}
+.mer-con .mainaccount .accountList ul {
+  width: 16rem;
+  position: relative;
+  overflow: hidden;
+}
+.mer-con .mainaccount .accountList ul li {
+  float: left;
+  width: 15rem;
+  height: 1rem;
+  padding: .5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .mainaccount .accountList ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .mainaccount .accountList ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .mainaccount .accountList ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .mainaccount .accountList ul li a .left {
+  float: left;
+  color: #00b3e9;
+  font-size: 1rem;
+}
+.mer-con .mainaccount .accountList ul li a span {
+  float: left;
+  margin-left: .5rem;
+}
+.mer-con .mainaccount .accountList ul li a span.require:before {
+  content: "*";
+  color: #c00;
+}
+.mer-con .mainaccount .accountList ul li a .right {
+  float: right;
+}
+.mer-con .process {
+  width: 16rem;
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 9;
+  box-shadow: 0 0 .1rem #999;
+}
+.mer-con .process ul {
+  width: 16rem;
+  padding: .5rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+}
+.mer-con .process ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .process ul li {
+  float: left;
+  width: 5.3rem;
+  text-align: center;
+  position: relative;
+}
+.mer-con .process ul li a {
+  float: left;
+  width: 5.3rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin-bottom: .5rem;
+}
+.mer-con .process ul li a b {
+  display: inline-block;
+  margin-right: .2rem;
+  width: .8rem;
+  height: .8rem;
+  line-height: .8rem;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #dadada;
+  color: #fff;
+}
+.mer-con .process ul li em {
+  float: left;
+  width: 5.3rem;
+  height: .1rem;
+  background-color: #e5e5e5;
+  text-align: center;
+  position: relative;
+}
+.mer-con .process ul li em strong {
+  display: inline-block;
+  width: .3rem;
+  height: .3rem;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+  position: relative;
+  top: -0.55rem;
+}
+.mer-con .process ul li:last-child {
+  width: 5.4rem;
+}
+.mer-con .process ul li:last-child em {
+  width: 5.4rem;
+}
+.mer-con .process ul li.active a b {
+  background-color: #86d4eb;
+}
+.mer-con .process ul li.active em {
+  background-color: #86d4eb;
+}
+.mer-con .process ul li.active em strong {
+  background-color: #86d4eb;
+}
+.mer-con div.settings ul {
+  padding: .5rem 0 0 0;
+}
+.mer-con div.settings ul li {
+  width: 8rem;
+}
+.mer-con div.settings ul li a {
+  width: 8rem;
+}
+.mer-con div.settings ul li em {
+  width: 8rem;
+}
+.mer-con div.settings ul li:last-child em {
+  width: 8rem;
+}
+.mer-con div.imgbox ul {
+  background-color: #f0f2f5;
+}
+.mer-con div.imgbox ul li {
+  background-color: #fff;
+}
+.mer-con .success-info {
+  width: 16rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #feb404;
+}
+.mer-con .part {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .part h3 {
+  width: 15rem;
+  padding: 0 .5rem;
+  line-height: 1.5rem;
+  height: 1.5rem;
+  font-size: .6rem;
+  font-weight: bolder;
+}
+.mer-con .part h3.require:before {
+  content: "*";
+  color: #c00;
+}
+.mer-con .part .washtypebox {
+  width: 15rem;
+  padding: .5rem .5rem 0 .5rem;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .part .washtypebox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .part .washtypebox a {
+  float: left;
+  width: 4.5rem;
+  margin: 0 .5rem .5rem 0;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+  border: 1px solid #e5e6e8;
+  box-sizing: border-box;
+  position: relative;
+}
+.mer-con .part .washtypebox a b {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: .9rem solid #e5e6e8;
+  border-left: .9rem solid transparent;
+}
+.mer-con .part .washtypebox a b i {
+  color: #fff;
+  font-size: .6rem;
+  position: absolute;
+  right: -0.1rem;
+  top: -1.1rem;
+  height: 1rem;
+  line-height: 1rem;
+}
+.mer-con .part .washtypebox a.active {
+  border-color: #86d4eb;
+  color: #86d4eb;
+}
+.mer-con .part .washtypebox a.active b {
+  border-top-color: #86d4eb;
+}
+.mer-con .part ul {
+  width: 16rem;
+  border-top: 1px solid #e5e5e5;
+  background-color: #fff;
+}
+.mer-con .part ul li {
+  width: 15rem;
+  height: 1rem;
+  padding: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .part ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .part ul li span {
+  float: left;
+  width: 4rem;
+  text-align: left;
+  font-size: .6rem;
+}
+.mer-con .part ul li span.require:before {
+  content: "*";
+  color: #c00;
+}
+.mer-con .part ul li .item {
+  float: left;
+  width: 11rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  text-align: right;
+}
+.mer-con .part ul li .item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .part ul li .item input {
+  float: left;
+  width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  border: 0;
+}
+.mer-con .part ul li .item textarea {
+  float: left;
+  width: 11rem;
+  height: 5rem;
+  line-height: 1rem;
+  border: 0;
+  resize: none;
+}
+.mer-con .part ul li .item em {
+  float: right;
+  width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  color: #000;
+}
+.mer-con .part ul li .item i {
+  float: right;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  line-height: 1rem;
+  font-size: .6rem;
+  color: #bfbfbf;
+}
+.mer-con .part ul li .item i.show {
+  color: #86d4eb;
+}
+.mer-con .part ul li .item i.icon-xuanze {
+  font-size: 1rem;
+  color: #86d4eb;
+}
+.mer-con .part ul li .item i.icon-xuanze1 {
+  font-size: 1rem;
+}
+.mer-con .part ul li .item select {
+  float: right;
+  width: 10rem;
+  text-align: right;
+  border: 0;
+  background-color: #fff;
+}
+.mer-con .part ul p.imgintro {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding-left: .5rem;
+  font-size: .7rem;
+}
+.mer-con .part ul li.upload {
+  height: auto;
+}
+.mer-con .part ul li.upload p {
+  font-size: .6rem;
+}
+.mer-con .part ul li.upload P.require:before {
+  content: "*";
+  color: #c00;
+}
+.mer-con .part ul li.upload .upload-box {
+  width: 15rem;
+  position: relative;
+  z-index: 1;
+  background-color: #f0f2f5;
+}
+.mer-con .part ul li.upload .upload-box .imagebox {
+  width: 15rem;
+  position: relative;
+}
+.mer-con .part ul li.upload .upload-box .imagebox img {
+  display: block;
+  width: 15rem;
+}
+.mer-con .part ul li.upload .upload-box .imagebox a {
+  cursor: pointer;
+  display: inline-block;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #c00;
+  color: #fff;
+  margin-top: .5rem;
+}
+.mer-con .part ul li.upload .upload-box .add-box {
+  width: 15rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #e5e5e5;
+  background-color: #f1f1f1;
+}
+.mer-con .part ul li.upload .upload-box .add-box i {
+  font-size: 2rem;
+}
+.mer-con .part ul li.upload .upload-box .add-box input {
+  width: 15rem;
+  height: 4rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  opacity: 0;
+}
+.mer-con .part ul li.upload .upload-box div.opa {
+  opacity: 0;
+}
+.mer-con .part ul li.upload .upload-box .upload-list {
+  width: 14rem;
+  padding: 0 .5rem .5rem .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .part ul li.upload .upload-box .upload-list:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .uploadimgbox {
+  width: 14rem;
+  position: relative;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .uploadimgbox .imgitem {
+  width: 14rem;
+  padding-top: .5rem;
+  position: relative;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .uploadimgbox .imgitem img {
+  display: block;
+  width: 14rem;
+  height: 9rem;
+  margin-bottom: .5rem;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .uploadimgbox .imgitem a {
+  display: inline-block;
+  width: 14rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #cc0000;
+  color: #fff;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .upload-item {
+  float: left;
+  width: 14rem;
+  text-align: center;
+  margin: .5rem .5rem 0 0;
+  border: 1px solid #d5d5d5;
+  background-color: #fff;
+  position: relative;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .upload-item .uploadbox {
+  width: 14rem;
+  height: 4rem;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .upload-item .uploadbox i {
+  font-size: 2rem;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .upload-item .uploadbox b {
+  display: inline-block;
+  width: 14rem;
+  height: 1rem;
+  position: relative;
+  left: 0;
+  bottom: .5rem;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .upload-item .uploadbox input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 14rem;
+  height: 4rem;
+  z-index: 9;
+  opacity: 0;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .upload-item .imgbox {
+  display: none;
+  width: 14rem;
+  position: relative;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .upload-item .imgbox img {
+  display: block;
+  width: 14rem;
+}
+.mer-con .part ul li.upload .upload-box .upload-list .upload-item .imgbox a {
+  cursor: pointer;
+  display: inline-block;
+  width: 14rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #c00;
+  color: #fff;
+  margin-top: .5rem;
+}
+.mer-con .mer-main {
+  width: 15rem;
+  padding: .5rem;
+  background-color: #435178;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .mer-main:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .mer-main img {
+  float: left;
+  width: 4.5rem;
+  height: 3rem;
+  border-radius: .25rem;
+}
+.mer-con .mer-main .main-info {
+  float: left;
+  width: 7rem;
+  height: 2rem;
+  padding: .5rem 0 .5rem .5rem;
+}
+.mer-con .mer-main .main-info h3 {
+  width: 7rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .mer-main .main-info span {
+  width: 7rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #fff;
+  font-size: .5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .mer-main .more-setting {
+  float: right;
+  font-size: .5rem;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  color: #fff;
+  position: relative;
+}
+.mer-con .mer-main .more-setting i {
+  font-size: .6rem;
+  color: #fff;
+}
+.mer-con .main-fn {
+  width: 15rem;
+  padding: .5rem;
+  background-color: #435178;
+}
+.mer-con .main-fn ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .main-fn ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .main-fn ul li {
+  float: left;
+  width: 5rem;
+  text-align: center;
+}
+.mer-con .main-fn ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mer-con .main-fn ul li a .icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+  border: .1rem solid #fff;
+  border-radius: 50%;
+}
+.mer-con .main-fn ul li a .icon i {
+  color: #fff;
+  font-size: 1rem;
+}
+.mer-con .main-fn ul li a span {
+  color: #fff;
+  display: inline-block;
+  width: 5rem;
+  font-weight: bolder;
+  padding-top: .2rem;
+}
+.mer-con .main-fn ul li a em {
+  color: #fff;
+  display: inline-block;
+  width: 5rem;
+  font-size: .5rem;
+}
+.mer-con .fn-box {
+  width: 16rem;
+  position: relative;
+  padding-bottom: 2.6rem;
+}
+.mer-con .fn-box ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .fn-box ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .fn-box ul li {
+  float: left;
+  width: 5.33rem;
+  height: 5.33rem;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.mer-con .fn-box ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mer-con .fn-box ul li a i {
+  display: inline-block;
+  height: 3rem;
+  line-height: 4rem;
+  font-size: 1.5rem;
+}
+.mer-con .fn-box ul li a i.type1 {
+  color: #26aee4;
+}
+.mer-con .fn-box ul li a i.type2 {
+  color: #ffc800;
+}
+.mer-con .fn-box ul li a i.type3 {
+  color: #61ad93;
+}
+.mer-con .fn-box ul li a i.type4 {
+  color: #fb8302;
+}
+.mer-con .fn-box ul li a i.type5 {
+  color: #34b3e6;
+}
+.mer-con .fn-box ul li a i.type6 {
+  color: #34b3e6;
+}
+.mer-con .fn-box ul li a i.type7 {
+  color: #61ad93;
+}
+.mer-con .fn-box ul li a i.type8 {
+  color: #ffc800;
+}
+.mer-con .fn-box ul li a i.type9 {
+  color: #ffc800;
+}
+.mer-con .fn-box ul li a i.type10 {
+  color: #34b3e6;
+}
+.mer-con .fn-box ul li a i.type11 {
+  color: #fb8302;
+}
+.mer-con .fn-box ul li a i.type12 {
+  color: #61ad93;
+}
+.mer-con .fn-box ul li a span {
+  display: inline-block;
+  width: 5.33rem;
+}
+.mer-con .coupons {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .coupons .coupon-title {
+  width: 16rem;
+  position: fixed;
+  top: 2rem;
+  z-index: 9;
+}
+.mer-con .coupons .coupon-title ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+}
+.mer-con .coupons .coupon-title ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .coupons .coupon-title ul li {
+  float: left;
+  width: 4rem;
+  height: 1.5rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+.mer-con .coupons .coupon-title ul li a {
+  display: inline-block;
+  padding: 0 .5rem;
+  height: 1.4rem;
+  border-bottom: .1rem solid #fff;
+}
+.mer-con .coupons .coupon-title ul li.active a {
+  color: #86d4eb;
+  border-bottom-color: #86d4eb;
+}
+.mer-con .coupons .coupon-list {
+  width: 16rem;
+  position: relative;
+  margin-top: 1.5rem;
+}
+.mer-con .coupons .coupon-list ul {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+}
+.mer-con .coupons .coupon-list ul li {
+  width: 15rem;
+  background-color: #fff;
+  margin-bottom: .5rem;
+  box-shadow: 0 0 .1rem #999;
+}
+.mer-con .coupons .coupon-list ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.mer-con .coupons .coupon-list ul li a .topbar {
+  width: 15rem;
+  height: .5rem;
+  background-color: #86d4eb;
+  position: relative;
+}
+.mer-con .coupons .coupon-list ul li a .topbar strong {
+  float: left;
+  display: inline-block;
+  width: 15rem;
+  height: .1rem;
+  margin-top: .4rem;
+  background: transparent url("images/blueborder.png") repeat-x 0 0;
+  background-size: contain;
+}
+.mer-con .coupons .coupon-list ul li a .mainbar {
+  width: 14rem;
+  padding: 0 .5rem;
+  background: transparent url("images/quan.png") no-repeat -0.5rem top;
+  background-size: contain;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .coupons .coupon-list ul li a .mainbar:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .coupons .coupon-list ul li a .mainbar .maintitle {
+  float: left;
+  width: 14rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #10bdfa;
+}
+.mer-con .coupons .coupon-list ul li a .mainbar .main {
+  float: left;
+  width: 14rem;
+  height: 2rem;
+  line-height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: .05rem dotted #ccc;
+}
+.mer-con .coupons .coupon-list ul li a .mainbar .main:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .coupons .coupon-list ul li a .mainbar .main span {
+  float: left;
+  height: 2rem;
+  color: #86d4eb;
+}
+.mer-con .coupons .coupon-list ul li a .mainbar .main span b {
+  color: #86d4eb;
+  font-size: 1.5rem;
+}
+.mer-con .coupons .coupon-list ul li a .mainbar .main p {
+  float: right;
+  margin-right: 1rem;
+  position: relative;
+}
+.mer-con .coupons .coupon-list ul li a .mainbar .main p em {
+  display: block;
+  max-width: 8rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .coupons .coupon-list ul li a .mainbar .main p em:last-child {
+  border-top: 1px solid #f1f1f1;
+}
+.mer-con .coupons .coupon-list ul li a .mainbar .main .iconfont {
+  position: absolute;
+  right: -0.3rem;
+  color: #aaa;
+}
+.mer-con .coupons .coupon-list ul li a .more {
+  width: 14rem;
+  padding: 0 .5rem;
+  position: relative;
+}
+.mer-con .coupons .coupon-list ul li a .more p {
+  width: 14rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .coupons .coupon-list ul li a .more p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .coupons .coupon-list ul li a .more p span {
+  float: left;
+  width: 4rem;
+  text-align: left;
+  font-size: .5rem;
+}
+.mer-con .coupons .coupon-list ul li a .more p i {
+  float: left;
+  padding-left: 2rem;
+  width: 2rem;
+  text-align: center;
+  font-size: .5rem;
+}
+.mer-con .coupons .coupon-list ul li a .more p em {
+  float: right;
+  width: 6rem;
+  text-align: right;
+  font-size: .5rem;
+}
+.mer-con .coupons .coupon-list ul li a .more p.more-info {
+  display: none;
+  line-height: .6rem;
+  font-size: .5rem;
+}
+.mer-con .coupons .coupon-list ul li .operate {
+  border-top: 1px solid #d5d5d5;
+  background-color: #f7f7f7;
+  height: 1rem;
+  padding: .3rem 0;
+  position: relative;
+}
+.mer-con .coupons .coupon-list ul li .operate a {
+  float: left;
+  width: 5rem;
+  height: 1rem;
+  line-height: 1rem;
+  border-right: .05rem solid #d5d5d5;
+  box-sizing: border-box;
+  text-align: center;
+}
+.mer-con .coupons .coupon-list ul li .operate a:last-child {
+  border-right: none;
+}
+.mer-con .coupons .coupon-list ul li.disable a .topbar {
+  background-color: #999;
+}
+.mer-con .coupons .coupon-list ul li.disable a .topbar strong {
+  background: transparent url("images/greyborder.png") repeat-x 0 0;
+  background-size: contain;
+}
+.mer-con .coupons .coupon-list ul li.disable a .maintitle {
+  color: #999;
+}
+.mer-con .coupons .coupon-list ul li.disable a .main span {
+  color: #999;
+}
+.mer-con .coupons .coupon-list ul li.disable a .main span b {
+  color: #999;
+}
+.mer-con .coupons .coupon-list ul li.disable .operate {
+  display: none;
+}
+.mer-con .member {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+}
+.mer-con .member .name {
+  width: 9rem;
+}
+.mer-con .member .male {
+  width: 2rem;
+}
+.mer-con .member .phone {
+  width: 4rem;
+}
+.mer-con .member .member-title {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .member .member-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .member .member-title a {
+  float: left;
+  text-align: center;
+}
+.mer-con .member .member-title a.name {
+  text-align: left;
+}
+.mer-con .member .member-box {
+  position: relative;
+}
+.mer-con .member .member-box ul {
+  position: relative;
+}
+.mer-con .member .member-box ul li {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: .25rem .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+}
+.mer-con .member .member-box ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .member .member-box ul li .name {
+  width: 9rem;
+  height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .member .member-box ul li .name:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .member .member-box ul li .name img {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.mer-con .member .member-box ul li .name span {
+  float: left;
+  width: 3rem;
+  text-align: center;
+}
+.mer-con .member .member-box ul li .name em {
+  float: left;
+  max-width: 4.5rem;
+  height: .9rem;
+  padding: 0 .3rem;
+  border-radius: .1rem;
+  line-height: .9rem;
+  font-size: .4rem;
+  margin: .4rem 0;
+  background-color: #35c1fc;
+  color: #fff;
+}
+.mer-con .member .member-box ul li div {
+  float: left;
+}
+.mer-con .member .member-box ul li div.male {
+  text-align: center;
+}
+.mer-con .member .member-box ul li div.phone {
+  text-align: center;
+}
+.mer-con .member .member-box ul li:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+.mer-con .staff {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .staff .name {
+  width: 7rem;
+}
+.mer-con .staff .male {
+  width: 1.5rem;
+}
+.mer-con .staff .age {
+  width: 1.5rem;
+}
+.mer-con .staff .phone {
+  width: 4rem;
+}
+.mer-con .staff .staff-title {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .staff .staff-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .staff .staff-title a {
+  float: left;
+  text-align: center;
+}
+.mer-con .staff .staff-title a.name {
+  text-align: left;
+}
+.mer-con .staff .staff-box {
+  position: relative;
+}
+.mer-con .staff .staff-box ul {
+  position: relative;
+  width: 16rem;
+  overflow: hidden;
+  background-color: #fff;
+}
+.mer-con .staff .staff-box ul li {
+  width: 18rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.mer-con .staff .staff-box ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .staff .staff-box ul li a {
+  display: block;
+  width: 16rem;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .staff .staff-box ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .staff .staff-box ul li a .name {
+  width: 7rem;
+  height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .staff .staff-box ul li a .name:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .staff .staff-box ul li a .name img {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.mer-con .staff .staff-box ul li a .name span {
+  float: left;
+  width: 5.5rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .staff .staff-box ul li a div {
+  float: left;
+}
+.mer-con .staff .staff-box ul li a div.male {
+  text-align: center;
+}
+.mer-con .staff .staff-box ul li a div.phone {
+  text-align: center;
+}
+.mer-con .staff .staff-box ul li a div.age {
+  text-align: center;
+}
+.mer-con .staff .staff-box ul li a i.iconfont {
+  float: left;
+  height: 1.5rem;
+  width: 1.5rem;
+  text-align: center;
+  color: #bfbfbf;
+}
+.mer-con .staff .staff-box ul li a.dele {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  background-color: #d74220;
+  color: #fff;
+}
+.mer-con .staff .staff-box ul li a.choose {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2rem;
+  height: 3rem;
+  line-height: 2.6rem;
+  text-align: center;
+  background-color: #86d4eb;
+}
+.mer-con .staff .staff-box ul li a.choose .icon-gouxuan1 {
+  color: #fff;
+  font-size: .6rem;
+  width: 2rem;
+  height: 2rem;
+  font-weight: bolder;
+}
+.mer-con .staff .staff-box ul li.showdele {
+  transform: translateX(-3rem);
+  -webkit-transform: translateX(-3rem);
+}
+.mer-con .staff .staff-box ul li.showchoose {
+  transform: translateX(-3rem);
+  -webkit-transform: translateX(-3rem);
+}
+.mer-con .staff .staff-box ul li:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+.mer-con .cancelorder {
+  width: 15rem;
+  padding: 0 .5rem;
+  margin-top: .5rem;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .cancelorder .cancel-title {
+  width: 15rem;
+  height: 1rem;
+  padding: .25rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .cancelorder .cancel-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .cancelorder .cancel-title span {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+}
+.mer-con .cancelorder .cancel-title a {
+  float: right;
+  height: 1rem;
+  line-height: 1rem;
+}
+.mer-con .cancelorder .cancel-title a i {
+  color: #bfbfbf;
+  font-size: .6rem;
+}
+.mer-con .cancelorder .cancel-title select {
+  float: right;
+  height: 1rem;
+  line-height: 1rem;
+  background-color: #fff;
+  border: none;
+}
+.mer-con .cancelorder .cancel-form {
+  width: 15rem;
+}
+.mer-con .cancelorder .cancel-form textarea {
+  border: none;
+  width: 14.5rem;
+  padding: .25rem;
+  height: 8rem;
+  resize: none;
+}
+.mer-con .evaluate-box {
+  width: 16rem;
+  background-color: #fff;
+  margin-top: .5rem;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .evaluate-box ul {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+}
+.mer-con .evaluate-box ul li {
+  width: 15rem;
+  height: 1rem;
+  padding: .25rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .evaluate-box ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .evaluate-box ul li span {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+}
+.mer-con .evaluate-box ul li .score {
+  float: right;
+  height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .evaluate-box ul li .score:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .evaluate-box ul li .score i {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 0 .25rem;
+  color: #ccc;
+}
+.mer-con .evaluate-box ul li .score i.active {
+  color: #86d4eb;
+}
+.mer-con .evaluateimg {
+  width: 15rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+  margin-top: .5rem;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .evaluateimg h3 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .evaluateimg .imgbox {
+  width: 16rem;
+  padding-top: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .evaluateimg .imgbox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .evaluateimg .imgbox .imgitem {
+  float: left;
+  width: 3.55rem;
+  margin-right: .25rem;
+  margin-bottom: .25rem;
+}
+.mer-con .evaluateimg .imgbox .imgitem img {
+  display: block;
+  width: 3.55rem;
+  height: 3.5rem;
+}
+.mer-con .evaluateimg .imgbox .imgitem a {
+  display: inline-block;
+  width: 3.55rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin-top: .25rem;
+  text-align: center;
+  background-color: #c00;
+  color: #fff;
+}
+.mer-con .evaluateimg .imgbox .addimgitem {
+  float: left;
+  width: 3.45rem;
+  height: 3.4rem;
+  border: .05rem dashed #ccc;
+  line-height: 3.55rem;
+  text-align: center;
+  margin-right: .25rem;
+  margin-bottom: .25rem;
+  position: relative;
+}
+.mer-con .evaluateimg .imgbox .addimgitem i {
+  font-size: 1.2rem;
+}
+.mer-con .evaluateimg .imgbox .addimgitem input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3.55rem;
+  height: 3.55rem;
+  opacity: 0;
+  z-index: 0;
+}
+.mer-con .orderstatusflow .flow-title {
+  width: 15rem;
+  padding: 0 .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderstatusflow .flow-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderstatusflow .flow-title p {
+  float: left;
+  width: 7.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #fff;
+  font-size: .6rem;
+  word-break: break-all;
+}
+.mer-con .orderstatusflow .flowmain {
+  width: 15rem;
+  padding: .5rem 0;
+  margin: 0 .5rem;
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  background-color: #fff;
+}
+.mer-con .orderstatusflow .flowmain ul {
+  position: relative;
+  padding: 0 .5rem;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderstatusflow .flowmain ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderstatusflow .flowmain ul li {
+  float: left;
+  width: 14rem;
+  position: relative;
+  display: table;
+}
+.mer-con .orderstatusflow .flowmain ul li .time-box {
+  display: table-cell;
+  width: 4rem;
+  padding-right: .45rem;
+  vertical-align: middle;
+  padding-bottom: .5rem;
+}
+.mer-con .orderstatusflow .flowmain ul li .time-box span {
+  display: inline-block;
+  width: 4rem;
+  text-align: right;
+  font-size: .6rem;
+}
+.mer-con .orderstatusflow .flowmain ul li .time-line {
+  display: table-cell;
+  width: .1rem;
+  background-color: #92d8ed;
+  padding-bottom: .5rem;
+  position: relative;
+}
+.mer-con .orderstatusflow .flowmain ul li .time-line b {
+  width: .4rem;
+  height: .4rem;
+  background-color: #92d8ed;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 9;
+  left: -0.16rem;
+  top: 0;
+}
+.mer-con .orderstatusflow .flowmain ul li .time-line em {
+  display: none;
+  width: .6rem;
+  height: .6rem;
+  background-color: #d4f0f8;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 8;
+  left: -0.26rem;
+  top: -0.09rem;
+}
+.mer-con .orderstatusflow .flowmain ul li .flow-item {
+  display: table-cell;
+  width: 9rem;
+  padding-left: .45rem;
+  vertical-align: middle;
+  padding-bottom: .5rem;
+}
+.mer-con .orderstatusflow .flowmain ul li .flow-item p {
+  color: #000;
+}
+.mer-con .orderstatusflow .flowmain ul li .flow-item p.esp {
+  font-size: .6rem;
+  color: #babac2;
+}
+.mer-con .orderstatusflow .flowmain ul li:first-child .time-box span {
+  color: #92d8ed;
+}
+.mer-con .orderstatusflow .flowmain ul li:first-child .time-line em {
+  display: block;
+}
+.mer-con .orderstatusflow .flowmain ul li:first-child .flow-item p {
+  color: #92d8ed;
+}
+.mer-con .orderstatusflow .flowmain ul li:first-child .flow-item p em {
+  color: #92d8ed;
+}
+.mer-con .orderstatusrecord {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .orderstatusrecord .record-title {
+  width: 16rem;
+  background-color: #fff;
+  position: relative;
+}
+.mer-con .orderstatusrecord .record-title p {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .orderstatusrecord .record-title p b {
+  font-weight: normal;
+}
+.mer-con .orderstatusrecord .record-item {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .orderstatusrecord .record-item p {
+  height: 1rem;
+  line-height: 1rem;
+  width: 15rem;
+  padding: 0 .5rem;
+  font-size: .5rem;
+}
+.mer-con .orderstatusrecord .record-item ul {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+}
+.mer-con .orderstatusrecord .record-item ul li {
+  width: 15rem;
+  padding: .25rem .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderstatusrecord .record-item ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderstatusrecord .record-item ul li span {
+  float: left;
+  height: 1.2rem;
+  line-height: 1.2rem;
+}
+.mer-con .orderstatusrecord .record-item ul li select {
+  float: left;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  border: none;
+  background-color: #fff;
+  margin-left: 1rem;
+}
+.mer-con .orderstatusrecord .record-item ul li i {
+  float: right;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  color: #bfbfbf;
+}
+.mer-con .orderstatusrecord .record-item ul li i.bigicon {
+  font-size: 1.2rem;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  color: #089be3;
+}
+.mer-con .orderstatusrecord .record-item ul li textarea {
+  border: none;
+  width: 14.5rem;
+  height: 3rem;
+  resize: none;
+  padding: .25rem;
+}
+.mer-con .wallet {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .wallet .man {
+  width: 4rem;
+  height: 4rem;
+  line-height: 3rem;
+  text-align: center;
+  box-sizing: border-box;
+  border: .5rem solid #ffd05f;
+  border-radius: 50%;
+  margin: 3rem 6rem 0 6rem;
+}
+.mer-con .wallet .man i {
+  color: #ffd05f;
+  font-size: 2rem;
+}
+.mer-con .wallet .info {
+  width: 16rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.mer-con .wallet .info p {
+  height: 2rem;
+  line-height: 3rem;
+}
+.mer-con .wallet .info b {
+  font-size: 1rem;
+}
+.mer-con .wallet a {
+  display: inline-block;
+  margin: .25rem .5rem;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  border-radius: .25rem;
+}
+.mer-con .wallet a.charge {
+  background-color: #86d4eb;
+  color: #fff;
+}
+.mer-con .wallet a.postal {
+  background-color: #fff;
+  color: #333;
+}
+.mer-con .walletdetail {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+  margin-top: 2.3rem;
+}
+.mer-con .walletdetail ul {
+  width: 15.5rem;
+  padding-left: .5rem;
+}
+.mer-con .walletdetail ul li {
+  width: 15.5rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .walletdetail ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .walletdetail ul li .time {
+  float: left;
+  width: 4rem;
+  height: 2rem;
+  overflow: hidden;
+  position: relative;
+  margin-right: .5rem;
+}
+.mer-con .walletdetail ul li .time span {
+  float: left;
+  width: 4rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #999;
+}
+.mer-con .walletdetail ul li .info {
+  float: left;
+  width: 10.5rem;
+  overflow: hidden;
+  position: relative;
+}
+.mer-con .walletdetail ul li .info h3 {
+  color: #333;
+  font-size: .8rem;
+  float: left;
+  width: 10.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .walletdetail ul li .info p {
+  float: left;
+  width: 10.5rem;
+  line-height: 1rem;
+  color: #666;
+  word-break: break-all;
+}
+.mer-con .walletdetail ul li:last-child {
+  border-bottom: none;
+}
+.mer-con .orderquery {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .orderquery ul {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .orderquery ul li {
+  width: 15rem;
+  height: 1.5rem;
+  padding: .25rem .5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderquery ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderquery ul li .type {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-radius: .2rem;
+  text-align: center;
+}
+.mer-con .orderquery ul li .type i {
+  float: none;
+  color: #fff;
+  font-size: 1rem;
+}
+.mer-con .orderquery ul li div.type1 {
+  background-color: #4bbce5;
+}
+.mer-con .orderquery ul li div.type2 {
+  background-color: #03c381;
+}
+.mer-con .orderquery ul li div.type3 {
+  background-color: #fd9112;
+}
+.mer-con .orderquery ul li span {
+  float: left;
+  margin-left: 1rem;
+  line-height: 1.5rem;
+}
+.mer-con .orderquery ul li .iconfont {
+  float: right;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #bfbfbf;
+}
+.mer-con .applying {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .applying .activity-info {
+  width: 15rem;
+  height: 2.5rem;
+  margin-top: .5rem;
+  padding: .25rem .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+}
+.mer-con .applying .activity-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .applying .activity-info img {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.mer-con .applying .activity-info .info-main {
+  float: left;
+  width: 12rem;
+  margin-left: .5rem;
+}
+.mer-con .applying .activity-info .info-main h3 {
+  height: 1.1rem;
+  line-height: 1.1rem;
+  font-size: .6rem;
+}
+.mer-con .applying .activity-info .info-main p {
+  height: .7rem;
+  line-height: .7rem;
+  font-size: .5rem;
+}
+.mer-con .applying .activity-main {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .applying .activity-main h3 {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-weight: normal;
+  font-size: .6rem;
+}
+.mer-con .applying .activity-main ul {
+  width: 15rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+}
+.mer-con .applying .activity-main ul li {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  padding-top: .25rem;
+}
+.mer-con .applying .activity-main ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .applying .activity-main ul li span {
+  float: left;
+  width: 1rem;
+}
+.mer-con .applying .activity-main ul li p {
+  float: left;
+  width: 14rem;
+}
+.mer-con .applying .imgmain {
+  width: 15rem;
+  margin: .5rem;
+}
+.mer-con .applying .imgmain img {
+  display: block;
+  width: 15rem;
+}
+.mer-con .logistics {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+}
+.mer-con .logistics ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .logistics ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .logistics ul li {
+  float: left;
+  width: 16rem;
+  height: 2.5rem;
+  border-bottom: 1px solid #eee;
+}
+.mer-con .logistics ul li a {
+  display: block;
+  width: 100%;
+  height: 1.5rem;
+  padding: .5rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .logistics ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .logistics ul li a .main-btn {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin-left: .5rem;
+  color: #fff;
+  font-size: 1.5rem;
+}
+.mer-con .logistics ul li a i.price {
+  color: #86d4e8;
+}
+.mer-con .logistics ul li a i.member {
+  color: #fd6f61;
+}
+.mer-con .logistics ul li a span {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin-left: .5rem;
+  color: #0f0f0f;
+}
+.mer-con .logistics ul li a .right-btn {
+  float: right;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #cecece;
+}
+.mer-con .logistics ul li:last-child {
+  border-right: none;
+}
+.mer-con .activity {
+  width: 16rem;
+  position: relative;
+  margin-top: .2rem;
+  background-color: #fff;
+}
+.mer-con .activity ul {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .activity ul li {
+  width: 15rem;
+  position: relative;
+  padding: .25rem .5rem;
+}
+.mer-con .activity ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .activity ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .activity ul li a .type {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  border-radius: .2rem;
+  background-color: #fcb0bd;
+}
+.mer-con .activity ul li a .type i {
+  float: none;
+  color: #db1c69;
+  font-size: 1.5rem;
+}
+.mer-con .activity ul li a .info {
+  float: left;
+  width: 10.5rem;
+  height: 1.5rem;
+  margin: .3rem 0 .5rem .3rem;
+}
+.mer-con .activity ul li a .info h3 {
+  height: 1.2rem;
+  line-height: 1.2rem;
+}
+.mer-con .activity ul li a .info p {
+  height: .7rem;
+  line-height: .7rem;
+  font-size: .5rem;
+}
+.mer-con .activity ul li a .iconfont {
+  float: right;
+  width: 1.5rem;
+  height: 2.5rem;
+  text-align: right;
+  line-height: 2.5rem;
+  color: #bfbfbf;
+}
+.mer-con .createitem {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .createitem .itembox {
+  width: 16rem;
+  margin-top: .5rem;
+  background-color: #fff;
+}
+.mer-con .createitem .itembox ul {
+  width: 15rem;
+  position: relative;
+}
+.mer-con .createitem .itembox ul .item {
+  width: 15rem;
+  padding: .25rem .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .createitem .itembox ul .item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .createitem .itembox ul .item span {
+  float: left;
+  width: 5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .createitem .itembox ul .item input {
+  float: left;
+  width: 10rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border: none;
+}
+.mer-con .createitem .itembox ul .item input[type="date"] {
+  width: 10rem;
+}
+.mer-con .createitem .itembox ul .item em {
+  float: left;
+  width: 10rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.mer-con .createitem .itembox ul .item select {
+  float: left;
+  width: 10rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border: none;
+  background-color: #fff;
+}
+.mer-con .createitem .itembox ul .item textarea {
+  float: left;
+  width: 14.5rem;
+  height: 3rem;
+  padding: .25rem;
+  border: none;
+}
+.mer-con .createitem .itembox ul .item i.show {
+  color: #86d4eb;
+}
+.mer-con .createitem .specbox {
+  width: 16rem;
+  margin-top: .5rem;
+}
+.mer-con .createitem .specbox p {
+  width: 15rem;
+  padding: 0 .5rem;
+}
+.mer-con .createitem .specbox ul {
+  background-color: #fff;
+}
+.mer-con .createitem .specbox ul .spec {
+  width: 15rem;
+  height: 1.5rem;
+  padding: .25rem .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .createitem .specbox ul .spec:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .createitem .specbox ul .spec span {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.mer-con .createitem .specbox ul .spec span input {
+  border: none;
+  width: 3rem;
+  height: 1.5rem;
+  text-align: center;
+}
+.mer-con .createitem .specbox ul .spec b {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin: .25rem;
+  text-align: center;
+  border-radius: .25rem;
+  font-weight: normal;
+  background-color: #ff4400;
+  color: #fff;
+}
+.mer-con .createitem .specbox ul .spec i {
+  float: right;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #35c1fc;
+  font-size: 1rem;
+}
+.mer-con .createitem .specbox ul .spec i.icon-kaiguankai {
+  color: #aaa;
+}
+.mer-con .createitem .specbox ul .spec i.icon-xuanze1 {
+  color: #ccc;
+}
+.mer-con .createitem .specbox ul .spec i.show {
+  display: block;
+}
+.mer-con .fnservice {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .fnservice .fnservice-title {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .fnservice .fnservice-title ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+}
+.mer-con .fnservice .fnservice-title ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .fnservice .fnservice-title ul li {
+  float: left;
+  width: 8rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-bottom: .05rem solid #fff;
+  text-align: center;
+}
+.mer-con .fnservice .fnservice-title ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mer-con .fnservice .fnservice-title ul li.active {
+  border-bottom-color: #35c1fc;
+}
+.mer-con .fnservice .fnservice-list {
+  margin-top: .5rem;
+}
+.mer-con .fnservice .fnservice-list .title {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+.mer-con .fnservice .fnservice-list ul {
+  position: relative;
+}
+.mer-con .fnservice .fnservice-list ul li {
+  width: 15rem;
+  padding: .25rem .5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+.mer-con .fnservice .fnservice-list ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .fnservice .fnservice-list ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .fnservice .fnservice-list ul li a img {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .left-item {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin: .5rem .5rem .5rem 0;
+  border-radius: .25rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .left-item i {
+  font-size: 1.5rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .left-item i.icon-ganxi {
+  color: #fd6f61;
+}
+.mer-con .fnservice .fnservice-list ul li a .left-item i.icon-qingxibaoyang {
+  color: #86d4e8;
+}
+.mer-con .fnservice .fnservice-list ul li a .left-item i.icon-shechihuli {
+  color: #fcb565;
+}
+.mer-con .fnservice .fnservice-list ul li a .left-item i.icon-caijianweihu {
+  color: #86d4e8;
+}
+.mer-con .fnservice .fnservice-list ul li a .fn-info {
+  float: left;
+  width: 8rem;
+  height: 2.5rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .fn-info h3 {
+  height: 1.5rem;
+  width: 8rem;
+  line-height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .fnservice .fnservice-list ul li a .fn-info h3.middle {
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .fn-info p {
+  height: 1rem;
+  width: 8rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .fnservice .fnservice-list ul li a .state {
+  float: right;
+  width: 3rem;
+  text-align: center;
+}
+.mer-con .fnservice .fnservice-list ul li a .state .status {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+}
+.mer-con .fnservice .fnservice-list ul li a .state .status i {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+.mer-con .fnservice .fnservice-list ul li a .state div.error {
+  background-color: #d0271f;
+  margin-top: .5rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .state div.success {
+  margin-top: .2rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .state p {
+  font-size: .6rem;
+  line-height: 1rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .state p.more i {
+  font-size: .5rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .apply {
+  float: right;
+  width: 4rem;
+  text-align: right;
+  color: #aaa;
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .apply i {
+  color: #aaa;
+  font-size: .6rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .applynow {
+  float: right;
+  width: 3rem;
+  height: 2.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .fnservice .fnservice-list ul li a .applynow:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .fnservice .fnservice-list ul li a .applynow i {
+  float: left;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 0.25rem 0 1.25rem;
+  font-size: 1.2rem;
+  color: #86d4e8;
+  text-align: center;
+}
+.mer-con .fnservice .fnservice-list ul li a .applynow span {
+  float: left;
+  width: 2rem;
+  margin-left: 1rem;
+  color: #86d4e8;
+  text-align: center;
+  font-size: .6rem;
+}
+.mer-con .fnservice .fnservice-list ul li a .more-info {
+  float: left;
+  width: 15rem;
+  margin-top: .2rem;
+  border-top: 1px solid #e5e5e5;
+  padding: .2rem 0;
+}
+.mer-con .fnservice .fnservice-list ul li a .more-info p {
+  line-height: .5rem;
+  font-size: .5rem;
+}
+.mer-con .fnservice .fnserlist {
+  margin: .5rem 0;
+  position: relative;
+}
+.mer-con .fnservice .fnserlist .title {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.mer-con .fnservice .fnserlist ul {
+  width: 16rem;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .fnservice .fnserlist ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .fnservice .fnserlist ul li {
+  float: left;
+  width: 8rem;
+  height: 3rem;
+  padding: .5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .fnservice .fnserlist ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .fnservice .fnserlist ul li .item-left {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.mer-con .fnservice .fnserlist ul li .item-left i {
+  color: #cecece;
+  font-size: 2rem;
+}
+.mer-con .fnservice .fnserlist ul li .item-right {
+  float: left;
+  width: 4.5rem;
+  height: 2rem;
+  margin-left: .3rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .fnservice .fnserlist ul li .item-right:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .fnservice .fnserlist ul li .item-right em {
+  float: left;
+  width: 4.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .6rem;
+}
+.mer-con .fnservice .fnserlist ul li .item-right span {
+  float: left;
+  width: 4.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #85d3e7;
+  font-size: .6rem;
+}
+.mer-con .fnservice .fnserlist ul li .item-right span.red {
+  color: #fc705f;
+}
+.mer-con .fnservice .fnserlist ul li .item-right span.gray {
+  color: #cecece;
+}
+.mer-con .activitymanage {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .activitymanage .activity-title {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .activitymanage .activity-title ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .activitymanage .activity-title ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .activitymanage .activity-title ul li {
+  float: left;
+  width: 5.33rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  background-color: #fff;
+  text-align: center;
+  border-bottom: .1rem solid #fff;
+}
+.mer-con .activitymanage .activity-title ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mer-con .activitymanage .activity-title ul li.active {
+  border-bottom-color: #35c1fc;
+}
+.mer-con .activitymanage .activity-title ul li.active a {
+  color: #35c1fc;
+}
+.mer-con .activitymanage .activity-con {
+  margin-top: .5rem;
+}
+.mer-con .activitymanage .activity-con ul {
+  position: relative;
+}
+.mer-con .activitymanage .activity-con ul li {
+  width: 15rem;
+  height: 2.5rem;
+  padding: .25rem .5rem;
+  margin-bottom: .3rem;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .activitymanage .activity-con ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .activitymanage .activity-con ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .activitymanage .activity-con ul li a img {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.mer-con .activitymanage .activity-con ul li a .acti-info {
+  float: left;
+  width: 9.5rem;
+  margin-left: .5rem;
+}
+.mer-con .activitymanage .activity-con ul li a .acti-info h3 {
+  width: 9.5rem;
+  height: 1.1rem;
+  line-height: 1.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-size: .6rem;
+}
+.mer-con .activitymanage .activity-con ul li a .acti-info p {
+  width: 9.5rem;
+  height: .7rem;
+  line-height: .7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-size: .5rem;
+}
+.mer-con .activitymanage .activity-con ul li a .oper {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.mer-con .activitymanage .activity-con ul li a .oper span {
+  display: inline-block;
+  width: 2.5rem;
+  height: 1rem;
+  margin: .75rem 0;
+  text-align: center;
+  line-height: 1rem;
+  border-radius: .25rem;
+  font-size: .5rem;
+}
+.mer-con .activitymanage .activity-con ul li a .oper span.hascolor {
+  background-color: #55ae24;
+  color: #fff;
+}
+.mer-con .groupmanage {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .groupmanage .group-title {
+  width: 16rem;
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 9;
+}
+.mer-con .groupmanage .group-title ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .groupmanage .group-title ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .groupmanage .group-title ul li {
+  float: left;
+  width: 5.33rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  background-color: #fff;
+  border-bottom: .1rem solid #fff;
+}
+.mer-con .groupmanage .group-title ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: .5rem;
+}
+.mer-con .groupmanage .group-title ul li.active {
+  border-bottom-color: #35c1fc;
+}
+.mer-con .groupmanage .group-title ul li.active a {
+  color: #35c1fc;
+}
+.mer-con .groupmanage .group-con {
+  width: 16rem;
+  position: relative;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+.mer-con .groupmanage .group-con ul {
+  width: 15rem;
+  margin: 0 .5rem;
+  position: relative;
+}
+.mer-con .groupmanage .group-con ul li {
+  width: 15rem;
+  position: relative;
+  margin-bottom: .5rem;
+}
+.mer-con .groupmanage .group-con ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.mer-con .groupmanage .group-con ul li a .item {
+  width: 14rem;
+  position: relative;
+  background-color: #86d4eb;
+  padding: 0 .5rem;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-top {
+  width: 14rem;
+  height: 4rem;
+  border-bottom: 1px dashed #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-top:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-top .price {
+  float: left;
+  width: 6rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-top .price:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-top .price b {
+  float: left;
+  color: #fff;
+  font-size: .8rem;
+  line-height: 3rem;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-top .price strong {
+  float: left;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 4rem;
+  max-width: 5.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-top .info {
+  float: left;
+  width: 8rem;
+  height: 2.5rem;
+  padding: .75rem 0;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-top .info h5 {
+  color: #fff;
+  display: inline-block;
+  height: 1rem;
+  line-height: 1rem;
+  padding: 0 .2rem;
+  background: -webkit-linear-gradient(top, #97daf2, #38b5e7);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom, #97daf2, #38b5e7);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom, #97daf2, #38b5e7);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom, #97daf2, #38b5e7);
+  /* 标准的语法 */
+  border-radius: .1rem;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-top .info p {
+  color: #fff;
+  font-size: .5rem;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-top .iconfont {
+  float: left;
+  width: 1rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: right;
+  color: #fff;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-bottom {
+  width: 14rem;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-bottom p {
+  width: 14rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  line-height: 1rem;
+  color: #fff;
+  font-size: .5rem;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-bottom p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-bottom p span {
+  float: left;
+  text-align: left;
+  color: #fff;
+}
+.mer-con .groupmanage .group-con ul li a .item .item-bottom p em {
+  float: right;
+  text-align: right;
+  color: #fff;
+}
+.mer-con .groupmanage .group-con ul li a .item .label {
+  position: absolute;
+  left: -1.75rem;
+  top: -0.3rem;
+  font-size: .5rem;
+  width: 5rem;
+  height: 2rem;
+  line-height: 2.5rem;
+  background-color: #ace9e0;
+  text-align: center;
+  color: #5a988f;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.mer-con .groupmanage .group-con ul li a .item div.statu1 {
+  background-color: #f8ddae;
+  color: #e49304;
+}
+.mer-con .groupmanage .group-con ul li a .oper {
+  width: 15rem;
+  height: 2rem;
+  padding: .25rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border: 1px solid #e5e5e5;
+  border-top: none;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.mer-con .groupmanage .group-con ul li a .oper:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .groupmanage .group-con ul li a .oper span {
+  float: left;
+  width: 7.4rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  border-right: 1px solid #e5e5e5;
+  box-sizing: border-box;
+}
+.mer-con .groupmanage .group-con ul li a .oper span:last-child {
+  border-right: none;
+}
+.mer-con .groupmanage .group-con ul li.group1 .item {
+  background-color: #c1c2c2;
+}
+.mer-con .groupmanage .group-con ul li.group1 .item div.info h5 {
+  background: -webkit-linear-gradient(top, #d5d7d7, #a6a9a9);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom, #d5d7d7, #a6a9a9);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom, #d5d7d7, #a6a9a9);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom, #d5d7d7, #a6a9a9);
+  /* 标准的语法 */
+}
+.mer-con .product {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .product .pro-title {
+  position: relative;
+}
+.mer-con .product .pro-title ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+}
+.mer-con .product .pro-title ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .product .pro-title ul li {
+  float: left;
+  width: 4rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-bottom: .1rem solid #fff;
+}
+.mer-con .product .pro-title ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.mer-con .product .pro-title ul li a b {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  margin: .2rem .1rem .2rem .5rem;
+  background: transparent url("images/function.png") no-repeat 0 0;
+  background-size: contain;
+  background-size: cover;
+}
+.mer-con .product .pro-title ul li a span {
+  float: left;
+  font-size: .5rem;
+}
+.mer-con .product .pro-title ul li.active {
+  border-bottom-color: #35c1fc;
+}
+.mer-con .product .pro-title ul li.active a b {
+  color: #35c1fc;
+}
+.mer-con .product .pro-title ul li.active a span {
+  color: #35c1fc;
+}
+.mer-con .product .pro-title ul li.type1 a b {
+  background-position: 0 -0.9rem;
+}
+.mer-con .product .pro-title ul li.type2 a b {
+  background-position: 0 0;
+}
+.mer-con .product .pro-title ul li.type3 a b {
+  background-position: 0 -1.9rem;
+}
+.mer-con .product .pro-title ul li.type4 a b {
+  background-position: 0 -2.9rem;
+}
+.mer-con .product .name {
+  width: 4.5rem;
+}
+.mer-con .product .price {
+  width: 7rem;
+}
+.mer-con .product .issell {
+  width: 3rem;
+}
+.mer-con .product .con-title {
+  width: 16rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .product .con-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .product .con-title div {
+  float: left;
+  font-size: .5rem;
+  padding: 0 .25rem;
+  text-align: center;
+}
+.mer-con .product .pro-con {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .product .pro-con .con-item {
+  width: 16rem;
+  height: 1.5rem;
+  padding: .25rem 0;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .product .pro-con .con-item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .product .pro-con .con-item div {
+  float: left;
+  padding: 0 .25rem;
+  text-align: center;
+}
+.mer-con .product .pro-con .con-item div span {
+  line-height: 1.5rem;
+  height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .product .pro-con .con-item div input {
+  width: 7rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border: none;
+  text-align: center;
+}
+.mer-con .product .pro-con .con-item div i.left {
+  font-size: 1.5rem;
+  float: left;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  color: #999;
+}
+.mer-con .product .pro-con .con-item div i.active {
+  color: #35c1fc;
+}
+.mer-con .product .pro-con .con-item div i.right {
+  font-size: .6rem;
+  color: #bfbfbf;
+  float: left;
+  margin-left: .7rem;
+}
+.mer-con .product .pro-con .con-item div.issell {
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.mer-con .addstaff {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .addstaff .staffitem {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .addstaff .staffitem p {
+  width: 15rem;
+  padding: 0 .5rem;
+  font-size: .5rem;
+}
+.mer-con .addstaff .staffitem ul {
+  width: 16rem;
+  background-color: #fff;
+}
+.mer-con .addstaff .staffitem ul li {
+  width: 15.5rem;
+  height: 1.5rem;
+  padding: .25rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .addstaff .staffitem ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .addstaff .staffitem ul li span {
+  float: left;
+  height: 1.5rem;
+  width: 4rem;
+  line-height: 1.5rem;
+}
+.mer-con .addstaff .staffitem ul li span.require:before {
+  content: "*";
+  color: #c00;
+}
+.mer-con .addstaff .staffitem ul li input {
+  float: left;
+  width: 8rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border: none;
+  background-color: #fff;
+}
+.mer-con .addstaff .staffitem ul li select {
+  float: left;
+  width: 8rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border: none;
+  background-color: #fff;
+}
+.mer-con .addstaff .staffitem ul li .imgbox {
+  float: right;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #d0d4d7;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .addstaff .staffitem ul li .imgbox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .addstaff .staffitem ul li .imgbox i {
+  float: left;
+  width: 1.5rem;
+  height: 1rem;
+  text-align: center;
+  color: #fff;
+}
+.mer-con .addstaff .staffitem ul li .imgbox span {
+  float: left;
+  width: 1.5rem;
+  height: .5rem;
+  line-height: .5rem;
+  font-size: .3rem;
+  text-align: center;
+  color: #fff;
+}
+.mer-con .addstaff .staffitem ul li .imgbox .file {
+  position: absolute;
+  left: 0;
+  top: 0;
+  float: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0;
+}
+.mer-con .roborder {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .roborder .intel {
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0 .5rem;
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 9;
+  overflow: hidden;
+  background-color: #fff;
+}
+.mer-con .roborder .intel h3 {
+  float: left;
+  font-size: .6rem;
+}
+.mer-con .roborder .intel h3 span {
+  font-size: .5rem;
+  color: #999;
+}
+.mer-con .roborder .intel i {
+  float: right;
+  font-size: 1.2rem;
+}
+.mer-con .roborder .intel i.active {
+  color: #86d4eb;
+}
+.mer-con .roborder .robinfo {
+  margin-top: .2rem;
+  width: 16rem;
+  z-index: 9;
+  box-shadow: 0 .1rem .1rem #ccc;
+}
+.mer-con .roborder .robinfo ul {
+  width: 15rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+}
+.mer-con .roborder .robinfo ul li {
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.mer-con .roborder .robinfo ul li i {
+  color: #ccc;
+  font-size: .6rem;
+}
+.mer-con .roborder .robinfo ul li span {
+  font-size: .5rem;
+}
+.mer-con .roborder .robinfo .mainbtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2rem;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  color: #bfbfbf;
+}
+.mer-con .roborder .sort {
+  width: 16rem;
+  border-top: 1px solid #e5e5e5;
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 9;
+}
+.mer-con .roborder .sort .sort-title {
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: .6rem;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 .1rem #ccc;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .roborder .sort .sort-title i {
+  color: #bfbfbf;
+  font-size: .7rem;
+}
+.mer-con .roborder .sort .sortbox {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 1.25rem;
+  width: 16rem;
+  background-color: #fff;
+  z-index: 9;
+}
+.mer-con .roborder .sort .sortbox ul {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .roborder .sort .sortbox ul li {
+  width: 16rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .roborder .sort .sortbox ul li i {
+  color: #35c1fc;
+  font-size: .6rem;
+  margin-right: .5rem;
+}
+.mer-con .roborder .tips {
+  position: fixed;
+  top: 3.2rem;
+  z-index: 9;
+  width: 16rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+  color: #f39233;
+  background-color: #fde6d0;
+  border-top: 1px solid #f5c99e;
+  border-bottom: 1px solid #f5c99e;
+}
+.mer-con .roborder .order-box {
+  width: 16rem;
+  position: relative;
+  top: 2rem;
+  padding-bottom: 3.5rem;
+}
+.mer-con .roborder .order-box ul {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .roborder .order-box ul li {
+  width: 16rem;
+  background-color: #fff;
+  margin-top: .5rem;
+  padding-top: .5rem;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .roborder .order-box ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mer-con .roborder .order-box ul li a .item-title {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  padding-bottom: .25rem;
+  margin-bottom: .25rem;
+  border-bottom: 1px dashed #e5e5e5;
+}
+.mer-con .roborder .order-box ul li a .item-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .roborder .order-box ul li a .item-title .item-left {
+  float: left;
+  width: 4.5rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .roborder .order-box ul li a .item-title .item-left:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .roborder .order-box ul li a .item-title .item-left span {
+  float: left;
+  width: 4.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+}
+.mer-con .roborder .order-box ul li a .item-title img {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin: 0 .5rem;
+}
+.mer-con .roborder .order-box ul li a .item-title .user {
+  float: left;
+  width: 8rem;
+  height: 2rem;
+  margin-left: .25rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .roborder .order-box ul li a .item-title .user:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .roborder .order-box ul li a .item-title .user span {
+  float: left;
+  height: 2rem;
+  line-height: 2rem;
+  padding-right: .5rem;
+  max-width: 6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .roborder .order-box ul li a .item-title .user em {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  margin: .5rem 0;
+  line-height: 1rem;
+  border-radius: .15rem;
+  text-align: center;
+}
+.mer-con .roborder .order-box ul li a .item-title .user em i {
+  color: #fff;
+}
+.mer-con .roborder .order-box ul li a .item-title .user em.man {
+  background-color: #ff5f5f;
+}
+.mer-con .roborder .order-box ul li a .item-title .user em.woman {
+  background-color: #329bfd;
+}
+.mer-con .roborder .order-box ul li a .item-title b {
+  position: absolute;
+  right: 1rem;
+  top: -0.8rem;
+  padding: 0 .2rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #fff;
+  font-size: .5rem;
+  background-color: #f39233;
+  font-weight: normal;
+}
+.mer-con .roborder .order-box ul li a .item-title b em {
+  position: absolute;
+  right: -0.3rem;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-bottom: .3rem solid #f39233;
+  border-right: .3rem solid transparent;
+}
+.mer-con .roborder .order-box ul li a .item-title b.green {
+  background-color: #41cc58;
+}
+.mer-con .roborder .order-box ul li a .item-title b.green em {
+  border-bottom-color: #41cc58;
+}
+.mer-con .roborder .order-box ul li a .item-title b.grey {
+  background-color: #ccc;
+}
+.mer-con .roborder .order-box ul li a .item-title b.grey em {
+  border-bottom-color: #ccc;
+}
+.mer-con .roborder .order-box ul li a .order-info {
+  width: 15rem;
+  padding: 0 .5rem;
+  margin-bottom: .5rem;
+}
+.mer-con .roborder .order-box ul li a .order-info h3 {
+  width: 15rem;
+  height: 1rem;
+  line-height: .7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  color: #333;
+}
+.mer-con .roborder .order-box ul li a .order-info p {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .55rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .roborder .order-box ul li a .order-info p i {
+  font-size: .6rem;
+  margin-right: .2rem;
+}
+.mer-con .roborder .order-box ul li a .order-info p i.color1 {
+  color: #66eae2;
+}
+.mer-con .roborder .order-box ul li a .order-info p i.color2 {
+  color: #d0e462;
+}
+.mer-con .roborder .order-box ul li a .order-info p i.color3 {
+  color: #5bcdf2;
+}
+.mer-con .roborder .order-box ul li a .order-info p i.color4 {
+  color: #f39233;
+}
+.mer-con .roborder .order-box ul li a .order-info p i.color5 {
+  color: #42a791;
+}
+.mer-con .roborder .order-box ul li a .order-info p em {
+  font-size: .4rem;
+  color: #999;
+  margin-left: .2rem;
+}
+.mer-con .roborder .order-box ul li a .totalprice {
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0 .5rem;
+  color: #999;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .roborder .order-box ul li a .totalprice:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .roborder .order-box ul li a .totalprice span {
+  float: left;
+  height: 2rem;
+  line-height: 2rem;
+}
+.mer-con .roborder .order-box ul li a .totalprice b {
+  float: right;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: .6rem;
+}
+.mer-con .roborder .order-box ul li a .totalNum {
+  position: absolute;
+  right: .5rem;
+}
+.mer-con .robdetail {
+  width: 16rem;
+  position: fixed;
+  top: 2rem;
+  z-index: 9;
+}
+.mer-con .robdetail .userinfo {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mer-con .robdetail .userinfo .item-title {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  padding-top: .5rem;
+}
+.mer-con .robdetail .userinfo .item-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .robdetail .userinfo .item-title img {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin: 0 .5rem;
+}
+.mer-con .robdetail .userinfo .item-title .user {
+  float: left;
+  width: 13rem;
+  height: 2rem;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .robdetail .userinfo .item-title .user:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .robdetail .userinfo .item-title .user span {
+  float: left;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0 .5rem;
+  max-width: 6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .robdetail .userinfo .item-title .user em {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  margin: .5rem 0;
+  line-height: 1rem;
+  border-radius: .15rem;
+  text-align: center;
+}
+.mer-con .robdetail .userinfo .item-title .user em i {
+  color: #fff;
+}
+.mer-con .robdetail .userinfo .item-title .user em.man {
+  background-color: #ff5f5f;
+}
+.mer-con .robdetail .userinfo .item-title .user em.woman {
+  background-color: #329bfd;
+}
+.mer-con .robdetail .userinfo .item-title b {
+  position: absolute;
+  right: 1rem;
+  top: 2.2rem;
+  padding: 0 .2rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #fff;
+  font-size: .5rem;
+  background-color: #f39233;
+}
+.mer-con .robdetail .userinfo .item-title b em {
+  position: absolute;
+  right: -0.3rem;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-bottom: .3rem solid #f39233;
+  border-right: .3rem solid transparent;
+}
+.mer-con .robdetail .userinfo .item-title .tel {
+  position: absolute;
+  border: 1px solid #d5d5d5;
+  color: #35c1fc;
+  font-weight: bolder;
+  top: .5rem;
+  right: .5rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: 0 .2rem;
+  font-size: .5rem;
+  border-radius: .2rem;
+}
+.mer-con .robdetail .userinfo .item-title .tel i {
+  color: #35c1fc;
+  float: left;
+  font-size: .5rem;
+  margin-right: .1rem;
+}
+.mer-con .robdetail .userinfo .order-info {
+  width: 13rem;
+  margin-left: 3rem;
+  padding-top: .5rem;
+  position: relative;
+  height: 3rem;
+  overflow: hidden;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.mer-con .robdetail .userinfo .order-info h3 {
+  font-size: .5rem;
+  width: 13rem;
+  height: 1rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .robdetail .userinfo .order-info p {
+  width: 13rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .robdetail .userinfo .order-info p i {
+  font-size: .5rem;
+  margin-right: .2rem;
+}
+.mer-con .robdetail .userinfo .order-info p i.color1 {
+  color: #66eae2;
+}
+.mer-con .robdetail .userinfo .order-info p i.color2 {
+  color: #d0e462;
+}
+.mer-con .robdetail .userinfo .order-info p i.color3 {
+  color: #5bcdf2;
+}
+.mer-con .robdetail .userinfo .order-info p i.color4 {
+  color: #f39233;
+}
+.mer-con .robdetail .userinfo .order-info p i.color5 {
+  color: #42a791;
+}
+.mer-con .robdetail .userinfo .order-info p em {
+  font-size: .4rem;
+  color: #999;
+  margin-left: .2rem;
+}
+.mer-con .robdetail .userinfo div.show {
+  height: auto;
+}
+.mer-con .robdetail .userinfo .totalprice {
+  position: absolute;
+  right: 0;
+  top: 4rem;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 .5rem;
+  color: #999;
+  text-align: right;
+}
+.mer-con .robdetail .userinfo .totalprice b {
+  font-size: .6rem;
+}
+.mer-con .robdetail .userinfo .more {
+  position: absolute;
+  left: 7rem;
+  bottom: -1rem;
+  width: 2rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-top: none;
+}
+.mer-con .map {
+  width: 16rem;
+  height: 100%;
+}
+.mer-con .orderlist {
+  width: 16rem;
+  position: relative;
+}
+.mer-con .orderlist .order-title {
+  width: 16rem;
+  height: 2rem;
+  position: fixed;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+  left: 0;
+  top: 2rem;
+  z-index: 9;
+  box-shadow: 0 0 .2rem #999;
+}
+.mer-con .orderlist .order-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-title .btn {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.mer-con .orderlist .order-title .btn i {
+  color: #999;
+  font-size: 1rem;
+}
+.mer-con .orderlist .order-title .statebox {
+  float: left;
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 2rem;
+  overflow: hidden;
+}
+.mer-con .orderlist .order-title .statebox ul {
+  width: 15rem;
+  margin-left: 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.mer-con .orderlist .order-title .statebox ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-title .statebox ul li {
+  float: left;
+  width: 3.75rem;
+  height: 1.9rem;
+  border-bottom: .1rem solid #fff;
+  line-height: 2rem;
+  text-align: center;
+}
+.mer-con .orderlist .order-title .statebox ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mer-con .orderlist .order-title .statebox ul li.active {
+  border-bottom-color: #86d4eb;
+}
+.mer-con .orderlist .order-title .statebox ul li.active a {
+  color: #86d4eb;
+}
+.mer-con .orderlist .order-title .statebox ul.showmore {
+  margin-left: -3rem;
+}
+.mer-con .orderlist .order-box {
+  width: 16rem;
+  position: relative;
+  top: 2rem;
+}
+.mer-con .orderlist .order-box ul {
+  width: 16rem;
+  position: relative;
+  padding-bottom: 3rem;
+}
+.mer-con .orderlist .order-box ul li {
+  width: 16rem;
+  margin-top: .5rem;
+  background-color: #fff;
+  position: relative;
+}
+.mer-con .orderlist .order-box ul li .orderfull {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mer-con .orderlist .order-box ul li .orderfull .line {
+  float: left;
+  width: 16rem;
+  height: 1px;
+  background-color: #f1f1f1;
+}
+.mer-con .orderlist .order-box ul li .orderfull .title {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderlist .order-box ul li .orderfull .title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-box ul li .orderfull .title h3 {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  padding: 0 .2rem;
+  margin-top: .25rem;
+  font-size: .6rem;
+  color: #333;
+  font-weight: bolder;
+  position: relative;
+}
+.mer-con .orderlist .order-box ul li .orderfull .title h3 strong {
+  position: absolute;
+  top: 0;
+}
+.mer-con .orderlist .order-box ul li .orderfull .title h3 strong.leftBtn {
+  left: -0.3rem;
+  width: 0;
+  height: 0;
+  border-bottom: .3rem solid #10bdfa;
+  border-left: .3rem solid transparent;
+}
+.mer-con .orderlist .order-box ul li .orderfull .title h3 strong.rightBtn {
+  right: -0.3rem;
+  width: 0;
+  height: 0;
+  border-bottom: .3rem solid #10bdfa;
+  border-right: .3rem solid transparent;
+}
+.mer-con .orderlist .order-box ul li .orderfull .title span {
+  float: left;
+  margin: 0 .2rem;
+  font-size: .6rem;
+  color: #bababa;
+}
+.mer-con .orderlist .order-box ul li .orderfull .title em {
+  float: left;
+  color: #999;
+  font-size: .5rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .title b {
+  float: right;
+  font-weight: normal;
+  color: #10bdfa;
+  font-size: .6rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .porcess {
+  width: 16rem;
+  height: 1.5rem;
+  position: relative;
+}
+.mer-con .orderlist .order-box ul li .orderfull .porcess .top-porcess {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderlist .order-box ul li .orderfull .porcess .top-porcess:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-box ul li .orderfull .porcess .top-porcess i {
+  float: left;
+  color: #61c1de;
+  font-size: .8rem;
+  vertical-align: middle;
+}
+.mer-con .orderlist .order-box ul li .orderfull .porcess .top-porcess span,
+.mer-con .orderlist .order-box ul li .orderfull .porcess .top-porcess em {
+  float: left;
+  color: #61c1de;
+  vertical-align: middle;
+}
+.mer-con .orderlist .order-box ul li .orderfull .porcess .bot-porcess {
+  width: 16rem;
+  height: 1px;
+  background-color: #cecece;
+  position: relative;
+}
+.mer-con .orderlist .order-box ul li .orderfull .porcess .bot-porcess span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #61c1de;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail {
+  width: 15rem;
+  background-color: #eaebed;
+  padding: .4rem .5rem;
+  position: relative;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .quaninfo {
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .quaninfo:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .quaninfo .imgbox {
+  float: left;
+  width: 3rem;
+  height: 2rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .quaninfo .imgbox img {
+  display: inline-block;
+  width: 3rem;
+  height: 2rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .quaninfo .info {
+  float: left;
+  width: 11.5rem;
+  height: 2rem;
+  margin-left: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .quaninfo .info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .quaninfo .info p {
+  float: left;
+  width: 11.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .quaninfo .info b {
+  float: left;
+  width: 11.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist {
+  width: 15rem;
+  position: relative;
+  overflow: hidden;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .item {
+  float: left;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  margin: 0 .2rem .4rem 0;
+  padding: 0 .3rem;
+  border: 1px solid #a0a0a0;
+  background-color: #fff;
+  border-radius: .2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .item b {
+  float: left;
+  width: .6rem;
+  height: .6rem;
+  margin: .2rem .2rem .2rem 0;
+  background: transparent url("images/function.png") no-repeat 0 0;
+  background-size: contain;
+  background-size: cover;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .item b.type2 {
+  background-position: 0 -0.55rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .item b.type3 {
+  background-position: 0 -1.2rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .item b.type4 {
+  background-position: 0 -1.8rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .item span {
+  float: left;
+  font-size: .5rem;
+  margin-right: .2rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .item em {
+  float: left;
+  font-size: .5rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .imgitem {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 .2rem 0 0;
+  position: relative;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .imgitem img {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .imgitem span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2.5rem;
+  height: .8rem;
+  line-height: .8rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: .5rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .singalItem {
+  float: left;
+  width: 10rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .singalItem:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .singalItem img {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: .3rem;
+  border-radius: .25rem;
+  border: 1px solid #ccc;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .singalItem .detail-info {
+  float: left;
+  width: 7rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .singalItem .detail-info h3 {
+  width: 7rem;
+  height: 1.5rem;
+  line-height: 1.2rem;
+  color: #333;
+  font-size: .7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-weight: normal;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .singalItem .detail-info h3 .singal1 {
+  font-size: .6rem;
+  margin-left: .2rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .singalItem .detail-info p {
+  width: 7rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .singalItem .detail-info p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .singalItem .detail-info p b {
+  float: left;
+  font-weight: normal;
+  color: #ff5147;
+  font-size: .6rem;
+  margin-right: .5rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .prolist .singalItem .detail-info p .singal2 {
+  float: left;
+  font-weight: normal;
+  color: #333;
+  font-size: .6rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .order-info h3 {
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .5rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .order-info h3 b {
+  margin-right: .2rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .order-info h3 span {
+  color: #000;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .order-info p {
+  font-size: .5rem;
+  color: #000;
+}
+.mer-con .orderlist .order-box ul li .orderfull .detail .order-info p i {
+  vertical-align: middle;
+  font-size: .6rem;
+  color: #5bcdf2;
+  margin-right: .2rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .total {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderlist .order-box ul li .orderfull .total:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-box ul li .orderfull .total b {
+  float: left;
+  font-weight: normal;
+  color: #86d4eb;
+  font-size: .5rem;
+}
+.mer-con .orderlist .order-box ul li .orderfull .total span {
+  float: right;
+  font-size: .6rem;
+  color: #000;
+}
+.mer-con .orderlist .order-box ul li .orderfull .total span em {
+  margin: 0 .2rem;
+  font-size: .7rem;
+}
+.mer-con .orderlist .order-box ul li .oper {
+  width: 15rem;
+  padding: .3rem .5rem;
+  line-height: 1.5rem;
+  position: relative;
+  border-top: 1px dashed #eee;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderlist .order-box ul li .oper:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-box ul li .oper .oop {
+  float: right;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.mer-con .orderlist .order-box ul li .oper .oop:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.mer-con .orderlist .order-box ul li .oper .oop a {
+  float: left;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin-left: .5rem;
+  padding: 0 1rem;
+  font-size: .6rem;
+  border: 1px solid #a0a0a0;
+  background-color: #fff;
+  border-radius: .2rem;
+}
+.mer-con .orderlist .order-box ul li .oper .oop a.red {
+  border-color: #86d4eb;
+  color: #86d4eb;
+}
+.mer-con .orderlist .order-box ul li .totalNum {
+  position: absolute;
+  right: .5rem;
+  top: 1.25rem;
+}
+.mer-con .orderlist .order-box ul li.type2 .title i {
+  background-color: #fd9112;
+}
+.mer-con .orderlist .order-box ul li.type3 .title i {
+  background-color: #fff;
+  color: #86d4eb;
+  font-size: .8rem;
+  line-height: 1rem;
+}
+.mer-con .orderlist .order-box ul li.type4 .title i {
+  background-color: #fff;
+  color: #03c381;
+  font-size: 1.1rem;
+  line-height: .9rem;
+}
+.mer-con .fullbtn {
+  display: inline-block;
+  width: 16rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #86d4eb;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.mer-con .ordernow {
+  display: inline-block;
+  margin: .5rem;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #86d4eb;
+  color: #fff;
+  border-radius: .25rem;
+}
+.mer-con a.fix {
+  position: fixed;
+  bottom: .5rem;
+  left: 0;
+  z-index: 9;
+  font-size: .6rem;
+  font-weight: bolder;
+}
+.mer-con a.disable {
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 0 .05rem #ccc;
+}
+.mer-con .deal {
+  width: 15rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: 0 .5rem;
+  position: relative;
+  text-align: center;
+}
+.mer-con .deal i {
+  color: #86d4eb;
+  font-size: .6rem;
+}
+.mer-con .back-btn {
+  display: inline-block;
+  width: 10rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin: 1rem 3rem;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #86d4eb;
+  color: #86d4eb;
+  border-radius: .25rem;
+}
+div.left0 {
+  transform: translateX(0rem);
+  -webkit-transform: translateX(0rem);
+}
+.pro-silder {
+  width: 16rem;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  transform: translateX(16rem);
+  -webkit-transform: translateX(16rem);
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.pro-silder .prosilder-con {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #f9f9f9;
+  width: 12rem;
+  height: 100%;
+}
+.pro-silder .prosilder-con h3 {
+  width: 11rem;
+  padding: 0 .5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+}
+.pro-silder .prosilder-con h3:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.pro-silder .prosilder-con h3 span {
+  float: left;
+  font-size: .5rem;
+  font-weight: bolder;
+}
+.pro-silder .prosilder-con h3 a {
+  float: right;
+  font-size: .5rem;
+  color: #35c1fc;
+  font-weight: bolder;
+}
+.pro-silder .prosilder-con .name {
+  width: 4rem;
+}
+.pro-silder .prosilder-con .price {
+  width: 4rem;
+}
+.pro-silder .prosilder-con .sell {
+  width: 4rem;
+}
+.pro-silder .prosilder-con .prosilder-title {
+  width: 12rem;
+  height: 1rem;
+  line-height: 1rem;
+  background-color: #eee;
+  border-bottom: 1px solid #9f9f9f;
+  position: absolute;
+  left: 0;
+  top: 1.5rem;
+  z-index: 9;
+  min-height: 1px;
+  zoom: 1;
+}
+.pro-silder .prosilder-con .prosilder-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.pro-silder .prosilder-con .prosilder-title span {
+  float: left;
+  font-size: .5rem;
+  text-align: center;
+}
+.pro-silder .prosilder-con .prosildermain {
+  width: 12rem;
+  position: relative;
+  top: 2.5rem;
+  overflow-y: scroll;
+}
+.pro-silder .prosilder-con .prosildermain .prosilder-item {
+  width: 12rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding: .25rem 0;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px dashed #9f9f9f;
+}
+.pro-silder .prosilder-con .prosildermain .prosilder-item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.pro-silder .prosilder-con .prosildermain .prosilder-item div {
+  float: left;
+  text-align: center;
+}
+.pro-silder .prosilder-con .prosildermain .prosilder-item div span {
+  font-size: .5rem;
+}
+.pro-silder .prosilder-con .prosildermain .prosilder-item div input {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border: none;
+  width: 3.8rem;
+  text-align: center;
+}
+.pro-silder .prosilder-con .prosildermain .prosilder-item div i {
+  font-size: 1.5rem;
+  color: #999;
+}
+.pro-silder .prosilder-con .prosildermain .prosilder-item div i.active {
+  color: #35c1fc;
+}
+.printset {
+  width: 16rem;
+  position: relative;
+  margin-top: 2.5rem;
+}
+.printset ul {
+  width: 16rem;
+  position: relative;
+  background-color: #fff;
+}
+.printset ul li {
+  width: 15rem;
+  height: 1.5rem;
+  padding: .5rem .5rem;
+  position: relative;
+  border-bottom: 1px solid #eee;
+  min-height: 1px;
+  zoom: 1;
+}
+.printset ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.printset ul li .silder {
+  float: left;
+  width: 5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.printset ul li .right {
+  float: left;
+  width: 10rem;
+  height: 1.5rem;
+  text-align: right;
+}
+.printset ul li .right span {
+  display: inline-block;
+  width: 10rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.printset ul li .right i {
+  display: inline-block;
+  width: 10rem;
+  height: 1.5rem;
+  line-height: 1.8rem;
+  color: #35c1fc;
+}
+.printset ul li .right i.icon-kaiguankai {
+  color: #aaa;
+}
+.printset ul li .right i.icon-xuanze1 {
+  color: #ccc;
+}
+.printset ul li .right i.show {
+  display: block;
+}
+.printset .save-btn {
+  display: inline-block;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: .5rem;
+  text-align: center;
+  border-radius: .25rem;
+  background-color: #86d4eb;
+  color: #fff;
+}
+.my-info {
+  width: 15rem;
+  height: 3rem;
+  padding: .5rem;
+  margin-top: 2rem;
+  background-color: #435178;
+  border-bottom: 1px solid #7b8192;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.my-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.my-info img {
+  float: left;
+  width: 4rem;
+  height: 3rem;
+  border-radius: .2rem;
+  margin-right: .5rem;
+}
+.my-info .mer-info {
+  float: left;
+  width: 7rem;
+}
+.my-info .mer-info h3 {
+  width: 8rem;
+  height: 1.5rem;
+  line-height: 2rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.my-info .mer-info p {
+  height: 1.5rem;
+  line-height: 1rem;
+  color: #fff;
+  font-size: .5rem;
+}
+.my-info a {
+  float: right;
+  color: #fff;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: .6rem;
+}
+.my-info a i {
+  color: #fff;
+  font-size: .6rem;
+}
+.my-oper {
+  width: 15rem;
+  padding: .75rem .5rem;
+  background-color: #86d4eb;
+  margin-top: 2rem;
+}
+.my-oper ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.my-oper ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.my-oper ul li {
+  float: left;
+  width: 5rem;
+}
+.my-oper ul li a {
+  display: block;
+  width: 3rem;
+  height: 100%;
+  padding: 0 1rem;
+}
+.my-oper ul li a .top {
+  width: 3rem;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  text-align: center;
+}
+.my-oper ul li a .top i {
+  color: #fff;
+  font-size: 2rem;
+}
+.my-oper ul li a h3 {
+  width: 3rem;
+  color: #fff;
+  font-size: .6rem;
+  line-height: .8rem;
+  padding-top: .2rem;
+  text-align: center;
+}
+.my-oper ul li a p {
+  width: 3rem;
+  color: #fff;
+  font-size: .6rem;
+  text-align: center;
+}
+.statistics {
+  width: 15rem;
+  padding: .5rem;
+  margin-bottom: .5rem;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.statistics:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.statistics .statistics-item {
+  float: left;
+  width: 7.25rem;
+  height: 3rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-radius: .5rem;
+}
+.statistics .statistics-item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.statistics .statistics-item i {
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  margin: .5rem 0 .5rem .5rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 2rem;
+}
+.statistics .statistics-item .item-info {
+  float: left;
+  width: 4.75rem;
+  height: 2rem;
+  padding: .5rem 0;
+  text-align: center;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.statistics .statistics-item .item-info:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.statistics .statistics-item .item-info h3 {
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+.statistics .statistics-item .item-info b {
+  float: left;
+  width: 2rem;
+  margin: 0 1.375rem;
+  display: inline-block;
+  height: 0;
+  border-bottom: 1px solid #fff;
+}
+.statistics .statistics-item .item-info p {
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: .8rem;
+}
+.statistics .itemleft {
+  margin-right: .25rem;
+  background-color: #7edec1;
+}
+.statistics .itemleft i {
+  color: #5ed9b4;
+}
+.statistics .itemright {
+  margin-left: .25rem;
+  background-color: #72bede;
+}
+.statistics .itemright i {
+  color: #50b4de;
+}
+.my-list {
+  width: 16rem;
+  background-color: #fff;
+  padding-bottom: 3rem;
+}
+.my-list ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.my-list ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.my-list ul li {
+  float: left;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+}
+.my-list ul li a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.my-list ul li a i {
+  display: inline-block;
+  width: 3rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: .3rem;
+}
+.my-list ul li a b {
+  display: inline-block;
+  width: 3rem;
+  text-align: center;
+  font-weight: normal;
+  font-size: .6rem;
+}
+.my-list ul li.type1 a i {
+  color: #8cd7ec;
+}
+.my-list ul li.type2 a i {
+  color: #fcb563;
+  font-size: 1.1rem;
+}
+.my-list ul li.type3 a i {
+  color: #8ce0c8;
+  font-size: 1.5rem;
+  line-height: 2.1rem;
+}
+.my-list ul li.type4 a i {
+  color: #fd705f;
+  font-size: 1.4rem;
+}
+.my-list ul li.type5 a i {
+  color: #fd705f;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+.my-list ul li.type6 a i {
+  color: #8ce0c8;
+  line-height: 2.1rem;
+}
+.my-list ul li.type7 a i {
+  color: #86d4ea;
+}
+.my-list ul li.type8 a i {
+  color: #fdb668;
+  font-size: 1.6rem;
+}
+.my-list ul li.type9 a i {
+  color: #8de1c9;
+  font-size: 1.4rem;
+}
+.my-list ul li.type10 a i {
+  color: #fcb05a;
+  font-size: 1.5rem;
+}
+.my-list ul li.type11 a i {
+  color: #fe6f61;
+}
+.my-list ul li.type12 a i {
+  color: #86d4eb;
+}
+.my-list ul li.type13 a i {
+  color: #fd705f;
+  font-size: 1.5rem;
+}
+.my-list ul li.type14 a i {
+  color: #86d4ea;
+  font-size: 1.4rem;
+}
+.my-list ul li.type15 a i {
+  color: #8ae0c5;
+}
+.my-list ul li.type16 a i {
+  color: #fdb15b;
+  font-size: 1.4rem;
+}
+.my-list ul li.type17 a i {
+  color: #84d4eb;
+  font-size: 1.4rem;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/quick.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/grouporderinfo.js"></script>
+</head>
+<body class="ms-controller" ms-controller="orderinfo">
+<!--公共头部-->
+<div class="headerone">
+    <!--ms-on-tap="return_prepage()"-->
+    <a href="orderlist.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>订单详情</h3>
+    <!--<a ms-attr-href="tel:{{telNum}}" class="message-btn">-->
+        <!--<i class="iconfont icon-dianhua"></i>-->
+    <!--</a>-->
+</div>
+<div class="order-info mtp2R">
+    <p><span>订单号:{{orderData.Code}}</span><em>{{orderData.Orders[0].ShowStatus}}</em></p>
+    <p><span>券号:{{orderData.Orders[0].SubOrders[0].ThridCode}}</span></p>
+    <a ms-if="orderData.Orders[0].Market === 1 || orderData.Orders[0].Market === 2" ms-attr-href="orderstatusflow.html?ordertype={{orderData.Orders[0].ShowStatus}}&code={{orderData.Code}}"><span>订单状态流水</span><i class="iconfont icon-xiangyou"></i></a>
+</div>
+
+<!--团购券详情-->
+<div class="shopdetail" style="margin-bottom: .5rem;">
+    <a ms-attr-href="groupdetail.html?code={{orderData.Orders[0].SubOrders[0].Item.ID}}">
+        <div class="shop-img">
+            <img ms-attr-src="{{orderData.Orders[0].SubOrders[0].Item.DefaultImage}}">
+        </div>
+        <div class="shop-info">
+            <h3>{{orderData.Orders[0].SubOrders[0].Item.Name}}</h3>
+            <p>价格:￥{{orderData.Orders[0].SubOrders[0].Item.Price}}</p>
+            <p>{{orderData.Orders[0].SubOrders[0].Item.Title}}</p>
+        </div>
+        <i class="iconfont icon-xiangyou right-btn"></i>
+    </a>
+</div>
+<!--商家详情-->
+<div class="shopdetail" style="margin-bottom: .5rem;" ms-if-loop="type === 'person'">
+    <a ms-attr-href="../main/detail.html?dataid={{orderData.Orders[0].Seller.ShopId}}">
+        <div class="shop-img">
+            <img ms-attr-src="{{orderData.Orders[0].Seller.ShopLogo}}">
+        </div>
+        <div class="shop-info">
+            <h3>{{orderData.Orders[0].Seller.ShopName}}</h3>
+            <p><i class="iconfont icon-shijian1"></i>营业时间:{{orderData.Orders[0].Seller.ShopHours}}</p>
+            <p><i class="iconfont icon-dingwei"></i>{{orderData.Orders[0].Seller.Address}}</p>
+        </div>
+        <i class="iconfont icon-xiangyou right-btn"></i>
+    </a>
+</div>
+<!--用户详情-->
+<div class="shopdetail" style="margin-bottom: .5rem;" ms-if-loop="type === 'seller'">
+    <a href="javascript:;">
+        <div class="shop-info" style="width: 13.8rem;">
+            <h3>{{orderData.Orders[0].Buyer.Name}}</h3>
+            <p>联系电话:{{orderData.Orders[0].Buyer.Phone}}</p>
+            <p>联系地址:{{orderData.Orders[0].Buyer.Address}}</p>
+        </div>
+    </a>
+</div>
+
+<!--支付方式\发票\价格合计-->
+<div class="combox" style="margin-bottom: 0;">
+    <div class="payway" ms-if-loop="orderData.ShowPayType && orderData.ShowPayType !== 'NULL'">支付方式:{{orderData.ShowPayType}}</div>
+    <!--<div class="invoice" ms-if-loop="orderData.HasInvoice">-->
+        <!--<h3>发票信息</h3>-->
+        <!--<ul>-->
+            <!--<li>发票抬头:{{orderData.InvoiceType === 0?'个人':'单位'}}</li>-->
+            <!--<li>发票内容:{{orderData.InvoiceName}}</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <div class="totalprice">
+        <h3>实付总额 <span>￥<b>{{orderData.PayPrice | number(2)}}</b></span></h3>
+        <ul>
+            <li><span>商品金额</span><em>￥{{orderData.TotalPrice | number(2)}}</em></li>
+            <!--<li><span>取件</span><em>￥563.00</em></li>-->
+            <!--<li><span>配送</span><em>￥563.00</em></li>-->
+            <li ms-if-loop="orderData.Orders[0].CounpPrice !== 0"><span>店铺优惠券</span><em>-￥{{orderData.Orders[0].CounpPrice}}</em></li>
+        </ul>
+    </div>
+</div>
+<!--订单操作-->
+<!--<div class="order-operate">-->
+    <!--<a href="javascript:;" ms-repeat="orderData.actionList" ms-on-tap="operateFn(el.value,orderData.Orders[0].Code,orderData)">{{el.text}}</a>-->
+<!--</div>-->
+<div class="receipt">
+    <a href="javascript:;" class="erweima">
+        <i class="iconfont icon-erweima"></i>
+    </a>
+    <a href="javascript:;" class="pay-btn" style="border-right: 1px solid #ccc;" ms-repeat="orderData.actionList" ms-on-tap="operateFn(el.value,orderData.Code,orderData)">{{el.text}}</a>
+
+    <!--<a href="javascript:;" class="pay-btn">去支付</a>-->
+    <!--<a href="javascript:;" ms-repeat="actionList" ms-on-tap="operateFn(el.value,orderData.Orders[0].Code,orderData)" ms-class-1="changeback:el.value !== 1" ms-class-2="pay-btn:el.value === 1">{{el.text}}</a>-->
+    <!--<a href="javascript:;" class="changeback">投诉</a>-->
+    <!--<a href="javascript:;" class="changeback">评价</a>-->
+</div>
+</body>
+</html>

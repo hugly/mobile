@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <!--<script type="text/javascript" src="../../js/merchant/printsetting.js"></script>-->
+    <script>
+        var showConfig,setBluetooth;
+
+        (function(){
+            'use strict';
+            require(['domReady!'],function(avalon){
+                var vm=avalon.define({
+                    $id:"printsetting",
+                    //版本号
+                    version:"",
+                    shopcode:$.getUrlParam('shopCode'),
+                    text:'请选择设备',
+                    showDis:false,
+                    //获取设备值
+                    getInitValue:function(){
+                        var config = window.android.getConfig();
+                    },
+                    changeDisFn:function(){
+                        vm.showDis = !vm.showDis;
+                    },
+                    //获取蓝牙列表
+                    chooseFn:function(){
+                        window.android.getBluetoothList();
+                    },
+                    //保存数据
+                    saveFn:function(){
+                        window.android.saveConfig(vm.shopCode, vm.text, vm.showDis);
+                    },
+                    goback:function(){
+                        window.location.href = getLocalstorage('printHref');
+                    }
+                });
+                vm.getInitValue();
+                avalon.scan();
+
+                showConfig = function(shopCode,bluetoothAddr,autoPrint)
+                {
+                    vm.text = bluetoothAddr;
+                    vm.shopcode = shopCode;
+                    vm.showDis = autoPrint;
+                }
+
+                setBluetooth = function(addr)
+                {
+                    vm.text = addr;
+                }
+            });
+        })();
+    </script>
+</head>
+<body class="ms-controller" ms-controller="printsetting">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="goback">
+        <i class="iconfont icon-fanhui" style="font-size: .8rem;"></i>
+    </a>
+    <h3>打印设置</h3>
+</div>
+<div class="printset">
+    <ul>
+        <li>
+            <span class="silder">选择打印机</span>
+            <div class="right" ms-on-tap="chooseFn">
+                <span>{{text}}</span>
+            </div>
+        </li>
+        <!--<li>-->
+            <!--<span class="silder">自动打印</span>-->
+            <!--<div class="right" ms-on-tap="changeDisFn">-->
+                <!--<i class="iconfont" style="display: block; font-size: 1.5rem;" ms-class-2="icon-kaiguankai:!showDis" ms-class-1="show icon-kaiguanguan-copy-copy:showDis"></i>-->
+                <!--&lt;!&ndash;<i class="iconfont show icon-kaiguanguan-copy-copy" style="display: block; font-size: 1.5rem;"></i>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</li>-->
+    </ul>
+    <a href="javascript:;" class="save-btn" ms-on-tap="saveFn">保存设置</a>
+</div>
+</body>
+</html>

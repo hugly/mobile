@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/groupmanage.js"></script>
+</head>
+<body>
+<!--公共头部-->
+<div class="headerone">
+    <a href="mymerchant.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>管理团购券</h3>
+    <a href="groupcreate.html" class="message-btn">
+        <i class="iconfont icon-jia"></i>
+    </a>
+</div>
+<div class="mer-con ms-controller" ms-controller="group">
+    <div class="groupmanage">
+        <div class="group-title">
+            <ul>
+                <li ms-repeat="groupNum" ms-class-1="active:Status === el.Status" ms-on-tap="changeStatus($index)"><a href="javascript:;">{{el.Name}}({{el.Count}})</a></li>
+            </ul>
+        </div>
+        <div class="group-con">
+            <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <ul>
+                <li ms-repeat="groupModel" ms-class-1="group1:!el.InTime"><a href="javascript:;">
+                    <div class="item">
+                        <div class="item-top">
+                            <div class="price">
+                                <b>￥</b>
+                                <strong>{{el.Price}}</strong>
+                            </div>
+                            <div class="info">
+                                <h5 ms-visible="el.Type === 2">{{el.ActivePrice}}元代金券,可叠加使用</h5>
+                                <p>总量:{{el.IssueNum}}</p>
+                                <p>已销售:{{el.IssueNum - el.Stock}}张</p>
+                            </div>
+                            <!--<i class="iconfont icon-xiangyou"></i>-->
+                        </div>
+                        <div class="item-bottom">
+                            <p ms-if-loop="el.IsLimitTime"><span>详细信息</span><em>{{el.StartTime | date("yyyy.MM.dd")}}-{{el.EndTime | date("yyyy.MM.dd")}}</em></p>
+                            <p ms-if-loop="!el.IsLimitTime"><span>详细信息</span><em>长期有效</em></p>
+                            <p>{{el.Desc}}</p>
+                        </div>
+                        <div class="label" ms-class-1="statu1:el.Type === 1" ms-class-2="statu2:el.Type === 2">{{el.Type === 2?'代金券':'团购券'}}</div>
+                    </div>
+                    <div class="oper" ms-visible="el.InTime">
+                        <span ms-on-tap="modify(el)">修改</span>
+                        <span ms-on-tap="changeGroupState(el,$index)">{{el.Status === 1?'停止':'启用'}}</span>
+                        <!--<span>分享</span>-->
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

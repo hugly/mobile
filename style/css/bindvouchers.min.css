@@ -1,0 +1,222 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+body {
+  background-color: #fff;
+}
+.bindPhone {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+  margin-top: 3rem;
+  min-height: 1px;
+  zoom: 1;
+}
+.bindPhone:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.bindPhone .temp {
+  float: left;
+  width: 15rem;
+  height: 2rem;
+  box-sizing: border-box;
+  border: 1px solid #d4d4d4;
+  background-color: #fff;
+  padding: .5rem;
+  margin-bottom: 1rem;
+  border-radius: .2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.bindPhone .temp:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.bindPhone .temp span {
+  float: left;
+  width: 3rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: right;
+}
+.bindPhone .temp input {
+  float: left;
+  width: 9.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin-left: .5rem;
+  border: none;
+}
+.bindPhone .account {
+  float: left;
+  width: 15rem;
+  height: 1rem;
+  margin-top: -0.5rem;
+  margin-bottom: .5rem;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.bindPhone .account:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.bindPhone .account span {
+  float: left;
+  width: 3.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: right;
+}
+.bindPhone .account em {
+  float: left;
+  width: 10.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin-left: .5rem;
+  color: #de3e3e;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.bindPhone .checkBtn {
+  float: left;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #51c5e2;
+  color: #fff;
+  border-radius: .2rem;
+  margin-bottom: 1rem;
+}
+.voucherResult {
+  width: 16rem;
+  position: relative;
+}
+.voucherResult i {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  margin: 6rem 6rem 1rem 6rem;
+  line-height: 4rem;
+  text-align: center;
+  font-size: 4rem;
+  color: #86d4e8;
+}
+.voucherResult p {
+  width: 14rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+}
+.voucherResult p b {
+  color: #f9a8a5;
+  font-weight: normal;
+}
+.voucherResult .gouse {
+  display: inline-block;
+  width: 15rem;
+  margin: 4rem .5rem .5rem .5rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #86d4e8;
+  color: #fff;
+  border-radius: .25rem;
+}
+.voucherResult .check {
+  display: inline-block;
+  width: 15rem;
+  margin: 0 .5rem .5rem .5rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #86d4e8;
+  border: 1px solid #86d4e8;
+  border-radius: .25rem;
+}

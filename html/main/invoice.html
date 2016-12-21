@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/pay.min.css">
+    <link rel="stylesheet" href="../../style/css/mobiscroll.custom-2.16.1.min.css">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/mobiscroll.custom-2.17.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/invoice.js"></script>
+</head>
+<body class="ms-controller" ms-controller="ways">
+<!--公共头部-->
+<div class="headerone" style="background-color: #35c8fc;">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 10rem;">发票信息</h3>
+    <!--<a href="fillorder.html" class="link">取消</a>-->
+</div>
+<div class="content">
+    <div class="inivicename">
+        <span>发票名称:</span>
+        <input type="text" ms-duplex="invoiceName" ms-on-input="changeNameFn" placeholder="请输入发票名称">
+    </div>
+    <!--<div class="choosecom">-->
+        <!--<h3>发票类型</h3>-->
+        <!--<ul class="type1" >-->
+            <!--<li ms-class-1="active:paytype === 1" ms-data-code="1" ms-on-tap="changpay"><span>纸质发票</span></li>-->
+            <!--<li ms-class-1="active:paytype === 2" ms-data-code="2" ms-on-tap="changpay"><span>电子发票</span></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <div class="combox">
+        <div class="choosecom">
+            <h3>发票类型</h3>
+            <ul class="type1">
+                <li ms-class-1="active:invoiceDis === 1" ms-data-code="1" ms-on-tap="changdis" style=" text-align: center; "><span style="width: 3rem;">公司</span></li>
+                <li ms-class-1="active:invoiceDis === 2" ms-data-code="2" ms-on-tap="changdis" style=" text-align: center; "><span style="width: 3rem;">个人</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="sure">
+    <a ms-attr-href="fillorder.html?{{searchData}}" class="sure-btn">保存</a>
+</div>
+</body>
+</html>

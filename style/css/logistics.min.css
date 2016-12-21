@@ -1,0 +1,979 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.taskmenu {
+  width: 16rem;
+  height: 2rem;
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 9;
+  background-color: #fafefe;
+  border-bottom: 1px solid #dcdcdc;
+}
+.taskmenu ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.taskmenu ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.taskmenu ul li {
+  float: left;
+  width: 4.8rem;
+  margin: 0 .25rem;
+  height: 1.9rem;
+  line-height: 2rem;
+  border-bottom: .1rem solid #fafefe;
+  text-align: center;
+}
+.taskmenu ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.taskmenu ul li.active {
+  border-bottom-color: #01dbf5;
+}
+.taskmenu ul li.active a {
+  color: #01dbf5;
+}
+.tasklist {
+  width: 16rem;
+  margin-top: 4.5rem;
+  padding-bottom: 2rem;
+  position: relative;
+}
+.tasklist .taskitem {
+  width: 16rem;
+  margin-top: .5rem;
+  background-color: #fff;
+}
+.tasklist .taskitem .item-title {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #eee;
+}
+.tasklist .taskitem .item-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.tasklist .taskitem .item-title span {
+  float: left;
+  width: 7rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #86d4e8;
+}
+.tasklist .taskitem .item-title em {
+  float: left;
+  width: 8rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: right;
+  color: #aaa;
+}
+.tasklist .taskitem .item-top {
+  width: 16rem;
+  padding: .25rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.tasklist .taskitem .item-top:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.tasklist .taskitem .item-top .topli {
+  float: left;
+  width: 8rem;
+  text-align: center;
+}
+.tasklist .taskitem .item-top .topli b {
+  display: inline-block;
+  width: 8rem;
+  color: #fd984e;
+  font-size: 1rem;
+  font-weight: normal;
+}
+.tasklist .taskitem .item-top .topli span {
+  display: inline-block;
+  width: 8rem;
+  color: #ccc;
+  font-size: .6rem;
+}
+.tasklist .taskitem .item-center {
+  width: 15rem;
+  padding: .5rem .5rem 0 .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.tasklist .taskitem .item-center:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.tasklist .taskitem .item-center .centerli {
+  float: left;
+  width: 15rem;
+  margin-bottom: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.tasklist .taskitem .item-center .centerli:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.tasklist .taskitem .item-center .centerli i {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #fff;
+  font-size: .6rem;
+  border-radius: 50%;
+}
+.tasklist .taskitem .item-center .centerli .info {
+  float: left;
+  padding: 0 .5rem;
+  width: 9.5rem;
+}
+.tasklist .taskitem .item-center .centerli .info h3 {
+  color: #333;
+  font-size: .6rem;
+}
+.tasklist .taskitem .item-center .centerli .info p {
+  color: #999;
+  font-size: .6rem;
+}
+.tasklist .taskitem .item-center .centerli .loginfo {
+  float: left;
+  width: 3.5rem;
+  text-align: center;
+}
+.tasklist .taskitem .item-center .centerli .loginfo span {
+  float: left;
+  width: 3.5rem;
+  color: #fd9840;
+  font-size: .6rem;
+}
+.tasklist .taskitem .item-center .centerli .loginfo em {
+  float: left;
+  width: 3.5rem;
+  color: #333;
+  font-size: .6rem;
+}
+.tasklist .taskitem .item-center .centerli:last-child {
+  margin-bottom: 0;
+}
+.tasklist .taskitem .checkmore {
+  display: inline-block;
+  width: 16rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #89d4ea;
+  font-size: .6rem;
+}
+.tasklist .taskitem .roborder {
+  display: inline-block;
+  width: 15rem;
+  margin: 0 .5rem .5rem .5rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fff;
+  background-color: #89d4ea;
+  font-size: .6rem;
+}
+.tasklist .taskitem .operate {
+  display: inline-block;
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.tasklist .taskitem .operate:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.tasklist .taskitem .operate a {
+  float: left;
+  width: 7rem;
+  margin: 0 .5rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fff;
+  background-color: #89d4ea;
+  font-size: .6rem;
+}
+.comtask {
+  width: 16rem;
+  position: relative;
+  margin-top: 2.5rem;
+}
+.comtask .taskitem {
+  width: 16rem;
+}
+.comtask .taskitem .count {
+  width: 15rem;
+  padding: .25rem .5rem;
+  height: 1rem;
+  line-height: 1rem;
+  background-color: #86d4eb;
+  position: relative;
+  overflow: hidden;
+}
+.comtask .taskitem .count span {
+  color: #fff;
+  font-size: .6rem;
+}
+.comtask .taskitem .item {
+  width: 16rem;
+  position: relative;
+  margin-bottom: .5rem;
+  background-color: #fff;
+}
+.comtask .taskitem .item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.comtask .taskitem .item a .itemcount {
+  width: 15rem;
+  padding: .5rem .5rem 0 .5rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.comtask .taskitem .item a .itemcount span {
+  color: #999;
+  font-size: .6rem;
+}
+.comtask .taskitem .item a .itemcount span.spec {
+  color: #01dbf5;
+}
+.comtask .taskitem .item a .item-center {
+  width: 15rem;
+  padding: .5rem .5rem 0 .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.comtask .taskitem .item a .item-center:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.comtask .taskitem .item a .item-center .centerli {
+  float: left;
+  width: 12rem;
+  margin-bottom: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.comtask .taskitem .item a .item-center .centerli:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.comtask .taskitem .item a .item-center .centerli i {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #fff;
+  font-size: .6rem;
+  border-radius: 50%;
+}
+.comtask .taskitem .item a .item-center .centerli .info {
+  float: left;
+  padding: 0 .5rem;
+  width: 9.5rem;
+}
+.comtask .taskitem .item a .item-center .centerli .info h3 {
+  color: #333;
+  font-size: .6rem;
+}
+.comtask .taskitem .item a .item-center .centerli .info p {
+  color: #999;
+  font-size: .6rem;
+}
+.comtask .taskitem .item a .item-center .centerli span {
+  float: left;
+  padding: 0 .25rem;
+  color: #fd9840;
+  font-size: .6rem;
+}
+.comtask .taskitem .item a .item-center .centerli em {
+  float: left;
+  color: #333;
+  font-size: .6rem;
+}
+.comtask .taskitem .item a .item-center .total {
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+  height: 4rem;
+  line-height: 4rem;
+}
+.comtask .taskitem .item a .item-center .total em {
+  font-size: .5rem;
+}
+.comtask .taskitem .item a .item-center .total em b {
+  font-size: .8rem;
+  color: #fd984e;
+}
+.comtask .taskitem .item a .item-center .total i {
+  color: #ccc;
+}
+.comtask .taskitem .item a .item-center .centerli:last-child {
+  margin-bottom: 0;
+}
+.taskdetail {
+  width: 16rem;
+  position: relative;
+  margin-top: 2rem;
+}
+.taskdetail .nonum {
+  width: 15rem;
+  padding: .5rem;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.taskdetail .nonum:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.taskdetail .nonum span {
+  color: #999;
+  font-size: .6rem;
+}
+.taskdetail .nonum span.spec {
+  color: #01dbf5;
+}
+.taskdetail .item-top {
+  width: 16rem;
+  padding: .25rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+  margin: .5rem 0;
+}
+.taskdetail .item-top:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.taskdetail .item-top .topli {
+  float: left;
+  width: 8rem;
+  text-align: center;
+}
+.taskdetail .item-top .topli b {
+  display: inline-block;
+  width: 8rem;
+  color: #fd984e;
+  font-size: 1rem;
+  font-weight: normal;
+}
+.taskdetail .item-top .topli span {
+  display: inline-block;
+  width: 8rem;
+  color: #ccc;
+  font-size: .6rem;
+}
+.taskdetail .item-center {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+  margin: .5rem 0;
+}
+.taskdetail .item-center:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.taskdetail .item-center .centerli {
+  float: left;
+  width: 15rem;
+  margin-bottom: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.taskdetail .item-center .centerli:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.taskdetail .item-center .centerli i {
+  float: left;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #fff;
+  font-size: .6rem;
+  border-radius: 50%;
+}
+.taskdetail .item-center .centerli .info {
+  float: left;
+  padding: 0 .5rem;
+  width: 9.5rem;
+}
+.taskdetail .item-center .centerli .info h3 {
+  color: #333;
+  font-size: .7rem;
+  font-weight: bold;
+}
+.taskdetail .item-center .centerli .info b {
+  display: block;
+  color: #666;
+  font-size: .6rem;
+  font-weight: normal;
+}
+.taskdetail .item-center .centerli .info p {
+  color: #999;
+  font-size: .6rem;
+}
+.taskdetail .item-center .centerli .calltel {
+  float: right;
+}
+.taskdetail .item-center .centerli .calltel i {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #01dbf5;
+  font-size: 1rem;
+}
+.taskdetail .item-center .centerli:last-child {
+  margin-bottom: 0;
+}
+.taskdetail .detail-item {
+  width: 16rem;
+  height: 2rem;
+  line-height: 2rem;
+  background-color: #fff;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.taskdetail .detail-item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.taskdetail .detail-item a {
+  display: block;
+  width: 15rem;
+  height: 100%;
+  padding: 0 .5rem;
+}
+.taskdetail .detail-item a span {
+  font-size: .6rem;
+}
+.taskdetail .detail-item a span em {
+  color: #01dbf5;
+}
+.taskdetail .detail-item a span i {
+  color: #ccc;
+}
+.taskdetail .income {
+  width: 16rem;
+  position: relative;
+  margin-top: .5rem;
+}
+.taskdetail .income ul {
+  width: 16rem;
+  position: relative;
+  border-top: 1px solid #e5e5e5;
+}
+.taskdetail .income ul li {
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0 .5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.taskdetail .income ul li span {
+  float: left;
+  font-size: .6rem;
+  color: #333;
+}
+.taskdetail .income ul li em {
+  float: right;
+  font-size: .6rem;
+  color: #999;
+}
+.taskdetail .income ul li em.price {
+  color: #fd984e;
+}
+.taskdetail .income ul li em.status {
+  color: #01dbf5;
+}
+.taskdetail .operatebox {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 16rem;
+  height: 2rem;
+  background-color: #fff;
+  box-shadow: 0 0 2px #999;
+  min-height: 1px;
+  zoom: 1;
+}
+.taskdetail .operatebox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.taskdetail .operatebox .print-btn {
+  float: right;
+  width: 4rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #ec3f4d;
+  margin-right: 1px;
+}
+.taskdetail .operatebox .print-btn a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: .6rem;
+}
+.taskdetail .operatebox .robbox {
+  float: right;
+  width: 4rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #86d4e8;
+}
+.taskdetail .operatebox .robbox a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: .6rem;
+}
+.verifybox {
+  width: 16rem;
+  position: relative;
+  margin-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+.verifybox .verifyitem {
+  width: 16rem;
+  margin-bottom: .5rem;
+  position: relative;
+  background-color: #fff;
+}
+.verifybox .verifyitem a {
+  display: block;
+  width: 15rem;
+  height: 100%;
+  padding: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verifybox .verifyitem a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verifybox .verifyitem a img {
+  float: left;
+  width: 3rem;
+  height: 3rem;
+  margin-right: .5rem;
+}
+.verifybox .verifyitem a .iteminfo {
+  float: left;
+  width: 8rem;
+  height: 3rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verifybox .verifyitem a .iteminfo:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verifybox .verifyitem a .iteminfo h3 {
+  float: left;
+  width: 8rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.verifybox .verifyitem a .iteminfo span {
+  float: left;
+  width: 8rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.verifybox .verifyitem a .iteminfo span em.price {
+  color: #fd984e;
+}
+.verifybox .verifyitem a .iteminfo span em.num {
+  color: #01dbf5;
+  margin-left: .5rem;
+}
+.verifybox .verifyitem a .status {
+  position: absolute;
+  right: 0;
+  top: .5rem;
+  width: 3rem;
+  line-height: 3rem;
+  text-align: center;
+}
+.verifybox .verifyitem a .status span {
+  font-size: .6rem;
+  color: #333;
+}
+.verifybox .verifyitem a .status span.spec {
+  color: #01dbf5;
+  font-size: .7rem;
+}
+.verifybox .verifyitem a .status i {
+  color: #ccc;
+}
+.makesure {
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  padding: 0 .5rem;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #01dbf5;
+}
+.verifydetail {
+  width: 16rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+.verifydetail .title {
+  width: 16rem;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+}
+.verifydetail .title ul {
+  width: 16rem;
+  padding: .4rem 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fafefe;
+}
+.verifydetail .title ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verifydetail .title ul li {
+  float: left;
+  width: 8rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  box-sizing: border-box;
+  text-align: center;
+  border-right: 1px solid #ccc;
+}
+.verifydetail .title ul li.active {
+  color: #01dbf5;
+}
+.verifydetail .title ul li:last-child {
+  border-right: none;
+}
+.verifydetail .detailbox {
+  width: 32rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verifydetail .detailbox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verifydetail .detailbox .detailitem {
+  float: left;
+  width: 16rem;
+  min-height: 1rem;
+}
+.verifydetail .detailbox .detailitem .peritem {
+  margin-top: .5rem;
+  background-color: #fff;
+  position: relative;
+}
+.verifydetail .detailbox .detailitem .peritem h3 {
+  width: 15rem;
+  line-height: 1.2rem;
+  margin: 0 .5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  font-size: .6rem;
+  color: #999;
+}
+.verifydetail .detailbox .detailitem .peritem ul {
+  width: 16rem;
+  background-color: #fff;
+}
+.verifydetail .detailbox .detailitem .peritem ul li {
+  width: 15rem;
+  padding: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.verifydetail .detailbox .detailitem .peritem ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verifydetail .detailbox .detailitem .peritem ul li span {
+  float: left;
+  width: 13rem;
+  line-height: 1rem;
+}
+.verifydetail .detailbox .detailitem .peritem ul li i {
+  float: right;
+  width: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #c00;
+}
+.verifydetail .detailbox .detailitem .peritem ul li i.icon-xuanze {
+  color: #01dbf5;
+}
+.verifydetail .detailbox .detailitem .remarks {
+  width: 15rem;
+  padding: .5rem .5rem .3rem .5rem;
+  margin-top: .5rem;
+  background-color: #fff;
+}
+.verifydetail .detailbox .detailitem .remarks textarea {
+  width: 15rem;
+  height: 4rem;
+  padding: .25rem;
+  box-sizing: border-box;
+  resize: none;
+  border: 1px solid #ccc;
+}
+.verifydetail .detailbox .detailitem .imgbox {
+  width: 15.6rem;
+  padding: .4rem 0 .4rem .4rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+  background-color: #fff;
+}
+.verifydetail .detailbox .detailitem .imgbox:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verifydetail .detailbox .detailitem .imgbox .imgitem {
+  float: left;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-right: .4rem;
+  margin-bottom: .4rem;
+  position: relative;
+}
+.verifydetail .detailbox .detailitem .imgbox .imgitem img {
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.verifydetail .detailbox .detailitem .imgbox .imgitem i {
+  position: absolute;
+  right: -0.3em;
+  top: -0.3rem;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #c00;
+}
+.verifydetail .detailbox .detailitem .imgbox .addimgitem {
+  float: left;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 1px dashed #ccc;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.verifydetail .detailbox .detailitem .imgbox .addimgitem:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.verifydetail .detailbox .detailitem .imgbox .addimgitem i {
+  float: left;
+  width: 3.5rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.verifydetail .detailbox .detailitem .imgbox .addimgitem input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  opacity: 0;
+  z-index: 9;
+}

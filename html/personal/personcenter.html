@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/person.js"></script>
+</head>
+<body class="ms-controller" ms-controller="person">
+<!--头部部分-->
+<!--<div class="personheader">-->
+<!--<a href="javascript:;" class="message">-->
+<!--<i class="iconfont icon-xiaoxi"></i>-->
+<!--<b></b>-->
+<!--</a>-->
+<!--<a href="javascript:;" class="scan">-->
+<!--<i class="iconfont icon-saoyisao"></i>-->
+<!--</a>-->
+<!--</div>-->
+<!--个人中心头部-->
+<div class="persontitle">
+    <img class="bgbanner" src="../../data-images/newbanner.jpg">
+    <div class="imgbox">
+        <img ms-if="userInfo.HeadImage" ms-attr-src="userInfo.HeadImage">
+        <img ms-if-loop="!userInfo.HeadImage && userInfo.Sex === 0" src="../../data-images/userman.png">
+        <img ms-if-loop="!userInfo.HeadImage && userInfo.Sex === 1" src="../../data-images/userwoman.png">
+    </div>
+    <div class="personinfo">
+        <a href="http://m.wziwash.com/SSOAccount/Login" ms-if="!isShow" class="register">注册/登录</a>
+        <a href="javascript:;" class="register" ms-if="isShow">{{userInfo.NickName || userInfo.Name || '洗衣之家'}}</a>
+        <span class="leval" ms-if="isShow"><b>V</b><em>{{orderInfo.MemberGrade}}</em><i>{{orderInfo.MemberGradeName}}</i></span>
+    </div>
+    <a href="accountmanage.html" class="manamge">账户管理<i class="iconfont icon-xiangyou"></i></a>
+</div>
+<!--余额-->
+<div class="setting" style="margin-top: 0;">
+    <a href="account.html">
+        <span>余额:<b>￥{{account.Balance | number(2)}}</b></span>
+        <em>去充值</em>
+        <i class="iconfont icon-xiangyou"></i>
+    </a>
+</div>
+<!--我的订单-->
+<div class="orderlist">
+    <div class="ordertitle">
+        <!--<i class="iconfont icon-dingdan"></i>-->
+        <h3>我的订单</h3>
+        <a href="../merchant/personorderlist.html" class="allorder">全部<i class="iconfont icon-xiangyou"></i></a>
+    </div>
+    <div class="order-con">
+        <ul>
+            <li><a href="../merchant/personorderlist.html?status=1">
+                <i class="iconfont icon-daifukuan2 type1"></i>
+                <span>待支付</span>
+                <b ms-if="orderInfo.WaitingPayCount">{{orderInfo.WaitingPayCount}}</b>
+            </a></li>
+            <li><a href="../merchant/personorderlist.html?status=19">
+                <i class="iconfont icon-daiqujian type3"></i>
+                <span>待取送</span>
+                <b ms-if="orderInfo.WaitingPickUpCount">{{orderInfo.WaitingPickUpCount}}</b>
+            </a></li>
+            <li><a href="../merchant/personorderlist.html?status=18">
+                <i class="iconfont icon-chulizhong type2"></i>
+                <span>处理中</span>
+                <b ms-if="orderInfo.WaitingReceiveCount">{{orderInfo.WaitingReceiveCount}}</b>
+            </a></li>
+            <li><a href="../merchant/personorderlist.html?status=3">
+                <i class="iconfont icon-daipingjia type4"></i>
+                <span>待评价</span>
+                <b ms-if="orderInfo.WaitingCommentCount">{{orderInfo.WaitingCommentCount}}</b>
+            </a></li>
+            <li><a href="../merchant/personorderlist.html?status=4">
+                <i class="iconfont icon-tuikuanshouhou type5"></i>
+                <span>退款/售后</span>
+                <b ms-if="orderInfo.RefoundOrderCount">{{orderInfo.RefoundOrderCount}}</b>
+            </a></li>
+        </ul>
+    </div>
+</div>
+<!--代金券-->
+<div class="setting" style="padding: 0 .5rem;">
+    <a href="../account/cashcoupons.html" style="padding: .25rem 0; border-bottom: 1px solid #eee;">
+        <span>我的卡券</span>
+        <em>{{account.CouponCount}}张</em>
+        <i class="iconfont icon-xiangyou"></i>
+    </a>
+    <a href="collectionShop.html" style="padding: .25rem 0;border-bottom: 1px solid #eee;">
+        <span>我的收藏</span>
+        <em></em>
+        <i class="iconfont icon-xiangyou"></i>
+    </a>
+    <a href="manageaddress.html" style="padding: .25rem 0;border-bottom: 1px solid #eee;">
+        <span>配送地址</span>
+        <em></em>
+        <i class="iconfont icon-xiangyou"></i>
+    </a>
+    <a href="tel:028-84713203" style="padding: .25rem 0;">
+        <span style="width: 5rem;">联系我们</span>
+        <em style="color: #92dbf2; width: 9rem;">028-84713203</em>
+        <i class="iconfont icon-xiangyou"></i>
+    </a>
+</div>
+<!--设置-->
+<div class="setting">
+    <a href="moresetting.html">
+        <span>设置</span>
+        <em></em>
+        <i class="iconfont icon-xiangyou"></i>
+    </a>
+</div>
+<div class="kong"></div>
+<!--公共底部-->
+<div class="naver">
+    <ul>
+        <li><a href="../main/index.html">
+            <i class="iconfont icon-shouyexianxing"></i>
+            <b>首页</b>
+        </a></li>
+        <li><a href="../merchant/personorderlist.html">
+            <i class="iconfont icon-dingdan3 discover"></i>
+            <b>订单</b>
+        </a></li>
+        <li><a href="../main/discovered.html">
+            <i class="iconfont icon-faxian3 discover"></i>
+            <b>发现</b>
+        </a></li>
+        <li class="active"><a href="../personal/personcenter.html">
+            <i class="iconfont icon-wodemian"></i>
+            <b>我的</b>
+        </a></li>
+
+    </ul>
+</div>
+</body>
+</html>

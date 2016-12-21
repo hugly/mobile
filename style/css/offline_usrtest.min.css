@@ -1,0 +1,251 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.offline-usrtest {
+  width: 16rem;
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.offline-usrtest ul {
+  width: 15.5rem;
+  padding-left: .5rem;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fff;
+  position: relative;
+}
+.offline-usrtest ul li {
+  width: 15.5rem;
+  height: 2rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.offline-usrtest ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.offline-usrtest ul li .phone {
+  float: left;
+  width: 9rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .5rem;
+  border: none;
+  margin-right: .5rem;
+}
+.offline-usrtest ul li .valiatecode {
+  float: left;
+  width: 14rem;
+  height: 1rem;
+  line-height: 1rem;
+  padding: .5rem;
+  border: none;
+}
+.offline-usrtest ul li .getcode {
+  float: left;
+  width: 4rem;
+  height: 1.5rem;
+  margin: .25rem .5rem;
+  line-height: 1.5rem;
+  font-size: .6rem;
+  text-align: center;
+  border-radius: .25rem;
+  background-color: #237290;
+  color: #fff;
+}
+.offline-usrtest ul li:first-child {
+  border-bottom: 1px solid #e5e5e5;
+}
+.offline-usrtest .valiate-btn {
+  display: inline-block;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: .5rem;
+  text-align: center;
+  background-color: #56d176;
+  border-radius: .25rem;
+  color: #fff;
+}
+.ercode {
+  position: relative;
+  margin-top: 3rem;
+}
+.ercode .loading {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  margin: 10rem 7rem 5rem 7rem;
+}
+.ercode .ercode {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  margin: 7rem 4rem 2rem 4rem;
+}
+.ercode p {
+  width: 14rem;
+  line-height: 1rem;
+  color: #999;
+  padding: .5rem 1rem;
+  font-size: .6rem;
+  text-align: center;
+}
+.offline-usrauth {
+  width: 16rem;
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.offline-usrauth .siginbox {
+  width: 4rem;
+  padding: 4rem 6rem 3rem 6rem;
+  position: relative;
+}
+.offline-usrauth .siginbox .circle {
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid #86d4eb;
+  border-radius: 50%;
+  position: relative;
+}
+.offline-usrauth .siginbox .circle .imgbox {
+  width: 2rem;
+  margin: 1rem;
+}
+.offline-usrauth .siginbox .circle .imgbox img {
+  display: block;
+  width: 2rem;
+}
+.offline-usrauth .siginbox .circle .dotted {
+  position: absolute;
+  right: 3rem;
+  top: .25rem;
+  width: .49rem;
+  height: .5rem;
+  background-color: #86d4e8;
+  border-radius: 50%;
+  -webkit-animation: clockwise 2s ease-in-out infinite;
+  animation: clockwise 2s ease-in-out infinite;
+  transform-origin: 1.5rem 1.75rem;
+}
+.offline-usrauth p {
+  width: 14rem;
+  line-height: 1rem;
+  color: #999;
+  padding: .5rem 1rem;
+  font-size: .6rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.offline-usrauth .valiate-btn {
+  display: inline-block;
+  width: 6.75rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: .5rem;
+  text-align: center;
+  background-color: #56d176;
+  border-radius: .25rem;
+  color: #fff;
+}
+.offline-usrauth .cancel-btn {
+  display: inline-block;
+  width: 6.75rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: .5rem;
+  text-align: center;
+  background-color: #f10215;
+  border-radius: .25rem;
+  color: #fff;
+}
+@-webkit-keyframes clockwise {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes clockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

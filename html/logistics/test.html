@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{ width: 200px; height: 200px; margin: 200px auto; }
+        .circle{ width: 196px; height: 196px; border: 2px dashed #a0a0a0; border-radius: 50%; position: relative; }
+        .percent-left{ width: 100px; height: 200px;  position: absolute; left: -2px; top: -2px; overflow: hidden; }
+        .percent-right{ width: 100px; height: 200px;  position: absolute; right: -2px; top: -2px; overflow: hidden; }
+        .percent{ width: 196px; height: 196px; border: 2px solid #92d8ed; border-radius: 50%; position: absolute; top: 0; }
+        .left{ clip: rect(0px,100px,200px,0px); left: 0; transform: rotateZ(-180deg); }
+        .right{ clip: rect(0px,200px,200px,100px); right: 0; transform: rotateZ(180deg); }
+    </style>
+    <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <div class="circle">
+        <div class="percent-left">
+            <div class="percent left"></div>
+        </div>
+        <div class="percent-right">
+            <div class="percent right"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var timer = null,
+        num = 0;
+
+//    timer = setInterval(function(){
+//        num ++;
+//
+//        if(num <= 30){
+//            $('.right').css({'transform':'rotateZ('+(180+num*6)+'deg)'});
+//        }else{
+//            $('.left').css({'transform':'rotateZ('+(-180+(num-30)*6)+'deg)'});
+//        }
+//
+//        if(num >= 60){
+//            clearInterval(timer);
+//        }
+//
+//    },100);
+
+</script>
+</html>

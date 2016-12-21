@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/account.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/account/cashcoupons.js"></script>
+</head>
+<body class="ms-controller" ms-controller="coupons">
+<!--公共头部-->
+<div class="headerone">
+    <a href="../personal/personcenter.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem;">代金券</h3>
+</div>
+<div class="content">
+    <div class="cashcoupons">
+        <div class="cashcoupon-list">
+            <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <ul class="cashcouponul">
+                <li ms-visible="couponsData.size() === 0 && !loadingImgShow" style="text-align: center;">暂无相关信息</li>
+                <li class="cashcouponitem" ms-class-1="disabled:el.used" ms-repeat="couponsData">
+                    <a ms-attr-href="cashcouponsdetail.html?no={{el.ThirdCode}}&price={{el.Price}}&MinPrice={{el.MinPrice}}&startTime={{el.ExpireBeginDatetime}}&endTime={{el.ExpireEndDatetime}}">
+                    <div class="mainbar">
+                        <p class="maintitle">
+                            <span>No:{{el.ThirdCode}}</span>
+                            <em>全场通用</em>
+                            </p>
+                        <div class="main">
+                            <p>
+                                <!--<em>{{el.Shop.Name}}</em>-->
+                                <!--<b></b>-->
+                                <em style="line-height: 3rem;">满{{el.MinPrice}}元使用</em>
+                            </p>
+                            <span style="margin-right: 8rem;">￥ <b>{{el.Price}}</b></span>
+                        </div>
+                    </div>
+                    <div class="topbar">
+                        <strong></strong>
+                    </div>
+                    <div class="more">
+                        <p>
+                            <span>有效时间:</span>
+                            <em>{{el.ExpireBeginDatetime | date("yyyy.MM.dd")}} - {{el.ExpireEndDatetime | date("yyyy.MM.dd")}}</em>
+                        </p>
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/bindphone.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/bindphone.js"></script>
+</head>
+<body class="ms-controller" ms-controller="bindphone">
+<!--公共头部-->
+<div class="headerone">
+    <a href="personcenter.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>绑定手机号</h3>
+</div>
+<!--账户管理详细信息-->
+<div class="bindPhone">
+    <div class="temp phone">
+        <span>手机号码</span>
+        <input type="tel" ms-duplex="phoneNum" placeholder="请输入要绑定的手机号码">
+    </div>
+    <div class="temp validatecode">
+        <span>验证码</span>
+        <input type="tel" ms-duplex="validateCode" placeholder="请输入验证码">
+    </div>
+    <a href="javascript:;" class="getCode" ms-if-loop="state === 1" ms-on-tap="getFirstCode">获取验证码</a>
+    <a href="javascript:;" class="getCode" ms-if-loop="state === 2" style="color: #969696;">验证码发送中</a>
+    <a href="javascript:;" class="getCode" ms-if-loop="state === 3" style="color: #969696;">{{timeLeft}}s后重新发送</a>
+    <a href="javascript:;" class="getCode" ms-if-loop="state === 4" ms-on-tap="getSecondCode">重新发送</a>
+    <a href="javascript:;" class="checkBtn" ms-on-tap="checkCodeFn">确定</a>
+</div>
+</body>
+</html>

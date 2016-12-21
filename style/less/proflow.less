@@ -1,0 +1,102 @@
+@import "lib.less";
+
+.headerone{ background-color: #fff; box-shadow: 0 0 1px #999; overflow: inherit; z-index: 15;
+  .back-btn{
+    i{ color: #505050; }
+  }
+  h3{ color: #505050; width: 10rem; padding-left: 0; }
+  .link{ color: #505050; position: relative;
+    i{ color: #505050; font-size: 1.2rem; }
+    input{ position: absolute; width: 2rem; height: 2rem; left: 0; top: 0; z-index: 999; border: none; opacity: 0; }
+  }
+}
+
+.taskmenu{ width: 16rem; height: 2rem; position: fixed; left: 0; top: 2rem; z-index: 9; background-color: #fff; border-bottom: 1px solid #dcdcdc;
+  ul{ width: 16rem; position: relative; .cf();
+    li{ float: left; width: 4rem; margin: 0 .65rem; height: 1.9rem; line-height: 2rem; border-bottom: .1rem solid #fafefe; text-align: center;
+      a{ display: block; width: 100%; height: 100%; }
+    }
+    li.active{ border-bottom-color: #237290;
+      a{ color: #237290; }
+    }
+  }
+}
+
+.newflow{ width: 16rem; position: absolute; left: 0; top: 4rem; right: 0; bottom: 2rem; overflow-y: scroll;
+  ul{ position: relative; width: 100%;
+    li{ width: 16rem; margin-top: .5rem; background-color: #fff; position: relative;
+      .flow-title{ width: 15rem; height: 1rem; padding: .5rem; border-bottom: 1px solid #cecece; position: relative; .cf();
+        .t-left{ float: left; height: 1rem;
+          i{ display: inline-block; width: 1rem; height: 1rem; line-height: 1rem; text-align: center; font-size: 1rem; vertical-align: middle; }
+          span{ display: inline-block; line-height: 1rem; vertical-align: middle; }
+        }
+        div.pickup{
+          i{ color: #e7b330; }
+          span{ color: #e7b330; }
+        }
+        div.send{
+          i{ color: #237290; }
+          span{ color: #237290; }
+        }
+
+        .t-right{ float: right; height: 1rem;
+          span{ display: inline-block; height: 1rem; line-height: 1rem; color: #505050; font-size: .6rem;
+            b{ color: #e03030; font-size: .8rem; font-weight: normal; }
+          }
+        }
+      }
+      .flow-time{ width: 15rem; margin: 0 .5rem; height: 1rem; padding: .5rem 0; border-bottom: 1px dashed #eaeaea;
+        span{ font-size: .7rem; color: #101010; }
+      }
+      .flow-info{ width: 15rem; padding: .5rem .5rem 0 .5rem; position: relative;
+        a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+          .info-item{ float: left; width: 14rem; position: relative; .cf();
+            span{ float: left; width: 1.2rem; height: 1.2rem; line-height: 1.2rem; margin-top: .1rem; text-align: center; border-radius: 50%; border: 2px solid #e7b330; color: #e7b330; }
+            span.pickup{ border-color: #e7b330; color: #e7b330; }
+            span.send{ border-color: #237290; color: #237290; }
+            .item-center{ float: left; width: 12rem; margin-left: .3rem; margin-bottom: .5rem; position: relative; .cf();
+              h3{ float: left; width: 12rem; height: 1.4rem; line-height: 1.5rem; font-weight: normal; color: #101010; .omit();
+                b{ font-weight: normal; color: #e14242; margin-left: .5rem; }
+              }
+              em{ float: left; width: 12rem; line-height: .8rem; color: #959595; font-size: .6rem; }
+            }
+          }
+          i{ position: absolute; top: 0; right: 0; width: 1.5rem; height: 5.8rem; line-height: 5.8rem; text-align: center; color: #ccc; font-size: 1rem; }
+        }
+      }
+      .operate{ width: 15rem; padding: 0 .5rem .5rem .5rem; position: relative; border-bottom: 1px solid #cecece;
+        a{ display: inline-block; width: 15rem; height: 2rem; line-height: 2rem; text-align: center; background-color: #92d8ed; color: #fff; border-radius: .25rem; }
+      }
+      .flow-order{ width: 15rem; padding: 0 .5rem; height: 1.5rem; line-height: 1.5rem; position: relative; .cf();
+        span{ color: #c2baba; font-size: .6rem; }
+      }
+    }
+  }
+}
+.zoom{ display: none; width: 16rem; height: 100%; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background-color: rgba(0,0,0,.4); z-index: 15; }
+.filter{ width: 16rem; height: 1.6rem; padding: .2rem 0; position: fixed; left: 0; bottom: 0; box-shadow: 0 0 1px #999; background-color: #fff; z-index: 16;
+  ul{ position: relative; .cf();
+    .filter-item{ float: left; width: 5.33rem; height: 1.6rem; border-right: 1px solid #cecece; box-sizing: border-box; position: relative;
+      .main-filter{ width: 5.33rem; height: 1.6rem; line-height: 1.6rem; text-align: center;
+        i{ color: #101010; font-size: .8rem; vertical-align: middle; }
+        span{ color: #101010; font-size: .6rem; vertical-align: middle; }
+      }
+      .silder-filter{ display: none; position: absolute; left: 0; bottom: 1.82rem; width: 5.33rem; box-shadow: 0 0 2px #ccc; background-color: #fff; z-index: 16;
+        ul{ position: relative; width: 4.33rem; padding: 0 .5rem;
+          li{ width: 4.33rem; height: 1.6rem; line-height: 1.6rem; text-align: center; border-bottom: 1px solid #cecece; }
+          li:last-child{ border-bottom: none; }
+        }
+      }
+    }
+    .filter-item:last-child{ border-right: none; }
+  }
+}
+
+.main-box{ position: absolute; left: 0; top: 2rem; right: 0; bottom: 0; background-color: #fff;
+  ul{ position: relative; margin: 4rem 0; .cf();
+    li{ float: left; width: 6rem; height: 6rem; margin: 0 .9rem; line-height: 6rem; text-align: center; border-radius: .25rem; background-color: #92d8ed;
+      a{ display: block; width: 100%; height: 100%; color: #fff; }
+    }
+  }
+  .print-btn{ position: absolute; left: 0; bottom: 1rem; width: 16rem; height: 2rem; line-height: 2rem; text-align: center; color: #e03030; }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--<script type="text/javascript" src="http://m.wziwash.com/oauth"></script>-->
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/strategydetail.js"></script>
+</head>
+<body class="ms-controller" ms-controller="strategydetail">
+<!--头部部分-->
+<div class="header-detail">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui" style="color: #35c8fc;"></i>
+    </a>
+    <h3 style="width: 12.5rem; padding-right: 0; color: #333;">攻略详情</h3>
+    <div class="sharebox">
+        <a href="javascript:;" class="collection" ms-on-tap="collectionFn">
+            <i class="iconfont" ms-class-1="icon-heart:isCollection" ms-class-2="icon-xin1:!isCollection"></i>
+        </a>
+    </div>
+</div>
+<div class="strategybox">
+    <div class="stratetitle">
+        <img class="strageimg" ms-attr-src="strategyDetail.MainImage">
+        <div class="strateinfo">
+            <h3>{{strategyDetail.Title}}</h3>
+            <p>
+                <span><i class="iconfont icon-yanjing"></i><b>{{strategyDetail.ScannCount}}</b></span>
+                <span><i class="iconfont icon-muzhi" ms-on-tap="addLikeFn(strategyDetail,$event)"></i><b>{{strategyDetail.ClickLikeCount}}</b></span>
+            </p>
+            <div class="pinpai">
+                <div class="imgbox">
+                    <img class="strlogo" ms-if="strategyDetail.headImg" ms-attr-src="{{strategyDetail.headImg}}">
+                    <img class="strlogo" ms-if="!strategyDetail.headImg" src="../../data-images/userman.png" alt="">
+                </div>
+                <p>{{strategyDetail.UserName}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="stratecon" ms-html="strategyDetail.Content"></div>
+</div>
+</body>
+</html>

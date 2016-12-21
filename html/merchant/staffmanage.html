@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/staffmanage.js"></script>
+</head>
+<body>
+<!--公共头部-->
+<div class="headerone">
+    <a href="mymerchant.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>员工管理</h3>
+    <a href="staffadd.html" class="link">添加</a>
+</div>
+<div class="mer-con ms-controller" ms-controller="staffmanage">
+    <div class="staff">
+        <div class="staff-title">
+            <a href="javascript:;" class="name">名字</a>
+            <a href="javascript:;" class="male">性别</a>
+            <a href="javascript:;" class="age">年龄</a>
+            <a href="javascript:;" class="phone">联系方式</a>
+        </div>
+        <div class="staff-box">
+            <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+                <img src="../../data-images/loading.gif">
+            </div>
+            <ul>
+                <li ms-repeat="staffModel" ms-class-1="showdele:el.isShowDele" ms-on-swipeleft="showDele($index,$event)" ms-on-swiperight="hideDele($index,$event)" ms-on-swipedown="hideDele($index,$event)">
+                    <a ms-attr-href="staffadd.html?code={{el.Code}}">
+                        <div class="name">
+                            <img ms-if-loop="el.HeadImage" ms-attr-src="{{el.HeadImage}}">
+                            <img ms-if-loop="!el.HeadImage && el.Sex === 0" src="../../data-images/userman.png">
+                            <img ms-if-loop="!el.HeadImage && el.Sex === 1" src="../../data-images/userwoman.png">
+                            <span class="word">{{el.Name}}</span>
+                            <!--<em class="info">{{el.DepartmentName}}</em>-->
+                        </div>
+                        <div class="male">{{el.Sex === 0?'男':'女'}}</div>
+                        <div class="age">{{el.Age}}</div>
+                        <div class="phone">{{el.Tel}}</div>
+                        <i class="iconfont icon-xiangyou"></i>
+                    </a>
+                    <a href="javascript:;" class="dele" ms-on-tap="deleStaff($index,el.Code,$remove)">删除</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

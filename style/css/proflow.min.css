@@ -1,0 +1,509 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+.headerone {
+  background-color: #fff;
+  box-shadow: 0 0 1px #999;
+  overflow: inherit;
+  z-index: 15;
+}
+.headerone .back-btn i {
+  color: #505050;
+}
+.headerone h3 {
+  color: #505050;
+  width: 10rem;
+  padding-left: 0;
+}
+.headerone .link {
+  color: #505050;
+  position: relative;
+}
+.headerone .link i {
+  color: #505050;
+  font-size: 1.2rem;
+}
+.headerone .link input {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  border: none;
+  opacity: 0;
+}
+.taskmenu {
+  width: 16rem;
+  height: 2rem;
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  z-index: 9;
+  background-color: #fff;
+  border-bottom: 1px solid #dcdcdc;
+}
+.taskmenu ul {
+  width: 16rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.taskmenu ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.taskmenu ul li {
+  float: left;
+  width: 4rem;
+  margin: 0 .65rem;
+  height: 1.9rem;
+  line-height: 2rem;
+  border-bottom: .1rem solid #fafefe;
+  text-align: center;
+}
+.taskmenu ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.taskmenu ul li.active {
+  border-bottom-color: #237290;
+}
+.taskmenu ul li.active a {
+  color: #237290;
+}
+.newflow {
+  width: 16rem;
+  position: absolute;
+  left: 0;
+  top: 4rem;
+  right: 0;
+  bottom: 2rem;
+  overflow-y: scroll;
+}
+.newflow ul {
+  position: relative;
+  width: 100%;
+}
+.newflow ul li {
+  width: 16rem;
+  margin-top: .5rem;
+  background-color: #fff;
+  position: relative;
+}
+.newflow ul li .flow-title {
+  width: 15rem;
+  height: 1rem;
+  padding: .5rem;
+  border-bottom: 1px solid #cecece;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.newflow ul li .flow-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.newflow ul li .flow-title .t-left {
+  float: left;
+  height: 1rem;
+}
+.newflow ul li .flow-title .t-left i {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+.newflow ul li .flow-title .t-left span {
+  display: inline-block;
+  line-height: 1rem;
+  vertical-align: middle;
+}
+.newflow ul li .flow-title div.pickup i {
+  color: #e7b330;
+}
+.newflow ul li .flow-title div.pickup span {
+  color: #e7b330;
+}
+.newflow ul li .flow-title div.send i {
+  color: #237290;
+}
+.newflow ul li .flow-title div.send span {
+  color: #237290;
+}
+.newflow ul li .flow-title .t-right {
+  float: right;
+  height: 1rem;
+}
+.newflow ul li .flow-title .t-right span {
+  display: inline-block;
+  height: 1rem;
+  line-height: 1rem;
+  color: #505050;
+  font-size: .6rem;
+}
+.newflow ul li .flow-title .t-right span b {
+  color: #e03030;
+  font-size: .8rem;
+  font-weight: normal;
+}
+.newflow ul li .flow-time {
+  width: 15rem;
+  margin: 0 .5rem;
+  height: 1rem;
+  padding: .5rem 0;
+  border-bottom: 1px dashed #eaeaea;
+}
+.newflow ul li .flow-time span {
+  font-size: .7rem;
+  color: #101010;
+}
+.newflow ul li .flow-info {
+  width: 15rem;
+  padding: .5rem .5rem 0 .5rem;
+  position: relative;
+}
+.newflow ul li .flow-info a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.newflow ul li .flow-info a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.newflow ul li .flow-info a .info-item {
+  float: left;
+  width: 14rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.newflow ul li .flow-info a .info-item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.newflow ul li .flow-info a .info-item span {
+  float: left;
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  margin-top: .1rem;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid #e7b330;
+  color: #e7b330;
+}
+.newflow ul li .flow-info a .info-item span.pickup {
+  border-color: #e7b330;
+  color: #e7b330;
+}
+.newflow ul li .flow-info a .info-item span.send {
+  border-color: #237290;
+  color: #237290;
+}
+.newflow ul li .flow-info a .info-item .item-center {
+  float: left;
+  width: 12rem;
+  margin-left: .3rem;
+  margin-bottom: .5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.newflow ul li .flow-info a .info-item .item-center:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.newflow ul li .flow-info a .info-item .item-center h3 {
+  float: left;
+  width: 12rem;
+  height: 1.4rem;
+  line-height: 1.5rem;
+  font-weight: normal;
+  color: #101010;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.newflow ul li .flow-info a .info-item .item-center h3 b {
+  font-weight: normal;
+  color: #e14242;
+  margin-left: .5rem;
+}
+.newflow ul li .flow-info a .info-item .item-center em {
+  float: left;
+  width: 12rem;
+  line-height: .8rem;
+  color: #959595;
+  font-size: .6rem;
+}
+.newflow ul li .flow-info a i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.5rem;
+  height: 5.8rem;
+  line-height: 5.8rem;
+  text-align: center;
+  color: #ccc;
+  font-size: 1rem;
+}
+.newflow ul li .operate {
+  width: 15rem;
+  padding: 0 .5rem .5rem .5rem;
+  position: relative;
+  border-bottom: 1px solid #cecece;
+}
+.newflow ul li .operate a {
+  display: inline-block;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #92d8ed;
+  color: #fff;
+  border-radius: .25rem;
+}
+.newflow ul li .flow-order {
+  width: 15rem;
+  padding: 0 .5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.newflow ul li .flow-order:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.newflow ul li .flow-order span {
+  color: #c2baba;
+  font-size: .6rem;
+}
+.zoom {
+  display: none;
+  width: 16rem;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 15;
+}
+.filter {
+  width: 16rem;
+  height: 1.6rem;
+  padding: .2rem 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  box-shadow: 0 0 1px #999;
+  background-color: #fff;
+  z-index: 16;
+}
+.filter ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.filter ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.filter ul .filter-item {
+  float: left;
+  width: 5.33rem;
+  height: 1.6rem;
+  border-right: 1px solid #cecece;
+  box-sizing: border-box;
+  position: relative;
+}
+.filter ul .filter-item .main-filter {
+  width: 5.33rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+}
+.filter ul .filter-item .main-filter i {
+  color: #101010;
+  font-size: .8rem;
+  vertical-align: middle;
+}
+.filter ul .filter-item .main-filter span {
+  color: #101010;
+  font-size: .6rem;
+  vertical-align: middle;
+}
+.filter ul .filter-item .silder-filter {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 1.82rem;
+  width: 5.33rem;
+  box-shadow: 0 0 2px #ccc;
+  background-color: #fff;
+  z-index: 16;
+}
+.filter ul .filter-item .silder-filter ul {
+  position: relative;
+  width: 4.33rem;
+  padding: 0 .5rem;
+}
+.filter ul .filter-item .silder-filter ul li {
+  width: 4.33rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+  border-bottom: 1px solid #cecece;
+}
+.filter ul .filter-item .silder-filter ul li:last-child {
+  border-bottom: none;
+}
+.filter ul .filter-item:last-child {
+  border-right: none;
+}
+.main-box {
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+.main-box ul {
+  position: relative;
+  margin: 4rem 0;
+  min-height: 1px;
+  zoom: 1;
+}
+.main-box ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.main-box ul li {
+  float: left;
+  width: 6rem;
+  height: 6rem;
+  margin: 0 .9rem;
+  line-height: 6rem;
+  text-align: center;
+  border-radius: .25rem;
+  background-color: #92d8ed;
+}
+.main-box ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+.main-box .print-btn {
+  position: absolute;
+  left: 0;
+  bottom: 1rem;
+  width: 16rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #e03030;
+}

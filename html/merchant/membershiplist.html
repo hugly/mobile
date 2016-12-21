@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/membershiplist.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/membershiplist.js"></script>
+</head>
+<body class="ms-controller" ms-controller="membershiplist">
+<!--公共头部-->
+<div class="headerone moresetting">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem;">会员列表</h3>
+    <a href="membershipbind.html" class="message-btn" ms-if="hasAdd">
+        <i class="iconfont icon-jia"></i>
+    </a>
+</div>
+<div class="title">
+    <span class="name">姓名</span>
+    <span class="tel">电话</span>
+    <span class="discount">折扣</span>
+    <span class="time">时间</span>
+    <span class="balance">余额</span>
+</div>
+<div class="memberlist">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <ul ms-if="memberList.size() > 0 && !loadingImgShow">
+        <li ms-repeat="memberList"><a href="javascript:;">
+            <p>{{el.CardType.Name}}</p>
+            <div class="info">
+                <span class="name">{{el.UserName}}</span>
+                <span class="tel">{{el.UserPhone}}</span>
+                <span class="discount">{{el.Discount * 10 | number(2)}}折</span>
+                <span class="time">{{el.CreateTime | date("yyyy-MM-dd")}}</span>
+                <span class="balance">{{el.Balance}}元</span>
+            </div>
+        </a></li>
+    </ul>
+</div>
+</body>
+</html>

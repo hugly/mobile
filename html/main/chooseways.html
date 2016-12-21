@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择支付配送方式</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/pay.min.css">
+    <link rel="stylesheet" href="../../style/css/mobiscroll.custom-2.16.1.min.css">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/mobiscroll.custom-2.17.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/main/ways.js"></script>
+</head>
+<body class="ms-controller" ms-controller="ways">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>选择支付配送方式</h3>
+</div>
+<div class="content">
+    <div class="choosecom">
+        <h3><i class="iconfont icon-yinxingqia"></i>支付方式</h3>
+        <ul class="type1" >
+            <li ms-class-1="active:paytype === 1" ms-data-code="1" ms-on-tap="changpay"><i class="iconfont icon-gouxuan1"></i><span>在线支付</span></li>
+            <!--<li ms-class-1="active:paytype === 2" ms-data-code="2" ms-on-tap="changpay"><i class="iconfont icon-gouxuan1"></i><span>货到付款</span></li>-->
+        </ul>
+    </div>
+    <div class="combox">
+        <div class="choosecom">
+            <h3><i class="iconfont icon-wuliu1"></i>配送方式</h3>
+            <ul class="type1">
+                <li ms-class-1="active:distype === 1" ms-data-code="1" ms-on-tap="changdis"><i class="iconfont icon-gouxuan1"></i><span>到店自提</span></li>
+                <li ms-class-1="active:distype === 2" ms-data-code="2" ms-on-tap="changdis"><i class="iconfont icon-gouxuan1"></i><span>送货上门</span></li>
+            </ul>
+        </div>
+        <div class="date" ms-if-loop="distype === 2">
+            <div class="left">
+                <h4>送货时间</h4>
+                <p><span>{{pickupTime}}</span></p>
+            </div>
+            <div class="right">
+                <i class="iconfont icon-rili"></i>
+            </div>
+            <ul id="time3" style="display:none">
+                <li data-val="随时">随时
+                    <ul>
+                        <li data-val="随时">随时</li>
+                        <li data-val="早上">早上</li>
+                        <li data-val="中午">中午</li>
+                        <li data-val="晚上">晚上</li>
+                    </ul>
+                </li>
+                <li data-val="周一至周五">周一至周五
+                    <ul>
+                        <li data-val="随时">随时</li>
+                        <li data-val="早上">早上</li>
+                        <li data-val="中午">中午</li>
+                        <li data-val="晚上">晚上</li>
+                    </ul>
+                </li>
+                <li data-val="周末">周末
+                    <ul>
+                        <li data-val="随时">随时</li>
+                        <li data-val="早上">早上</li>
+                        <li data-val="中午">中午</li>
+                        <li data-val="晚上">晚上</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="address" ms-visible="distype === 2">
+            <a ms-attr-href="choosedisaddress.html?{{searchData}}" style="display: block; width: 100%; height: 100%;">
+                <h3><span>{{address.ReceiverName}}</span><em>{{address.Phone}}</em></h3>
+                <p><i class="iconfont icon-dingwei"></i>{{address.DetailAddress}}</p>
+                <i class="more iconfont icon-xiangyou"></i>
+            </a>
+        </div>
+        <div class="line" ms-visible="distype === 2"></div>
+    </div>
+</div>
+<div class="sure">
+    <a ms-attr-href="fillorder.html?{{searchData}}" class="sure-btn">保存</a>
+</div>
+</body>
+</html>

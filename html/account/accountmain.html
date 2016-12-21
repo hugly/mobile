@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/account.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/account/accountmain.js"></script>
+</head>
+<body class="ms-controller" ms-controller="accountmain">
+<!--公共头部-->
+<div class="headerone specheader">
+    <a href="../personal/personcenter.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>我的资产</h3>
+</div>
+<div class="content">
+    <div class="summary">
+        <ul>
+            <li><a href="../merchant/wallet.html">
+                <b>￥{{account.Balance?account.Balance:0}}</b>
+                <span>账户余额</span>
+            </a></li>
+            <li><a href="../account/coupons.html">
+                <b>{{account.CouponCount?account.CouponCount:0}}</b>
+                <span>优惠券</span>
+            </a></li>
+            <li><a href="../account/yibi.html">
+                <b>{{account.ClothingCoin?account.ClothingCoin:0}}</b>
+                <span>衣币</span>
+            </a></li>
+        </ul>
+    </div>
+    <div class="cardlist">
+        <ul>
+            <li><a href="/payment/ReReRecharge">
+                <i class="red iconfont icon-chongzhi"></i>
+                <p>充值</p>
+                <span ms-if-loop="account.WashingCardCount">{{account.WashingCardCount?account.WashingCardCount:0}}</span>
+            </a></li>
+            <li><a href="../merchant/walletdetail.html">
+                <i class="yellow iconfont icon-jiaoyimingxichaxun"></i>
+                <p>收支明细</p>
+            </a></li>
+            <li><a href="../personal/cardlist.html">
+                <i class="blue iconfont icon-qiapian"></i>
+                <p>会员卡</p>
+                <span ms-if-loop="account.WashingCardCount">{{account.WashingCardCount?account.WashingCardCount:0}}</span>
+            </a></li>
+            <li><a href="../merchant/personorderlist.html?market=3">
+                <i class="tuan iconfont icon-jiudianjingquwanlexiangqingyeicon14"></i>
+                <p>团购券</p>
+                <span ms-if-loop="account.TunagouTicketCount">{{account.TunagouTicketCount?account.TunagouTicketCount:0}}</span>
+            </a></li>
+            <li><a href="/Payment/UpdatePassword">
+                <i class="green iconfont icon-weibiaoti2"></i>
+                <p>支付密码</p>
+                <span ms-if-loop="account.TunagouTicketCount">{{account.TunagouTicketCount?account.TunagouTicketCount:0}}</span>
+            </a></li>
+            <li><a href="javascript:;">
+                <i class="orange iconfont icon-xiaoshou"></i>
+                <p>消费报表</p>
+                <span ms-if-loop="account.BankCardCount">{{account.BankCardCount?account.BankCardCount:0}}</span>
+            </a></li>
+        </ul>
+    </div>
+    <!--<div class="ad">-->
+        <!--<a href="javascript:;"><img src="../../data-images/ad.jpg"></a>-->
+    <!--</div>-->
+    <!--<div class="mainfn">-->
+        <!--<ul>-->
+            <!--<li><a href="javascript:;">-->
+                <!--<i class="type1 iconfont icon-5anquanshezhi"></i>-->
+                <!--<p>安全支付</p>-->
+            <!--</a></li>-->
+            <!--<li><a href="javascript:;">-->
+                <!--<i class="type2 iconfont icon-yusan0"></i>-->
+                <!--<p>我的保障</p>-->
+            <!--</a></li>-->
+            <!--<li><a href="javascript:;">-->
+                <!--<i class="type3 iconfont icon-gengkuaijie"></i>-->
+                <!--<p>快捷支付设置</p>-->
+            <!--</a></li>-->
+            <!--<li><a href="javascript:;">-->
+                <!--<i class="type4 iconfont icon-weibiaoti2"></i>-->
+                <!--<p>指纹支付设置</p>-->
+            <!--</a></li>-->
+            <!--<li><a href="javascript:;">-->
+                <!--<i class="type5 iconfont icon-iconfontcolor63"></i>-->
+                <!--<p>企业支付</p>-->
+            <!--</a></li>-->
+            <!--<li><a href="javascript:;">-->
+                <!--<i class="type6 iconfont icon-xinyongchanpin"></i>-->
+                <!--<p>衣信用</p>-->
+            <!--</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+</div>
+</body>
+</html>

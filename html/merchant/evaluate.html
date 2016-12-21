@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/merchant.min.css">
+    <link rel="stylesheet" href="../../style/css/cropper.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/cropper.min.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/merchant/evaluate.js"></script>
+</head>
+<body class="ms-controller" ms-controller="evaluate">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>评价</h3>
+</div>
+<div class="mer-con">
+    <div class="cancelorder">
+        <div class="cancel-title">
+            <span>请输入评价</span>
+        </div>
+        <div class="cancel-form">
+            <textarea placeholder="请输入评价" ms-duplex="cancelResult"></textarea>
+        </div>
+    </div>
+    <div class="evaluate-box">
+        <ul>
+            <li>
+                <span>质量</span>
+                <div class="score">
+                    <i class="iconfont icon-xingxing" ms-class-1="active:qualitiScore >= 1" ms-on-tap="chooseQualityFn(1)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:qualitiScore >= 2" ms-on-tap="chooseQualityFn(2)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:qualitiScore >= 3" ms-on-tap="chooseQualityFn(3)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:qualitiScore >= 4" ms-on-tap="chooseQualityFn(4)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:qualitiScore >= 5" ms-on-tap="chooseQualityFn(5)"></i>
+                </div>
+            </li>
+            <li>
+                <span>物流</span>
+                <div class="score">
+                    <i class="iconfont icon-xingxing" ms-class-1="active:logistScore >= 1" ms-on-tap="chooselogistFn(1)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:logistScore >= 2" ms-on-tap="chooselogistFn(2)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:logistScore >= 3" ms-on-tap="chooselogistFn(3)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:logistScore >= 4" ms-on-tap="chooselogistFn(4)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:logistScore >= 5" ms-on-tap="chooselogistFn(5)"></i>
+                </div>
+            </li>
+            <li>
+                <span>服务</span>
+                <div class="score">
+                    <i class="iconfont icon-xingxing" ms-class-1="active:severiceScore >= 1" ms-on-tap="choosesevericeFn(1)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:severiceScore >= 2" ms-on-tap="choosesevericeFn(2)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:severiceScore >= 3" ms-on-tap="choosesevericeFn(3)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:severiceScore >= 4" ms-on-tap="choosesevericeFn(4)"></i>
+                    <i class="iconfont icon-xingxing" ms-class-1="active:severiceScore >= 5" ms-on-tap="choosesevericeFn(5)"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="evaluateimg">
+        <h3>上传图片:</h3>
+        <div class="imgbox">
+            <div class="imgitem" ms-repeat="imageList">
+                <img ms-attr-src="el">
+                <a href="javascript:;" ms-on-tap="deleFn($remove)">删除</a>
+            </div>
+            <div class="addimgitem">
+                <i class="iconfont icon-plus"></i>
+                <input type="file" class="fileinput" id="imgfile">
+            </div>
+        </div>
+    </div>
+    <a href="javascript:;" class="ordernow" ms-on-tap="submitCancel">确认</a>
+</div>
+<div class="imgzoomer" ms-on-touchstart="clearTouch($event)" ms-visible="isUpShow" >
+    <div class="imgcontainer">
+        <img src="" alt="">
+    </div>
+    <a href="javascript:;" class="submitimg" ms-if="!isuploading">确定</a>
+    <a href="javascript:;" class="submitimg" ms-if="isuploading" style="background-color: #ccc;">正在上传</a>
+</div>
+</body>
+</html>

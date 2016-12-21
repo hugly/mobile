@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/person.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/personal/person.js"></script>
+</head>
+<body class="ms-controller" ms-controller="person">
+<!--头部部分-->
+<!--<div class="personheader">-->
+    <!--<a href="javascript:;" class="message">-->
+        <!--<i class="iconfont icon-xiaoxi"></i>-->
+        <!--<b></b>-->
+    <!--</a>-->
+    <!--<a href="javascript:;" class="scan">-->
+        <!--<i class="iconfont icon-saoyisao"></i>-->
+    <!--</a>-->
+<!--</div>-->
+<!--个人中心头部-->
+<div class="persontitle">
+    <img class="bgbanner" src="../../data-images/banner.png">
+    <div class="imgbox">
+        <img ms-if="userInfo.HeadImage" ms-attr-src="userInfo.HeadImage">
+        <img ms-if-loop="!userInfo.HeadImage && userInfo.Sex === 0" src="../../data-images/userman.png">
+        <img ms-if-loop="!userInfo.HeadImage && userInfo.Sex === 1" src="../../data-images/userwoman.png">
+    </div>
+    <div class="personinfo">
+        <a href="http://m.wziwash.com/SSOAccount/Login" ms-if="!isShow" class="register">注册/登录</a>
+        <a href="javascript:;" class="register" ms-if="isShow">{{userInfo.NickName || userInfo.Name || '洗衣之家'}}</a>
+        <span class="leval" ms-if="isShow"><b>V</b><em>{{orderInfo.MemberGrade}}</em><i>{{orderInfo.MemberGradeName}}</i></span>
+    </div>
+    <a href="accountmanage.html" class="manamge">账户管理<i class="iconfont icon-xiangyou"></i></a>
+</div>
+<!--预约单\团购券-->
+<div class="silderbar">
+    <div class="silderlist">
+        <a href="../main/mybook.html">
+            <!--<i class="iconfont icon-shijian"></i>-->
+            <!--ms-if-loop="orderInfo.BookingRequestCount"-->
+            <!--<em></em>-->
+            <b class="type1">{{orderInfo.BookingRequestCount}}<em>个</em></b>
+            <span>我要洗护</span>
+        </a>
+    </div>
+    <div class="silderlist green">
+        <a href="../merchant/personorderlist.html?market=3">
+            <!--<i class="iconfont icon-tuangouwangzhan"></i>-->
+            <!--ms-if-loop="orderInfo.GroupCouponCount"-->
+            <!--<em></em>-->
+            <b class="type2">{{orderInfo.GroupCouponCount}}<em>张</em></b>
+            <span>团购券</span>
+        </a>
+    </div>
+    <div class="silderlist green">
+        <a href="collectionShop.html">
+            <!--<i class="iconfont icon-tuangouwangzhan"></i>-->
+            <!--ms-if-loop="orderInfo.GroupCouponCount"-->
+            <!--<em></em>-->
+            <b class="type3">{{orderInfo.ShopCount}}<em>个</em></b>
+            <span>收藏商家</span>
+        </a>
+    </div>
+</div>
+<!--我的订单-->
+<div class="orderlist">
+    <div class="ordertitle">
+        <!--<i class="iconfont icon-dingdan"></i>-->
+        <h3>我的订单</h3>
+        <a href="../merchant/personorderlist.html" class="allorder">全部订单<i class="iconfont icon-xiangyou"></i></a>
+    </div>
+    <div class="order-con">
+        <ul>
+            <li><a href="../merchant/personorderlist.html?status=1">
+                <i class="iconfont icon-daifukuan type1"></i>
+                <span>待付款</span>
+                <b ms-if="orderInfo.WaitingPayCount">{{orderInfo.WaitingPayCount}}</b>
+            </a></li>
+            <li><a href="../merchant/personorderlist.html?status=5">
+                <i class="iconfont icon-daiyanshou type3"></i>
+                <span>待取件</span>
+                <b ms-if="orderInfo.WaitingPickUpCount">{{orderInfo.WaitingPickUpCount}}</b>
+            </a></li>
+            <li><a href="../merchant/personorderlist.html?status=6">
+                <i class="iconfont icon-peisongzhong type2"></i>
+                <span>待配送</span>
+                <b ms-if="orderInfo.WaitingReceiveCount">{{orderInfo.WaitingReceiveCount}}</b>
+            </a></li>
+            <li><a href="../merchant/personorderlist.html?status=3">
+                <i class="iconfont icon-icondaipingjia type4"></i>
+                <span>待评价</span>
+                <b ms-if="orderInfo.WaitingCommentCount">{{orderInfo.WaitingCommentCount}}</b>
+            </a></li>
+            <li><a href="../merchant/personorderlist.html?status=4">
+                <i class="iconfont icon-shouhou type5"></i>
+                <span>退款/售后</span>
+                <b ms-if="orderInfo.RefoundOrderCount">{{orderInfo.RefoundOrderCount}}</b>
+            </a></li>
+        </ul>
+    </div>
+</div>
+<!--我的资产-->
+<div class="assets">
+    <!--<div class="assetstitle">-->
+        <!--&lt;!&ndash;<i class="iconfont icon-daifukuan1"></i>&ndash;&gt;-->
+        <!--<h3>我的资产</h3>-->
+        <!--<a href="../account/accountmain.html" class="allorder">全部资产<i class="iconfont icon-xiangyou"></i></a>-->
+    <!--</div>-->
+    <div class="assetsbox">
+        <ul>
+            <li><a href="account.html">
+                <b>￥{{account.Balance}}</b>
+                <span>账户余额</span>
+            </a></li>
+            <li><a href="../account/coupons.html">
+                <b>{{account.CouponCount}}</b>
+                <span>优惠券</span>
+            </a></li>
+            <li><a href="cardlist.html">
+                <b>{{account.WashingCardCount}}</b>
+                <span>洗衣会员卡</span>
+            </a></li>
+            <li><a href="../account/accountmain.html">
+                <b class="iconfont icon-daifukuan"></b>
+                <span>我的资产</span>
+                <i class="iconfont icon-xiangyou"></i>
+            </a></li>
+        </ul>
+    </div>
+</div>
+<!--功能区-->
+<div class="fnbox">
+    <ul>
+        <li class="type1"><a href="account.html">
+            <i class="iconfont icon-chongzhi"></i>
+            <p>余额充值</p>
+        </a></li>
+        <!--<li class="type2"><a href="javascript:;">-->
+            <!--<i class="iconfont icon-xiaoxi1"></i>-->
+            <!--<p>消息</p>-->
+        <!--</a></li>-->
+        <li class="type3"><a href="../personal/strategycoll.html">
+            <i class="iconfont icon-gonglve1"></i>
+            <p>攻略收藏</p>
+        </a></li>
+        <!--<li class="type4"><a href="footprint.html">-->
+            <!--<i class="iconfont icon-zuji-copy"></i>-->
+            <!--<p>我的足迹</p>-->
+        <!--</a></li>-->
+        <li class="type5"><a href="manageaddress.html">
+            <i class="iconfont icon-shouhuodizhi"></i>
+            <p>收货地址</p>
+        </a></li>
+        <li class="type6"><a href="recommond.html">
+            <i class="iconfont icon-yaoqinghaoyou"></i>
+            <p>邀请好友</p>
+        </a></li>
+        <!--<li class="type7"><a href="../merchant/complaint.html">-->
+            <!--<i class="iconfont icon-yijianfankui"></i>-->
+            <!--<p>意见反馈</p>-->
+        <!--</a></li>-->
+        <!--<li class="type8"><a href="javascript:;" ms-on-tap="checkIsSellerFn">-->
+            <!--<i class="iconfont icon-mendian"></i>-->
+            <!--<p>商家中心</p>-->
+        <!--</a></li>-->
+    </ul>
+</div>
+<!--代金券-->
+<div class="setting">
+    <a href="../account/cashcoupons.html">
+        <i class="iconfont icon-daijinquan" style="font-size: 1rem; color: #fcac35;"></i>
+        <span>我的代金券</span>
+        <i class="iconfont icon-xiangyou"></i>
+    </a>
+</div>
+<!--设置-->
+<div class="setting">
+    <a href="moresetting.html">
+        <i class="iconfont icon-shezhi bigi"></i>
+        <span>设置</span>
+        <i class="iconfont icon-xiangyou"></i>
+    </a>
+</div>
+<div class="kong"></div>
+<!--公共底部-->
+<div class="naver">
+    <ul>
+        <!--<li><a href="../main/index.html">-->
+            <!--<i class="iconfont icon-shouye1"></i>-->
+            <!--<b>首页</b>-->
+        <!--</a></li>-->
+        <!--<li><a href="../merchant/personorderlist.html">-->
+            <!--<i class="iconfont icon-dingdan discover"></i>-->
+            <!--<b>订单</b>-->
+        <!--</a></li>-->
+        <!--<li><a href="../main/discovered.html">-->
+            <!--<i class="iconfont icon-faxian discover"></i>-->
+            <!--<b>发现</b>-->
+        <!--</a></li>-->
+        <!--<li class="active"><a href="../personal/person.html">-->
+            <!--<i class="iconfont icon-wode1"></i>-->
+            <!--<b>我的</b>-->
+        <!--</a></li>-->
+
+        <li><a href="../main/index.html">
+            <i class="iconfont icon-shouyexianxing"></i>
+            <b>首页</b>
+        </a></li>
+        <li><a href="../merchant/personorderlist.html">
+            <i class="iconfont icon-dingdan3 discover"></i>
+            <b>订单</b>
+        </a></li>
+        <li><a href="../main/discovered.html">
+            <i class="iconfont icon-faxian3 discover"></i>
+            <b>发现</b>
+        </a></li>
+        <li class="active"><a href="../personal/personcenter.html">
+            <i class="iconfont icon-wodemian"></i>
+            <b>我的</b>
+        </a></li>
+
+    </ul>
+</div>
+</body>
+</html>

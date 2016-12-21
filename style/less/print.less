@@ -1,0 +1,38 @@
+@import "lib.less";
+
+.listbox{ width: 16rem; position: relative; top: 2.5rem;
+  ul{ width: 16rem; position: relative; overflow: hidden;
+    li{ float: left; width: 18.5rem; height: 2rem; padding: 0 0 0 .5rem; margin-bottom: .05rem; background-color: #fff; position: relative; .cf();
+      .mainpart{ float: left; width: 15.5rem; height: 2rem; position: relative; .cf();
+        .name{ float: left; width: 10rem; height: 2rem; line-height: 2rem; text-align: left; .omit(); }
+        .status{ float: left; width: 4rem; height: 2rem; line-height: 2rem; text-align: right; .omit(); }
+        .iconfont{ float: left; width: 1rem; height: 2rem; line-height: 2rem; margin: 0 .25rem; text-align: center; font-size: .8rem; color: #aaa; }
+        .edit{ float: left; width: 3rem; height: 2rem; line-height: 2rem; text-align: center; background-color: #007aff; font-size: .6rem; color: #fff; }
+        em.red{ color: red; }
+        em.green{ color: green; }
+      }
+      .dele{ float: left; width: 3rem; height: 2rem; line-height: 2rem; text-align: center; background-color: #ff3b30; font-size: .6rem; color: #fff; }
+    }
+  }
+}
+
+.printsettings{ width: 16rem; position: relative; top: 2.5rem;
+  .part{ width: 16rem; position: relative;
+    ul{ width: 16rem; border-top: 1px solid #e5e5e5; background-color: #fff;
+      li{ width: 15rem; height: 1rem; padding: .5rem; position: relative; .cf(); border-bottom: 1px solid #e5e5e5;
+        span{ float: left; width: 4rem; text-align: left; font-size: .6rem; }
+        span.require:before{ content: "*"; color: #c00; }
+        .item{ float: left; width: 11rem; position: relative; .cf(); text-align: right;
+          input{ float: left; width: 10rem; height: 1rem; line-height: 1rem; border: 0;}
+          textarea{  float: left; width: 11rem; height: 5rem; line-height: 1rem; border: 0; resize: none; }
+          em{ float: right; width: 10rem; height: 1rem; line-height: 1rem; text-align: right; .omit(); color: #000; }
+          i{ float: right; width: 1rem; height: 1rem; text-align: center; line-height: 1rem; font-size: .6rem; color: #bfbfbf;}
+          i.show{ color: #86d4eb; }
+          i.icon-kaiguanguan-copy-copy{ width: 1.5rem; font-size: 1.5rem; color: #86d4eb; transform: rotate(180deg); }
+          i.icon-kaiguankai{ width: 1.5rem; font-size: 1.5rem; transform: rotate(180deg); }
+          select{ float: right; width: 10rem; text-align: right; border: 0; background-color: #fff;}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/activi.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/activity/activityrank.js"></script>
+</head>
+<body class="ms-controller rank" ms-controller="activityrank">
+<!--公共头部-->
+<div class="headerone specheader" style="background-color: #fff; box-shadow: 0 0 .1rem #999;">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui" style="color: #35c8fc;"></i>
+    </a>
+    <h3 style="width:11rem; color: #000;">活动排名</h3>
+</div>
+<div class="activitynaver">
+    <div class="notice">公告:本游戏属于公平竞争，最近发现刷单现象严重，如发现则取消资格!</div>
+    <ul ms-css-width="{{total*5.6}}rem" ms-css-margin-left="{{nowIndex*-5}}rem">
+        <li ms-on-tap="changeStatus(false,null,-1)" ms-class-1="active:isFirst">本期活动排名</li>
+        <li ms-repeat="allDataModel" ms-on-tap="changeStatus(true,el,$index)" ms-class-1="active:el.isSelect">{{el.EndDatetime | date("MM")}}-{{el.EndDatetime | date("dd")}}获奖名单</li>
+    </ul>
+</div>
+<div class="nowrank" ms-if="isFirst">
+    <div class="title">
+        <img src="../../data-images/activi6.png">
+        <span>离结束还剩{{h}}时{{m}}分{{s}}秒</span>
+    </div>
+    <ul>
+        <li ms-repeat="rankList">
+            <img ms-attr-src="el.UserImage">
+            <div class="main">
+                <p>{{el.Phone}}<span>共{{el.HelperCount}}人助学</span></p>
+                <div class="loadbg">
+                    <div class="nowbg" ms-css-width="{{el.Percent}}%"></div>
+                </div>
+            </div>
+            <span class="sort">第{{$index+1}}名</span>
+        </li>
+    </ul>
+</div>
+<div class="pastrank" ms-if="!isFirst">
+    <div class="ranklist" ms-if="firstData.size() > 0">
+        <div class="title red">
+            <b>一等奖</b>
+            <span>iphone 6s 一部</span>
+            <img src="../../data-images/activi2.png">
+        </div>
+        <ul>
+            <li ms-repeat="firstData">
+                <i></i>
+                <span>{{el.Name}}</span>
+                <em>{{el.Phone}}</em>
+            </li>
+        </ul>
+    </div>
+    <div class="ranklist" ms-if="secondData.size() > 0">
+        <div class="title yellow">
+            <b>二等奖</b>
+            <span>电竞机械键盘、小台灯等</span>
+            <img style="height: 2.2rem;" src="../../data-images/activi3.png">
+        </div>
+        <ul>
+            <li ms-repeat="secondData">
+                <i></i>
+                <span>{{el.Name}}</span>
+                <em>{{el.Phone}}</em>
+            </li>
+        </ul>
+    </div>
+    <div class="ranklist" ms-if="thirdData.size() > 0">
+        <div class="title green">
+            <b>三等奖</b>
+            <span>迷你缝纫机、施华洛水晶等</span>
+            <img style="width: 2rem;" src="../../data-images/activi4.png">
+        </div>
+        <ul>
+            <li ms-repeat="thirdData">
+                <i></i>
+                <span>{{el.Name}}</span>
+                <em>{{el.Phone}}</em>
+            </li>
+        </ul>
+    </div>
+    <p style="height: 2rem; line-height: 2rem; text-align: center;" ms-if="firstData.size() === 0 && secondData.size() === 0 && thirdData.size() === 0">暂无数据!</p>
+</div>
+</body>
+</html>

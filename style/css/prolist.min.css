@@ -1,0 +1,154 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+body {
+  background-color: #fff;
+}
+.order-con {
+  width: 16rem;
+  position: relative;
+  margin-top: 2rem;
+}
+.order-con .order-ul {
+  width: 16rem;
+  position: relative;
+}
+.order-con .order-ul li {
+  width: 15rem;
+  padding: .5rem;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.order-con .order-ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-con .order-ul li .imgbox {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #d7d7d7;
+  border-radius: .2rem;
+  overflow: hidden;
+}
+.order-con .order-ul li .imgbox img {
+  display: block;
+  height: 2.5rem;
+}
+.order-con .order-ul li .p-info {
+  float: left;
+  width: 11.5rem;
+  height: 2.5rem;
+  margin-left: .5rem;
+}
+.order-con .order-ul li .p-info h3 {
+  width: 11.5rem;
+  font-size: .7rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #242427;
+  overflow: hidden;
+}
+.order-con .order-ul li .p-info h3 em {
+  color: #999;
+  font-size: .6rem;
+  margin-left: .2rem;
+}
+.order-con .order-ul li .p-info b {
+  width: 11.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.order-con .order-ul li .p-info b:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.order-con .order-ul li .p-info b span {
+  float: left;
+  color: #333;
+  font-weight: normal;
+}
+.order-con .order-ul li .p-info b span i {
+  color: #aaa;
+  margin-left: .5rem;
+}
+.order-con .order-ul li .p-info b em {
+  float: right;
+  color: #333;
+  font-weight: normal;
+}

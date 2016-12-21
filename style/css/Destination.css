@@ -1,0 +1,176 @@
+/*
+@ project:wechat
+@ date:2015-11-27
+*/
+
+html {
+  height: 100%;
+}
+body {
+  position: relative;
+  height: 100%;
+}
+.body_box {
+  width: 16rem;
+  padding-top: 3rem ;
+}
+.body_box .hot_box {
+  padding: 0.5rem;
+  background-color: #fff;
+  border-top: 0.05rem solid #cdcdcd;
+  border-bottom: 0.05rem solid #cdcdcd;
+  margin-bottom: 1rem;
+}
+.body_box .hot_box h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-size: 0.6rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+.body_box .hot_box .name {
+  min-height: 1px;
+  zoom: 1;
+  max-height: 5.5rem;
+  overflow: hidden;
+}
+.body_box .hot_box .name:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.body_box .hot_box .name span {
+  float: left;
+  padding: 0.3rem;
+  border: 0.05rem solid #cdcdcd;
+  margin-right: 0.4rem;
+  border-radius: 0.2rem;
+  margin-bottom: 0.3rem;
+  color: #666;
+}
+.body_box .hot_box .name span:active {
+  background-color: #ccc;
+}
+.body_box .hot_box .name span.Num1 {
+  color: #f19748;
+  border-color: #f19748;
+}
+.body_box .hot_box .name span.Num2 {
+  color: #74c900;
+  border-color: #74c900;
+}
+.body_box .hot_box .name span.Num3 {
+  color: #41c0cd;
+  border-color: #41c0cd;
+}
+.body_box .all_box {
+  padding: 0.5rem;
+  background-color: #fff;
+  border-bottom: 0.05rem solid #cdcdcd;
+  border-top: 0.05rem solid #cdcdcd;
+}
+.body_box .all_box h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-size: 0.6rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+.slider {
+  width: 16rem;
+  min-height: 250px;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+}
+.slider-content {
+  float: left;
+  width: 15rem;
+  display: block;
+  overflow-y: scroll;
+  min-height: 250px;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.slider-content ul {
+  float: left;
+  width: 100%;
+  display: block;
+  position: relative;
+}
+.slider-content ul li {
+  float: left;
+  width: 100%;
+}
+.slider-content ul ul li a {
+  padding: 5px 10px;
+  display: block;
+  border-bottom: 1px solid #f3f3f3;
+  text-transform: capitalize;
+  color: #333333;
+}
+.slider-content .title {
+  padding: 5px 0;
+  text-indent: 10px;
+  background: #efefef;
+  color: #666;
+  width: 100%;
+  float: left;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.slider-content .selected .title {
+  background: #efefef;
+}
+.slider .slider-nav {
+  position: fixed;
+  right: 0;
+  top: 2rem;
+  background: #fff;
+  min-height: 250px;
+}
+.slider .slider-nav ul {
+  padding: 0 5px;
+}
+.slider .slider-nav li a {
+  padding: 3px 5px;
+  line-height: 13px;
+  text-align: center;
+  color: #179251;
+  font-weight: bold;
+  display: block;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.slider #debug {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  background: #000;
+  color: #fff;
+}
+.slider .arrow {
+  font-size: 0px;
+  line-height: 0%;
+  width: 0px;
+  border-bottom: 8px solid #fff;
+  border-left: 5px solid #333;
+  border-right: 5px solid #333;
+  position: relative;
+  top: 5px;
+}

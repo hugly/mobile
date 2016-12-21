@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家主办的助学活动每天免费提供获取15种(iphone6s,xbox,电竞套装等)奖品的机会。每天准时开奖，隔天发放奖品!</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/voucher.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/voucher/voucherindex.js"></script>
+</head>
+<body class="ms-controller" ms-controller="voucherindex">
+<div class="voucher">
+    <img src="../../data-images/xianjin.png" class="bgimg">
+    <div class="voucherbox">
+        <div class="top">
+            <h3>洗衣之家<i>更专业的洗护平台</i></h3>
+            <span>{{price}}元代金券</span>
+        </div>
+        <div class="bottom">
+            <img src="../../data-images/bulelogo.png" class="logo">
+            <h3>正在邀请你使用洗衣之家</h3>
+            <input type="tel" placeholder="请输入你的手机号码领取代金券" ms-duplex="phone">
+            <a href="javascript:;" class="getvoucher" ms-if="!isLoading" ms-on-tap="getVoucher">点击领取</a>
+            <a href="javascript:;" class="getvoucher" ms-if="isLoading" style="background-color: #ccc;">领取中</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

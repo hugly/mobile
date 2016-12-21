@@ -1,0 +1,191 @@
+/*
+@ project:hugly$64617842@qq.com
+@ date:2016-12-20
+*/
+.scroller_vertical,
+.scroller_horizontal {
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  position: absolute;
+  opacity: 0;
+}
+.scroller_vertical {
+  width: 5px;
+  right: 0;
+}
+.scroller_horizontal {
+  height: 5px;
+  bottom: 0;
+}
+.loadingLiubox {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.loadingLiubox img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.trans img {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-animation: play 1s linear infinite;
+  -moz-animation: play 1s linear infinite;
+  animation: play 1s linear infinite;
+}
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.ms-controller {
+  visibility: hidden;
+}
+body {
+  background-color: #fff;
+}
+.timeaxis {
+  width: 16rem;
+  padding: .25rem 0 .4rem 0;
+  background-color: #fafefe;
+  border-bottom: 1px solid #dcdcdc;
+  position: relative;
+  overflow: hidden;
+}
+.timeaxis ul {
+  width: 27.3rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.timeaxis ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.timeaxis ul li {
+  float: left;
+  width: 3.4rem;
+  height: 2rem;
+  margin: 0 .25rem;
+  border: 1px solid #fff;
+  border-radius: .25rem;
+  padding: .15rem .3rem;
+  font-size: .6rem;
+  position: relative;
+  box-sizing: border-box;
+}
+.timeaxis ul li span {
+  display: block;
+  height: .6rem;
+  line-height: .8rem;
+  text-align: center;
+}
+.timeaxis ul li em {
+  display: block;
+  height: .6rem;
+  line-height: 1.2rem;
+  text-align: center;
+}
+.timeaxis ul li i {
+  position: absolute;
+  left: 50%;
+  bottom: -0.23rem;
+  opacity: 0;
+  width: .4rem;
+  height: .4rem;
+  margin-left: -0.2rem;
+  background-color: #fafefe;
+  border-right: 1px solid #01dbf5;
+  border-bottom: 1px solid #01dbf5;
+  -webkit-transform: rotateZ(45deg);
+  -moz-transform: rotateZ(45deg);
+  -o-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+.timeaxis ul li.active {
+  border-color: #01dbf5;
+}
+.timeaxis ul li.active span {
+  color: #01dbf5;
+}
+.timeaxis ul li.active em {
+  color: #01dbf5;
+}
+.timeaxis ul li.active i {
+  opacity: 1;
+}
+.timelist {
+  width: 15rem;
+  position: relative;
+  padding: .5rem;
+  margin-top: .5rem;
+}
+.timelist ul {
+  width: 15rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.timelist ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.timelist ul li {
+  float: left;
+  width: 5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+}
+.timelist ul li.active {
+  border-color: #01dbf5;
+  color: #01dbf5;
+}
+.timelist ul li.disable {
+  background-color: #f6f6f6;
+  color: #999;
+}
+.makebtn {
+  position: fixed;
+  left: .5rem;
+  bottom: .5rem;
+  width: 15rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #01dbf5;
+  border-radius: .25rem;
+  color: #fff;
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://m.wziwash.com/oauth"></script>
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/detailflow.min.css">
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.js"></script>
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/proflow/detailflow.js"></script>
+</head>
+<body class="ms-controller" ms-controller="taskDetail">
+<!--公共头部-->
+<div class="headerone">
+    <a href="javascript:;" class="back-btn" ms-on-tap="return_prepage()">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3>任务详情</h3>
+    <!--ms-if="taskDataModel.Status === 2 || taskDataModel.Status === 3"-->
+    <a href="javascript:;" style="width: 2rem; font-size: .6rem;" class="link" ms-on-tap="showMoreFn" ms-if="taskDataModel.Status === 2 || taskDataModel.Status === 3">更多</a>
+    <div class="nav" ms-visible="showNav">
+        <ul>
+            <li ms-on-tap="showModifyFn(taskDataModel)">编辑</li>
+            <li ms-on-tap="cancelFn(taskDataModel)">取消</li>
+        </ul>
+    </div>
+</div>
+<div class="flow-detail">
+    <div class="flow-timeline" ms-if="taskDataModel.RemainTime > 0">
+        <span ms-css-width="timeScale"></span>
+        <em><i class="iconfont icon-chulizhong"></i>{{timeText}}</em>
+    </div>
+    <div style="width: 16rem; height: .5rem;" ms-if="taskDataModel.RemainTime <= 0"></div>
+    <div class="flow-title">
+        <div class="t-left" ms-class-1="pickup:taskDataModel.Type === 1" ms-class-2="send:taskDataModel.Type === 2">
+            <i class="iconfont icon-youdidehuoche"></i>
+            <span>{{taskDataModel.Type === 1?'取件':'送件'}}</span>
+            <em>(运单号:{{taskDataModel.Code}})</em>
+        </div>
+        <div class="t-right">
+            <span>{{taskDataModel.showStatus}}</span>
+        </div>
+    </div>
+    <div class="flow-time">
+        <p>
+            <span>预约时间:</span>
+            <b ms-if="taskDataModel.Type == 1">{{taskDataModel.showTime | date("yyyy-MM-dd HH:mm")}}</b>
+            <b ms-if="taskDataModel.Type == 2">{{taskDataModel.realmark}}</b>
+        </p>
+        <p><span>本单收入:</span><b>{{taskDataModel.Price | currency}}</b></p>
+        <p><span>创建时间:</span><span>{{taskDataModel.CreateTime | date("yyyy-MM-dd HH:mm")}}</span></p>
+    </div>
+    <div class="verfy" ms-if="(taskDataModel.Status === 2 || taskDataModel.Status === 3) && taskDataModel.HasItem" ms-on-tap="goVerfyFn">
+        <a href="javascript:;">
+            <span>核实信息</span>
+            <em>核实商品<i class="iconfont icon-xiangyou"></i></em>
+        </a>
+    </div>
+    <div class="flow-info">
+        <a href="javascript:;">
+            <div class="info-item">
+                <span>取</span>
+                <div class="item-center">
+                    <h3>{{taskDataModel.PickName}}<b>{{ taskDataModel.PickDist | number(0)}}km</b></h3>
+                    <em>{{taskDataModel.PickDetailAddress}}</em>
+                </div>
+            </div>
+            <div class="info-item">
+                <span class="send">送</span>
+                <div class="item-center">
+                    <h3>{{taskDataModel.SendName}}<b>{{ taskDataModel.SendDist | number(0)}}km</b></h3>
+                    <em>{{taskDataModel.SendDetailAddress}}</em>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="pro-info">
+        <h3>商品信息</h3>
+        <div class="info">
+            <h5>订单号：{{taskDataModel.OCode}}</h5>
+            <ul>
+                <li ms-repeat="proListDataModel" ms-if-loop="el.value.size() > 0">
+                    <span>商品类型1：干洗熨烫</span>
+                    <p>
+                        <b>商品名称：</b><em ms-repeat="el.value">{{el.Name}}<i>x{{el.Num}}</i></em>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="customer-remark" ms-if="taskDataModel.Remark">
+        <span><em>客户备注:</em>{{taskDataModel.Remark}}</span>
+    </div>
+    <!--<div class="remark-box">-->
+        <!--<ul>-->
+            <!--<li>-->
+                <!--<span>备注1:</span>-->
+                <!--<em>客户备注客户备注客户备注客户备注客户备注客户备注客户备注客户备注客户备注客户备注客户备注客户备注</em>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <!--<div class="add-mark">-->
+            <!--<i class="iconfont icon-bianji3"></i>-->
+            <!--<span>请添加备注信息</span>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div style="width: 16rem; height: .5rem;"></div>
+</div>
+<div class="operate" ms-if="taskDataModel.Status === 2 && !taskDataModel.HasItem">
+    <a href="javascript:;" style="width: 8rem;" class="insert-btn" ms-on-tap="verifyFn(taskDataModel)">录入商品</a>
+    <a href="javascript:;" style="width: 8rem;" class="print-btn" ms-on-tap="printFn">打印</a>
+</div>
+<div class="operate" ms-if="taskDataModel.Status === 2 && taskDataModel.HasItem">
+    <a href="javascript:;" class="verfy-btn" ms-on-tap="goVerfyFn">核实商品</a>
+    <a href="javascript:;" ms-on-tap="hasPickFn">确认取件</a>
+    <a href="javascript:;" class="print-btn" ms-on-tap="printFn">打印</a>
+</div>
+<div class="operate" ms-if="taskDataModel.Status === 3 && taskDataModel.HasItem">
+    <a href="javascript:;" style="width: 8rem;" class="verfy-btn" ms-on-tap="hasPickOtherFn">确认送达</a>
+    <a href="javascript:;" style="width: 8rem;" class="print-btn" ms-on-tap="printFn">打印</a>
+</div>
+<div class="print" ms-if="taskDataModel.Status === 4">
+    <a href="javascript:;" ms-on-tap="printFn">打印</a>
+</div>
+<div class="print" ms-if="taskDataModel.Status === 1">
+    <a href="javascript:;" ms-on-tap="robOrderFn(taskDataModel)">抢单</a>
+</div>
+<div class="zoom" ms-visible="showNav" ms-on-tap="showMoreFn"></div>
+<div class="zoom1"></div>
+<div class="modify-box">
+    <div class="modify-title">
+        <span>编辑信息</span>
+        <i class="iconfont icon-cuo" ms-on-tap="closeModifyFn"></i>
+    </div>
+    <ul>
+        <li>
+            <input type="datetime-local" id="time" placeholder="请选择预约时间" ms-duplex="modifyDataModel.PickTime">
+        </li>
+        <li>
+            <input type="text" id="address" placeholder="请输入取件地址" ms-duplex="modifyDataModel.PickDetailAddress">
+        </li>
+        <li>
+            <textarea placeholder="请输入备注信息" id="remark" ms-duplex="modifyDataModel.Remark"></textarea>
+        </li>
+    </ul>
+    <a href="javascript:;" ms-if="!isModifing" ms-on-tap="modifyFn(modifyDataModel.Code)">确定</a>
+    <a href="javascript:;" ms-if="isModifing" style="background-color: #ccc;">处理中</a>
+</div>
+</body>
+</html>

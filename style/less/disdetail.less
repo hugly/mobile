@@ -1,0 +1,25 @@
+@import "lib.less";
+
+.mer-title{ width: 16rem; height: 1.6rem; padding: .2rem 0; background-color: #fff; position: fixed; left: 0; top: 2rem; z-index: 9;
+  ul{ width: 16rem; position: relative; .cf();
+    li{ float: left; width: 7.9rem; height: 1.6rem; line-height: 1.6rem; text-align: center; }
+    li.active{ color: #86d4eb; }
+    li:first-child{ border-right: 1px solid #ccc; }
+  }
+}
+
+.mer-con{ position: relative; width: 16rem; top: 2rem; overflow: hidden;
+  .walletdetail{ width: 16rem; position: relative; background-color: #fff; margin-top: 2.3rem;
+    ul{ width: 15.5rem; padding-left: .5rem;
+      li{ width: 15.5rem; padding: .5rem 0; border-bottom: 1px solid #e5e5e5; position: relative; .cf();
+        .time{ float: left; width: 10.5rem; height: 2rem; overflow: hidden; position: relative; margin-right: .5rem;
+          span{ float: left; width: 10.5rem; height: 1rem; line-height: 1rem; color: #999; }
+        }
+        .info{ float: right; width: 4rem; overflow: hidden; position: relative;
+          h3{ color: #333; font-size: .8rem; float: left; width: 3.5rem; padding-right: .5rem; height: 2rem; line-height: 2rem; text-align: right; .omit();  }
+        }
+      }
+      li:last-child{ border-bottom: none; }
+    }
+  }
+}
