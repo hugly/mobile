@@ -68,8 +68,8 @@
                     <span ms-if="el.Type == 2">{{el.realmark}}</span>
                 </p>
             </div>
-            <div class="flow-info" ms-on-tap="goDetailFn(el)">
-                <div class="info-item">
+            <div class="flow-info">
+                <div class="info-item" ms-on-tap="goDetailFn(el)">
                     <span>取</span>
                     <div class="item-center">
                         <h3>{{el.PickName}}<b>{{ el.PickDist | number(0)}}km</b></h3>
@@ -80,7 +80,7 @@
                     </a>
                 </div>
                 <a href="tel:13709010408"></a>
-                <div class="info-item">
+                <div class="info-item" ms-on-tap="goDetailFn(el)">
                     <span class="send">送</span>
                     <div class="item-center">
                         <h3>{{el.SendName}}<b>{{ el.SendDist | number(0)}}km</b></h3>
@@ -90,7 +90,7 @@
                         <i class="iconfont icon-dadianhua"></i>
                     </a>
                 </div>
-                <i class="iconfont icon-xiangyou"></i>
+                <i class="iconfont icon-xiangyou" ms-on-tap="goDetailFn(el)"></i>
             </div>
             <div class="info-remark" ms-if="el.Remark">
                 <span>备注:</span>

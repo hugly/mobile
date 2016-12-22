@@ -56,6 +56,9 @@
                     vm.top = 0;
                 }
             },
+            goDetail:function(el){
+                window.location.href = 'detailflow.html?code='+el.Code;
+            },
             getTaskFn:function(){
                 var val = $(this).val(),
                     oDate = new Date(val);

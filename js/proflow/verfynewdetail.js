@@ -99,8 +99,8 @@
                             });
                         }
 
-                        vm.imageList = data.Images || [];
-                        // vm.imgPathList = data.Images || [];
+                        init(data.Images);
+
                     }else{
                         $.message({
                             msg:rs.Msg
@@ -119,6 +119,8 @@
                 vm.isUpShow = false;
             },
             submitVerFn:function(){
+                var obj = $('#roomImgWrap .up-img-list'),
+                    imgaArr = [];
 
                 if(vm.brandName === ''){
                     $.message({
@@ -149,9 +151,14 @@
                     }
                 });
 
-                vm.imageList.forEach(function(el,$index){
-                    json['Images['+$index+']']= el;
+
+                obj.find('.up-img').each(function($index){
+                    json['Images['+$index+']']= $(this).attr('data-hash');
                 });
+
+                // vm.imageList.forEach(function(el,$index){
+                //     json['Images['+$index+']']= el;
+                // });
 
                 vm.isSubmit = true;
                 jsonp(host+'/jsonp/Logistics_UpdateCheckList_'+vm.version+'.js',json,'callback',function(rs){
@@ -175,18 +182,18 @@
 
         });
 
-        init();
         vm.getVersion();
         avalon.scan();
 
-        function init(){
+        function init(data){
             userTouch.compressUpload["#roomImgWrap" || "0"] = new userTouch.CompressUpload({
                 wrapperSlter : "#roomImgWrap",
                 maxNum       : +"10"   || 10,     // 一共可以上传多少张
-                uploadUrl    : 'http://m.wziwash.com/Home/ImageUpload',
+                uploadUrl    : 'http://m.wziwash.com/CommonResource/UploadImage',
                 maxWidth     : ""  || 640,    // 图片的最大宽度，超出会压缩
                 maxHeight    : "" || 640,    // 图片的最大高度，超出会压缩
-                onceMaxNum   : "3"           // 一次性最多同时上传多少张
+                onceMaxNum   : "3",           // 一次性最多同时上传多少张
+                data:data
             });
         }
     });

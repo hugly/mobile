@@ -69,6 +69,9 @@
                     }
                 });
             },
+            goDetailFn:function(el){
+                window.location.href = 'detailflow.html?code='+el.Code;
+            },
             //获取任务列表
             getTaskList:function(nodatafn){
                 vm.isLocation = false;

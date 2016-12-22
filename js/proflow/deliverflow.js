@@ -314,56 +314,47 @@
                 window.location.href = 'detailflow.html?code='+el.Code;
             },
             hasPickFn:function(el,remove){
-                $.dialog({
-                    msg:'是否需要确认送达该物流单？',
-                    sureFn:function(){
-                        el.isPick = true;
-                        jsonp(host+'jsonp/Logistics_ApplyComplete_'+vm.version+'.js',{
-                            token:token,
-                            logisticsCode:el.Code
-                        },'callback',function(rs){
-                            if(rs.Success){
-                                var data = rs.Data,
-                                    price = data.PayPrice;
+                el.isPick = true;
+                jsonp(host+'jsonp/Logistics_ApplyComplete_'+vm.version+'.js',{
+                    token:token,
+                    logisticsCode:el.Code
+                },'callback',function(rs){
+                    if(rs.Success){
+                        var data = rs.Data,
+                            price = data.PayPrice;
 
-                                if(data.HasReceive){
-                                    $.message({
-                                        msg:'确认送达！',
-                                        callback:function(){
-                                            remove();
-                                            el.isPick = false;
-                                        }
-                                    });
-                                }else{
-                                    $.dialog({
-                                        msg:'该订单未支付，请收取￥'+price+'元现金货款。确定已收到对方现金货款？',
-                                        sureText:'已收钱',
-                                        sureFn:function(){
-                                            vm.getCashFn(el.Code,el.OCode);
-                                            el.isPick = false;
-                                        },
-                                        cancelFn:function(){
-                                            el.isPick = false;
-                                        }
-                                    });
+                        if(data.HasReceive){
+                            $.message({
+                                msg:'确认送达！',
+                                callback:function(){
+                                    remove();
+                                    el.isPick = false;
                                 }
-                            }else{
-                                $.message({
-                                    msg:rs.Msg,
-                                    callback:function(){
-                                        el.isPick = false;
-                                    }
-                                });
+                            });
+                        }else{
+                            $.dialog({
+                                msg:'该订单未支付，请收取￥'+price+'元现金货款。确定已收到对方现金货款？',
+                                sureText:'已收钱',
+                                sureFn:function(){
+                                    vm.getCashFn(el.Code,el.OCode);
+                                    el.isPick = false;
+                                },
+                                cancelFn:function(){
+                                    el.isPick = false;
+                                }
+                            });
+                        }
+                    }else{
+                        $.message({
+                            msg:rs.Msg,
+                            callback:function(){
+                                el.isPick = false;
                             }
-
-                        },function(){
                         });
-                    },
-                    cancelFn:function(){
-
                     }
-                });
 
+                },function(){
+                });
             },
             //收取现金
             getCashFn:function(LogisticsCode,TCode){

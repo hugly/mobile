@@ -42,7 +42,7 @@
 </div>
 <div class="complete">
     <ul>
-        <li ms-repeat="taskDataModel"><a ms-attr-href="detailflow.html?code={{el.Code}}">
+        <li ms-repeat="taskDataModel"><a href="javascript:;" ms-on-tap="goDetail(el)">
             <div class="item-title">
                 <span>运单号:{{el.Code}}</span>
                 <em>{{el.CreateTime | date("yyyy.MM.dd HH:mm")}}</em>

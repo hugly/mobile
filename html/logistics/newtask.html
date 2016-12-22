@@ -63,7 +63,8 @@
                 <span ms-if="el.Type == 2">{{el.realmark}}</span>
             </div>
             <div class="flow-info">
-                <a ms-attr-href="detailflow.html?code={{el.Code}}">
+                <!--ms-attr-href="detailflow.html?code={{el.Code}}"-->
+                <a href="javascript:;" ms-on-tap="goDetailFn(el)">
                     <div class="info-item">
                         <span>取</span>
                         <div class="item-center">

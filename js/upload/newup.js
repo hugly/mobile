@@ -1,174 +1,177 @@
+/**
+ * Created by hulgy on 22/12/2016.
+ */
 var SiteTracker = function(s, p, r, u) {
-  if (s != undefined && s != null) {
-    this.site = s;
-  }
+    if (s != undefined && s != null) {
+        this.site = s;
+    }
 
-  if (p != undefined && p != null) {
-    this.page = p;
-  }
+    if (p != undefined && p != null) {
+        this.page = p;
+    }
 
-  if (r != undefined && r != null) {
-    this.referer = r;
-  }
+    if (r != undefined && r != null) {
+        this.referer = r;
+    }
 
-  if (u != undefined && u != null) {
-    this.uid = u;
-  }
+    if (u != undefined && u != null) {
+        this.uid = u;
+    }
 };
 
 SiteTracker.prototype.getCookie = function(sKey) {
-  if (!sKey || !this.hasItem(sKey)) {
-    return null;
-  }
-  return decodeURIComponent(document.cookie.replace(new RegExp("(?:^|.*;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*((?:[^;](?!;))*[^;]?).*"), "$1"));
+    if (!sKey || !this.hasItem(sKey)) {
+        return null;
+    }
+    return decodeURIComponent(document.cookie.replace(new RegExp("(?:^|.*;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*((?:[^;](?!;))*[^;]?).*"), "$1"));
 };
 
 SiteTracker.prototype.hasItem = function(sKey) {
-  return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+    return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
 };
 
 SiteTracker.prototype.track = function(t_params) {
-  this.buildParams();
+    this.buildParams();
 
-  var src = "",
-    script,
-    params = [],
-    content;
+    var src = "",
+        script,
+        params = [],
+        content;
 
-  if (typeof(t_params) == "undefined" || typeof(t_params.target_url) == "undefined") {
-    src = "http://s.anjuke.com/st?__site=" + this.params['site'] + "&";
-  } else {
-    src = t_params.target_url + '?';
-  }
+    if (typeof(t_params) == "undefined" || typeof(t_params.target_url) == "undefined") {
+        src = "http://s.anjuke.com/st?__site=" + this.params['site'] + "&";
+    } else {
+        src = t_params.target_url + '?';
+    }
 
-  for (var k in this.params) {
-    params.push(k + "=" + encodeURIComponent(this.params[k]));
-  }
-  src += params.join('&');
-  script = document.createElement("script");
-  script.src = src;
-  script.async = true;
-  content = (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]);
-  script.onload = function() {
-    content.removeChild(script);
-  }
-  content.appendChild(script);
+    for (var k in this.params) {
+        params.push(k + "=" + encodeURIComponent(this.params[k]));
+    }
+    src += params.join('&');
+    script = document.createElement("script");
+    script.src = src;
+    script.async = true;
+    content = (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]);
+    script.onload = function() {
+        content.removeChild(script);
+    }
+    content.appendChild(script);
 };
 
 SiteTracker.prototype.buildParams = function() {
-  var href = document.location.href;
+    var href = document.location.href;
 
-  var guid = this.getCookie(this.nGuid || "aQQ_ajkguid");
-  var ctid = this.getCookie(this.nCtid || "ctid");
-  var luid = this.getCookie(this.nLiu || "lui");
-  var ssid = this.getCookie(this.nSessid || "sessid");
-  var uid = this.getCookie(this.nUid || "ajk_member_id");
+    var guid = this.getCookie(this.nGuid || "aQQ_ajkguid");
+    var ctid = this.getCookie(this.nCtid || "ctid");
+    var luid = this.getCookie(this.nLiu || "lui");
+    var ssid = this.getCookie(this.nSessid || "sessid");
+    var uid = this.getCookie(this.nUid || "ajk_member_id");
 
-  if (this.uid != undefined && this.uid != null) {
-    uid = this.uid;
-  }
+    if (this.uid != undefined && this.uid != null) {
+        uid = this.uid;
+    }
 
-  if (uid == undefined || uid == null | uid == "") {
-    uid = 0;
-  }
+    if (uid == undefined || uid == null | uid == "") {
+        uid = 0;
+    }
 
-  var method = "";
-  if (this.method != undefined && this.method != null) {
-    method = this.method;
-  }
+    var method = "";
+    if (this.method != undefined && this.method != null) {
+        method = this.method;
+    }
 
-  this.params = new Object();
-  this.params.p = this.page;
-  this.params.h = href;
-  this.params.r = this.referer;
-  this.params.site = this.site;
-  this.params.guid = guid;
-  this.params.ssid = ssid;
-  this.params.uid = uid;
-  this.params.t = new Date().getTime();
-  this.params.ctid = ctid;
-  this.params.luid = luid;
-  this.params.m = method;
+    this.params = new Object();
+    this.params.p = this.page;
+    this.params.h = href;
+    this.params.r = this.referer;
+    this.params.site = this.site;
+    this.params.guid = guid;
+    this.params.ssid = ssid;
+    this.params.uid = uid;
+    this.params.t = new Date().getTime();
+    this.params.ctid = ctid;
+    this.params.luid = luid;
+    this.params.m = method;
 
-  if (this.screen != undefined) {
-    this.params.sc = JSON.stringify(this.screen);
-  }
+    if (this.screen != undefined) {
+        this.params.sc = JSON.stringify(this.screen);
+    }
 
-  if (this.cst != undefined && /[0-9]{13}/.test(this.cst)) {
-    this.params.lt = this.params.t - parseInt(this.cst);
-  }
+    if (this.cst != undefined && /[0-9]{13}/.test(this.cst)) {
+        this.params.lt = this.params.t - parseInt(this.cst);
+    }
 
-  if (this.pageName != undefined) {
-    this.params.pn = this.pageName;
-  }
+    if (this.pageName != undefined) {
+        this.params.pn = this.pageName;
+    }
 
-  if (this.customParam != undefined) {
-    this.params.cp = this.customParam;
-  }
+    if (this.customParam != undefined) {
+        this.params.cp = this.customParam;
+    }
 
 };
 
 SiteTracker.prototype.setSite = function(s) {
-  this.site = s;
+    this.site = s;
 };
 
 SiteTracker.prototype.setPage = function(p) {
-  this.page = p;
+    this.page = p;
 };
 
 SiteTracker.prototype.setPageName = function(n) {
-  this.pageName = n;
+    this.pageName = n;
 };
 
 SiteTracker.prototype.setCookieNames = function(c) {
-  this.cookNames = c;
+    this.cookNames = c;
 };
 
 SiteTracker.prototype.setReferer = function(r) {
-  this.referer = r;
+    this.referer = r;
 };
 
 SiteTracker.prototype.setUid = function(u) {
-  this.uid = u;
+    this.uid = u;
 };
 
 SiteTracker.prototype.setMethod = function(m) {
-  this.method = m;
+    this.method = m;
 };
 
 SiteTracker.prototype.setNGuid = function(n) {
-  this.nGuid = n;
+    this.nGuid = n;
 };
 
 SiteTracker.prototype.setNCtid = function(n) {
-  this.nCtid = n;
+    this.nCtid = n;
 };
 
 SiteTracker.prototype.setNLiu = function(n) {
-  this.nLiu = n;
+    this.nLiu = n;
 };
 
 SiteTracker.prototype.setNSessid = function(n) {
-  this.nSessid = n;
+    this.nSessid = n;
 };
 
 SiteTracker.prototype.setNUid = function(n) {
-  this.nUid = n;
+    this.nUid = n;
 };
 
 SiteTracker.prototype.setCst = function(n) {
-  this.cst = n;
+    this.cst = n;
 };
 
 SiteTracker.prototype.setScreen = function(v) {
-  this.screen = v;
+    this.screen = v;
 }
 
 SiteTracker.prototype.setCustomParam = function(v) {
-  this.customParam = v;
+    this.customParam = v;
 }
 SiteTracker.prototype.getParams = function() {
-  return this.params;
+    return this.params;
 };
 (function(win, doc, $) {
 
@@ -265,7 +268,7 @@ SiteTracker.prototype.getParams = function() {
             delete _trackURL.sc;
             window._trackURL = JSON.stringify(_trackURL);
             var _ckurl = window._trackURL = JSON.stringify(_trackURL);
-            //loadTrackjs();
+            loadTrackjs();
         }
 
         function loadTrackjs() {
@@ -322,11 +325,11 @@ SiteTracker.prototype.getParams = function() {
             var today = new Date();
             today.setTime(today.getTime());
             /*
-                if the expires variable is set, make the correct
-                expires time, the current script below will set
-                it for x number of days, to make it for hours,
-                delete * 24, for minutes, delete * 60 * 24
-            */
+             if the expires variable is set, make the correct
+             expires time, the current script below will set
+             it for x number of days, to make it for hours,
+             delete * 24, for minutes, delete * 60 * 24
+             */
             if (expires) {
                 expires = expires * 1000 * 60 * 60 * 24;
             }
@@ -406,7 +409,7 @@ SiteTracker.prototype.getParams = function() {
             return false;
         },
         trackEvent: function(page, customparam) {
-            //sendSoj(page, customparam, 'm_anjuke-npv');
+            sendSoj(page, customparam, 'm_anjuke-npv');
         },
         /**
          * [getGuid 在统计电话时长的时候为了保持唯一关联性，防止用户间隔时间长或者清除cookie后两个soj无法关联起来]
@@ -552,7 +555,7 @@ SiteTracker.prototype.getParams = function() {
         if ((url.indexOf("lat") != -1) && (url.indexOf("lng") != -1) && (url.indexOf("map") == -1)) {
             cp.locate = 'locate';
         }
-        //sendSoj(pageName, JSON.stringify(cp));
+        sendSoj(pageName, JSON.stringify(cp));
     })();
 
     win.APF = apf;
@@ -890,14 +893,14 @@ SiteTracker.prototype.getParams = function() {
     });
 })(APF.Namespace.register('touch.component.module'));
 /**
-* 用于检索小区的autocomplete
-* @author： yaohuiwang@anjuke.com 2016-06-12
-* 组件需位于body子层
-* 同一页面多次调用时需把组件的父节点的选择器@wrapperSlter传入(最好在页面唯一)
-* 点击“取消”会触发@cancleCallback
-* 点击“第一条”会触发@iptedClickCallback
-* 点击“联想到的li节点”会触发@autodClickCallback
-*/
+ * 用于检索小区的autocomplete
+ * @author： yaohuiwang@anjuke.com 2016-06-12
+ * 组件需位于body子层
+ * 同一页面多次调用时需把组件的父节点的选择器@wrapperSlter传入(最好在页面唯一)
+ * 点击“取消”会触发@cancleCallback
+ * 点击“第一条”会触发@iptedClickCallback
+ * 点击“联想到的li节点”会触发@autodClickCallback
+ */
 (function($, module) {
     module.CommonAutocomplete = function(op) {
         this.defaults = {
@@ -996,33 +999,33 @@ SiteTracker.prototype.getParams = function() {
         doOneSearch : function(kw) {
             var self = this;
             var data = {
-                    q : kw,
-                    limit : self.opts.limit
-                };
-                if($.trim(kw).length === 0) {
+                q : kw,
+                limit : self.opts.limit
+            };
+            if($.trim(kw).length === 0) {
+                self.node.list.empty();
+                return;
+            }
+            $.ajax({
+                type     : "get",
+                url      : self.opts.autoCommonApi,
+                data     : data,
+                dataType : "json",
+                success  : function(r) {
                     self.node.list.empty();
-                    return;
-                }
-                $.ajax({
-                    type     : "get",
-                    url      : self.opts.autoCommonApi,
-                    data     : data,
-                    dataType : "json",
-                    success  : function(r) {
-                        self.node.list.empty();
 
-                        // 填充结果列表
-                        if(r) {
-                            self.node.list.append( self.getFragment(r, kw) );
-                            if( self.node.commonIpt.val().length === 0 ) { // 每次异步结束都判断是否应该清空结果
-                                self.node.list.empty();
-                            }
+                    // 填充结果列表
+                    if(r) {
+                        self.node.list.append( self.getFragment(r, kw) );
+                        if( self.node.commonIpt.val().length === 0 ) { // 每次异步结束都判断是否应该清空结果
+                            self.node.list.empty();
                         }
-                    },
-                    error : function(e) {
-                        console.log("网络异常，请刷新重试");
                     }
-                });
+                },
+                error : function(e) {
+                    console.log("网络异常，请刷新重试");
+                }
+            });
         },
         getFragment : function(r, kw) {
             var self = this;
@@ -1043,11 +1046,11 @@ SiteTracker.prototype.getParams = function() {
         },
         getLi : function() {
             return $('<li data-commonid="">' +
-                        '<p class="common-name"></p>' +
-                        '<address class="common-addr">' +
-                            '<p class="common-address"></p>' +
-                        '</address>' +
-                    '</li>');
+                '<p class="common-name"></p>' +
+                '<address class="common-addr">' +
+                '<p class="common-address"></p>' +
+                '</address>' +
+                '</li>');
         }
     };
 })(Zepto, APF.Namespace.register('touch.component.module'));/**
@@ -1062,248 +1065,246 @@ SiteTracker.prototype.getParams = function() {
  */
 (function() {
 
-  /**
-   * Detect subsampling in loaded image.
-   * In iOS, larger images than 2M pixels may be subsampled in rendering.
-   */
-  function detectSubsampling(img) {
-    var iw = img.naturalWidth, ih = img.naturalHeight;
-    if (iw * ih > 1024 * 1024) { // subsampling may happen over megapixel image
-      var canvas = document.createElement('canvas');
-      canvas.width = canvas.height = 1;
-      var ctx = canvas.getContext('2d');
-      ctx.drawImage(img, -iw + 1, 0);
-      // subsampled image becomes half smaller in rendering size.
-      // check alpha channel value to confirm image is covering edge pixel or not.
-      // if alpha value is 0 image is not covering, hence subsampled.
-      return ctx.getImageData(0, 0, 1, 1).data[3] === 0;
-    } else {
-      return false;
-    }
-  }
-
-  /**
-   * Detecting vertical squash in loaded image.
-   * Fixes a bug which squash image vertically while drawing into canvas for some images.
-   */
-  function detectVerticalSquash(img, iw, ih) {
-    var canvas = document.createElement('canvas');
-    canvas.width = 1;
-    canvas.height = ih;
-    var ctx = canvas.getContext('2d');
-    ctx.drawImage(img, 0, 0);
-    var data = ctx.getImageData(0, 0, 1, ih).data;
-    // search image edge pixel position in case it is squashed vertically.
-    var sy = 0;
-    var ey = ih;
-    var py = ih;
-    while (py > sy) {
-      var alpha = data[(py - 1) * 4 + 3];
-      if (alpha === 0) {
-        ey = py;
-      } else {
-        sy = py;
-      }
-      py = (ey + sy) >> 1;
-    }
-    var ratio = (py / ih);
-    return (ratio===0)?1:ratio;
-  }
-
-  /**
-   * Rendering image element (with resizing) and get its data URL
-   */
-  function renderImageToDataURL(img, options, doSquash) {
-    var canvas = document.createElement('canvas');
-    renderImageToCanvas(img, canvas, options, doSquash);
-    return canvas.toDataURL("image/jpeg", options.quality || 0.8);
-  }
-
-  /**
-   * Rendering image element (with resizing) into the canvas element
-   */
-  function renderImageToCanvas(img, canvas, options, doSquash) {
-    var iw = img.naturalWidth, ih = img.naturalHeight;
-    var width = options.width, height = options.height;
-    var ctx = canvas.getContext('2d');
-    ctx.save();
-    transformCoordinate(canvas, width, height, options.orientation);
-    var subsampled = detectSubsampling(img);
-    if (subsampled) {
-      iw /= 2;
-      ih /= 2;
-    }
-    var d = 1024; // size of tiling canvas
-    var tmpCanvas = document.createElement('canvas');
-    tmpCanvas.width = tmpCanvas.height = d;
-    var tmpCtx = tmpCanvas.getContext('2d');
-    var vertSquashRatio = doSquash ? detectVerticalSquash(img, iw, ih) : 1;
-    var dw = Math.ceil(d * width / iw);
-    var dh = Math.ceil(d * height / ih / vertSquashRatio);
-    var sy = 0;
-    var dy = 0;
-    while (sy < ih) {
-      var sx = 0;
-      var dx = 0;
-      while (sx < iw) {
-        tmpCtx.clearRect(0, 0, d, d);
-        tmpCtx.drawImage(img, -sx, -sy);
-        ctx.drawImage(tmpCanvas, 0, 0, d, d, dx, dy, dw, dh);
-        sx += d;
-        dx += dw;
-      }
-      sy += d;
-      dy += dh;
-    }
-    ctx.restore();
-    tmpCanvas = tmpCtx = null;
-  }
-
-  /**
-   * Transform canvas coordination according to specified frame size and orientation
-   * Orientation value is from EXIF tag
-   */
-  function transformCoordinate(canvas, width, height, orientation) {
-    switch (orientation) {
-      case 5:
-      case 6:
-      case 7:
-      case 8:
-        canvas.width = height;
-        canvas.height = width;
-        break;
-      default:
-        canvas.width = width;
-        canvas.height = height;
-    }
-    var ctx = canvas.getContext('2d');
-    switch (orientation) {
-      case 2:
-        // horizontal flip
-        ctx.translate(width, 0);
-        ctx.scale(-1, 1);
-        break;
-      case 3:
-        // 180 rotate left
-        ctx.translate(width, height);
-        ctx.rotate(Math.PI);
-        break;
-      case 4:
-        // vertical flip
-        ctx.translate(0, height);
-        ctx.scale(1, -1);
-        break;
-      case 5:
-        // vertical flip + 90 rotate right
-        ctx.rotate(0.5 * Math.PI);
-        ctx.scale(1, -1);
-        break;
-      case 6:
-        // 90 rotate right
-        ctx.rotate(0.5 * Math.PI);
-        ctx.translate(0, -height);
-        break;
-      case 7:
-        // horizontal flip + 90 rotate right
-        ctx.rotate(0.5 * Math.PI);
-        ctx.translate(width, -height);
-        ctx.scale(-1, 1);
-        break;
-      case 8:
-        // 90 rotate left
-        ctx.rotate(-0.5 * Math.PI);
-        ctx.translate(-width, 0);
-        break;
-      default:
-        break;
-    }
-  }
-
-
-  /**
-   * MegaPixImage class
-   */
-  function MegaPixImage(srcImage) {
-    if (window.Blob && srcImage instanceof Blob) {
-      var img = new Image();
-      var URL = window.URL && window.URL.createObjectURL ? window.URL :
-                window.webkitURL && window.webkitURL.createObjectURL ? window.webkitURL :
-                null;
-      if (!URL) { throw Error("No createObjectURL function found to create blob url"); }
-      img.src = URL.createObjectURL(srcImage);
-      this.blob = srcImage;
-      srcImage = img;
-    }
-    if (!srcImage.naturalWidth && !srcImage.naturalHeight) {
-      var _this = this;
-      srcImage.onload = function() {
-        var listeners = _this.imageLoadListeners;
-        if (listeners) {
-          _this.imageLoadListeners = null;
-          for (var i=0, len=listeners.length; i<len; i++) {
-            listeners[i]();
-          }
+    /**
+     * Detect subsampling in loaded image.
+     * In iOS, larger images than 2M pixels may be subsampled in rendering.
+     */
+    function detectSubsampling(img) {
+        var iw = img.naturalWidth, ih = img.naturalHeight;
+        if (iw * ih > 1024 * 1024) { // subsampling may happen over megapixel image
+            var canvas = document.createElement('canvas');
+            canvas.width = canvas.height = 1;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, -iw + 1, 0);
+            // subsampled image becomes half smaller in rendering size.
+            // check alpha channel value to confirm image is covering edge pixel or not.
+            // if alpha value is 0 image is not covering, hence subsampled.
+            return ctx.getImageData(0, 0, 1, 1).data[3] === 0;
+        } else {
+            return false;
         }
-      };
-      this.imageLoadListeners = [];
     }
-    this.srcImage = srcImage;
-  }
 
-  /**
-   * Rendering megapix image into specified target element
-   */
-  MegaPixImage.prototype.render = function(target, options) {
-    if (this.imageLoadListeners) {
-      var _this = this;
-      this.imageLoadListeners.push(function() { _this.render(target, options) });
-      return;
+    /**
+     * Detecting vertical squash in loaded image.
+     * Fixes a bug which squash image vertically while drawing into canvas for some images.
+     */
+    function detectVerticalSquash(img, iw, ih) {
+        var canvas = document.createElement('canvas');
+        canvas.width = 1;
+        canvas.height = ih;
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        var data = ctx.getImageData(0, 0, 1, ih).data;
+        // search image edge pixel position in case it is squashed vertically.
+        var sy = 0;
+        var ey = ih;
+        var py = ih;
+        while (py > sy) {
+            var alpha = data[(py - 1) * 4 + 3];
+            if (alpha === 0) {
+                ey = py;
+            } else {
+                sy = py;
+            }
+            py = (ey + sy) >> 1;
+        }
+        var ratio = (py / ih);
+        return (ratio===0)?1:ratio;
     }
-    options = options || {};
-    var imgWidth = this.srcImage.naturalWidth, imgHeight = this.srcImage.naturalHeight,
-        width = options.width, height = options.height,
-        maxWidth = options.maxWidth, maxHeight = options.maxHeight,
-        doSquash = !this.blob || this.blob.type === 'image/jpeg';
-    if (width && !height) {
-      height = (imgHeight * width / imgWidth) << 0;
-    } else if (height && !width) {
-      width = (imgWidth * height / imgHeight) << 0;
+
+    /**
+     * Rendering image element (with resizing) and get its data URL
+     */
+    function renderImageToDataURL(img, options, doSquash) {
+        var canvas = document.createElement('canvas');
+        renderImageToCanvas(img, canvas, options, doSquash);
+        return canvas.toDataURL("image/jpeg", options.quality || 0.8);
+    }
+
+    /**
+     * Rendering image element (with resizing) into the canvas element
+     */
+    function renderImageToCanvas(img, canvas, options, doSquash) {
+        var iw = img.naturalWidth, ih = img.naturalHeight;
+        var width = options.width, height = options.height;
+        var ctx = canvas.getContext('2d');
+        ctx.save();
+        transformCoordinate(canvas, width, height, options.orientation);
+        var subsampled = detectSubsampling(img);
+        if (subsampled) {
+            iw /= 2;
+            ih /= 2;
+        }
+        var d = 1024; // size of tiling canvas
+        var tmpCanvas = document.createElement('canvas');
+        tmpCanvas.width = tmpCanvas.height = d;
+        var tmpCtx = tmpCanvas.getContext('2d');
+        var vertSquashRatio = doSquash ? detectVerticalSquash(img, iw, ih) : 1;
+        var dw = Math.ceil(d * width / iw);
+        var dh = Math.ceil(d * height / ih / vertSquashRatio);
+        var sy = 0;
+        var dy = 0;
+        while (sy < ih) {
+            var sx = 0;
+            var dx = 0;
+            while (sx < iw) {
+                tmpCtx.clearRect(0, 0, d, d);
+                tmpCtx.drawImage(img, -sx, -sy);
+                ctx.drawImage(tmpCanvas, 0, 0, d, d, dx, dy, dw, dh);
+                sx += d;
+                dx += dw;
+            }
+            sy += d;
+            dy += dh;
+        }
+        ctx.restore();
+        tmpCanvas = tmpCtx = null;
+    }
+
+    /**
+     * Transform canvas coordination according to specified frame size and orientation
+     * Orientation value is from EXIF tag
+     */
+    function transformCoordinate(canvas, width, height, orientation) {
+        switch (orientation) {
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                canvas.width = height;
+                canvas.height = width;
+                break;
+            default:
+                canvas.width = width;
+                canvas.height = height;
+        }
+        var ctx = canvas.getContext('2d');
+        switch (orientation) {
+            case 2:
+                // horizontal flip
+                ctx.translate(width, 0);
+                ctx.scale(-1, 1);
+                break;
+            case 3:
+                // 180 rotate left
+                ctx.translate(width, height);
+                ctx.rotate(Math.PI);
+                break;
+            case 4:
+                // vertical flip
+                ctx.translate(0, height);
+                ctx.scale(1, -1);
+                break;
+            case 5:
+                // vertical flip + 90 rotate right
+                ctx.rotate(0.5 * Math.PI);
+                ctx.scale(1, -1);
+                break;
+            case 6:
+                // 90 rotate right
+                ctx.rotate(0.5 * Math.PI);
+                ctx.translate(0, -height);
+                break;
+            case 7:
+                // horizontal flip + 90 rotate right
+                ctx.rotate(0.5 * Math.PI);
+                ctx.translate(width, -height);
+                ctx.scale(-1, 1);
+                break;
+            case 8:
+                // 90 rotate left
+                ctx.rotate(-0.5 * Math.PI);
+                ctx.translate(-width, 0);
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    /**
+     * MegaPixImage class
+     */
+    function MegaPixImage(srcImage) {
+        if (window.Blob && srcImage instanceof Blob) {
+            var img = new Image();
+            var URL = window.URL && window.URL.createObjectURL ? window.URL :
+                window.webkitURL && window.webkitURL.createObjectURL ? window.webkitURL :
+                    null;
+            if (!URL) { throw Error("No createObjectURL function found to create blob url"); }
+            img.src = URL.createObjectURL(srcImage);
+            this.blob = srcImage;
+            srcImage = img;
+        }
+        if (!srcImage.naturalWidth && !srcImage.naturalHeight) {
+            var _this = this;
+            srcImage.onload = function() {
+                var listeners = _this.imageLoadListeners;
+                if (listeners) {
+                    _this.imageLoadListeners = null;
+                    for (var i=0, len=listeners.length; i<len; i++) {
+                        listeners[i]();
+                    }
+                }
+            };
+            this.imageLoadListeners = [];
+        }
+        this.srcImage = srcImage;
+    }
+
+    /**
+     * Rendering megapix image into specified target element
+     */
+    MegaPixImage.prototype.render = function(target, options) {
+        if (this.imageLoadListeners) {
+            var _this = this;
+            this.imageLoadListeners.push(function() { _this.render(target, options) });
+            return;
+        }
+        options = options || {};
+        var imgWidth = this.srcImage.naturalWidth, imgHeight = this.srcImage.naturalHeight,
+            width = options.width, height = options.height,
+            maxWidth = options.maxWidth, maxHeight = options.maxHeight,
+            doSquash = !this.blob || this.blob.type === 'image/jpeg';
+        if (width && !height) {
+            height = (imgHeight * width / imgWidth) << 0;
+        } else if (height && !width) {
+            width = (imgWidth * height / imgHeight) << 0;
+        } else {
+            width = imgWidth;
+            height = imgHeight;
+        }
+        if (maxWidth && width > maxWidth) {
+            width = maxWidth;
+            height = (imgHeight * width / imgWidth) << 0;
+        }
+        if (maxHeight && height > maxHeight) {
+            height = maxHeight;
+            width = (imgWidth * height / imgHeight) << 0;
+        }
+        var opt = { width : width, height : height };
+        for (var k in options) opt[k] = options[k];
+
+        var tagName = target.tagName.toLowerCase();
+        if (tagName === 'img') {
+            target.src = renderImageToDataURL(this.srcImage, opt, doSquash);
+        } else if (tagName === 'canvas') {
+            renderImageToCanvas(this.srcImage, target, opt, doSquash);
+        }
+        if (typeof this.onrender === 'function') {
+            this.onrender(target);
+        }
+    };
+
+    /**
+     * Export class to global
+     */
+    if (typeof define === 'function' && define.cmd) {
+        define([], function() { return MegaPixImage; }); // for AMD loader
     } else {
-      width = imgWidth;
-      height = imgHeight;
+        this.MegaPixImage = MegaPixImage;
     }
-    if (maxWidth && width > maxWidth) {
-      width = maxWidth;
-      height = (imgHeight * width / imgWidth) << 0;
-    }
-    if (maxHeight && height > maxHeight) {
-      height = maxHeight;
-      width = (imgWidth * height / imgHeight) << 0;
-    }
-    var opt = { width : width, height : height };
-    for (var k in options) opt[k] = options[k];
-
-    var tagName = target.tagName.toLowerCase();
-    if (tagName === 'img') {
-      target.src = renderImageToDataURL(this.srcImage, opt, doSquash);
-    } else if (tagName === 'canvas') {
-      renderImageToCanvas(this.srcImage, target, opt, doSquash);
-    }
-    if (typeof this.onrender === 'function') {
-      this.onrender(target);
-    }
-  };
-
-  /**
-   * Export class to global
-   */
-  if (typeof define === 'function' && define.amd) {
-    // define([], function() { return MegaPixImage; }); // for AMD loader
-      this.MegaPixImage = MegaPixImage;
-
-  } else {
-    this.MegaPixImage = MegaPixImage;
-  }
 
 })();
 function JPEGEncoder(quality) {
@@ -2016,274 +2017,274 @@ function getImageDataFromImage(idOrElement){
     return (ctx.getImageData(0, 0, cvs.width, cvs.height));
 }
 var BinaryFile = function(strData, iDataOffset, iDataLength) {
-	var data = strData;
-	var dataOffset = iDataOffset || 0;
-	var dataLength = 0;
+    var data = strData;
+    var dataOffset = iDataOffset || 0;
+    var dataLength = 0;
 
-	this.getRawData = function() {
-		return data;
-	}
+    this.getRawData = function() {
+        return data;
+    }
 
-	if (typeof strData == "string") {
-		dataLength = iDataLength || data.length;
+    if (typeof strData == "string") {
+        dataLength = iDataLength || data.length;
 
-		this.getByteAt = function(iOffset) {
-			return data.charCodeAt(iOffset + dataOffset) & 0xFF;
-		}
+        this.getByteAt = function(iOffset) {
+            return data.charCodeAt(iOffset + dataOffset) & 0xFF;
+        }
 
-		this.getBytesAt = function(iOffset, iLength) {
-			var aBytes = [];
+        this.getBytesAt = function(iOffset, iLength) {
+            var aBytes = [];
 
-			for (var i = 0; i < iLength; i++) {
-				aBytes[i] = data.charCodeAt((iOffset + i) + dataOffset) & 0xFF
-			};
+            for (var i = 0; i < iLength; i++) {
+                aBytes[i] = data.charCodeAt((iOffset + i) + dataOffset) & 0xFF
+            };
 
-			return aBytes;
-		}
-	} else if (typeof strData == "unknown") {
-		dataLength = iDataLength || IEBinary_getLength(data);
+            return aBytes;
+        }
+    } else if (typeof strData == "unknown") {
+        dataLength = iDataLength || IEBinary_getLength(data);
 
-		this.getByteAt = function(iOffset) {
-			return IEBinary_getByteAt(data, iOffset + dataOffset);
-		}
+        this.getByteAt = function(iOffset) {
+            return IEBinary_getByteAt(data, iOffset + dataOffset);
+        }
 
-		this.getBytesAt = function(iOffset, iLength) {
-			return new VBArray(IEBinary_getBytesAt(data, iOffset + dataOffset, iLength)).toArray();
-		}
-	}
+        this.getBytesAt = function(iOffset, iLength) {
+            return new VBArray(IEBinary_getBytesAt(data, iOffset + dataOffset, iLength)).toArray();
+        }
+    }
 
-	this.getLength = function() {
-		return dataLength;
-	}
+    this.getLength = function() {
+        return dataLength;
+    }
 
-	this.getSByteAt = function(iOffset) {
-		var iByte = this.getByteAt(iOffset);
-		if (iByte > 127)
-			return iByte - 256;
-		else
-			return iByte;
-	}
+    this.getSByteAt = function(iOffset) {
+        var iByte = this.getByteAt(iOffset);
+        if (iByte > 127)
+            return iByte - 256;
+        else
+            return iByte;
+    }
 
-	this.getShortAt = function(iOffset, bBigEndian) {
-		var iShort = bBigEndian ?
-			(this.getByteAt(iOffset) << 8) + this.getByteAt(iOffset + 1)
-			: (this.getByteAt(iOffset + 1) << 8) + this.getByteAt(iOffset)
-		if (iShort < 0) iShort += 65536;
-		return iShort;
-	}
-	this.getSShortAt = function(iOffset, bBigEndian) {
-		var iUShort = this.getShortAt(iOffset, bBigEndian);
-		if (iUShort > 32767)
-			return iUShort - 65536;
-		else
-			return iUShort;
-	}
-	this.getLongAt = function(iOffset, bBigEndian) {
-		var iByte1 = this.getByteAt(iOffset),
-			iByte2 = this.getByteAt(iOffset + 1),
-			iByte3 = this.getByteAt(iOffset + 2),
-			iByte4 = this.getByteAt(iOffset + 3);
+    this.getShortAt = function(iOffset, bBigEndian) {
+        var iShort = bBigEndian ?
+        (this.getByteAt(iOffset) << 8) + this.getByteAt(iOffset + 1)
+            : (this.getByteAt(iOffset + 1) << 8) + this.getByteAt(iOffset)
+        if (iShort < 0) iShort += 65536;
+        return iShort;
+    }
+    this.getSShortAt = function(iOffset, bBigEndian) {
+        var iUShort = this.getShortAt(iOffset, bBigEndian);
+        if (iUShort > 32767)
+            return iUShort - 65536;
+        else
+            return iUShort;
+    }
+    this.getLongAt = function(iOffset, bBigEndian) {
+        var iByte1 = this.getByteAt(iOffset),
+            iByte2 = this.getByteAt(iOffset + 1),
+            iByte3 = this.getByteAt(iOffset + 2),
+            iByte4 = this.getByteAt(iOffset + 3);
 
-		var iLong = bBigEndian ?
-			(((((iByte1 << 8) + iByte2) << 8) + iByte3) << 8) + iByte4
-			: (((((iByte4 << 8) + iByte3) << 8) + iByte2) << 8) + iByte1;
-		if (iLong < 0) iLong += 4294967296;
-		return iLong;
-	}
-	this.getSLongAt = function(iOffset, bBigEndian) {
-		var iULong = this.getLongAt(iOffset, bBigEndian);
-		if (iULong > 2147483647)
-			return iULong - 4294967296;
-		else
-			return iULong;
-	}
+        var iLong = bBigEndian ?
+        (((((iByte1 << 8) + iByte2) << 8) + iByte3) << 8) + iByte4
+            : (((((iByte4 << 8) + iByte3) << 8) + iByte2) << 8) + iByte1;
+        if (iLong < 0) iLong += 4294967296;
+        return iLong;
+    }
+    this.getSLongAt = function(iOffset, bBigEndian) {
+        var iULong = this.getLongAt(iOffset, bBigEndian);
+        if (iULong > 2147483647)
+            return iULong - 4294967296;
+        else
+            return iULong;
+    }
 
-	this.getStringAt = function(iOffset, iLength) {
-		var aStr = [];
+    this.getStringAt = function(iOffset, iLength) {
+        var aStr = [];
 
-		var aBytes = this.getBytesAt(iOffset, iLength);
-		for (var j=0; j < iLength; j++) {
-			aStr[j] = String.fromCharCode(aBytes[j]);
-		}
-		return aStr.join("");
-	}
+        var aBytes = this.getBytesAt(iOffset, iLength);
+        for (var j=0; j < iLength; j++) {
+            aStr[j] = String.fromCharCode(aBytes[j]);
+        }
+        return aStr.join("");
+    }
 
-	this.getCharAt = function(iOffset) {
-		return String.fromCharCode(this.getByteAt(iOffset));
-	}
-	this.toBase64 = function() {
-		return window.btoa(data);
-	}
-	this.fromBase64 = function(strBase64) {
-		data = window.atob(strBase64);
-	}
+    this.getCharAt = function(iOffset) {
+        return String.fromCharCode(this.getByteAt(iOffset));
+    }
+    this.toBase64 = function() {
+        return window.btoa(data);
+    }
+    this.fromBase64 = function(strBase64) {
+        data = window.atob(strBase64);
+    }
 }
 
 
 var BinaryAjax = (function() {
 
-	function createRequest() {
-		var oHTTP = null;
-		if (window.ActiveXObject) {
-			oHTTP = new ActiveXObject("Microsoft.XMLHTTP");
-		} else if (window.XMLHttpRequest) {
-			oHTTP = new XMLHttpRequest();
-		}
-		return oHTTP;
-	}
+    function createRequest() {
+        var oHTTP = null;
+        if (window.ActiveXObject) {
+            oHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+        } else if (window.XMLHttpRequest) {
+            oHTTP = new XMLHttpRequest();
+        }
+        return oHTTP;
+    }
 
-	function getHead(strURL, fncCallback, fncError) {
-		var oHTTP = createRequest();
-		if (oHTTP) {
-			if (fncCallback) {
-				if (typeof(oHTTP.onload) != "undefined") {
-					oHTTP.onload = function() {
-						if (oHTTP.status == "200") {
-							fncCallback(this);
-						} else {
-							if (fncError) fncError();
-						}
-						oHTTP = null;
-					};
-				} else {
-					oHTTP.onreadystatechange = function() {
-						if (oHTTP.readyState == 4) {
-							if (oHTTP.status == "200") {
-								fncCallback(this);
-							} else {
-								if (fncError) fncError();
-							}
-							oHTTP = null;
-						}
-					};
-				}
-			}
-			oHTTP.open("HEAD", strURL, true);
-			oHTTP.send(null);
-		} else {
-			if (fncError) fncError();
-		}
-	}
+    function getHead(strURL, fncCallback, fncError) {
+        var oHTTP = createRequest();
+        if (oHTTP) {
+            if (fncCallback) {
+                if (typeof(oHTTP.onload) != "undefined") {
+                    oHTTP.onload = function() {
+                        if (oHTTP.status == "200") {
+                            fncCallback(this);
+                        } else {
+                            if (fncError) fncError();
+                        }
+                        oHTTP = null;
+                    };
+                } else {
+                    oHTTP.onreadystatechange = function() {
+                        if (oHTTP.readyState == 4) {
+                            if (oHTTP.status == "200") {
+                                fncCallback(this);
+                            } else {
+                                if (fncError) fncError();
+                            }
+                            oHTTP = null;
+                        }
+                    };
+                }
+            }
+            oHTTP.open("HEAD", strURL, true);
+            oHTTP.send(null);
+        } else {
+            if (fncError) fncError();
+        }
+    }
 
-	function sendRequest(strURL, fncCallback, fncError, aRange, bAcceptRanges, iFileSize) {
-		var oHTTP = createRequest();
-		if (oHTTP) {
+    function sendRequest(strURL, fncCallback, fncError, aRange, bAcceptRanges, iFileSize) {
+        var oHTTP = createRequest();
+        if (oHTTP) {
 
-			var iDataOffset = 0;
-			if (aRange && !bAcceptRanges) {
-				iDataOffset = aRange[0];
-			}
-			var iDataLen = 0;
-			if (aRange) {
-				iDataLen = aRange[1]-aRange[0]+1;
-			}
+            var iDataOffset = 0;
+            if (aRange && !bAcceptRanges) {
+                iDataOffset = aRange[0];
+            }
+            var iDataLen = 0;
+            if (aRange) {
+                iDataLen = aRange[1]-aRange[0]+1;
+            }
 
-			if (fncCallback) {
-				if (typeof(oHTTP.onload) != "undefined") {
-					oHTTP.onload = function() {
-						if (oHTTP.status == "200" || oHTTP.status == "206" || oHTTP.status == "0") {
-							oHTTP.binaryResponse = new BinaryFile(oHTTP.responseText, iDataOffset, iDataLen);
-							oHTTP.fileSize = iFileSize || oHTTP.getResponseHeader("Content-Length");
-							fncCallback(oHTTP);
-						} else {
-							if (fncError) fncError();
-						}
-						oHTTP = null;
-					};
-				} else {
-					oHTTP.onreadystatechange = function() {
-						if (oHTTP.readyState == 4) {
-							if (oHTTP.status == "200" || oHTTP.status == "206" || oHTTP.status == "0") {
-								// IE6 craps if we try to extend the XHR object
-								var oRes = {
-									status : oHTTP.status,
-									// IE needs responseBody, Chrome/Safari needs responseText
-									binaryResponse : new BinaryFile(
-										typeof oHTTP.responseBody == "unknown" ? oHTTP.responseBody : oHTTP.responseText, iDataOffset, iDataLen
-									),
-									fileSize : iFileSize || oHTTP.getResponseHeader("Content-Length")
-								};
-								fncCallback(oRes);
-							} else {
-								if (fncError) fncError();
-							}
-							oHTTP = null;
-						}
-					};
-				}
-			}
-			oHTTP.open("GET", strURL, true);
+            if (fncCallback) {
+                if (typeof(oHTTP.onload) != "undefined") {
+                    oHTTP.onload = function() {
+                        if (oHTTP.status == "200" || oHTTP.status == "206" || oHTTP.status == "0") {
+                            oHTTP.binaryResponse = new BinaryFile(oHTTP.responseText, iDataOffset, iDataLen);
+                            oHTTP.fileSize = iFileSize || oHTTP.getResponseHeader("Content-Length");
+                            fncCallback(oHTTP);
+                        } else {
+                            if (fncError) fncError();
+                        }
+                        oHTTP = null;
+                    };
+                } else {
+                    oHTTP.onreadystatechange = function() {
+                        if (oHTTP.readyState == 4) {
+                            if (oHTTP.status == "200" || oHTTP.status == "206" || oHTTP.status == "0") {
+                                // IE6 craps if we try to extend the XHR object
+                                var oRes = {
+                                    status : oHTTP.status,
+                                    // IE needs responseBody, Chrome/Safari needs responseText
+                                    binaryResponse : new BinaryFile(
+                                        typeof oHTTP.responseBody == "unknown" ? oHTTP.responseBody : oHTTP.responseText, iDataOffset, iDataLen
+                                    ),
+                                    fileSize : iFileSize || oHTTP.getResponseHeader("Content-Length")
+                                };
+                                fncCallback(oRes);
+                            } else {
+                                if (fncError) fncError();
+                            }
+                            oHTTP = null;
+                        }
+                    };
+                }
+            }
+            oHTTP.open("GET", strURL, true);
 
-			if (oHTTP.overrideMimeType) oHTTP.overrideMimeType('text/plain; charset=x-user-defined');
+            if (oHTTP.overrideMimeType) oHTTP.overrideMimeType('text/plain; charset=x-user-defined');
 
-			if (aRange && bAcceptRanges) {
-				oHTTP.setRequestHeader("Range", "bytes=" + aRange[0] + "-" + aRange[1]);
-			}
+            if (aRange && bAcceptRanges) {
+                oHTTP.setRequestHeader("Range", "bytes=" + aRange[0] + "-" + aRange[1]);
+            }
 
-			oHTTP.setRequestHeader("If-Modified-Since", "Sat, 1 Jan 1970 00:00:00 GMT");
+            oHTTP.setRequestHeader("If-Modified-Since", "Sat, 1 Jan 1970 00:00:00 GMT");
 
-			oHTTP.send(null);
-		} else {
-			if (fncError) fncError();
-		}
-	}
+            oHTTP.send(null);
+        } else {
+            if (fncError) fncError();
+        }
+    }
 
-	return function(strURL, fncCallback, fncError, aRange) {
+    return function(strURL, fncCallback, fncError, aRange) {
 
-		if (aRange) {
-			getHead(
-				strURL,
-				function(oHTTP) {
-					var iLength = parseInt(oHTTP.getResponseHeader("Content-Length"),10);
-					var strAcceptRanges = oHTTP.getResponseHeader("Accept-Ranges");
+        if (aRange) {
+            getHead(
+                strURL,
+                function(oHTTP) {
+                    var iLength = parseInt(oHTTP.getResponseHeader("Content-Length"),10);
+                    var strAcceptRanges = oHTTP.getResponseHeader("Accept-Ranges");
 
-					var iStart, iEnd;
-					iStart = aRange[0];
-					if (aRange[0] < 0)
-						iStart += iLength;
-					iEnd = iStart + aRange[1] - 1;
+                    var iStart, iEnd;
+                    iStart = aRange[0];
+                    if (aRange[0] < 0)
+                        iStart += iLength;
+                    iEnd = iStart + aRange[1] - 1;
 
-					sendRequest(strURL, fncCallback, fncError, [iStart, iEnd], (strAcceptRanges == "bytes"), iLength);
-				}
-			);
+                    sendRequest(strURL, fncCallback, fncError, [iStart, iEnd], (strAcceptRanges == "bytes"), iLength);
+                }
+            );
 
-		} else {
-			sendRequest(strURL, fncCallback, fncError);
-		}
-	}
+        } else {
+            sendRequest(strURL, fncCallback, fncError);
+        }
+    }
 
 }());
 
 /*
-document.write(
-	"<script type='text/vbscript'>\r\n"
-	+ "Function IEBinary_getByteAt(strBinary, iOffset)\r\n"
-	+ "	IEBinary_getByteAt = AscB(MidB(strBinary,iOffset+1,1))\r\n"
-	+ "End Function\r\n"
-	+ "Function IEBinary_getLength(strBinary)\r\n"
-	+ "	IEBinary_getLength = LenB(strBinary)\r\n"
-	+ "End Function\r\n"
-	+ "</script>\r\n"
-);
-*/
+ document.write(
+ "<script type='text/vbscript'>\r\n"
+ + "Function IEBinary_getByteAt(strBinary, iOffset)\r\n"
+ + "	IEBinary_getByteAt = AscB(MidB(strBinary,iOffset+1,1))\r\n"
+ + "End Function\r\n"
+ + "Function IEBinary_getLength(strBinary)\r\n"
+ + "	IEBinary_getLength = LenB(strBinary)\r\n"
+ + "End Function\r\n"
+ + "</script>\r\n"
+ );
+ */
 
 document.write(
-	"<script type='text/vbscript'>\r\n"
-	+ "Function IEBinary_getByteAt(strBinary, iOffset)\r\n"
-	+ "	IEBinary_getByteAt = AscB(MidB(strBinary, iOffset + 1, 1))\r\n"
-	+ "End Function\r\n"
-	+ "Function IEBinary_getBytesAt(strBinary, iOffset, iLength)\r\n"
-	+ "  Dim aBytes()\r\n"
-	+ "  ReDim aBytes(iLength - 1)\r\n"
-	+ "  For i = 0 To iLength - 1\r\n"
-	+ "   aBytes(i) = IEBinary_getByteAt(strBinary, iOffset + i)\r\n"
-	+ "  Next\r\n"
-	+ "  IEBinary_getBytesAt = aBytes\r\n"
-	+ "End Function\r\n"
-	+ "Function IEBinary_getLength(strBinary)\r\n"
-	+ "	IEBinary_getLength = LenB(strBinary)\r\n"
-	+ "End Function\r\n"
-	+ "</script>\r\n"
+    "<script type='text/vbscript'>\r\n"
+    + "Function IEBinary_getByteAt(strBinary, iOffset)\r\n"
+    + "	IEBinary_getByteAt = AscB(MidB(strBinary, iOffset + 1, 1))\r\n"
+    + "End Function\r\n"
+    + "Function IEBinary_getBytesAt(strBinary, iOffset, iLength)\r\n"
+    + "  Dim aBytes()\r\n"
+    + "  ReDim aBytes(iLength - 1)\r\n"
+    + "  For i = 0 To iLength - 1\r\n"
+    + "   aBytes(i) = IEBinary_getByteAt(strBinary, iOffset + i)\r\n"
+    + "  Next\r\n"
+    + "  IEBinary_getBytesAt = aBytes\r\n"
+    + "End Function\r\n"
+    + "Function IEBinary_getLength(strBinary)\r\n"
+    + "	IEBinary_getLength = LenB(strBinary)\r\n"
+    + "End Function\r\n"
+    + "</script>\r\n"
 );
 var EXIF = (function() {
 
@@ -2602,7 +2603,7 @@ var EXIF = (function() {
             var fileReader = new FileReader();
 
             fileReader.onload = function(e) {
-				if (debug) console.log("Got file of length " + e.target.result.byteLength);
+                if (debug) console.log("Got file of length " + e.target.result.byteLength);
                 handleBinaryFile(e.target.result);
             };
 
@@ -2610,10 +2611,10 @@ var EXIF = (function() {
         }
     }
 
-	function findEXIFinJPEG(file) {
-		var dataView = new DataView(file);
+    function findEXIFinJPEG(file) {
+        var dataView = new DataView(file);
 
-		if (debug) console.log("Got file of length " + file.byteLength);
+        if (debug) console.log("Got file of length " + file.byteLength);
         if ((dataView.getUint8(0) != 0xFF) || (dataView.getUint8(1) != 0xD8)) {
             if (debug) console.log("Not a valid JPEG");
             return false; // not a valid jpeg
@@ -2630,7 +2631,7 @@ var EXIF = (function() {
             }
 
             marker = dataView.getUint8(offset + 1);
-			if (debug) console.log(marker);
+            if (debug) console.log(marker);
 
             // we could implement handling for other markers here,
             // but we're only looking for 0xFFE1 for EXIF data
@@ -2760,13 +2761,13 @@ var EXIF = (function() {
         }
     }
 
-	function getStringFromDB(buffer, start, length) {
-		var outstr = "";
-		for (n = start; n < start+length; n++) {
-			outstr += String.fromCharCode(buffer.getUint8(n));
-		}
-		return outstr;
-	}
+    function getStringFromDB(buffer, start, length) {
+        var outstr = "";
+        for (n = start; n < start+length; n++) {
+            outstr += String.fromCharCode(buffer.getUint8(n));
+        }
+        return outstr;
+    }
 
     function readEXIFData(file, start) {
         if (getStringFromDB(file, start, 4) != "Exif") {
@@ -2789,7 +2790,7 @@ var EXIF = (function() {
             return false;
         }
 
-		if (file.getUint16(tiffOffset+2, !bigEnd) != 0x002A) {
+        if (file.getUint16(tiffOffset+2, !bigEnd) != 0x002A) {
             if (debug) console.log("Not valid TIFF data! (no 0x002A)");
             return false;
         }
@@ -3156,7 +3157,6 @@ var EXIF = (function() {
             if(typeof data === 'undefined' || data === '') {
                 formData = new FormData();
                 formData.append('file', file);
-                console.log(formData);
                 xhr.send(formData);
             } else {
                 boundary = boundary || this.params.defBoundary;
@@ -3171,8 +3171,8 @@ var EXIF = (function() {
                 debugTime.begin('base64Time');
                 var myEncoder = new JPEGEncoder(this.params.imageQuality),//实例化一个jpeg的转码器
                     JPEGImage = myEncoder.encode(data, this.params.imageQuality);//将图片位图保存为用JPEG编码的格式的字节数组
-                    data = JPEGImage.substr(23);
-                      //删除base64头
+                data = JPEGImage.substr(23);
+                //删除base64头
                 debugTime.end('base64Time');
                 debugTime.begin('uploadTime');
                 xhr.setRequestHeader('Content-Type', 'multipart/form-data; boundary=' + boundary);
@@ -3305,7 +3305,7 @@ var EXIF = (function() {
                 }else{
                     debugTime.begin('androidRenderTime');
                     var cvs = document.createElement("canvas"),
-                    ctx = cvs.getContext('2d');
+                        ctx = cvs.getContext('2d');
                     cvs.width = width;
                     cvs.height = height;
                     ctx.drawImage(img,0,0,width,height);
@@ -3335,384 +3335,1012 @@ var EXIF = (function() {
     userTouch.plugin.CUI = CUI;
 })(window.T || {});
 /**
-* 基于kfstouch、compress.upload.images的图片上传组件
-* 改为同一页面上可以引用多次，@wrapperSlter参数为从业务传入的上传组件的外层选择器
-* 引用组件会生成实例：userTouch.compressUpload["" || "0"]
-* 可调用的方法：1.getUploadedHash 返回已成功上传的hash数组 2.getSltedName返回所有图片的名字组成的数组（包括已上传、未上传）
-* modified by yaohuiwang 2016.06.02
-*/
+ * 基于kfstouch、compress.upload.images的图片上传组件
+ * 改为同一页面上可以引用多次，@wrapperSlter参数为从业务传入的上传组件的外层选择器
+ * 引用组件会生成实例：userTouch.compressUpload["" || "0"]
+ * 可调用的方法：1.getUploadedHash 返回已成功上传的hash数组 2.getSltedName返回所有图片的名字组成的数组（包括已上传、未上传）
+ * modified by yaohuiwang 2016.06.02
+ */
 ;APF.Namespace.register('userTouch');
 ;APF.Namespace.register('userTouch.compressUpload');
 (function($) {
-  userTouch.CompressUpload = function(p){
-    this.maxNum     = p.maxNum || 10;
-    this.onceMaxNum = p.onceMaxNum || 10;
-    this.maxWidth  = p.maxWidth;
-    this.maxHeight = p.maxHeight;
-    this.init(p);
-    this.events();
-  }
+    userTouch.CompressUpload = function(p){
+        this.maxNum     = p.maxNum || 10;
+        this.onceMaxNum = p.onceMaxNum || 10;
+        this.maxWidth  = p.maxWidth;
+        this.maxHeight = p.maxHeight;
+        this.init(p);
+        this.events();
+    }
 
-  userTouch.CompressUpload.prototype = {
-    constructor: userTouch.CompressUpload,
-    init : function (p) {
-        var self = this;
-        this.p = {
-            fileInput  : '.uploadBtn',
-            upImgBox   : '.upImgBox',
-            errorMsg   : '.errorMsg',
-            imgMsg     : '.imgmsg',
-            wrapImg    : '.wrapImg',
-            picPopu    : '.picpopu',
-            fileButton : '.file-button',
-            swipeImg   : '.swipeImg',
-            pdCurrent  : '.p_current',
-            pTotal     : '.p_total'
-        };
-        this.errorMessage = {
-            'repeatUpload' : '请勿重复上传',
-            'maxNumber'    : '上传图片不能超过' + self.maxNum + '张',
-            'onceMaxNum'   : '一次最多上传' + self.onceMaxNum + '张'
-        };
+    userTouch.CompressUpload.prototype = {
+        constructor: userTouch.CompressUpload,
+        init : function (p) {
+            var self = this;
+            this.p = {
+                fileInput  : '.uploadBtn',
+                upImgBox   : '.upImgBox',
+                errorMsg   : '.errorMsg',
+                imgMsg     : '.imgmsg',
+                wrapImg    : '.wrapImg',
+                picPopu    : '.picpopu',
+                fileButton : '.file-button',
+                swipeImg   : '.swipeImg',
+                pdCurrent  : '.p_current',
+                pTotal     : '.p_total'
+            };
+            this.errorMessage = {
+                'repeatUpload' : '请勿重复上传',
+                'maxNumber'    : '上传图片不能超过' + self.maxNum + '张',
+                'onceMaxNum'   : '一次最多上传' + self.onceMaxNum + '张'
+            };
 
-        // 支持引用多次
-        if(p.wrapperSlter) {
-            self.p.upImgBox   = p.wrapperSlter;
-            self.p.fileInput  = $(p.wrapperSlter).find(".uploadBtn");
-            self.p.upImgList  = $(p.wrapperSlter).find(".up-img-list");
-            self.p.errorMsg   = $(p.wrapperSlter).find(".errorMsg");
-            self.p.wrapImg    = $(p.wrapperSlter).find(".wrapImg");
-            self.p.fileButton = $(p.wrapperSlter).find(".fileButton");
-            self.p.swipeImg   = $(p.wrapperSlter).find(".swipeImg");
-            self.p.imgMsg     = $(p.wrapperSlter).find(".imgMsg");
-            self.p.picPopu    = $(p.wrapperSlter).find(".picpopu");
-            self.p.pdCurrent  = $(p.wrapperSlter).find(".p_current");
-            self.p.pTotal     = $(p.wrapperSlter).find(".p_total");
-        }
-        this.uploadUrl = p.uploadUrl;
-        this.postUrl = p.postUrl;
-        this.defImgSrc = p.defImgSrc;
-        this.dpListUrl = p.dpListUrl;
-        this.loginProcess = p.login_process;
-        this.thirdPartyLogin = p.third_party_login;
-        this.pushLock = true;
-        this.swipe = {};
-        this.file = [];
-    },
-    events : function () {
-        var self = this;
-        //添加多图上传功能
-        this.multiImageUpload();
-        //上传图片限制
-        this.imgController();
-        this.deleteImg();
-    },
-    imgController: function(){
-        var self = this,
-            numClick = true,
-            areaClick = true;
-        $(self.p.fileButton).on('click',function(){
-            if(numClick){
-                numClick = false;
+            // 支持引用多次
+            if(p.wrapperSlter) {
+                self.p.upImgBox   = p.wrapperSlter;
+                self.p.fileInput  = $(p.wrapperSlter).find(".uploadBtn");
+                self.p.upImgList  = $(p.wrapperSlter).find(".up-img-list");
+                self.p.errorMsg   = $(p.wrapperSlter).find(".errorMsg");
+                self.p.wrapImg    = $(p.wrapperSlter).find(".wrapImg");
+                self.p.fileButton = $(p.wrapperSlter).find(".fileButton");
+                self.p.swipeImg   = $(p.wrapperSlter).find(".swipeImg");
+                self.p.imgMsg     = $(p.wrapperSlter).find(".imgMsg");
+                self.p.picPopu    = $(p.wrapperSlter).find(".picpopu");
+                self.p.pdCurrent  = $(p.wrapperSlter).find(".p_current");
+                self.p.pTotal     = $(p.wrapperSlter).find(".p_total");
             }
-        })
-    },
-    //swipe绑定
-    bindSwipe: function(swipe, index, op) {
-        var self = this,
-        defaults = {
-            startSlide: index,
-            speed: 400,
-            continuous: false,
-            disableScroll: false,
-            stopPropagation: false,
-            callback: function(index, elem) {},
-            transitionEnd: function(index, elem) {}
-        };
-        self.swipe.kill && self.swipe.kill();
-        self.swipe = new Swipe(swipe, $.extend(defaults, op));
-    },
-    //查看大图
-    viewPicBind : function(file, lg) {
-        var self = this,
-            father;
-        $(self.p.upImgBox).find('.upload-img-'+lg).on('click',function(){
-            $(self.p.picPopu).css({'display':'-webkit-box'});
-            $(".upload-wrap").find(".picpopu").hide();
-            $(this).parents(".upload-wrap").children(".picpopu").css({'display':'-webkit-box'});
-            // T.replaceImg(this,'data-src');
-            var index,
-                that = this;
-            $.each( self.boxBig.find(".up-img"), function(k, v) {
-                if( $(v).attr("data-hash") === $(that).attr("data-hash") ) {
-                    index = $(v).index();
-                }
-            } );
+            this.uploadUrl = p.uploadUrl;
+            this.postUrl = p.postUrl;
+            this.defImgSrc = p.defImgSrc;
+            this.dpListUrl = p.dpListUrl;
+            this.loginProcess = p.login_process;
+            this.thirdPartyLogin = p.third_party_login;
+            this.pushLock = true;
+            this.swipe = {};
+            this.file = [];
 
-            self.bindSwipe($(self.p.swipeImg).get(0), index , {
-                callback: function(index, elem) {
-                    $(self.p.pdCurrent).text(index+1);
-                    // T.replaceImg(elem,'data-src');
+            this.initFile(p.data);
+        },
+        initFile:function(data){
+            var self = this,
+                boxBig = $(self.p.wrapImg);
+            for(var i=0,j=data.length;i<j;i++){
+                var shtml= '<div class="up-img upload-img-'+(1000-i)+'" data-index="'+ (1000-i) +'"data-hash="'+data[i]+'" data-failed="0" data-key="0"><img src="'+data[i]+'" data-filename="'+data[i]+'"></div>';
+                $(self.p.fileButton).before($(shtml));
+                $(self.p.wrapImg).append($(shtml));
+                self.file.push({name:data[i]});
+                self.viewPicBind('',(1000-i));
+                self.boxBig = boxBig;
+            }
+        },
+        events : function () {
+            var self = this;
+            //添加多图上传功能
+            this.multiImageUpload();
+            //上传图片限制
+            this.imgController();
+            this.deleteImg();
+        },
+        imgController: function(){
+            var self = this,
+                numClick = true,
+                areaClick = true;
+            $(self.p.fileButton).on('click',function(){
+                if(numClick){
+                    numClick = false;
                 }
-            });
-            $(self.p.pdCurrent).text(self.swipe.getPos()+1);
-            $(self.p.pTotal).text(self.swipe.getNumSlides());
-        })
-    },
-    //图片删除
-    deleteImg:function(){
-        var self = this;
-        $(self.p.picPopu).find('.i-detele').on('click', function(e) {
-            var pos = self.swipe.getPos();
-            var wrapimg =  $(self.p.wrapImg).find('.up-img').eq(pos);
-            var filename = wrapimg.find('img').attr('data-filename');
-            for(i in self.file){
-                if(self.file[i].name == filename){
-                    if(typeof self.file[i] !== 'undefined') {
-                        self.CUI.deleteFileName(self.file[i]);
-                        delete self.file[i];
+            })
+        },
+        //swipe绑定
+        bindSwipe: function(swipe, index, op) {
+            var self = this,
+                defaults = {
+                    startSlide: index,
+                    speed: 400,
+                    continuous: false,
+                    disableScroll: false,
+                    stopPropagation: false,
+                    callback: function(index, elem) {},
+                    transitionEnd: function(index, elem) {}
+                };
+            self.swipe.kill && self.swipe.kill();
+            self.swipe = new Swipe(swipe, $.extend(defaults, op));
+        },
+        //查看大图
+        viewPicBind : function(file, lg) {
+            var self = this,
+                father;
+            $(self.p.upImgBox).find('.upload-img-'+lg).on('click',function(){
+                $(self.p.picPopu).css({'display':'-webkit-box'});
+                $(".upload-wrap").find(".picpopu").hide();
+                $(this).parents(".upload-wrap").children(".picpopu").css({'display':'-webkit-box'});
+                // T.replaceImg(this,'data-src');
+                var index,
+                    that = this;
+
+                $.each( self.boxBig.find(".up-img"), function(k, v) {
+                    if( $(v).attr("data-hash") === $(that).attr("data-hash") ) {
+                        index = $(v).index();
+                    }
+                } );
+
+                self.bindSwipe($(self.p.swipeImg).get(0), index , {
+                    callback: function(index, elem) {
+                        $(self.p.pdCurrent).text(index+1);
+                        // T.replaceImg(elem,'data-src');
+                    }
+                });
+                $(self.p.pdCurrent).text(self.swipe.getPos()+1);
+                $(self.p.pTotal).text(self.swipe.getNumSlides());
+            })
+        },
+        //图片删除
+        deleteImg:function(){
+            var self = this;
+            $(self.p.picPopu).find('.i-detele').on('click', function(e) {
+                var pos = self.swipe.getPos();
+                var wrapimg =  $(self.p.wrapImg).find('.up-img').eq(pos);
+                var filename = wrapimg.find('img').attr('data-filename');
+
+                for(var i in self.file){
+                    if(self.file[i].name == filename){
+                        if(typeof self.file[i] !== 'undefined') {
+                            self.CUI.deleteFileName(self.file[i]);
+                            delete self.file[i];
+                        }
                     }
                 }
-            }
-            wrapimg.remove();
-            var upImgWraps = $(self.p.upImgBox).find('.upImgBox .up-img');
-            $.each(upImgWraps, function(k, v) {
-                if( $(wrapimg).data("hash") === $(v).data("hash") ) {
-                    $(v).remove();
-                }
-            });
-
-            $(self.p.picPopu).hide();
-            var imglen = $(self.p.upImgBox).find('.upImgBox img').length;
-            if(imglen <= self.maxNum){
-                $(self.p.fileButton).show();
-            }
-        });
-        $('.i_close').click(function(){
-            $(self.p.picPopu).hide();
-        })
-        $(self.p.upImgBox).on("click", ".deleteFailBtn", function(e) {
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            var filename = $(this).parent().find("img").data("filename");
-            for(i in self.file){
-                if(self.file[i].name == filename){
-                    if(typeof self.file[i] !== 'undefined') {
-                        self.CUI.deleteFileName(self.file[i]);
-                        delete self.file[i];
-                    }
-                }
-            }
-            $(this).parent().remove();
-            var imglen = $(self.p.upImgBox).find('.upImgBox img').length;
-            if(imglen <= self.maxNum){
-                $(self.p.fileButton).show();
-            }
-        });
-    },
-    //文件上传是否成功
-    xmlhttprequest: function(url, success, fail) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.send();
-        if(typeof success !== 'function') {
-            success = function() {}
-        }
-        if(typeof fail !== 'function') {
-            fail = function() {}
-        }
-        // 文件上传成功或是失败
-        xhr.onreadystatechange = function(e) {
-           if (xhr.readyState == 4) {
-                if (xhr.status == 200) {
-                    success(xhr.responseText);
-                } else {
-                    fail();
-                }
-            }
-        };
-    },
-    //多图上传
-    multiImageUpload : function() {
-        var self = this;
-        self.CUI = new userTouch.plugin.CUI({
-            maxWidth : self.maxWidth,
-            maxHeight : self.maxHeight,
-            uploadUrl : self.uploadUrl,
-            inputName : 'file',
-            file : $(self.p.fileInput).get(0),
-            onSuccess : function(index, file, response) {
-                //动态进度条
-                var box = $(self.p.upImgBox).find('.upload-img-' + index),
-                    data;
-                if(box.length < 1) {
-                    return false;
-                }
-                box.find('.i-line').css({'width' : '100%'});
-                setTimeout(function() {
-                    box.find('.i-shade,.i-progress').remove();
-                }, 1000);
-
-                data = $.parseJSON(response);
-                box.data('hash', data.Data.WebPath);
-                box.data('host', data.Data.Path);
-                $(self.p.imgMsg).hide();
-
-                $(box).attr("data-failed", "0"); // 去掉失败标记
-                self.boxBig.empty();
-                $.each($(self.p.upImgBox).find('.up-img'), function(k, v) {
-                    if( $(v).attr("data-failed") === "0" ) {
-                        var $v = $(v).clone();
-                        $v.find(".i-shade").remove();
-                        $v.find(".i-progress").remove();
-                        self.boxBig.append($v);
-                        self.boxBig.find(".deleteFailBtn").remove();
-                        self.boxBig.find(".fail-doc").remove();
+                wrapimg.remove();
+                var upImgWraps = $(self.p.upImgBox).find('.upImgBox .up-img');
+                $.each(upImgWraps, function(k, v) {
+                    if( $(wrapimg).data("hash") === $(v).data("hash") ) {
+                        $(v).remove();
                     }
                 });
 
-                //绑定删除图片功能
-                self.viewPicBind(file, index);
-
-                self.pushLock = true;
-
-                // 如果是上传错误后完成的，去掉覆盖在图片上的错误信息
-                box.find(".deleteFailBtn").remove();
-                box.find(".fail-doc").remove();
-            },
-            onProgress : function(index, file, loaded, total) {
-                //动态进度条
-                var box = $(self.p.upImgBox).find('.upload-img-' + index),
-                    ratio = parseInt(loaded/total*100),
-                    k;
-                box.find('.i-line').css({'width' : ratio + '%'});
-            },
-            onSelect : function(index, file) {
-
+                $(self.p.picPopu).hide();
                 var imglen = $(self.p.upImgBox).find('.upImgBox img').length;
-                if( imglen + 1 > self.maxNum ) {
-                    $(self.p.fileButton).hide();
-                    return;
+                if(imglen <= self.maxNum){
+                    $(self.p.fileButton).show();
                 }
 
-                //插入缩略图
-                var box = $(self.p.upImgBox),
-                    boxBig = $(self.p.wrapImg),
-                    reader = new FileReader(),
-                    imglen = $(self.p.upImgBox).find('.upImgBox img').length,
-                    img = document.createElement('img'),
-                    img2 = document.createElement('img'),
-                    html2,
-                    shtml,
-                    html;
-                reader.readAsDataURL(file);
-                reader.onload = function(e) {
-                    img.src = this.result;
-                    img.setAttribute('data-filename', file.name);
-                    img2.src = this.result;
-                    img2.setAttribute('data-filename', file.name);
+            });
+            $('.i_close').click(function(){
+                $(self.p.picPopu).hide();
+            });
+            $(self.p.upImgBox).on("click", ".deleteFailBtn", function(e) {
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                var filename = $(this).parent().find("img").data("filename");
+                for(i in self.file){
+                    if(self.file[i].name == filename){
+                        if(typeof self.file[i] !== 'undefined') {
+                            self.CUI.deleteFileName(self.file[i]);
+                            delete self.file[i];
+                        }
+                    }
                 }
-                shtml= '<div class="up-img upload-img-'+index+'" data-index='+ index +'>'
-                html = shtml + '<div class="i-shade"></div><a href="javascript:;" class="i-detele"></a><div class="i-progress"><div class="B-60AD00 i-line"></div></div></div>';
-                html2 = shtml + '</div>';
-                self.uploadedImgItem = $(html).append($(img));
-                self.uploadedImgItemBig = $(html2).append($(img2));
-                self.boxBig = boxBig;
-                $(self.p.fileButton).before(self.uploadedImgItem);
+                $(this).parent().remove();
+                var imglen = $(self.p.upImgBox).find('.upImgBox img').length;
+                if(imglen <= self.maxNum){
+                    $(self.p.fileButton).show();
+                }
+            });
+        },
+        //文件上传是否成功
+        xmlhttprequest: function(url, success, fail) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.send();
+            if(typeof success !== 'function') {
+                success = function() {}
+            }
+            if(typeof fail !== 'function') {
+                fail = function() {}
+            }
+            // 文件上传成功或是失败
+            xhr.onreadystatechange = function(e) {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        success(xhr.responseText);
+                    } else {
+                        fail();
+                    }
+                }
+            };
+        },
+        //多图上传
+        multiImageUpload : function() {
+            var self = this;
+            self.CUI = new userTouch.plugin.CUI({
+                maxWidth : self.maxWidth,
+                maxHeight : self.maxHeight,
+                uploadUrl : self.uploadUrl,
+                inputName : 'file',
+                file : $(self.p.fileInput).get(0),
+                onSuccess : function(index, file, response) {
 
+                    //动态进度条
+                    var box = $(self.p.upImgBox).find('.upload-img-' + index),
+                        data;
+                    if(box.length < 1) {
+                        return false;
+                    }
+                    box.find('.i-line').css({'width' : '100%'});
+                    setTimeout(function() {
+                        box.find('.i-shade,.i-progress').remove();
+                    }, 1000);
+
+                    data = $.parseJSON(response);
+                    box.data('hash', data.Data.WebPath);
+                    box.data('host', data.Data.Path);
+                    $(self.p.imgMsg).hide();
+
+                    $(box).attr("data-failed", "0"); // 去掉失败标记
+                    self.boxBig.empty();
+                    $.each($(self.p.upImgBox).find('.up-img'), function(k, v) {
+                        if( $(v).attr("data-failed") === "0" ) {
+                            var $v = $(v).clone();
+                            $v.find(".i-shade").remove();
+                            $v.find(".i-progress").remove();
+                            self.boxBig.append($v);
+                            self.boxBig.find(".deleteFailBtn").remove();
+                            self.boxBig.find(".fail-doc").remove();
+                        }
+                    });
+
+                    //绑定删除图片功能
+                    self.viewPicBind(file, index);
+
+                    self.pushLock = true;
+
+                    // 如果是上传错误后完成的，去掉覆盖在图片上的错误信息
+                    box.find(".deleteFailBtn").remove();
+                    box.find(".fail-doc").remove();
+                },
+                onProgress : function(index, file, loaded, total) {
+                    //动态进度条
+                    var box = $(self.p.upImgBox).find('.upload-img-' + index),
+                        ratio = parseInt(loaded/total*100),
+                        k;
+                    box.find('.i-line').css({'width' : ratio + '%'});
+                },
+                fillInitFile:function(){
+
+                },
+                onSelect : function(index, file) {
+
+                    var imglen = $(self.p.upImgBox).find('.upImgBox img').length;
+                    if( imglen + 1 > self.maxNum ) {
+                        $(self.p.fileButton).hide();
+                        return;
+                    }
+
+                    //插入缩略图
+                    var box = $(self.p.upImgBox),
+                        boxBig = $(self.p.wrapImg),
+                        reader = new FileReader(),
+                        imglen = $(self.p.upImgBox).find('.upImgBox img').length,
+                        img = document.createElement('img'),
+                        img2 = document.createElement('img'),
+                        html2,
+                        shtml,
+                        html;
+                    reader.readAsDataURL(file);
+                    reader.onload = function(e) {
+                        img.src = this.result;
+                        img.setAttribute('data-filename', file.name);
+                        img2.src = this.result;
+                        img2.setAttribute('data-filename', file.name);
+                    }
+                    shtml= '<div class="up-img upload-img-'+index+'" data-index='+ index +'>'
+                    html = shtml + '<div class="i-shade"></div><div class="i-progress"><div class="B-60AD00 i-line"></div></div></div>';
+                    html2 = shtml + '</div>';
+                    self.uploadedImgItem = $(html).append($(img));
+                    self.uploadedImgItemBig = $(html2).append($(img2));
+                    self.boxBig = boxBig;
+                    $(self.p.fileButton).before(self.uploadedImgItem);
+
+                    setTimeout(function() {
+                        box.find('.upload-img-' + index).find('.i-line').css({'width' : '20%'});
+                    }, 200);
+                    $(self.p.imgMsg).show();
+                    if(imglen >= self.maxNum - 1){
+                        $(self.p.fileButton).hide();
+                    }
+                    self.file.push(file);
+                    self.pushLock = false;
+                },
+                onComplete : function() {},
+                onCheckFile : function(files) {
+
+                    // 超出同时上传张数限制则返回
+                    if( files.length > self.onceMaxNum ) {
+                        self.showError(self.errorMessage.onceMaxNum);
+                        return false;
+                    } else {
+                        self.hideError();
+                        return true;
+                    }
+                },
+                onMessage : function(msg) {},
+                onRepeat : function(file) {
+                    self.showError(self.errorMessage.repeatUpload);
+                    self.hideError(2000);
+                },
+                onFailure : function(index, file, XHRresponseText) {
+                    var failNode;
+                    var upImgs = $(self.p.upImgBox).find(".up-img");
+                    $.each(upImgs, function(k, v) {
+                        if( +$(v).data("index") === +index ) {
+                            failNode = $(v);
+                        }
+                    });
+
+                    // 添加删除按钮及提示文字
+                    if(!failNode) {
+                        return;
+                    }
+                    failNode.append($('<i class="fail-icon deleteFailBtn"></i>'));
+                    failNode.append($('<div class="fail-doc"><p>上传失败</p><p>点击重新上传</p></div>'));
+
+                    failNode.attr("data-failed", "1");
+                    failNode.on("click.reupload", function() {
+                        self.CUI.doUpload(index,file);
+                        failNode.off("click.reupload");
+                    });
+                }
+            });
+            $(self.p.fileInput).on('change', function(){
+                self.CUI.upload();
+            });
+        },
+        //展示错误提示
+        showError : function(msg) {
+            $(this.p.errorMsg).find('span').html(msg);
+            $(this.p.errorMsg).removeClass('msg-hide');
+        },
+        //隐藏错误提示
+        hideError : function(time) {
+            var self = this;
+            if(time !== 'undefined' && time > 0) {
                 setTimeout(function() {
-                    box.find('.upload-img-' + index).find('.i-line').css({'width' : '20%'});
-                }, 200);
-                $(self.p.imgMsg).show();
-                if(imglen >= self.maxNum - 1){
-                    $(self.p.fileButton).hide();
+                    $(self.p.errorMsg).addClass('msg-hide');
+                }, time);
+            } else {
+                $(self.p.errorMsg).addClass('msg-hide');
+            }
+        },
+        // 获取上传成功图片的hash数组
+        getUploadedHash : function() {
+            var self = this;
+            var uploadedAry = [];
+            $.each($(self.p.upImgList).find(".up-img"), function(k, v) {
+                var obj = {};
+                if($(v).data("failed") === "0") {
+                    obj.host = $(v).data("host");
+                    obj.hash = $(v).data("hash");
+                    uploadedAry.push(obj);
                 }
-                self.file.push(file);
-                self.pushLock = false;
-            },
-            onComplete : function() {},
-            onCheckFile : function(files) {
+            });
+            return uploadedAry;
+        },
+        // 获取上传成功图片的name数组
+        getSltedName : function() {
+            var self = this;
+            var result = [];
+            $.each($(self.p.upImgList).find("img"), function(k, v) {
+                result.push($(v).data("filename"));
+            });
+            return result;
+        }
+    }
+})(Zepto);;(function(entrust, win) {
+    entrust.Noauth = function(op) {
+        this.ops = op;
+        this.flag = true;
+        this.init();
+    };
+    entrust.Noauth.prototype = {
+        constructor: entrust.Noauth,
+        init: function() {
+            var self = this;
+            this.dialog = new touch.component.module.Dialog({
+                select : $('.confirm-box'),
+            });
 
-                // 超出同时上传张数限制则返回
-                if( files.length > self.onceMaxNum ) {
-                    self.showError(self.errorMessage.onceMaxNum);
+            /***如果是app**/
+            var successBoxDom = $('#success_wrap');
+            var appCookie = APF.Utils.getCookie("app");
+            if(appCookie === 'i-ajk' || appCookie === 'a-ajk' || appCookie === '1'){
+                // $('.list_header_container').hide();
+                $('.app-manage').css('display','block');
+                successBoxDom = $('#success_app_wrap');
+            }
+
+            // 初始化 dom
+            this.doms = {
+                'inputs'      : $('input'),
+                'select'      : $('select'),
+                'step1Box'    : $('#step-1'),
+                'step2Box'    : $('#step-2'),
+                'nextBtn'     : $('#next-btn'),
+                'subBtn'      : $('#submit_btn'),
+                'msgBtn'      : $('.getcode'),
+                'codeImg'     : $('.vimg'),
+                'codeBox'     : $('#code-box'),
+                'formBox'     : $('#form'),
+                'successBox'     : successBoxDom,
+                'otherBox'     : $('#other_wrap'),
+                'breakBtn'      : $('#break_btn'),
+                'finishBtn'      : $('#finish_btn'),
+
+                'phoneInput'        : $('input[name="phone"]'),
+                'codeInput'         : $('input[name="code"]'),
+                'propIdInput'         : $('input[name="prop_id"]'),//发房后返回的房源ID
+                'safeCodeInput'       : $('input[name="safe_code"]')//发房后返回的房源安全码
+
+
+            };
+            this.browser = {
+                versions: function () {
+                    var u = navigator.userAgent, app = navigator.appVersion;
+                    return { //移动终端浏览器版本信息
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                        iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                        iPad: u.indexOf('iPad') > -1, //是否iPad
+                        isWx : u.indexOf('MicroMessenger') > -1, //是微信游览器
+                    };
+                }(),
+            }
+            this.formVals = {}
+            self.isSend = true;
+            self.isSub = true;
+            // 初始化验证方法
+            this.validates();
+            this.bindEvent();
+            this.changeDownloadLink();
+
+
+        },
+        bindEvent:function(){
+            var self = this;
+            /**第一步***/
+            // 下一步输入验证
+            self.doms.step1Box.find('input.required').on('input',function(){
+                self.checkStep1();
+            });
+            $('input[name="hx-room"]').on('input',function(){
+                if($(this).val()) $('input[name="hx-hall"]').focus();
+            });
+            $('input[name="hx-hall"]').on('input',function(){
+                if($(this).val()) $('input[name="hx-toilet"]').focus();
+            });
+            $('#huxing').find('input').focus(function(){
+                $(this).val('');
+            });
+            // 下一步提交
+            $('#next-btn').on('click',function(){
+                if(!$(this).hasClass("dis-btn")){
+                    self.nextFun();
+                }
+            });
+
+            /**第二步***/
+            // select选择
+            self.doms.select.on('change',function(){
+                var errMsg = $(this).attr('data-err');
+                $(this).prev('span').text($(this).find('option').not(function(){ return !this.selected }).text());
+                $(this).next('input').val($(this).val());
+                $(this).prev('span').removeClass('disabled');
+                if($(this).val() == ''){
+                    $(this).prev('span').addClass('disabled');
+                    $(this).prev('span').text($(this).attr('data-err'));
+                    self.showMsg(errMsg);
                     return false;
-                } else {
-                    self.hideError();
+                }
+                self.checkStep2();
+            });
+            //验证提交按钮可点击状态
+            self.doms.step2Box.find('input.required').on('input',function(){
+                self.checkStep2();
+            });
+            // 刷新图片
+            self.doms.codeImg.on('click',function(){
+                self.refreshCodeImg();
+            });
+            //发送验证码
+            self.doms.msgBtn.click(function(){
+                self.sendMsgCode();
+            });
+            //判断发送验证码状态按钮
+            self.doms.codeInput.on('input',function(){
+                self.checkSendCode();
+                self.checkStep2();
+            });
+            //手机号码输入并验证
+            self.doms.phoneInput.on("input", function(e) {
+                if($(this).val().length === 11) {
+                    self.doms.codeBox.addClass('none');
+
+                    $.ajax({
+                        type     : "GET",
+                        url      : self.ops.ajaxUrl,
+                        data     : {'user_mobile':self.doms.phoneInput.val(),'action':'checkUserPhone'},
+                        dataType : "json",
+                        success : function(r) {
+                            if(!r.status) {// 是经纪人的号码
+                                self.showMsg(r.msg);
+                                return false;
+                            } else {// 不是经纪人的号码
+                                if(r.is_upper){//超过三次
+                                    self.doms.codeBox.removeClass('none');
+                                }
+                                self.checkSendCode();
+                                return true;
+                            }
+                        },
+                        error : function(r) {
+                            return false;
+                        }
+                    });
+
+
+                }
+                self.checkStep2();
+            });
+
+            //委托房源提交
+            self.doms.subBtn.on('click',function(){
+                if(!$(this).hasClass("dis-btn")){
+                    self.submitFun();
+                }
+            });
+            //控制业主说字数不能超过300
+            $('.other_wrap textarea').on({
+                'input':function () {
+                    var curLength = $.trim($(this).val()).length,
+                        tipsMsg = $(this).siblings('.l-tip');
+                    if(curLength >= 300){
+                        self.showMsg('不能超过300个字');
+                    }else{
+                        tipsMsg.find('em').addClass('red-text').html(curLength);
+                    }
+                }
+            });
+            //点击返回弹出提示层
+            $('#comBack').click(function(){
+                if(!$(this).hasClass('notConfirm')){
+                    $('.confirm-box').show();
+                    self.dialog.open();
+                    return false;
+                }
+            });
+            $('.confirm-box').find('.ok-btn').click(function(){
+                var backUrl = $('#comBack').attr('href');
+                location.href = backUrl;
+            });
+            $('.confirm-box .qx-btn,.confirm-box .close-btn').click(function(){
+                self.dialog.close();
+            });
+
+            // 业主说房源图 跳过
+            self.doms.breakBtn.on('click',function(){
+                self.doms.otherBox.hide();
+                self.doms.successBox.show();
+                $(window).scrollTop(0);
+            });
+            // 业主说房源图 提交
+            self.doms.finishBtn.on('click',function(){
+                var landlord_note = $('#landlord-note').val(),
+                    upload = userTouch.compressUpload["#roomImgWrap"],
+                    images = upload.getUploadedHash(),
+                    prop_id = self.doms.propIdInput.val(),
+                    safe_code = self.doms.safeCodeInput.val();
+                if(!images == "[]" || landlord_note){
+                    $.ajax({
+                        type     : "post",
+                        url      : self.ops.ajaxUrl,
+                        data     : {'prop_id':prop_id,'safe_code':safe_code,'landlord_note':landlord_note,'images':images,'action':'saveHouseOptionalInfo'},
+                        dataType : "json",
+                        success : function(r) {
+                            if(r.status) {// 保存成功
+                                self.doms.otherBox.hide();
+                                self.doms.successBox.show();
+                                $(window).scrollTop(0);
+                            } else {
+                                self.showMsg(r.msg);
+                                return false;
+                            }
+                        },
+                        error : function(r) {
+                            return false;
+                        }
+                    });
+                }else{
+                    $(window).scrollTop(0);
+                    self.doms.otherBox.hide();
+                    self.doms.successBox.show();
+                }
+            });
+        },
+        checkStep1 : function(){
+
+            var self = this;
+            self.formVals.area = self.getVal('area');
+            self.formVals.price = self.getVal('price');
+            self.formVals.commId = self.getVal('comm_id');
+            self.formVals.commAddr = self.getVal('address');
+            self.formVals.commName = self.getVal('comm_name');
+
+            self.formVals.hxRoom = self.getVal('hx-room');//室
+            self.formVals.hxHall = self.getVal('hx-hall');//厅
+            self.formVals.hxToilet = self.getVal('hx-toilet');//卫
+
+            if(self.formVals.hxRoom && self.formVals.hxToilet && self.formVals.hxHall && self.formVals.area && self.formVals.price && (self.formVals.commId || self.formVals.commAddr)){
+                self.doms.nextBtn.addClass('next-btn').removeClass('dis-btn');
+            }else{
+                self.doms.nextBtn.removeClass('next-btn').addClass('dis-btn');
+            }
+        },
+        checkStep2 : function(){
+            var self = this;
+            self.formVals.building = self.getVal('building');//楼栋
+            self.formVals.unit = self.getVal('unit');//单元
+            self.formVals.room = self.getVal('room');//号
+
+
+            self.formVals.myFloor = self.getVal('myfloor');//楼层
+            self.formVals.allFloor = self.getVal('allfloor');//总楼层
+            self.formVals.roomType = self.getVal('room_type');//房屋类型
+            self.formVals.roomDecor = self.getVal('room_decorate');//房屋装修
+            self.formVals.roomToward = self.getVal('room_toward');//房屋朝向
+            self.formVals.phone = self.getVal('phone');
+            self.formVals.code = self.getVal('code');
+            self.formVals.vcode = self.getVal('vcode');
+
+            if( self.formVals.myFloor && self.formVals.allFloor && self.formVals.roomType &&
+                self.formVals.roomDecor && self.formVals.roomToward && self.formVals.phone && self.formVals.vcode){
+                if(!self.doms.codeBox.hasClass('none') && !self.formVals.code){
+                    self.doms.subBtn.removeClass('sub-btn').addClass('dis-btn');
+                }else{
+                    self.doms.subBtn.addClass('sub-btn').removeClass('dis-btn');
+                }
+
+            }else{
+                self.doms.subBtn.removeClass('sub-btn').addClass('dis-btn');
+            }
+
+        },
+        checkSendCode : function(){
+            var self = this;
+            if(self.getVal('phone')){
+                if(!this.doms.codeBox.hasClass('none') && self.getVal('code').length<4){
+                    this.doms.msgBtn.addClass('getcode-dis');
+                }else{
+                    this.doms.msgBtn.removeClass('getcode-dis');
+                }
+            }else{
+                this.doms.nextBtn.addClass('getcode-dis');
+            }
+        },
+        sendMsgCode : function(){
+            var self = this;
+            var ajaxData = {};
+            ajaxData.action = 'getSMSCode';
+            ajaxData.user_mobile = self.getVal('phone');
+            ajaxData.captcha = self.getVal('code');
+            if(self.validate.checkPhone()){
+                if(self.isSend){
+                    self.isSend = false;
+                    // self.verfiyCountdown(self.doms.msgBtn,60);
+                    // return;
+                    $.ajax({
+                        url: self.ops.ajaxUrl,
+                        type: 'post',
+                        dataType: 'json',
+                        data: ajaxData,
+                        success : function(data){
+                            if(data.status){//成功
+                                self.verfiyCountdown(self.doms.msgBtn,60);
+                            } else {//图片验证码错误
+                                self.isSend = true;
+                                self.showMsg(data.msg);
+                            }
+                        }
+                    });
+                }
+            }
+
+
+        },
+        nextFun : function(){
+            var self = this;
+            if(!self.formVals.commName){
+                self.showMsg('请输选择小区');
+                return false;
+            }
+
+            if(!self.formVals.commId && !self.formVals.commAddr){
+                self.showMsg('请输入小区地址');
+                return false;
+            }
+
+            // 验证户型
+            var hxErr = 0;
+            $('#huxing').find('input').each(function(){
+                if(!self.validate.checkHuXing($(this))){
+                    hxErr++;
+                }
+            });
+            if(hxErr > 0){
+                return false;
+            }
+
+            if(self.validate.checkArea() && self.validate.checkPrice()){
+                self.doms.step1Box.hide();
+                self.doms.step2Box.show();
+                return true;
+            }
+
+        },
+        checkSubmit : function(){
+            var self = this;
+            if(!self.formVals.myFloor){
+                self.showMsg('请选择楼层');
+                return false;
+            }
+            if(!self.formVals.allFloor){
+                self.showMsg('请选择总楼层');
+                return false;
+            }
+            if(self.formVals.myFloor-0 > self.formVals.allFloor-0){
+                self.showMsg('楼层不能大于总楼层');
+                return false;
+            }
+
+            if(!self.formVals.roomType){
+                self.showMsg('请选择房屋类型');
+                return false;
+            }
+            if(!self.formVals.roomDecor){
+                self.showMsg('请选择房屋装修');
+                return false;
+            }
+            if(!self.formVals.roomToward){
+                self.showMsg('请选择房屋朝向');
+                return false;
+            }
+            return self.validate.checkPhone() && self.validate.checkVcode();
+        },
+        submitFun : function(){
+            var self = this;
+            if(self.checkSubmit()){
+                $.ajax({
+                    url: self.ops.ajaxUrl,
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        action  : 'saveHouseInfo',
+                        city_id : self.ops.cityId,
+                        comm_id : self.getVal('comm_id'),
+                        comm_name : self.getVal('comm_name'),
+                        address : self.getVal('comm_id') ? self.getVal('comm_addr') : self.getVal('address'),
+                        building    : self.getVal('building'),//栋
+                        unit    : self.getVal('unit'),//单元
+                        room_number    : self.getVal('room'),//室
+                        build_area    : self.getVal('area'),//面积
+                        room    : self.getVal('hx-room'),
+                        hall    : self.getVal('hx-hall'),
+                        toilet  :self.getVal('hx-toilet'),
+                        price    : self.getVal('price'),//价格
+                        prop_floor    : self.getVal('myfloor'),//楼层
+                        all_floor    : self.getVal('allfloor'),//总楼层
+                        prop_type    : self.getVal('room_type'),//类型
+                        fitment    : self.getVal('room_decorate'),//装修
+                        drawing_exposure    : self.getVal('room_toward'),//朝向
+                        user_mobile : self.getVal('phone'),//联系电话
+                        'security_code' : self.getVal('vcode'),//短信验证码
+                        // agent_ip : '',//来源ip［后端？］
+                        // guid : '',//用户唯一标识［后端？］
+                        from_type : 2 //1：PC; 2：TW
+                    },
+                    success : function(data){
+                        if(data.status){//成功
+                            self.doms.formBox.hide();
+                            self.doms.otherBox.show();
+                            $('#comBack').addClass('notConfirm');
+                            self.doms.propIdInput.val(data.prop_id);
+                            self.doms.safeCodeInput.val(data.safe_code);
+                            // self.doms.successBox.show();
+                        }else{//已经提交申请，请勿重复提交
+                            // self.item.formBox.hide();
+                            // self.item.failBox.show();
+                            self.showMsg(data.msg);
+                            return false;
+                        }
+                    }
+                });
+            }
+        },
+        validates : function(){
+            var self = this;
+            var rules = {
+                required:function(value){
+                    var val = value;
+                    return val.length > 0;
+                },
+                maxLength:function(value,maxlength){
+                    var val = value;
+                    return val.length <= maxlength;
+                },
+                max:function(value,_max){
+                    var val = value-0;
+                    return val - _max <= 0
+                },
+                min:function(value,min){
+                    return value-0-min >= 0
+                },
+                mobile:function(value){
+                    var val = value;
+                    return /^1[3|4|5|7|8]\d{9}$/.test(val);
+                },
+                number: function (value) {
+                    var val = value;
+                    return !isNaN(val);
+                },
+                decimal:function(value, arg){
+                    var val = value;
+                    var arr = value.split('.');
+                    if( arr[1] ){
+                        return arr[1].length <= arg;
+                    }else{
+                        return true;
+                    }
+                }
+            };
+            self.validate = {
+                checkPrice : function(){
+                    var val = self.getVal('price');
+                    if(!rules.required(val)){
+                        self.showMsg('请输入价格');
+                        return false;
+                    }
+                    if(!rules.number(val) || !rules.max(val,9999) || !rules.min(val,10) ){
+                        self.showMsg('请输入正确价格');
+                        return false;
+                    }
+                    return true;
+                },
+                checkArea : function(){
+                    var val = self.getVal('area');
+                    if(!rules.required(val)){
+                        self.showMsg('请输入面积');
+                        return false;
+                    }
+                    if(!rules.number(val) || !rules.decimal(val,2) || !rules.max(val,2000) || !rules.min(val,10) ){
+                        self.showMsg('请输入正确面积');
+                        return false;
+                    }
+                    return true;
+                },
+                checkHuXing : function(obj){
+                    var val = obj.val();
+                    if(!rules.required(val)){
+                        self.showMsg('请输入户型');
+                        return false;
+                    }
+                    if(!rules.number(val) || !rules.max(val,10)){
+                        self.showMsg('请输入正确的户型');
+                        return false;
+                    }
+                    return true;
+                },
+                checkCode : function(){
+                    var val = self.getVal('code');
+                    if(!rules.required(val)){
+                        self.showMsg('请输入图片验证码');
+                        return false;
+                    }
+                    if(!rules.number(val) || !rules.maxLength(val,6)){
+                        self.showMsg('请输入正确图片验证码');
+                        return false;
+                    }
+                    return true;
+                },
+                checkVcode : function(){
+                    var val = self.getVal('vcode');
+                    if(!rules.required(val)){
+                        self.showMsg('请输入手机验证码');
+                        return false;
+                    }
+                    if(!rules.number(val) || !rules.maxLength(val,6)){
+                        self.showMsg('请输入正确手机验证码');
+                        return false;
+                    }
+                    return true;
+                },
+                checkPhone : function(){
+                    var val = self.getVal('phone');
+                    if(!rules.required(val)){
+                        self.showMsg('请输入手机号码');
+                        return false;
+                    }
+                    if(!rules.mobile(val) || !rules.maxLength(val,11)){
+                        self.showMsg('请输入正确的手机号码');
+                        return false;
+                    }
                     return true;
                 }
-            },
-            onMessage : function(msg) {},
-            onRepeat : function(file) {
-                self.showError(self.errorMessage.repeatUpload);
-                self.hideError(2000);
-            },
-            onFailure : function(index, file, XHRresponseText) {
-                var failNode;
-                var upImgs = $(self.p.upImgBox).find(".up-img");
-                $.each(upImgs, function(k, v) {
-                    if( +$(v).data("index") === +index ) {
-                        failNode = $(v);
-                    }
-                });
-
-                // 添加删除按钮及提示文字
-                if(!failNode) {
+            }
+        },
+        showMsg : function(msg){
+            $('.error-box').find('span').html(msg);
+            $('.error-box').show();
+            setTimeout(function(){$('.error-box').hide();},3000);
+        },
+        getVal : function(name){
+            return $('[name="'+name+'"]').val();
+        },
+        refreshCodeImg:function(){
+            var newStamp = Date.now(), newSrc,
+                codeImg  = $(this.doms.codeImg);
+            newSrc = codeImg.attr('src').substr(0,codeImg.attr('src').length-13) + newStamp;
+            codeImg.attr('src',newSrc);
+        },
+        verfiyCountdown:function(obj, time) {
+            var self = this;
+            if (time == 0) {
+                self.isSend = true;
+                obj.removeAttr('disabled');
+                obj.removeClass('getcode-dis');
+                obj.text('重新获取');
+                time = time;
+            } else {
+                obj.attr('disabled', 'disabled');
+                obj.addClass('getcode-dis');
+                obj.text(time + '秒后重发');
+                time--;
+                setTimeout(function() {
+                    self.verfiyCountdown(obj, time);
+                }, 1000);
+            }
+        },
+        changeDownloadLink : function() {
+            var browser = {
+                versions: function () {
+                    var u = navigator.userAgent;
+                    return { //移动终端浏览器版本信息
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                        iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                        iPad: u.indexOf('iPad') > -1, //是否iPad
+                        isWx : u.indexOf('MicroMessenger') > -1, //是微信游览器
+                    };
+                }(),
+            }
+            var self = this;
+            $('#success_wrap .down-btn').click(function(){
+                //临时调整微信中下载逻辑
+                if(browser.versions.isWx) {
+                    window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.anjuke.android.app";
                     return;
                 }
-                failNode.append($('<i class="fail-icon deleteFailBtn"></i>'));
-                failNode.append($('<div class="fail-doc"><p>上传失败</p><p>点击重新上传</p></div>'));
+                //安卓
+                if(browser.versions.anjuke) {
+                    window.location.href = self.ops.androidAPPUrl;
+                    return;
+                }
+                //ios
+                if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
+                    window.location.href = self.ops.iphoneAPPUrl;
+                    return;
+                }
 
-                failNode.attr("data-failed", "1");
-                failNode.on("click.reupload", function() {
-                    self.CUI.doUpload(index,file);
-                    failNode.off("click.reupload");
-                });
-            }
-        });
-        $(self.p.fileInput).on('change', function(){
-            self.CUI.upload();
-        });
-    },
-    //展示错误提示
-    showError : function(msg) {
-        $(this.p.errorMsg).find('span').html(msg);
-        $(this.p.errorMsg).removeClass('msg-hide');
-    },
-    //隐藏错误提示
-    hideError : function(time) {
-        var self = this;
-        if(time !== 'undefined' && time > 0) {
-            setTimeout(function() {
-                $(self.p.errorMsg).addClass('msg-hide');
-            }, time);
-        } else {
-            $(self.p.errorMsg).addClass('msg-hide');
+            });
+
         }
-    },
-    // 获取上传成功图片的hash数组
-    getUploadedHash : function() {
-        var self = this;
-        var uploadedAry = [];
-        $.each($(self.p.upImgList).find(".up-img"), function(k, v) {
-            var obj = {};
-            if($(v).data("failed") === "0") {
-                obj.host = $(v).data("host");
-                obj.hash = $(v).data("hash");
-                uploadedAry.push(obj);
-            }
-        });
-        return uploadedAry;
-    },
-    // 获取上传成功图片的name数组
-    getSltedName : function() {
-        var self = this;
-        var result = [];
-        $.each($(self.p.upImgList).find("img"), function(k, v) {
-            result.push($(v).data("filename"));
-        });
-        return result;
-    }
-  }
-})(Zepto);
 
+    };
+})(APF.Namespace.register('touch.entrust'), window);

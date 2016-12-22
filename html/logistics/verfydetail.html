@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../../js/upload/up.css">
     <script type="text/javascript" src="../../js/lib/avalon.mobile.js"></script>
     <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/upload/swipe.js"></script>
     <script type="text/javascript" src="../../js/lib/cropper.min.js"></script>
     <script type="text/javascript" src="../../js/lib/main.js"></script>
     <script type="text/javascript" src="../../js/proflow/verfynewdetail.js"></script>
@@ -49,18 +50,17 @@
         <div class="label-list" ms-visible="showLabel && perDataModel.size() >= 4">
             <span ms-repeat="perDataModel"  ms-if-loop="$index >= 4" ms-class-1="active:el.IsCheckRight" ms-on-tap="checkperFn(el)">{{el.code}}</span>
         </div>
-        <div class="img-box">
-            <div class="img-item" ms-repeat="imageList">
-                <img ms-attr-src="el">
-                <i class="iconfont icon-close" ms-on-tap="deleImg($remove)"></i>
-            </div>
-            <div class="add-item">
-                <i class="iconfont icon-jia"></i>
-                <input type="file" class="fileinput" id="imgfile">
-            </div>
-        </div>
+        <!--<div class="img-box">-->
+            <!--<div class="img-item" ms-repeat="imageList">-->
+                <!--<img ms-attr-src="el">-->
+                <!--<i class="iconfont icon-close" ms-on-tap="deleImg($remove)"></i>-->
+            <!--</div>-->
+            <!--<div class="add-item">-->
+                <!--<i class="iconfont icon-jia"></i>-->
+                <!--<input type="file" class="fileinput" id="imgfile">-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="other-item">
-            <p class="item-tit"><label>房源图</label>更好展示您的房源</p>
             <div class="upload-wrap" id="roomImgWrap">
                 <div class="img-upload-mod upImgBox">
                     <form class="fx-form">
@@ -74,6 +74,14 @@
                         <div class="hide imgmsg">注：图片较大,正在压缩上传,需耗时5-10秒</div>
                     </form>
                 </div>
+                <!-- 图片浏览 -->
+                <div class="picpopu">
+                    <div class="swipe-img swipeImg">
+                        <div class="swipe-wrap-img wrapImg">
+                        </div>
+                    </div>
+                    <div class="pichead"><i class="i_global i-detele"></i><span class="p_current">1</span>/<span class="p_total"></span><i class="i_global i_close"></i></div>
+                </div>
             </div>
         </div>
     </div>
@@ -84,15 +92,6 @@
     <a href="javascript:;" class="makesure" ms-on-tap="submitVerFn" ms-if="!isSubmit">确定</a>
     <a href="javascript:;" class="makesure" style="background-color: #ccc;" ms-if="isSubmit">处理中</a>
 </div>
-<div class="imgzoomer" ms-on-touchstart="clearTouch($event)" ms-visible="isUpShow" >
-    <div class="imgcontainer">
-        <img src="" alt="">
-    </div>
-    <a href="javascript:;" style="width: 7.25rem;" class="submitimg" ms-if="!isuploading">确定</a>
-    <a href="javascript:;" style="width: 7.25rem; background-color: #ccc;" class="submitimg" ms-if="isuploading" style="background-color: #ccc;">正在上传</a>
-    <a href="javascript:;" class="submitimg" style="background-color: #ccc; left: 8.2rem; width: 7.25rem;" ms-on-tap="cancelUploadFn">取消</a>
-</div>
-<script type="text/javascript" src="../../js/upload/swipe.js"></script>
-<script type="text/javascript" src="../../js/upload/up.js"></script>
+<script type="text/javascript" src="../../js/upload/newup.js"></script>
 </body>
 </html>
