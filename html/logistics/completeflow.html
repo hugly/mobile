@@ -24,7 +24,7 @@
 <!--公共头部-->
 <div class="headerone">
     <div class="bgzoom">
-        <a href="waitpickflow.html" class="back-btn">
+        <a href="javascript:;" class="back-btn" ms-on-tap="and_return_prepage()">
             <i class="iconfont icon-fanhui"></i>
         </a>
         <h3>已完成任务</h3>
@@ -42,7 +42,7 @@
 </div>
 <div class="complete">
     <ul>
-        <li ms-repeat="taskDataModel"><a href="javascript:;" ms-on-tap="goDetail(el)">
+        <li ms-repeat="taskDataModel"><a href="javascript:;">
             <div class="item-title">
                 <span>运单号:{{el.Code}}</span>
                 <em>{{el.CreateTime | date("yyyy.MM.dd HH:mm")}}</em>
@@ -50,11 +50,12 @@
             <div class="item-info">
                 <div class="r-info">
                     <p>订单号：{{el.OCode}}</p>
+                    <p>客户名称：{{el.PickName || el.SendName}}</p>
                     <p>服务类型：{{el.Type === 1?'取件':'送件'}}</p>
                     <p>本单收入：{{el.Price | currency}}</p>
                     <p>完成时间：{{el.EditTime | date("yyyy.MM.dd HH:mm")}}</p>
                 </div>
-                <i class="iconfont icon-xiangyou"></i>
+                <i class="iconfont icon-xiangyou" ms-on-tap="goDetail(el)" style="height: 5rem; line-height: 5rem;"></i>
             </div>
         </a></li>
     </ul>

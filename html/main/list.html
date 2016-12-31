@@ -60,7 +60,7 @@
     </div>
     <p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center;" ms-if="!loadingImgShow && listData.size() === 0">暂无商家数据</p>
     <ul ms-if="listData.size() > 0">
-        <li ms-repeat="listData"><a ms-attr-href="detail.html?dataid={{el.ShopCode}}">
+        <li ms-repeat="listData" ms-on-tap="goDetailFn(el)"><a href="javascript:;">
             <div class="list-left">
                 <img ms-attr-src="el.DefaultImage?el.DefaultImage:''">
             </div>

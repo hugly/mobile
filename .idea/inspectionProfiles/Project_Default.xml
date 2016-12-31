@@ -1,0 +1,77 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <option name="myLocal" value="true" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="62">
+            <item index="0" class="java.lang.String" itemvalue="ms-href" />
+            <item index="1" class="java.lang.String" itemvalue="ms-repeat" />
+            <item index="2" class="java.lang.String" itemvalue="ms-text" />
+            <item index="3" class="java.lang.String" itemvalue="ms-html" />
+            <item index="4" class="java.lang.String" itemvalue="ms-widget" />
+            <item index="5" class="java.lang.String" itemvalue="ms-if" />
+            <item index="6" class="java.lang.String" itemvalue="ms-if-loop" />
+            <item index="7" class="java.lang.String" itemvalue="ms-widget" />
+            <item index="8" class="java.lang.String" itemvalue="ms-attr" />
+            <item index="9" class="java.lang.String" itemvalue="ms-data" />
+            <item index="10" class="java.lang.String" itemvalue="ms-css" />
+            <item index="11" class="java.lang.String" itemvalue="ms-class" />
+            <item index="12" class="java.lang.String" itemvalue="ms-include" />
+            <item index="13" class="java.lang.String" itemvalue="ms-skip" />
+            <item index="14" class="java.lang.String" itemvalue="ms-controller" />
+            <item index="15" class="java.lang.String" itemvalue="ms-important" />
+            <item index="16" class="java.lang.String" itemvalue="ms-duplex" />
+            <item index="17" class="java.lang.String" itemvalue="ms-duplex-number" />
+            <item index="18" class="java.lang.String" itemvalue="ms-duplex-string" />
+            <item index="19" class="java.lang.String" itemvalue="ms-duplex-boolean" />
+            <item index="20" class="java.lang.String" itemvalue="ms-duplex-checked" />
+            <item index="21" class="java.lang.String" itemvalue="ms-submit" />
+            <item index="22" class="java.lang.String" itemvalue="ms-scroll" />
+            <item index="23" class="java.lang.String" itemvalue="ms-scan" />
+            <item index="24" class="java.lang.String" itemvalue="ms-change" />
+            <item index="25" class="java.lang.String" itemvalue="ms-input" />
+            <item index="26" class="java.lang.String" itemvalue="ms-click" />
+            <item index="27" class="java.lang.String" itemvalue="ms-dblclick" />
+            <item index="28" class="java.lang.String" itemvalue="ms-keypress" />
+            <item index="29" class="java.lang.String" itemvalue="ms-keydown" />
+            <item index="30" class="java.lang.String" itemvalue="ms-keyup" />
+            <item index="31" class="java.lang.String" itemvalue="ms-mousemove" />
+            <item index="32" class="java.lang.String" itemvalue="ms-mouseover" />
+            <item index="33" class="java.lang.String" itemvalue="ms-mouseout" />
+            <item index="34" class="java.lang.String" itemvalue="ms-mouseleave" />
+            <item index="35" class="java.lang.String" itemvalue="ms-mouseenter" />
+            <item index="36" class="java.lang.String" itemvalue="ms-focus" />
+            <item index="37" class="java.lang.String" itemvalue="ms-blur" />
+            <item index="38" class="java.lang.String" itemvalue="ms-animationend" />
+            <item index="39" class="java.lang.String" itemvalue="ms-include-src" />
+            <item index="40" class="java.lang.String" itemvalue="ms-on-animationend" />
+            <item index="41" class="java.lang.String" itemvalue="ms-on-tap" />
+            <item index="42" class="java.lang.String" itemvalue="ms-on-blur" />
+            <item index="43" class="java.lang.String" itemvalue="ms-on-change" />
+            <item index="44" class="java.lang.String" itemvalue="ms-on-input" />
+            <item index="45" class="java.lang.String" itemvalue="ms-on-click" />
+            <item index="46" class="java.lang.String" itemvalue="ms-on-dblclick" />
+            <item index="47" class="java.lang.String" itemvalue="ms-on-focus" />
+            <item index="48" class="java.lang.String" itemvalue="ms-on-keydown" />
+            <item index="49" class="java.lang.String" itemvalue="ms-on-keypress" />
+            <item index="50" class="java.lang.String" itemvalue="ms-on-keyup" />
+            <item index="51" class="java.lang.String" itemvalue="ms-on-mousedown" />
+            <item index="52" class="java.lang.String" itemvalue="ms-on-mouseenter" />
+            <item index="53" class="java.lang.String" itemvalue="ms-on-mouseleave" />
+            <item index="54" class="java.lang.String" itemvalue="ms-on-mousemove" />
+            <item index="55" class="java.lang.String" itemvalue="ms-on-mouseout" />
+            <item index="56" class="java.lang.String" itemvalue="ms-on-mouseover" />
+            <item index="57" class="java.lang.String" itemvalue="ms-on-mouseup" />
+            <item index="58" class="java.lang.String" itemvalue="ms-on-scan" />
+            <item index="59" class="java.lang.String" itemvalue="ms-on-scroll" />
+            <item index="60" class="java.lang.String" itemvalue="ms-on-submit" />
+            <item index="61" class="java.lang.String" itemvalue="ms-visible" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+  </profile>
+</component>

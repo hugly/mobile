@@ -3398,8 +3398,9 @@ var EXIF = (function() {
             this.pushLock = true;
             this.swipe = {};
             this.file = [];
-
-            this.initFile(p.data);
+            if(p.data){
+                this.initFile(p.data);
+            }
         },
         initFile:function(data){
             var self = this,

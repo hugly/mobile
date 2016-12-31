@@ -1,6 +1,6 @@
 /*
 @ project:hugly$64617842@qq.com
-@ date:2016-12-20
+@ date:2016-12-31
 */
 .scroller_vertical,
 .scroller_horizontal {
@@ -147,7 +147,6 @@
   top: 4rem;
   right: 0;
   bottom: 2rem;
-  overflow-y: scroll;
 }
 .waitpickflow ul {
   position: relative;

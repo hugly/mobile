@@ -29,11 +29,15 @@ function return_prepage()
         }
     }else
     {
-       window.history.back(-1);
+       window.history.back();
     }
 
 }
 
+function and_return_prepage()
+{
+    window.android.goBack();
+}
 var WEIXINSHARE={
     title: 'Hi朋友，送您10元洗护代金券',
     desc: '洗衣之家精选优质商家,提供干洗,裁剪,护理,保养。让您快捷,方便,安心, 邀您一起来体验!', // 分享描述

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/christmas.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/activity10/merrychristmas.js"></script>
+</head>
+<body class="ms-controller" ms-controller="merrychristmas">
+<!--公共头部-->
+<div class="headerone" style="z-index: 15; background:none;">
+    <a href="../main/index.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+</div>
+<div class="christmas-box">
+    <img class="bg-img" src="../../data-images/christmas3.jpg">
+    <img class="tips" src="../../data-images/christmas1.png">
+    <a href="javascript:;" class="c2" ms-on-tap="goFn">
+        <img src="../../data-images/christmas4.png">
+    </a>
+    <a href="javascript:;" class="c3" ms-on-tap="goShopFn">
+        <img src="../../data-images/christmas5.png">
+    </a>
+</div>
+<div class="zoom" ms-visible="isShowTypebox" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0); z-index: 9;"></div>
+<div class="thirdbox" ms-visible="isShowTypebox" style="top: 8rem; z-index: 99;">
+    <div class="third-title">
+        <h3>{{thirdDataModel.Name}}</h3>
+        <i class="iconfont icon-cuo" ms-on-tap="clooseFn"></i>
+    </div>
+    <div class="third-container">
+        <p>规格：</p>
+        <div class="type-box">
+            <ul>
+                <li ms-repeat="thirdDataModel.Children" ms-class-1="active:el.isSelect" ms-on-tap="changeTypeFn(el)">{{el.ScaleName}}</li>
+            </ul>
+        </div>
+    </div>
+    <div ms-repeat="thirdDataModel.Children">
+        <div class="third-operate" ms-if="el.isSelect">
+            <b>{{el.Price | currency }}<em style="margin-left: .2rem; text-decoration: line-through; color: #999; font-size: .6rem;">￥{{el.OriPirce | number(2)}}</em></b>
+            <span class="typename">({{el.ScaleName}})</span>
+            <a href="javascript:;" class="gocart" ms-on-tap="settlementFn(el.Code)" ms-data-id="el.Code" ms-data-type="el.type" >立即下单</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

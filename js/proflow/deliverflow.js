@@ -22,7 +22,7 @@
             version:0,
             Lat:getLocalstorage('logLat') || 0,
             Lon:getLocalstorage('logLon') || 0,
-            nowPageIndex:0,
+            nowPageIndex:1,
             maxPageNum:999,
             loadingImgShow:true,
             showLocation:false,
@@ -33,16 +33,19 @@
             hasTimeDataModel:[],
             modifyDataModel:{},
             isModifing:false,
+            showLoading:false,
+            showText:'点击加载更多',
             //获取版本号
             getVersion:function(){
                 getBaseVersion(function(rs){
                     vm.version=rs;
-                    vm.scrollFn();
-                    //vm.getTaskList(false);
+                    //vm.scrollFn();
+                    vm.getTaskList(false);
                 });
             },
             //获取任务列表
             getTaskList:function(nodatafn){
+                vm.showLoading = true;
                 jsonp(host+'jsonp/Logistics_GetLogisOrderByPage_'+vm.version+'.js',{
                     token:token,
                     Lat:vm.Lat,
@@ -57,6 +60,7 @@
                 },'callback',function(rs){
 
                     if(rs.Success){
+                        vm.showLoading = false;
                         vm.loadingImgShow = false;
                         var data = rs.Data;
 
@@ -99,6 +103,9 @@
                             nodatafn && nodatafn();
                         }
                         vm.maxPageNum=rs.TotalPages;
+                        if(rs.TotalPages === 1){
+                            vm.showText = '没有更多数据了';
+                        }
                         vm.timerFn();
                     }else{
                         $.message({
@@ -152,6 +159,16 @@
                         me.resetload();
                     }
                 });
+            },
+            loadingMore:function(){
+                vm.nowPageIndex++;
+
+                if(vm.nowPageIndex <= vm.maxPageNum){
+                    vm.getTaskList();
+                }else{
+                    vm.nowPageIndex = vm.maxPageNum;
+                    vm.showText = '没有更多数据了';
+                }
             },
             verifyFn:function(el){
 

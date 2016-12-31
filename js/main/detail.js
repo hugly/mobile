@@ -440,6 +440,9 @@
                     }
                 }
             },
+            goBackFn:function(){
+                window.location.href = getLocalstorage('detailLink');
+            },
             //去结算
             settlementFn:function(){
                 var dataArr=[];

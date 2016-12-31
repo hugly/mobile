@@ -65,6 +65,8 @@
                         }
                         if(vm.isCheck){
                             vm.getDetailByCode();
+                        }else{
+                            vm.init();
                         }
                     }else{
                         $.message({
@@ -99,7 +101,7 @@
                             });
                         }
 
-                        init(data.Images);
+                        vm.init(data.Images);
 
                     }else{
                         $.message({
@@ -178,6 +180,17 @@
                     }
                 },function(){
                 });
+            },
+            init:function(data){
+                userTouch.compressUpload["#roomImgWrap" || "0"] = new userTouch.CompressUpload({
+                    wrapperSlter : "#roomImgWrap",
+                    maxNum       : +"10"   || 10,     // 一共可以上传多少张
+                    uploadUrl    : 'http://m.wziwash.com/CommonResource/UploadImage',
+                    maxWidth     : ""  || 640,    // 图片的最大宽度，超出会压缩
+                    maxHeight    : "" || 640,    // 图片的最大高度，超出会压缩
+                    onceMaxNum   : "3",           // 一次性最多同时上传多少张
+                    data:data
+                });
             }
 
         });
@@ -185,17 +198,6 @@
         vm.getVersion();
         avalon.scan();
 
-        function init(data){
-            userTouch.compressUpload["#roomImgWrap" || "0"] = new userTouch.CompressUpload({
-                wrapperSlter : "#roomImgWrap",
-                maxNum       : +"10"   || 10,     // 一共可以上传多少张
-                uploadUrl    : 'http://m.wziwash.com/CommonResource/UploadImage',
-                maxWidth     : ""  || 640,    // 图片的最大宽度，超出会压缩
-                maxHeight    : "" || 640,    // 图片的最大高度，超出会压缩
-                onceMaxNum   : "3",           // 一次性最多同时上传多少张
-                data:data
-            });
-        }
     });
 
 })();

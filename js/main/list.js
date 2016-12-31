@@ -98,6 +98,10 @@
                     vm.showSort = 0;
                 }
             },
+            goDetailFn:function(el){
+                setLocalstorage('detailLink',window.location.href);
+                window.location.href = 'detail.html?dataid='+el.ShopCode;
+            },
             //筛选box Fn
             showFilterFn:function(){
                 vm.showFilter=0;

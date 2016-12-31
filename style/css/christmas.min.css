@@ -1,6 +1,6 @@
 /*
 @ project:hugly$64617842@qq.com
-@ date:2016-12-20
+@ date:2016-12-31
 */
 .scroller_vertical,
 .scroller_horizontal {
@@ -89,13 +89,23 @@
 }
 .christmas-box a {
   position: absolute;
-  left: 4rem;
+  left: 3rem;
   top: 13rem;
-  width: 8rem;
-  height: 3.6rem;
+  width: 10rem;
 }
 .christmas-box a img {
   display: block;
   width: 100%;
   height: 100%;
+}
+.christmas-box a.c1 {
+  height: 4.55rem;
+}
+.christmas-box a.c2 {
+  top: 11.5rem;
+  height: 3.72rem;
+}
+.christmas-box a.c3 {
+  top: 16rem;
+  height: 2.07rem;
 }

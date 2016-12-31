@@ -34,6 +34,9 @@
             sortCoulumn:'',
             filterName:'',
             filterValue:'',
+            showMore:false,
+            showLoading:false,
+            showText:'点击加载更多',
             //获取版本号
             getVersion:function(){
                 getBaseVersion(function(rs){
@@ -44,36 +47,44 @@
             },
             //获取当前定位
             getLocation:function(){
-                $.getAddress({
-                    callback:function(rs){
-                        if(rs){
-                            vm.isLocation = false;
-                            vm.Lat=rs.lat;
-                            vm.Lon=rs.lng;
-                            setLocalstorage('logLat',rs.lat);
-                            setLocalstorage('logLon',rs.lng);
-                            vm.scrollFn();
-                        }
-                    },
-                    errorFn:function(){
-                        $.dialog({
-                            msg:'不能获取当前定位地址，是否需要重试？',
-                            sureFn:function(){
-                                vm.getLocation();
-                            },
-                            cancelFn:function(){
-                                vm.isLocation = false;
-                                vm.scrollFn();
-                            }
-                        })
-                    }
-                });
+                // $.getAddress({
+                //     callback:function(rs){
+                //         if(rs){
+                //             vm.isLocation = false;
+                //             vm.Lat=rs.lat;
+                //             vm.Lon=rs.lng;
+                //             setLocalstorage('logLat',rs.lat);
+                //             setLocalstorage('logLon',rs.lng);
+                //             //vm.scrollFn();
+                //             vm.getTaskList();
+                //             vm.showMore = true;
+                //         }
+                //     },
+                //     errorFn:function(){
+                //         $.dialog({
+                //             msg:'不能获取当前定位地址，是否需要重试？',
+                //             sureFn:function(){
+                //                 vm.getLocation();
+                //             },
+                //             cancelFn:function(){
+                //                 vm.isLocation = false;
+                //                 //vm.scrollFn();
+                //                 vm.getTaskList();
+                //                 vm.showMore = true;
+                //             }
+                //         })
+                //     }
+                // });
+                vm.getTaskList();
+                vm.showMore = true;
+
             },
             goDetailFn:function(el){
                 window.location.href = 'detailflow.html?code='+el.Code;
             },
             //获取任务列表
             getTaskList:function(nodatafn){
+                vm.showLoading = true;
                 vm.isLocation = false;
                 if(vm.nowPageIndex == 0) vm.nowPageIndex = 1;
                 jsonp(host+'jsonp/Logistics_GetLogisOrderByPage_'+vm.version+'.js',{
@@ -81,7 +92,7 @@
                     Lat:vm.Lat,
                     Lon:vm.Lon,
                     PageIndex:vm.nowPageIndex,
-                    PageSize:6,
+                    PageSize:10,
                     Status:1,
                     sortCoulumn:vm.sortCoulumn,
                     sortType:'Desc',
@@ -90,6 +101,7 @@
                 },'callback',function(rs){
 
                     if(rs.Success){
+                        vm.showLoading = false;
                         var data = rs.Data;
 
                         if(data.length == 0){
@@ -113,7 +125,9 @@
                             nodatafn && nodatafn();
                         }
                         vm.maxPageNum=rs.TotalPages;
-
+                        if(rs.TotalPages === 1){
+                            vm.showText = '没有更多数据了';
+                        }
 
                     }else{
                         $.message({
@@ -291,6 +305,16 @@
                         me.resetload();
                     }
                 });
+            },
+            loadingMore:function(){
+                vm.nowPageIndex++;
+
+                if(vm.nowPageIndex <= vm.maxPageNum){
+                    vm.getTaskList();
+                }else{
+                    vm.nowPageIndex = vm.maxPageNum;
+                    vm.showText = '没有更多数据了';
+                }
             }
         });
 
