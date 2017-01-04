@@ -189,7 +189,7 @@
     </div>
     <div ms-repeat="thirdDataModel.Children">
         <div class="third-operate" ms-if="el.isSelect">
-            <b>{{el.Price | currency }}<em style="margin-left: .2rem; text-decoration: line-through; color: #999; font-size: .6rem;">￥{{el.OriPirce | number(2)}}</em></b>
+            <b>￥{{el.Price | number(1)}}<em style="margin-left: .2rem; text-decoration: line-through; color: #999; font-size: .6rem;">￥{{el.OriPirce | number(2)}}</em></b>
             <span class="typename">({{el.ScaleName}})</span>
             <div class="numbox" ms-if="el.num > 0">
                 <a href="javascript:;" class="prev-btn" ms-data-id="el.Code" ms-data-type="el.type" ms-on-tap="reFn($remove)">

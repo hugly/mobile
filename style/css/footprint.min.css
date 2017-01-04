@@ -1,6 +1,6 @@
 /*
 @ project:hugly$64617842@qq.com
-@ date:2016-12-31
+@ date:2017-01-05
 */
 .scroller_vertical,
 .scroller_horizontal {
@@ -1956,7 +1956,8 @@ div.ohter .address {
 }
 .thirdbox .third-container .type-box ul li {
   float: left;
-  width: 3.2rem;
+  min-width: 2.5rem;
+  padding: 0 .3rem;
   height: 1.2rem;
   line-height: 1.2rem;
   margin: 0 .5rem .5rem .5rem;
@@ -1971,9 +1972,9 @@ div.ohter .address {
   color: #fff;
 }
 .thirdbox .third-operate {
-  width: 13rem;
+  width: 13.5rem;
   height: 2rem;
-  padding: 0 .5rem;
+  padding: 0 .25rem;
   background-color: #f5f5f5;
   position: relative;
   min-height: 1px;
@@ -1997,12 +1998,18 @@ div.ohter .address {
 }
 .thirdbox .third-operate .typename {
   float: left;
+  max-width: 2.5rem;
   height: 1rem;
   line-height: 1.2rem;
   padding: .5rem 0;
   color: #666;
   font-size: .6rem;
   margin-left: .2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 .thirdbox .third-operate .gocart {
   float: right;
