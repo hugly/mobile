@@ -170,3 +170,61 @@
   }
 }
 .zoombox{ position: fixed; width: 100%; height: 100%; left: 0; top: 0; z-index: 19; background-color: rgba(0,0,0,.4); transform: translateY(100%); -webkit-transform: translateY(100%); .trsfast(); }
+
+.purchasebox{ width: 15rem; margin: 0 .5rem; position: relative; top: -1rem; z-index: 9;
+  .purchaselist{ width: 100%; position: relative;
+    .shop-item{ width: 14rem; padding: .5rem .5rem 0 .5rem; background-color: #fff; border-radius: .25rem; margin-bottom: .5rem;
+      .shop-info{ width: 14rem; position: relative; border-bottom: 1px solid #eeeeee; padding-bottom: .25rem;
+        .shop-title{ width: 14rem; height: 1rem; position: relative; .cf();
+          h3{ float: left; max-width: 10rem; height: 1rem; line-height: 1rem; color: #505050; font-size: .8rem; font-weight: normal; .omit(); }
+          .scorebox{ float: left; margin-left: .5rem; width: 3rem; height: 1rem; position: relative;
+            .basecore{ position: absolute; left: 0; top: .1rem; width: 3rem; height: .8rem; .bg("start.png",no-repeat,0 center);}
+            .topcore{ position: absolute; left: 0; top: .1rem; width: 3rem; height: .8rem; overflow: hidden;
+              .ccore{ width: 3rem; height: .8rem; .bg("cstartother.png",no-repeat,0 center);}
+            }
+          }
+        }
+        p{ width: 14rem; height: 1rem; color: #bababf; font-weight: normal; font-size: .6rem; .omit(); position: relative; .cf();
+          i{ float: left; color: #bababf; font-size: .6rem; }
+          span{ float: left; max-width: 8rem; height:1rem; .omit(); }
+          em{ float: left;
+            b{ font-weight: normal; color: #ff5147; }
+          }
+        }
+      }
+      .product-list{ width: 14rem; position: relative; overflow: hidden; .trs500();
+        ul{ width: 14rem; position: relative; .cf();
+          .proitem{ float: left; width: 14rem; margin-top: .25rem; background-color: #f8f8f8; position: relative; .cf();
+            .item-left{ float: left; width: 3rem; height: 3rem; position: relative; z-index: 1;
+              img{ position: absolute; left: 0; top: 0; width: 3rem; height: 3rem; z-index: 2; }
+              .zhe{ position: absolute; left: 0; top: 0; z-index: 3; width: 1.5rem; height: 1.5rem;
+                span{ position: absolute; left: 0; top: 0; width: 0; height: 0; border-top: 1.2rem solid #ff5147; border-right: 1.6rem solid transparent; opacity: .9; }
+                em{ position: absolute; left: 0; top: 0; color: #fff; font-size: .4rem; width: 1rem; text-align: center; height: .8rem; line-height: .8rem; }
+              }
+            }
+            .item-center{ float: left; width: 7.75rem; padding: .25rem; height: 2.5rem; position: relative; .cf();
+              .title{ float: left; width: 7.75rem; height: 1.5rem; position: relative; .cf();
+                span{ float: left; font-size: .5rem; color: #86d4e8; border: 1px solid #86d4e8; border-radius: .5rem; margin-top: .3rem; padding: 0 .25rem; }
+                h3{ float: left; margin-left: .25rem; width: 4.75rem; height: 1.5rem; line-height: 1.5rem; color: #000; .omit(); }
+              }
+              p{ float: left; width: 7.75rem; height: 1rem; line-height: 1rem; position: relative; .cf();
+                span{
+                  i{ color: #ff5147; font-size: .6rem; }
+                  float: left; color: #ff5147; font-size: .8rem;
+                }
+                em{ float: left; color: #cecece; text-decoration: line-through; font-size: .5rem; margin-left: .2rem; }
+              }
+            }
+            .item-right{ float: left; width: 2.5rem; height: 3rem; margin-right: .25rem; position: relative; .cf();
+              span{ float: left; width: 2.5rem; height: 1.4rem; line-height: 1.6rem; font-size: .6rem; text-align: center; color: #939393; }
+              a{ float: left; width: 2.5rem; height: 1.25rem; line-height: 1.25rem; font-size: .5rem; text-align: center; color: #fff; background-color: #86d4e8; border-radius: .25rem; }
+            }
+          }
+        }
+      }
+      .loadmore,.loadless{ width: 14rem; height: 2rem; line-height: 2rem; text-align: center; color: #86d4e8; font-size: .6rem;
+        i{ color: #86d4e8; }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 /*
 @ project:hugly$64617842@qq.com
-@ date:2017-01-10
+@ date:2017-01-14
 */
 .scroller_vertical,
 .scroller_horizontal {
@@ -808,4 +808,347 @@
   -moz-transition: all 0.001s ease-in-out;
   -ms-transition: all 0.001s ease-in-out;
   transition: all 0.001s ease-in-out;
+}
+.purchasebox {
+  width: 15rem;
+  margin: 0 .5rem;
+  position: relative;
+  top: -1rem;
+  z-index: 9;
+}
+.purchasebox .purchaselist {
+  width: 100%;
+  position: relative;
+}
+.purchasebox .purchaselist .shop-item {
+  width: 14rem;
+  padding: .5rem .5rem 0 .5rem;
+  background-color: #fff;
+  border-radius: .25rem;
+  margin-bottom: .5rem;
+}
+.purchasebox .purchaselist .shop-item .shop-info {
+  width: 14rem;
+  position: relative;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: .25rem;
+}
+.purchasebox .purchaselist .shop-item .shop-info .shop-title {
+  width: 14rem;
+  height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.purchasebox .purchaselist .shop-item .shop-info .shop-title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.purchasebox .purchaselist .shop-item .shop-info .shop-title h3 {
+  float: left;
+  max-width: 10rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #505050;
+  font-size: .8rem;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.purchasebox .purchaselist .shop-item .shop-info .shop-title .scorebox {
+  float: left;
+  margin-left: .5rem;
+  width: 3rem;
+  height: 1rem;
+  position: relative;
+}
+.purchasebox .purchaselist .shop-item .shop-info .shop-title .scorebox .basecore {
+  position: absolute;
+  left: 0;
+  top: .1rem;
+  width: 3rem;
+  height: .8rem;
+  background: transparent url("images/start.png") no-repeat 0 center;
+  background-size: contain;
+}
+.purchasebox .purchaselist .shop-item .shop-info .shop-title .scorebox .topcore {
+  position: absolute;
+  left: 0;
+  top: .1rem;
+  width: 3rem;
+  height: .8rem;
+  overflow: hidden;
+}
+.purchasebox .purchaselist .shop-item .shop-info .shop-title .scorebox .topcore .ccore {
+  width: 3rem;
+  height: .8rem;
+  background: transparent url("images/cstartother.png") no-repeat 0 center;
+  background-size: contain;
+}
+.purchasebox .purchaselist .shop-item .shop-info p {
+  width: 14rem;
+  height: 1rem;
+  color: #bababf;
+  font-weight: normal;
+  font-size: .6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.purchasebox .purchaselist .shop-item .shop-info p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.purchasebox .purchaselist .shop-item .shop-info p i {
+  float: left;
+  color: #bababf;
+  font-size: .6rem;
+}
+.purchasebox .purchaselist .shop-item .shop-info p span {
+  float: left;
+  max-width: 8rem;
+  height: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.purchasebox .purchaselist .shop-item .shop-info p em {
+  float: left;
+}
+.purchasebox .purchaselist .shop-item .shop-info p em b {
+  font-weight: normal;
+  color: #ff5147;
+}
+.purchasebox .purchaselist .shop-item .product-list {
+  width: 14rem;
+  position: relative;
+  overflow: hidden;
+  will-change: all;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.purchasebox .purchaselist .shop-item .product-list ul {
+  width: 14rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.purchasebox .purchaselist .shop-item .product-list ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem {
+  float: left;
+  width: 14rem;
+  margin-top: .25rem;
+  background-color: #f8f8f8;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-left {
+  float: left;
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  z-index: 1;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-left img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3rem;
+  height: 3rem;
+  z-index: 2;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-left .zhe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-left .zhe span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 1.2rem solid #ff5147;
+  border-right: 1.6rem solid transparent;
+  opacity: .9;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-left .zhe em {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #fff;
+  font-size: .4rem;
+  width: 1rem;
+  text-align: center;
+  height: .8rem;
+  line-height: .8rem;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-center {
+  float: left;
+  width: 7.75rem;
+  padding: .25rem;
+  height: 2.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-center:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-center .title {
+  float: left;
+  width: 7.75rem;
+  height: 1.5rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-center .title:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-center .title span {
+  float: left;
+  font-size: .5rem;
+  color: #86d4e8;
+  border: 1px solid #86d4e8;
+  border-radius: .5rem;
+  margin-top: .3rem;
+  padding: 0 .25rem;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-center .title h3 {
+  float: left;
+  margin-left: .25rem;
+  width: 4.75rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-center p {
+  float: left;
+  width: 7.75rem;
+  height: 1rem;
+  line-height: 1rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-center p:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-center p span {
+  float: left;
+  color: #ff5147;
+  font-size: .8rem;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-center p span i {
+  color: #ff5147;
+  font-size: .6rem;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-center p em {
+  float: left;
+  color: #cecece;
+  text-decoration: line-through;
+  font-size: .5rem;
+  margin-left: .2rem;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-right {
+  float: left;
+  width: 2.5rem;
+  height: 3rem;
+  margin-right: .25rem;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-right:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-right span {
+  float: left;
+  width: 2.5rem;
+  height: 1.4rem;
+  line-height: 1.6rem;
+  font-size: .6rem;
+  text-align: center;
+  color: #939393;
+}
+.purchasebox .purchaselist .shop-item .product-list ul .proitem .item-right a {
+  float: left;
+  width: 2.5rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
+  font-size: .5rem;
+  text-align: center;
+  color: #fff;
+  background-color: #86d4e8;
+  border-radius: .25rem;
+}
+.purchasebox .purchaselist .shop-item .loadmore,
+.purchasebox .purchaselist .shop-item .loadless {
+  width: 14rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #86d4e8;
+  font-size: .6rem;
+}
+.purchasebox .purchaselist .shop-item .loadmore i,
+.purchasebox .purchaselist .shop-item .loadless i {
+  color: #86d4e8;
 }

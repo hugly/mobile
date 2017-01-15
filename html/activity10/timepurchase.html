@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>洗衣之家-更专业的洗护平台</title>
+    <meta charset="UTF-8">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../../style/css/main.min.css">
+    <link rel="stylesheet" href="../../style/css/activity10.min.css">
+    <script type="text/javascript" src="../../js/lib/zepto.js"></script>
+    <script type="text/javascript" src="../../js/lib/main.js"></script>
+    <script type="text/javascript" src="../../js/lib/avalon.mobile.new.js"></script>
+    <script type="text/javascript" src="../../js/activity10/timepurchase.js"></script>
+</head>
+<body class="ms-controller" ms-controller="timepurchase">
+<!--公共头部-->
+<div class="headerone" style="z-index: 15;">
+    <a href="../main/index.html" class="back-btn">
+        <i class="iconfont icon-fanhui"></i>
+    </a>
+    <h3 style="width: 11rem; padding-left: .5rem;">限时抢购</h3>
+</div>
+<div class="bannerimg">
+    <img src="../../data-images/timepurchase.png">
+</div>
+<div class="purchasebox">
+    <div class="loadingLiubox" style="padding: 6rem 0;" ms-if-loop="loadingImgShow">
+        <img src="../../data-images/loading.gif">
+    </div>
+    <p style="width: 16rem; height: 2rem; line-height: 2rem; text-align: center; margin-left: -.5rem; margin-top: 1rem; background-color: #fff;" ms-if="!loadingImgShow && saleDataModel.size() === 0">暂无活动数据</p>
+    <div class="purchaselist">
+        <div class="shop-item" ms-repeat="saleDataModel">
+            <div class="shop-info">
+                <div class="shop-title">
+                    <h3>{{el.Name}}</h3>
+                    <div class="scorebox">
+                        <div class="basecore"></div>
+                        <div class="topcore" ms-css-width="{{el.CommentIntScore}}rem">
+                            <div class="ccore"></div>
+                        </div>
+                    </div>
+                </div>
+                <p><i class="iconfont icon-weizhi1"></i><span>{{el.Address}}</span><em style="margin-left: .1rem;" ms-visible="el.LogisterFee == 0">免费取送</em><em style="margin-left: .1rem;" ms-visible="el.LogisterFee != 0">取送费用<b>{{el.LogisterFee | currency}}</b></em></p>
+            </div>
+            <div class="product-list" ms-css-height="el.divHeight">
+                <ul>
+                    <li class="proitem" ms-repeat="el.Products">
+                        <div class="item-left">
+                            <img ms-attr-src="el.Image">
+                            <div class="zhe">
+                                <span></span>
+                                <em>{{el.Discount}}折</em>
+                            </div>
+                        </div>
+                        <div class="item-center">
+                            <div class="title">
+                                <span>{{el.ShowSaleWashType}}</span>
+                                <h3>{{el.ParentCategoryName}}</h3>
+                            </div>
+                            <p>
+                                <span><i>￥</i>{{el.Price}}</span>
+                                <em>原价:￥{{el.OriPrice}}</em>
+                            </p>
+                        </div>
+                        <div class="item-right" ms-if="!$outer.el.canBuy">
+                            <span ms-if="$outer.el.timeState !== 1">库存:{{el.Num-el.SaleNum}}</span>
+                            <span ms-if="$outer.el.timeState === 1">库存:0</span>
+                            <a href="javascript:;" style="background-color: #ccc;">{{$outer.el.timeState === 1?'抢完了':'即将开始'}}</a>
+                        </div>
+                        <div class="item-right" ms-if="(el.Num-el.SaleNum)<=0 && $outer.el.canBuy">
+                            <span>库存:0</span>
+                            <a href="javascript:;" style="background-color: #ccc;">抢完了</a>
+                        </div>
+                        <div class="item-right" ms-if="(el.Num-el.SaleNum)>0 && $outer.el.canBuy" ms-on-tap="settlementFn(el.SkuCode)">
+                            <span>库存:{{el.Num-el.SaleNum}}</span>
+                            <a href="javascript:;">立即抢购</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div style="width: 14rem; height: .5rem;" ms-visible="el.Products.size() <= 3"></div>
+            <div class="loadmore" ms-visible="!el.isShowMore && el.Products.size() > 3" ms-on-tap="checkMoreFn(el,el.Products.size()*3.25+'rem')">更多商品[{{el.Products.size()-3}}件]<i class="iconfont icon-xiangxia1"></i></div>
+            <div class="loadless" ms-visible="el.isShowMore && el.Products.size() > 3" ms-on-tap="checkMoreFn(el,'10rem')">收起商品<i class="iconfont icon-xiangxia1-copy"></i></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

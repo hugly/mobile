@@ -55,6 +55,7 @@
                 //
                 var height=$(window).height(),
                     fontsize = $(window).width()/16;
+                $('.account').height(height-fontsize*2);
                 $(".slider-content,.slider-nav,.address-box,.dropload-down").height(height-2*fontsize);
                 $('.add-list').height(height-fontsize*7);
                 getBaseVersion(function(rs){
